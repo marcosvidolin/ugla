@@ -5,7 +5,7 @@
 ![node](https://img.shields.io/node/v/lotus.svg)
 ![licence](https://img.shields.io/npm/l/lotus.svg)
 ![version](https://img.shields.io/github/package-json/v/ciandt-dev/lotus.svg)
-![angular](https://img.shields.io/github/package-json/dependency-version/ciandt-dev/lotus/dev/@angular/cli.svg)(https://angular.io)
+[![angular](https://img.shields.io/github/package-json/dependency-version/ciandt-dev/lotus/dev/@angular/cli.svg)](https://angular.io)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
 
