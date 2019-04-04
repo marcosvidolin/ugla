@@ -1,0 +1,18 @@
+{
+  "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
+  "dest": "../../dist/lotus",
+  "lib": {
+    "entryFile": "src/public-api.ts"
+  },
+  "whitelistedNonPeerDependencies": [
+    "js-datepicker",
+    "ngx-filepond",
+    "filepond-plugin-file-validate-type",
+    "filepond-plugin-file-validate-size",
+    "filepond-plugin-image-crop",
+    "filepond-plugin-image-resize",
+    "filepond-plugin-image-transform",
+    "filepond-plugin-image-preview",
+    "filepond-plugin-image-exif-orientation"
+  ]
+}

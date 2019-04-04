@@ -1,0 +1,11 @@
+<div class="card-timeline" [id]="id" [ngClass]="color" tabindex="0" (click)="onCardClicked($event)">
+  <div class="card">
+    <div class="content">
+      <div class="title truncate-two" [title]="title">{{ title }}</div>
+      <div class="info info1">{{ info1 }}</div>
+      <div class="info info2">{{ info2 }}</div>
+      <div class="status">{{ status }}</div>
+      <div class="more-info"><ng-content></ng-content></div>
+    </div>
+  </div>
+</div>

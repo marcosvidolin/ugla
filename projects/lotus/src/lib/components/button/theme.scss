@@ -1,0 +1,134 @@
+$animation: 0.5s;
+
+button,
+[type='button'],
+[type='submit'] {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-position: center;
+  transition: background 0.8s;
+
+  &.btn {
+    position: relative;
+    width: 100%;
+    min-width: 120px;
+    height: 3rem;
+    padding: 0 1.5rem;
+    font-size: 1rem;
+    border-radius: $radius;
+    cursor: pointer;
+
+    i {
+      position: absolute;
+      left: 5px;
+      top: 0.5rem;
+
+      @include mobile() {
+        top: 0.6rem;
+      }
+    }
+
+    &.large {
+      height: 4rem;
+      font-size: 1.5rem;
+
+      i {
+        font-size: 2.5rem;
+      }
+    }
+
+    &.small {
+      height: 38px;
+    }
+  }
+
+  @each $theme in $themes {
+    &.btn-icon {
+      &-#{$theme} {
+        color: color(_#{$theme}, 'medium');
+      }
+
+      &.btn-icon-white {
+        color: color(_others, 'light');
+      }
+    }
+  }
+
+  @each $theme in $themes {
+    &.btn-fill {
+      &-#{$theme} {
+        color: color(_others, 'light');
+        border: 2px solid transparent;
+        background-color: color(_#{$theme}, 'medium');
+
+        &:hover {
+          background: color(_#{$theme}, 'light')
+            radial-gradient(
+              circle,
+              transparent 1%,
+              color(_#{$theme}, 'medium') 1%
+            )
+            center /
+            15000%;
+        }
+
+        &:active {
+          background-color: color(_#{$theme}, 'light');
+          background-size: 100%;
+          transition: background 0s;
+        }
+      }
+    }
+  }
+
+  &.btn-border {
+    @each $theme in $themes {
+      &-#{$theme} {
+        color: color(_#{$theme}, 'medium');
+        border: 2px solid color(_#{$theme}, 'medium');
+        background-color: color(_#{others}, 'light');
+
+        &:hover {
+          background: color(_others, 'light')
+            radial-gradient(circle, transparent 1%, color(_others, 'light') 1%)
+            center /
+            15000%;
+        }
+
+        &:active {
+          border: 2px solid color(_#{$theme}, 'light');
+          background-color: color(_#{$theme}, 'light');
+          background-size: 100%;
+          transition: background 0s;
+        }
+      }
+    }
+  }
+
+  &.btn-icon {
+    margin-left: 10px;
+    border: 0;
+    padding: 0;
+    background: none;
+    cursor: pointer;
+    height: 100%;
+
+    @include mobile() {
+      margin-left: 0;
+    }
+  }
+
+  &.icon {
+    &:before {
+      @extend %material-icons;
+    }
+  }
+
+  &[disabled] {
+    opacity: 0.5;
+    cursor: default;
+    pointer-events: none;
+  }
+}

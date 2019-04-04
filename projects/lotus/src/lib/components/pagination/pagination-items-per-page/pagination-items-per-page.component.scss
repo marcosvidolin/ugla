@@ -1,0 +1,17 @@
+@import '../../../../sass/index.scss';
+
+.pagination-items-per-page {
+  float: right;
+  height: 38px;
+  display: grid;
+  grid-template-columns: auto auto auto;
+  align-items: center;
+
+  div {
+    margin-right: 10px;
+    font-size: 0.75rem;
+    color: color(_others, dark);
+    white-space: nowrap;
+    padding-right: 10px;
+  }
+}

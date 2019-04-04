@@ -1,0 +1,44 @@
+.select {
+  &.theme-white {
+    > label {
+      color: color(_aquamarine, 'medium');
+      background-color: color(_others, 'light');
+      border: 2px solid color(_aquamarine, 'medium');
+
+      + i {
+        color: color(_aquamarine, 'medium');
+      }
+    }
+
+    .select_list {
+      @include mobile() {
+        background: rgba(color(_gray, 'dark'), 0.6);
+      }
+
+      > li {
+        [type='radio'] {
+          + label {
+            color: color(_others, 'dark');
+            background-color: color(_others, 'light');
+            border-bottom: 1px solid color(_others, 'body');
+            border-bottom: 1px solid color(_others, 'shadow');
+
+            &:hover {
+              color: color(_others, 'dark');
+              background-color: color(_aquamarine, 'light');
+            }
+          }
+        }
+      }
+    }
+
+    &.header {
+      @include mobile {
+        > label {
+          color: color(_aquamarine, 'medium');
+          background-color: color(_others, 'light');
+        }
+      }
+    }
+  }
+}

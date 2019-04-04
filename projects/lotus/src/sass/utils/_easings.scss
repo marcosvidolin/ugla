@@ -1,0 +1,43 @@
+%inline-flex {
+  display: inline-flex;
+  vertical-align: middle;
+  align-items: center;
+}
+
+%header-commun {
+  height: 60px;
+}
+
+%material-icons {
+  font-family: 'Material Icons';
+  font-weight: normal;
+  font-style: normal;
+  font-size: 24px;
+  line-height: 1;
+  letter-spacing: normal;
+  text-transform: none;
+  display: inline-block;
+  white-space: nowrap;
+  word-wrap: normal;
+  direction: ltr;
+}
+
+%shadow {
+  box-shadow: 2px 2px 4px color(_others, shadow);
+}
+
+.truncate {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.truncate-two {
+  overflow: hidden;
+  display: -webkit-box !important;
+
+  @include cross-browser(line-clamp, 2);
+  @include cross-browser(box-orient, vertical);
+  /* autoprefixer: ignore next */
+ -webkit-box-orient: vertical;
+}

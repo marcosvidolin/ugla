@@ -1,0 +1,91 @@
+header {
+  @each $theme in $themes {
+    &.theme-colored-#{$theme} {
+      background-color: color(_#{$theme}, 'medium');
+
+      &:not(.no-shadow) {
+        box-shadow: 0 0.1rem 0.2rem color(_others, 'shadow');
+      }
+
+      @include mobile() {
+        background-color: color(_others, 'body');
+
+        &::before {
+          background-color: color(_others, body);
+        }
+      }
+
+      .toggle-menu {
+        @include mobile() {
+          color: color(_others, 'light');
+        }
+      }
+
+      .btn-icon {
+        color: color(_others, 'light');
+      }
+
+      .right {
+        background-color: color(_#{$theme}, 'medium');
+      }
+    }
+  }
+}
+
+header {
+  @each $theme in $themes {
+    &.theme-colored-#{$theme} {
+      nav {
+        @include mobile() {
+          background-color: color(_others, 'light');
+          box-shadow: 0 0.1rem 0.2rem color(_others, 'shadow');
+
+          &::before {
+            background-color: color(_others, body);
+          }
+        }
+
+        a {
+          color: color(_others, 'light');
+          border-bottom: 2px solid color(_#{$theme}, 'medium');
+
+          @include mobile() {
+            color: color(_others, 'dark');
+            border: 0;
+            background-color: transparent;
+          }
+
+          &:hover {
+            background-color: transparent;
+            border-bottom: 2px solid color(_others, 'light');
+
+            @include mobile() {
+              color: color(_others, 'dark');
+              border: 0;
+              background-color: transparent;
+            }
+          }
+
+          &.active {
+            color: color(_others, 'light');
+            font-weight: map-get($font-weight, black);
+            border-bottom: 2px solid color(_others, 'light');
+
+            @include mobile() {
+              color: color(_#{$theme}, 'medium');
+              border: 0;
+              border-left: 2px solid color(_#{$theme}, 'medium');
+              background-color: transparent;
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.right {
+  @include mobile() {
+    box-shadow: 0 0.1rem 0.2rem color(_others, 'shadow');
+  }
+}

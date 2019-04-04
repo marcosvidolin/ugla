@@ -1,0 +1,56 @@
+@import '../../../sass/index.scss';
+
+.field-check {
+  color: color(_others, dark);
+
+  input[type=checkbox] {
+    position: absolute;
+    opacity: 0;
+    width: 0;
+    height: 0;
+
+    &:indeterminate + label:before {
+      content: 'indeterminate_check_box';
+    }
+
+    + label {
+      display: flex;
+      flex-direction: row;
+      font-size: 14px;
+      line-height: 1.8;
+      font-family: 'Source Sans Pro',  sans-serif;
+
+      .text {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.4;
+      }
+
+      &::before {
+        content: 'check_box_outline_blank';
+        @extend %material-icons;
+        width: 24px;
+        height: 24px;
+        margin-right: 10px;
+        align-content: center;
+      }
+    }
+
+    &:checked {
+      +label {
+        &::before {
+          content: 'check_box_outline';
+        }
+      }
+    }
+
+    &[disabled] {
+      + label {
+       opacity: 0.5;
+       cursor: default;
+       }
+   }
+
+
+  }
+}

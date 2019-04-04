@@ -1,0 +1,19 @@
+.people {
+  &.theme-white {
+    .logout {
+      color: color(_aquamarine, 'medium');
+
+      @include mobile {
+        color: color(_aquamarine, 'medium');
+      }
+    }
+
+    @include mobile {
+      background-color: color(_others, 'light');
+    }
+
+    .info span {
+      color: color(_others, 'dark');
+    }
+  }
+}

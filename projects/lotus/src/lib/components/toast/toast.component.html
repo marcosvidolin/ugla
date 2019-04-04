@@ -1,0 +1,9 @@
+<div class="notification___container">
+  <ng-container *ngFor="let message of messages | reverse; index as i">
+    <lts-toast-item (onShow)="message.triggerOnShow($event)" (close)="close(message.id)" [index]="i" [messageType]="message.type" [message]="message"
+    ></lts-toast-item>
+  </ng-container>
+</div>
+
+
+

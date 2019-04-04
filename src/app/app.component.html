@@ -1,0 +1,12 @@
+<lts-header [header]="header" (logoutAction)="logout($event)" *ngIf="isAutenticated">
+  <div ltsGrid [grid]="true" [col]="1">
+    <lts-select class="fluid" [select]="select" (selectLanguage)="selectLanguage($event)" [stylized]="'true'" [dataTitle]="'Select an option'"></lts-select>
+   </div>
+</lts-header>
+
+<vnl-loading ></vnl-loading>
+<article class="central">
+  <router-outlet></router-outlet>
+</article>
+
+<vnl-toast></vnl-toast>

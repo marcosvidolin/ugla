@@ -1,0 +1,14 @@
+.theme-white {
+  &.brand {
+    color: color(_others, 'dark');
+
+    @include mobile() {
+      background-color: color(_others, 'light');
+      box-shadow: 0 0.2rem 1rem color(_others, 'shadow');
+    }
+
+    g {
+      fill: color(_others, 'dark');
+    }
+  }
+}

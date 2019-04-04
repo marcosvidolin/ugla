@@ -1,0 +1,15 @@
+.pagination {
+  ul {
+    li {
+      a {
+        i {
+          color: color(_aquamarine, medium);
+        }
+
+        &.active {
+          color: color(_aquamarine, medium);
+        }
+      }
+    }
+  }
+}

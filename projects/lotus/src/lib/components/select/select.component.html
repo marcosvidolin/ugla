@@ -1,0 +1,30 @@
+<!--Stylized  -->
+<div class="select" [ngClass]="getTheme()" *ngIf="stylized" [id]="'form-select-' + select.name">
+  <input type="checkbox" [ngClass]="{'required' : this.required}" [name]="select.name" [id]="select.id" #checkbox>
+  <label class="selected" [for]="select.id" tabindex="0" (keypress)="open($event)">{{ current.description }}</label>
+  <i class="material-icons" arial-hidden="true">keyboard_arrow_down</i>
+
+  <ul class="select_list" [ngClass]="direction" [attr.data-title]="dataTitle">
+    <li *ngFor="let option of select.options; let i = index">
+      <input type="radio" [name]="'options-' + select.name" [id]="'option-' + i" [value]="option.value">
+      <label [for]="'option-' + i" (click)="selectedItem( i, $event )" (keypress)="selectedItem( i, $event )" tabindex="0">{{ option.description }}</label>
+    </li>
+  </ul>
+</div>
+
+<!-- Not stylized  -->
+<div class="field combo" [ngClass]="theme" *ngIf="!stylized" [id]="'form-select-' + select.name" [ngStyle]="selectStyle">
+  <input type="checkbox" [ngClass]="{'required' : this.required}" [disabled]="disabled" [name]="select.name" [id]="select.id" #checkbox>
+  <label class="selected" [for]="select.id" [attr.data-label]="label" tabindex="0" tabindex="0" (keypress)="open($event)">{{ current.description }}</label>
+  <i class="material-icons" arial-hidden="true">keyboard_arrow_down</i>
+
+  <div class="infos">
+    <span class="infos__message">{{ message }}</span>
+  </div>
+  <ul class="combo-list">
+    <li *ngFor="let option of select.options; let i = index" >
+      <input type="radio" [name]="'options-' + select.name" [id]="'option-' + select.name + i" [value]="option.value" [checked]="option.checked">
+      <label [for]="'option-' + i" (click)="selectedItem( i, $event )" (keypress)="selectedItem( i, $event )" tabindex="0">{{ option.description }}</label>
+    </li>
+  </ul>
+</div>

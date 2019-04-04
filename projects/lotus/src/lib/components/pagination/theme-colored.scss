@@ -1,0 +1,19 @@
+.pagination {
+  @each $theme in $themes {
+    &.theme-colored-#{$theme} {
+      ul {
+        li {
+          a {
+            i {
+              color: color(_#{$theme}, medium);
+            }
+
+            &.active {
+              color: color(_#{$theme}, medium);
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,21 @@
+ <div class="datepicker date">
+  <input autocomplete="off"
+    type="text"
+    [name]="name"
+    [id]="id"
+    placeholder=" "
+    [disabled]="disabled"
+    [required]="required"
+    (change)="onDateChange(this.picker)"
+    (focusin)="onFocusIn(this.picker)"
+    [ngClass]="{'invalid': invalid}"
+    (focusout)="onFocusOut(this.picker)"
+    aria-describedby="pickerDesc"
+    aria-labelledby="pickerLabel"
+    aria-relevant="all">
+  <label [id]="'pickerLabel-' + name" [attr.aria-label]="label" [for]="'datepicker-' + name">{{ label }}</label>
+  <label [for]="'datepicker-' + name" class="icon"><i class="material-icons">calendar_today</i></label>
+  <div class="infos" >
+    <span [id]="'pickerDesc-' + name" [attr.aria-details]="message" class="infos__message" [attr.data-original]="originalMessage">{{ message }}</span>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+.pagination {
+  width: 100%;
+  list-style: none;
+  display: flex;
+  justify-content: space-between;
+
+  ul {
+    align-items: center;
+
+    li {
+      display: inline-block;
+      vertical-align: middle;
+
+      a {
+        display: block;
+        font-size: 0.75rem;
+        height: 24px;
+        line-height: 24px;
+        min-width: 22px;
+        text-align: center;
+        text-decoration: none;
+        color: color(_others, dark);
+
+        i {
+          font-size: 1.5rem;
+          height: 24px;
+        }
+
+        &:hover {
+          font-weight: 600;
+        }
+
+        &.disabled {
+          color: color(_others, dark);
+          opacity: 0.5;
+          cursor: default;
+
+          i {
+              color: color(_others, dark);
+          }
+        }
+      }
+    }
+  }
+
+  .pagination-items-per-page {
+    width: 50%;
+  }
+}
+

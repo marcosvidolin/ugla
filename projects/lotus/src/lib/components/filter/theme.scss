@@ -1,0 +1,76 @@
+.filter {
+  display: none;
+  box-shadow: 0 4px 8px 0 color(_gray, 'extra-light');
+
+  @include mobile() {
+    box-shadow: none
+  }
+
+  &.opened {
+    position: fixed;
+    z-index: 1000;
+    width: 310px;
+    height: calc(100vh - 105px);
+    top: initial;
+    right: 0;
+    overflow-x: hidden;
+    left: initial;
+    display: block;
+    bottom: 0;
+
+    @include mobile() {
+      width: 100vw;
+      height: 100vh;
+      top: 60px;
+      left: 0;
+    }
+  }
+
+  &-header {
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    padding-right: 15px;
+
+    @include mobile() {
+      display: flex;
+      justify-content: space-between;
+      padding: 10px;
+    }
+
+    h2 {
+      font-weight: 600;
+      font-size: 1rem;
+      padding: 7px;
+      margin: 0;
+      width: calc(100% - 64px);
+
+      @include mobile() {
+        font-size: 1.57rem;
+        font-weight: 600;
+      }
+    }
+  }
+
+  &-content {
+    padding: 0 10px 10px;
+    height: calc(100vh - 158px);
+    overflow-y: auto;
+
+    @include mobile() {
+      padding: 0 10px 10px;
+      height: calc(100vh - 64px - 58px);
+      overflow-y: auto;
+    }
+  }
+
+  .material-icons {
+    font-size: 1.5rem;
+
+    @include mobile() {
+      font-size: 2rem;
+    }
+
+  }
+}
+

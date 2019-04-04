@@ -1,0 +1,11 @@
+.base-table {
+  &.theme-white {
+
+    thead {
+      tr {
+        background-color: color(_others, 'light');
+      }
+    }
+  }
+}
+

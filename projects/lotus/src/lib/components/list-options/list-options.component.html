@@ -1,0 +1,5 @@
+<ul class="list" [ngClass]="theme" [id]="id" >
+  <li *ngFor="let element of names; let i = index" [id]="id + '-item-' + i" tabindex="0">
+    <a (click)="selectItem(i)">{{ element }}<i class="material-icons">keyboard_arrow_right</i></a>
+  </li>
+</ul>

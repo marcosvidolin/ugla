@@ -1,0 +1,164 @@
+@import '../../../../sass/index.scss';
+
+/* The alert message box */
+.toast__container {
+  position: relative;
+  width: auto;
+  border-radius: 5px 0 0 5px;
+  min-width: 365px;
+  margin: 0 0 16px 16px;
+}
+
+.toast {
+  @include cross-browser(box-shadow, 2px 2px 5px color(_others, shadow));
+  padding: 6px 24px 6px 56px;
+  position: relative;
+  pointer-events: auto;
+  border-radius: 5px 0 0 5px;
+
+  h2 {
+    font-size: 1rem;
+    font-weight: 600;
+    margin-bottom: 0;
+    margin-top: 0;
+  }
+
+  p {
+    font-size: 0.875rem;
+    margin-top: 0;
+    margin-bottom: 0;
+  }
+}
+
+.info {
+  background-color: color(_aquamarine, 'medium');
+  h2,
+  p,
+  i {
+    color: color(_others, light);
+  }
+}
+
+.error {
+  background-color: color(_red, 'medium');
+  h2,
+  p,
+  i {
+    color: color(_others, light);
+  }
+}
+
+.success {
+  background-color: color(_green, 'medium');
+  h2,
+  p,
+  i {
+    color: color(_others, light);
+  }
+}
+
+.warning {
+  background-color: color(_yellow, 'medium');
+  h2,
+  p,
+  i {
+    color: color(_others, light);
+  }
+}
+
+/* The close button */
+.toast__close {
+  outline: none;
+  float: right;
+  cursor: pointer;
+  position: absolute;
+  top: 1px;
+  right: 1px;
+  border: 0;
+  width: 25px;
+  height: 25px;
+  padding: 0.4em;
+  -webkit-appearance: none;
+  background: transparent;
+
+  i {
+    font-size: 1.5em;
+    color: color(_others, light);
+  }
+
+  /* When moving the mouse over the close button */
+  &:hover {
+    background: rgba(0, 0, 0, 0.08);
+    border-radius: 50px;
+    transition: background 0s;
+  }
+
+  &:active {
+    transition: background 0.8s;
+    background: rgba(0, 0, 0, 0.16);
+  }
+}
+
+.toast__icon {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 48px;
+  height: 100%;
+  overflow: hidden;
+
+  i {
+    font-size: 88px;
+    margin-left: -35px;
+    margin-top: -20px;
+  }
+}
+
+/* Opening animation */
+.toast--show {
+  animation-duration: 1s;
+  animation-name: toastshow;
+  animation-iteration-count: 1;
+}
+
+/* Closing animation */
+.toast--hide {
+  animation-duration: 1s;
+  animation-name: toasthide;
+  animation-iteration-count: 1;
+}
+
+@keyframes toastshow {
+  from {
+    opacity: 0;
+    transform: translateX(365px);
+  }
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+@keyframes toasthide {
+  from {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  to {
+    opacity: 0;
+    transform: translateX(365px);
+  }
+}
+
+/* Mobile */
+@include mobile() {
+  .toast__container {
+    margin: 0 0 8px;
+    width: 100%;
+  }
+
+  .toast {
+    @include cross-browser(border-radius, 0);
+    height: 100%;
+  }
+}

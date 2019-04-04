@@ -1,0 +1,50 @@
+.toolbar {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  width: 100vw;
+  max-height: 45px;
+  height: 45px;
+  top: 60px;
+  z-index: 2;
+
+  @include mobile() {
+    justify-content: space-between;
+  }
+
+  h2 {
+    position: relative;
+    display: flex;
+    width: fit-content;
+    height: 100%;
+    margin: 0;
+    flex-direction: column;
+    justify-content: center;
+    padding: 2.5px 2rem 2.5px 1rem;
+    font-size: 1.5rem;
+    font-weight: 500;
+    white-space: nowrap;
+
+    &::after {
+      content: ' ';
+      position: absolute;
+      display: inline-block;
+      border-right: 45px solid transparent;
+      border-bottom: 45px solid transparent;
+      top: 0;
+      right: -45px;
+    }
+  }
+
+  .content {
+    display: flex;
+    margin-right: 1rem;
+    margin-left: 3.6rem;
+    height: 100%;
+
+    @include mobile() {
+      justify-content: flex-end;
+      margin-left: 1rem;
+    }
+  }
+}

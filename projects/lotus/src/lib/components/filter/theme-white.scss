@@ -1,0 +1,25 @@
+.filter {
+  &.theme-white {
+
+    .filter-header {
+      background-color: color(_aquamarine, 'medium');
+
+      @include mobile() {
+        background-color: color(_others, 'light');
+      }
+
+      h2 {
+        color: color(_others, light);
+
+        @include mobile() {
+          color: color(_aquamarine, 'medium');
+        }
+      }
+    }
+
+    .filter-content {
+      background-color: color(_others, 'light');
+    }
+  }
+}
+

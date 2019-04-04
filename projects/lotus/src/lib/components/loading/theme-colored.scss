@@ -1,0 +1,33 @@
+@mixin anim($i){
+  $y: ($i + 5) * 5;
+
+  @keyframes right-#{$i} {
+    0% { transform: translateY(#{-$y}px) }
+    100% { transform: translateY(#{$y}px) }
+  }
+}
+
+ul {
+    @each $theme in $themes {
+      &.theme-colored-#{$theme} {
+        $default: color(_#{$theme}, 'medium');
+        $color-1: lighten($default, 50);
+        $color-2: lighten($default, 40);
+        $color-3: lighten($default, 30);
+        $color-4: lighten($default, 20);
+        $color-5: lighten($default, 10);
+
+        $color: $color-1, $color-2, $color-3, $color-4, $color-5;
+
+        @for $i from 1 through 5 {
+          li:nth-child(#{$i}) {
+            @include anim($i);
+            animation: right-#{$i} 1s infinite alternate;
+            background-color: nth($color, $i);
+            animation-delay: 100ms * $i;
+            border-radius: 5px;
+          }
+        }
+    }
+  }
+}

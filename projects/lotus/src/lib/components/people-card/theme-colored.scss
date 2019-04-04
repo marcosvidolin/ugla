@@ -1,0 +1,32 @@
+.people {
+  @each $theme in $themes {
+    &.theme-colored-#{$theme} {
+      .logout {
+        color: color(_others, 'light');
+      }
+
+      .info {
+        span {
+          color: color(_others, 'light');
+        }
+      }
+
+      @include mobile {
+        background-color: color(_others, 'light');
+
+        .logout {
+          button,
+          i {
+            color: color(_red, 'medium');
+          }
+        }
+
+        .info {
+          span {
+            color: color(_others, 'dark');
+          }
+        }
+      }
+    }
+  }
+}

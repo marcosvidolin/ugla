@@ -1,0 +1,21 @@
+.list-links {
+  @each $theme in $themes {
+    &.theme-colored-#{$theme} {
+      a.active {
+        color: color(_#{$theme}, 'medium');
+      }
+
+      &.row {
+        a.active {
+          border-bottom: 2px solid color(_#{$theme}, 'medium');
+        }
+      }
+
+      &.column {
+        a.active {
+          border-left: 2px solid color(_#{$theme}, 'medium');
+        }
+      }
+    }
+  }
+}

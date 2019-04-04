@@ -1,0 +1,35 @@
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 125px;
+  background: transparent;
+
+  &.full-screen {
+    background-color: color(_others, body);
+    bottom: 0;
+    height: 100%;
+    left: 0;
+    position: fixed;
+    width: 100%;
+    z-index: map-get($z-index, 'loading');
+  }
+
+  &.transparency {
+    background-color: color(_others, body-alpha);
+  }
+
+}
+
+ul {
+  display: flex;
+  li {
+    width: 20px;
+    height: 20px;
+    margin: 10px;
+    list-style-type: none;
+    transition: 0.5s all ease;
+  }
+}
+

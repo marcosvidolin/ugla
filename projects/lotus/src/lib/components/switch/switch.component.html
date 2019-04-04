@@ -1,0 +1,13 @@
+<div class="switch">
+  <span class="label off">{{ labelOff }}</span>
+  <input
+    tabindex="0"
+    type="checkbox"
+    [name]="name"
+    [id]="'switch-' + name"
+    [disabled]="disabled"
+    [checked]="checked"
+    (change)="onChange($event)">
+  <label [for]="'switch-' + name"></label>
+  <span class="label on">{{ labelOn }}</span>
+</div>

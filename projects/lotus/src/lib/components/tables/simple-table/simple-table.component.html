@@ -1,0 +1,17 @@
+<table tabindex="0" [ngClass]="classes" [id]="'table-'+table.name" class="base-table">
+  <colgroup>
+    <col *ngFor="let header of table.header" [ngClass]="'align-' + header.align" [width]="header.size + '%'">
+  </colgroup>
+
+  <thead>
+    <tr>
+      <th *ngFor="let item of table.header" [ngClass]="'align-' + item.align" [ngStyle]="{'width': item.size + '%'}">{{item.text}}</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr *ngFor="let data of table.data">
+      <td *ngFor="let column of data.columns; let i = index" [ngClass]="setClass(column.options.color, column.options.align, column.options.type)" [ngStyle]="{'width': table.header[i].size + '%'}">{{column.text}}</td>
+    </tr>
+  </tbody>
+</table>

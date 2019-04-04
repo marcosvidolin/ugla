@@ -1,0 +1,16 @@
+.brand {
+  @each $theme in $themes {
+    &.theme-colored-#{$theme} {
+      color: color(_others, 'light');
+
+      @include mobile() {
+        background-color: color(_#{$theme}, 'medium');
+        box-shadow: 0 0.2rem 1rem color(_others, 'shadow');
+      }
+
+      g {
+        fill: color(_others, 'light');
+      }
+    }
+  }
+}

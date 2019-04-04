@@ -1,0 +1,26 @@
+.list {
+  @each $theme in $themes {
+    &.theme-colored-#{$theme} {
+      li {
+        a {
+          background-color: color(_others, 'body');
+          color: color(_gray, 'dark');
+
+          i {
+            color: color(_#{$theme}, 'medium');
+          }
+
+          &:hover {
+            background: color(_#{$theme}, 'medium');
+            color: color(_others, 'light');
+
+            i {
+              color: color(_others, 'light');
+            }
+
+          }
+        }
+      }
+    }
+  }
+}

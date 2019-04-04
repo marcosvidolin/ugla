@@ -1,0 +1,10 @@
+<div class="list-links" [ngClass]="classes">
+  <a *ngFor="let item of list.links; let idx = index"
+      (click)="onClickLink(item)"
+      [ngClass]="{'active': item.active}"
+      class="gtm-link"
+      [href]="item.path || '#'"
+      [id]="'link-' + idx"
+      [title]="item.description"
+      [attr.aria-label]="item.label">{{ item.description }}</a>
+</div>

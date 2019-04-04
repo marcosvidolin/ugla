@@ -1,0 +1,17 @@
+<div [ngClass]="{'success': message.type === 'success', 'error': message.type === 'error',
+  'warning': message.type === 'warning', 'info': message.type === 'info', 'toast--show': isOpened, 'toast--hide': isClosing}"
+     aria-describedby="dialogDesc" aria-labelledby="dialogTitle" aria-relevant="all"
+     class="toast__container" role="alertdialog" (click)="closeToast(message.id)">
+
+  <div class="toast" role="document" id="toast-item-{{message.id}}">
+    <div class="toast__icon">
+      <i class="material-icons">{{icon}}</i>
+    </div>
+    <h2 id="dialogTitle" tabindex="0">{{message.title}}</h2>
+    <p id="dialogDesc" tabindex="0" [innerHtml]="message.content"></p>
+    <button (click)="closeToast(message.id)" aria-label="Close" class="toast__close">
+      <i class="material-icons">close</i>
+    </button>
+  </div>
+</div>
+

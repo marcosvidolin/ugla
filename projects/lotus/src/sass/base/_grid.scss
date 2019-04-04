@@ -1,0 +1,165 @@
+%border-after {
+  content: '';
+  position: absolute;
+  height: 100%;
+  top: 0;
+  left: -0.5rem;
+}
+
+.has-toolbar {
+  form.simple .content {
+    min-height: calc(100vh - 202px) !important;
+  }
+  article section {
+    padding-top: 105px;
+  }
+}
+
+article {
+  width: 100vw;
+  min-height: 100vh;
+
+  section {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+    padding-top: 60px;
+
+    @include mobile() {
+      width: 100%;
+    }
+
+    &:not(.central):not(.login) {
+      margin-top: 1rem;
+    }
+
+    &.central {
+      width: 1024px;
+      background-color: color(_others, 'light');
+      box-shadow: 0 1rem 1rem color(_others, 'shadow');
+
+      @include mobile() {
+        width: 95%;
+        background-color: color(_others, 'light');
+      }
+    }
+  }
+}
+
+.grid {
+  display: grid;
+  grid-column-gap: 0.5rem;
+  grid-row-gap: 0.5rem;
+  justify-content: baseline;
+  max-width: 100%;
+
+  @include mobile() {
+    max-width: 100%;
+    width: 100%;
+  }
+
+  @for $i from 1 through 6 {
+    &.gap-#{$i} {
+      grid-column-gap: #{$i}rem;
+      grid-row-gap: #{$i}rem;
+
+      [class^='border'] {
+        &::after {
+          left: -#{$i / 2}rem;
+        }
+      }
+    }
+  }
+
+  @for $i from 1 through 12 {
+    &.col-#{$i} {
+      height: fit-content;
+      grid-template-columns: repeat(#{$i}, 1fr);
+    }
+
+    .span-#{$i} {
+      grid-column-end: span #{$i};
+    }
+
+    @include mobile() {
+      &.col-sm-#{$i} {
+        height: fit-content;
+        grid-template-columns: repeat(#{$i}, 1fr) !important;
+      }
+
+      .span-sm-#{$i} {
+        grid-column-end: span #{$i} !important;
+      }
+    }
+  }
+
+  .span-sm-0 {
+    @include mobile() {
+      display: none;
+    }
+  }
+
+  + .grid {
+    margin-top: 0.5rem;
+  }
+
+  > .fluid {
+    width: 90%;
+    margin: 0px 14px;
+  }
+
+  > * {
+
+    &.border {
+      position: relative;
+
+      &::after {
+        @extend %border-after;
+        border-left: 1px solid color(_gray, extra-light);
+      }
+    }
+
+    @each $theme in $themes {
+      &.border-#{$theme} {
+        position: relative;
+
+        &::after {
+          @extend %border-after;
+          border-left: 1px solid color(_#{$theme}, extra-light);;
+        }
+      }
+    }
+  }
+
+  &.form-areas {
+    grid-template-areas: 'left right';
+
+    @include mobile() {
+      grid-template-areas:
+        'right'
+        'left';
+    }
+
+    .form-area-left {
+      grid-area: left;
+    }
+
+    .form-area-center {
+      grid-area: center;
+    }
+
+    .form-area-right {
+      grid-area: right;
+    }
+  }
+}
+
+[class*='toolbar'] {
+  + article {
+    padding: 7rem 2rem 2rem;
+
+    @include mobile() {
+      padding: calc(5rem + 40px) 1rem 2rem;
+    }
+  }
+}

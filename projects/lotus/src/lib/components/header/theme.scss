@@ -1,0 +1,140 @@
+header {
+  position: fixed;
+  width: 100vw;
+  padding: 0 1rem;
+  top: 0;
+  left: 0;
+  z-index: map-get($z-index, 'menu');
+
+  @include font(0.875rem, 'semi-bold');
+
+  @include mobile() {
+    text-align: center;
+    width: 100%;
+    padding: 0;
+  }
+
+  .toggle-menu {
+    display: none;
+
+    @include mobile() {
+      position: fixed;
+      display: block;
+      top: 1.3rem;
+      left: 1rem;
+      cursor: pointer;
+
+      i {
+        font-size: 2rem;
+      }
+    }
+  }
+}
+
+nav {
+  @extend %inline-flex;
+  @extend %header-commun;
+  margin-left: 1rem;
+
+  @include mobile() {
+    display: none;
+    flex-direction: column;
+    width: 90%;
+    min-height: calc(100vh - 217px);
+    margin: 0 auto;
+    padding: 1rem 0;
+    align-items: baseline;
+    overflow: auto;
+
+    @include safariOnly('all') {
+      min-height: calc(100vh - 296px);
+    }
+
+    @include safariOnly('large') {
+      min-height: calc(100vh - 334px);
+    }
+
+    &.opened {
+      display: flex;
+
+      &::before {
+        position: absolute;
+        content: ' ';
+        width: 100vw;
+        height: 100vh;
+        top: 0;
+        left: 0;
+        z-index: -1;
+      }
+    }
+  }
+
+  a {
+    padding: 1.2rem 0.625rem 1.3rem;
+    text-decoration: none;
+    @include font(0.875rem, 'semi-bold');
+
+    @include mobile() {
+      display: block;
+      width: calc(100% - 24px);
+      padding: 7.5px 10px;
+      text-align: left;
+      border-bottom: 0;
+      @include font(1rem, 'semi-bold');
+    }
+
+    + a {
+      margin-left: 10px;
+
+      @include mobile() {
+        margin-top: 0;
+        margin-left: 0;
+      }
+    }
+
+    &:hover {
+      transition: 0.5s all;
+    }
+  }
+}
+
+.right {
+  float: right;
+
+  .content {
+    display: inline-flex;
+    vertical-align: middle;
+
+    @include mobile() {
+      padding: 10px 0;
+      width: 100%;
+      justify-content: center;
+    }
+  }
+
+  @include mobile() {
+    float: inherit;
+    display: none;
+    width: 90%;
+    margin: 0 auto;
+
+    &.opened {
+      display: block;
+    }
+
+    .language {
+      display: block;
+      padding: 1rem 0;
+    }
+  }
+}
+
+.hidden {
+  display: none !important;
+}
+
+@include mobile() {
+  .hide-mobile {
+    display: none !important;
+  }
+}

@@ -1,0 +1,95 @@
+@import '../../../../sass/index';
+
+.card-timeline {
+  padding: 2.5px 10px 2.5px 36px;
+
+  @each $color in $color-names {
+    &.#{$color} {
+      .card {
+        &::before {
+          background-color: color(_#{$color}, 'medium');
+        }
+        .status {
+          color: color(_#{$color}, 'medium');
+        }
+      }
+    }
+  }
+
+  .card {
+    position: relative;
+
+    &::before {
+      content: ' ';
+      display: block;
+      position: absolute;
+      left: -26px;
+      width: 16px;
+      height: 16px;
+      top: 19px;
+      background-color: color(_others, 'dark');
+      border-radius: 100%;
+      z-index: 1;
+    }
+
+    &::after {
+      content: ' ';
+      display: block;
+      position: absolute;
+      width: 2px;
+      left: -19px;
+      top: 0px;
+      height: calc(100% + 5px);
+      background-color: color(_gray, 'extra-light');
+    }
+
+    .content {
+      display: grid;
+      grid-template-areas:
+        'title title title info1'
+        'title title title info2'
+        'status status status status'
+        'footer footer footer footer';
+      padding: 10px;
+      color: color(_others, 'dark');
+      border-radius: 5px;
+      box-shadow: 0 4px 8px 0 color(_gray, 'extra-light');
+      background-color: color(_others, 'light');
+
+      .title {
+        grid-area: title;
+        display: flex;
+        align-items: center;
+        font-size: 1rem;
+      }
+
+      .info {
+        text-align: right;
+        font-size: 0.857rem;
+
+        &-1 {
+          grid-area: info1;
+        }
+
+        &-2 {
+          grid-area: info2;
+        }
+      }
+
+      .status {
+        grid-area: status;
+        font-weight: 600;
+        font-size: 0.857rem;
+        border-top: 1px solid color(_others, 'body');
+        margin: 10px -5px 0;
+        padding: 2px 5px 0;
+      }
+
+      .more-info {
+        grid-area: footer;
+        font-size: 0.857rem;
+        color: color(_gray, 'light');
+      }
+    }
+  }
+}

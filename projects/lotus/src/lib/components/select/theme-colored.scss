@@ -1,0 +1,45 @@
+.select {
+  @each $theme in $themes {
+    &.theme-colored-#{$theme} {
+      > label {
+        color: color(_#{$theme}, 'medium');
+        background-color: color(_others, 'light');
+        border: 2px solid color(_#{$theme}, 'medium');
+
+        + i {
+          color: color(_#{$theme}, 'medium');
+        }
+      }
+
+      .select_list {
+        @include mobile() {
+          background: rgba(color(_gray, 'dark'), 0.6);
+        }
+
+        > li {
+          [type='radio'] {
+            + label {
+              color: color(_others, 'dark');
+              background-color: color(_others, 'light');
+              border-bottom: 1px solid color(_others, 'shadow');
+
+              &:hover {
+                color: color(_others, 'dark');
+                background-color: color(_#{$theme}, 'extra-light');
+              }
+            }
+          }
+        }
+      }
+
+      &.header {
+        @include mobile {
+          > label {
+            color: color(_#{$theme}, 'medium');
+            background-color: color(_others, 'light');
+          }
+        }
+      }
+    }
+  }
+}

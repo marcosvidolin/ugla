@@ -1,0 +1,60 @@
+.people {
+  text-align: right;
+  @extend %inline-flex;
+  @extend %header-commun;
+
+  @include mobile {
+    position: relative;
+    display: grid;
+    grid-template-columns: 40px calc(100% - 90px) 50px;
+    grid-template-areas: 'logout info photo';
+    justify-items: center;
+    padding: 0 0.5rem;
+  }
+
+  img {
+    @extend %inline-flex;
+    @extend %header-commun;
+    vertical-align: middle;
+    margin-left: 15px;
+    width: 50px;
+    height: 50px;
+    border-radius: 100%;
+
+    @include mobile() {
+      grid-area: photo;
+      width: 3rem;
+      height: 3rem;
+      margin-right: 1rem;
+    }
+  }
+
+  .info {
+    display: grid;
+    grid-template-rows: 20px 15px;
+    grid-area: info;
+    align-content: center;
+    vertical-align: middle;
+    margin-left: 15px;
+    @extend %inline-flex;
+    @extend %header-commun;
+
+    @include mobile() {
+      margin-left: 0;
+      margin-right: 1rem;
+      justify-self: right;
+    }
+
+    span {
+      display: block;
+
+      &:first-child {
+        @include font(1rem);
+      }
+
+      &:last-child {
+        @include font(0.875rem);
+      }
+    }
+  }
+}

@@ -1,0 +1,11 @@
+<div class="file-upload" [id]="id" tabindex="0" (keypress)="browse($event)">
+  <label [ngClass]="{'required': required}">{{label}}</label>
+  <file-pond #myPond
+             [options]="pondOptions"
+             (oninit)="pondHandleInit()"
+             (onprocessfile)="pondHandleProcessFile($event)"
+             (onaddfile)="pondHandleAddFile($event)"
+             (onremovefile)="pondHandleRemoveFile($event)"
+             (onupdatefiles)="pondHandleUpdateFiles($event)">
+  </file-pond>
+</div>

@@ -1,0 +1,12 @@
+.base-table {
+  @each $theme in $themes {
+    &.theme-colored-#{$theme} {
+
+      thead {
+        tr {
+          background-color: color(_#{$theme}, 'medium');
+        }
+      }
+    }
+  }
+}

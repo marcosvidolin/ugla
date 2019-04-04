@@ -1,0 +1,30 @@
+.toolbar {
+  @each $theme in $themes {
+    &.theme-colored-#{$theme} {
+      background-color: color(_others, 'light');
+
+      @include mobile() {
+        background-color: color(_others, 'body');
+      }
+
+      h2 {
+        color: color(_others, 'light');
+        background-color: color(_#{$theme}, 'medium');
+        font-weight: 600;
+
+        &::after {
+          border-top: 45px solid color(_#{$theme}, medium);
+        }
+
+        @include mobile() {
+          color: color(_#{$theme}, 'medium');
+          background-color: color(_others, 'body');
+
+          &::after {
+            border-top: none;
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,59 @@
+<div class="field" *ngIf="type !== 'file' && type !== 'textarea'">
+  <input
+    [type]="type"
+    [name]="name"
+    [id]="'field-' + name"
+    [value]="value"
+    [min]="min"
+    [max]="max"
+    [maxLength]="maxLength"
+    [required]="required"
+    placeholder=" "
+    (change)="changeHandler($event)"
+    (keyup)="keyupHandler($event)"
+    (focusout)="focusoutHandler($event)"
+    [disabled]="disabled"
+    [ngClass]="{'invalid': invalid}">
+  <label [for]="'field-' + name">{{ label }}</label>
+  <label [for]="'field-' + name" class="icon" *ngIf="type === 'time'"><i class="material-icons">query_builder</i></label>
+  <div class="infos">
+    <span class="infos__message">{{ message }}</span>
+    <span class="infos__count" *ngIf="type !== 'time'">{{ infos__count }}</span>
+  </div>
+</div>
+
+ <div class="field file" *ngIf="type === 'file'">
+  <input
+    type="file"
+    [name]="name"
+    [id]="'field-' + name"
+    [multiple]="multiple"
+    placeholder=" ">
+  <div class="content">
+    <label [for]="'field-' + name">{{ label }}</label>
+    <input type="text" [name]="name + '-path'" id="name + '-path'" disabled placeholder="Select only files">
+  </div>
+  <div class="infos">
+    <span class="infos__message">PNG, JPG, PDF or TXT</span>
+  </div>
+</div>
+
+<div class="field" *ngIf="type === 'textarea'">
+  <textarea
+    [name]="name"
+    [id]="name"
+    cols="30"
+    rows="5"
+    [value]="value ? value : null"
+    [required]="required"
+    [maxLength]="maxLength"
+    (keyup)="keyupHandler($event)"
+    (focusout)="focusoutHandler($event)"
+    [value]="value"
+    placeholder=" "></textarea>
+  <label [for]="name">{{ label }}</label>
+  <div class="infos">
+    <span class="infos__message">{{ message }}</span>
+    <span class="infos__count">{{ infos__count }}</span>
+  </div>
+</div>

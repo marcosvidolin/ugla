@@ -1,0 +1,35 @@
+$themes: ('aquamarine', 'red', 'gray', 'purple', 'green');
+$color-names: ('aquamarine', 'red', 'gray', 'purple', 'green', 'yellow');
+
+$z-index: (
+  'default': 1,
+  'combo': 1,
+  'toolbar': 997,
+  'loading': 998,
+  'menu': 999,
+  'tooltip': 1000
+);
+
+$radius: 1.875rem;
+
+$font: (
+  'mobile-size': 14px,
+  'desktop-size': 16px,
+  'first-family': #{'Source Sans Pro',
+  sans-serif},
+  'second-family': #{'Covered By Your Grace',
+  cursive}
+);
+
+$font-weight: (
+  'extra-light': 200,
+  'light': 300,
+  'regular': 400,
+  'semi-bold': 600,
+  'bold': 700,
+  'black': 900
+);
+
+$width: (
+  'content': 1024px
+);

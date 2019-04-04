@@ -1,0 +1,27 @@
+.filter {
+  @each $theme in $themes {
+    &.theme-colored-#{$theme} {
+
+      .filter-header {
+        background-color: color(_#{$theme}, 'medium');
+
+        @include mobile() {
+          background-color: color(_others, 'light');
+        }
+
+        h2 {
+          color: color(_others, light);
+
+          @include mobile() {
+            color: color(_#{$theme}, 'medium');
+          }
+        }
+      }
+
+      .filter-content {
+        background-color: color(_others, 'light');
+      }
+    }
+  }
+}
+

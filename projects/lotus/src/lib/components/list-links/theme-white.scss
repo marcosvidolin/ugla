@@ -1,0 +1,19 @@
+.list-links {
+  &.theme-white {
+    a.active {
+      color: color(_aquamarine, 'medium');
+    }
+
+    &.row {
+      a.active {
+        border-bottom: 2px solid color(_aquamarine, 'medium');
+      }
+    }
+
+    &.column {
+      a.active {
+        border-left: 2px solid color(_aquamarine, 'medium');
+      }
+    }
+  }
+}

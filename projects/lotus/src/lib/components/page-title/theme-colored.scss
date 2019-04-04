@@ -1,0 +1,9 @@
+h2 {
+  &.page-title {
+    @each $theme in $themes {
+      &.theme-colored-#{$theme} {
+      color: color(_#{$theme}, 'medium');     
+      }
+    }
+  }
+}

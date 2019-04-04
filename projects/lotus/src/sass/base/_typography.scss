@@ -1,0 +1,88 @@
+@import './_colors.scss';
+
+html {
+  font-size: map-get($font, 'desktop-size');
+  transition: 0.5s font-size;
+
+  @include mobile() {
+    font-size: map-get($font, 'mobile-size');
+  }
+}
+
+* {
+  @include cross-browser(font-smoothing, antialiased);
+  font-family: map-get($font, 'first-family');
+}
+
+h1 {
+  font-size: 3rem;
+  line-height: 1.5;
+  font-weight: bold;
+  margin: 1rem 0;
+}
+
+h3 {
+  font-size: 2rem;
+  line-height: 1.5;
+  margin: 0.5rem 0;
+}
+
+h4 {
+  font-size: 1.5rem;
+  line-height: 1.5;
+  margin: 0.5rem 0;
+}
+
+p {
+  font-size: 0.875rem;
+  line-height: 1.2;
+  color: color(_others, dark);
+
+  @include mobile() {
+    font-size: 1rem;
+  }
+}
+
+.align {
+  &-center {
+    text-align: center;
+  }
+
+  &-justify {
+    text-align: justify;
+  }
+
+  &-left {
+    text-align: left;
+  }
+
+  &-right {
+    text-align: right;
+  }
+}
+
+@each $theme in $themes {
+  .color-#{$theme} {
+    color: color(_#{$theme}, 'medium');
+  }
+}
+
+@each $color in $color-names {
+  .color-#{$color} {
+    color: color(_#{$color}, 'medium');
+  }
+}
+
+hr {
+  margin: 2rem 0;
+  border: 0;
+  border-bottom: 1px solid color(_gray, extra-light);
+}
+
+.bold {
+  font-weight: 600;
+}
+
+.italic {
+  font-style: italic;
+}
