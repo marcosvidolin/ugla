@@ -1,6 +1,11 @@
 # Lotus
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/dab0deb9bbe1463a8c5ef52c1f55a03a)](https://www.codacy.com/app/marcosvidolin/lotus?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ciandt-dev/lotus&amp;utm_campaign=Badge_Grade)
+[![Open issues](https://img.shields.io/github/issues-raw/ciandt-dev/lotus.svg)](https://github.com/ciandt-dev/lotus/issues)
+![node](https://img.shields.io/node/v/lotus.svg)
+![licence](https://img.shields.io/npm/l/lotus.svg)
+![version](https://img.shields.io/github/package-json/v/ciandt-dev/lotus.svg)
+![angular](https://img.shields.io/github/package-json/dependency-version/ciandt-dev/lotus/dev/@angular/cli.svg)(https://angular.io)
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
 
