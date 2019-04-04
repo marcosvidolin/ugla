@@ -1,9 +1,11 @@
 ---
 engines:
+  duplication:
+    enabled: true
   tslint:
     enabled: true
-    config: projects/lotus/tslint.json
+    config: 'projects/lotus/tslint.json'
   exclude_paths:
-    - node_modules
-    - e2e
-  base_sub_dir: projects/
+    - 'node_modules/**'
+    - 'e2e/**'
+  base_sub_dir: 'projects/'
