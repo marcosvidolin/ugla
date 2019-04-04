@@ -2,8 +2,8 @@
 engines:
   tslint:
     enabled: true
+    config: ./tslint.json
  exclude_paths:
  - node_modules/
  - e2e
  base_sub_dir: projects/
- 
