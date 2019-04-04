@@ -2,7 +2,7 @@
 engines:
   tslint:
     enabled: true
- exclude_paths:
- - node_modules/
- - e2e
- base_sub_dir: projects/
+  exclude_paths:
+    - node_modules/
+    - e2e
+  base_sub_dir: projects/
