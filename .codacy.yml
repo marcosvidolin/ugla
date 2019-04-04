@@ -2,7 +2,8 @@
 engines:
   tslint:
     enabled: true
+    config: projects/lotus/tslint.json
   exclude_paths:
-    - node_modules/
+    - node_modules
     - e2e
   base_sub_dir: projects/
