@@ -1,0 +1,10 @@
+language: node_js
+
+jobs:
+  include:
+    - stage: 'Tests'
+      name: 'Run lint'
+      script:
+        - npm install -g @angular/cli@7.1.4
+        - npm install
+        - ng lint
