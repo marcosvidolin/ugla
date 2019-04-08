@@ -13,5 +13,5 @@ jobs:
         - npm install -g compodoc
         - npm install
         - ng build
-        - npm run compodoc
+        - compodoc -p projects/lotus/tsconfig.lib.json -d dist/doc --theme material
         - firebase deploy --token $FIREBASE_TOKEN
