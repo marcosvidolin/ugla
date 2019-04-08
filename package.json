@@ -9,9 +9,9 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "deploy:site": "ng build && firebase deploy",
-    "compodoc": "node_modules/@compodoc/compodoc/bin/index-cli.js -p projects/vanilla-lib/tsconfig.lib.json -d dist/doc --theme material",
-    "compodoc:s": "node_modules/@compodoc/compodoc/bin/index-cli.js -p projects/vanilla-lib/tsconfig.lib.json -s --theme material",
-    "build-lib": "ng-packagr -p projects/vanilla-lib/package.json"
+    "compodoc": "node_modules/@compodoc/compodoc/bin/index-cli.js -p projects/lotus/tsconfig.lib.json -d dist/doc --theme material",
+    "compodoc:s": "node_modules/@compodoc/compodoc/bin/index-cli.js -p projects/lotus/tsconfig.lib.json -s --theme material",
+    "build-lib": "ng-packagr -p projects/lotus/package.json"
   },
   "private": true,
   "repository": {
