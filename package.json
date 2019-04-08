@@ -8,7 +8,10 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "deploy:site": "ng build && firebase deploy"
+    "deploy:site": "ng build && firebase deploy",
+    "compodoc": "node_modules/@compodoc/compodoc/bin/index-cli.js -p projects/vanilla-lib/tsconfig.lib.json -d dist/doc --theme material",
+    "compodoc:s": "node_modules/@compodoc/compodoc/bin/index-cli.js -p projects/vanilla-lib/tsconfig.lib.json -s --theme material",
+    "build-lib": "ng-packagr -p projects/vanilla-lib/package.json"
   },
   "private": true,
   "repository": {
@@ -28,10 +31,8 @@
     "@angular/platform-browser": "~7.2.0",
     "@angular/platform-browser-dynamic": "~7.2.0",
     "@angular/router": "~7.2.0",
+    "compodoc": "0.0.41",
     "core-js": "^2.5.4",
-    "rxjs": "~6.3.3",
-    "tslib": "^1.9.0",
-    "zone.js": "~0.8.26",
     "filepond": "^4.1.0",
     "filepond-plugin-file-validate-size": "^2.1.1",
     "filepond-plugin-file-validate-type": "^1.2.2",
@@ -41,7 +42,10 @@
     "filepond-plugin-image-resize": "^2.0.2",
     "filepond-plugin-image-transform": "^3.2.2",
     "js-datepicker": "^4.0.10",
-    "ngx-filepond": "^5.0.0"
+    "ngx-filepond": "^5.0.0",
+    "rxjs": "~6.3.3",
+    "tslib": "^1.9.0",
+    "zone.js": "~0.8.26"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.13.0",
