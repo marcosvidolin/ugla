@@ -2,9 +2,15 @@ language: node_js
 
 jobs:
   include:
-    - stage: 'Tests'
-      name: 'Run lint'
+    - stage: 'Test'
+      name: 'Deploy test site'
+      caches:
+        - node
       script:
+        - echo "Deploying to test environment"
+        - npm install -g firebase-tools
         - npm install -g @angular/cli@7.1.4
         - npm install
-        - ng lint
+        - ng build
+        - npm run compodoc
+        - firebase deploy --token $FIREBASE_TOKEN
