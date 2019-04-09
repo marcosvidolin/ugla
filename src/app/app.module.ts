@@ -3,7 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LotusModule, Themes } from 'projects/lotus/src';
+import { LotusModule, Themes } from 'projects/ng-lotus/src';
 
 @NgModule({
   declarations: [

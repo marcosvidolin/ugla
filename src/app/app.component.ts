@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Header, People, Menu, MenuItem, Select, Options, LotusService } from 'projects/lotus/src';
+import { Header, People, Menu, MenuItem, Select, Options, LotusService } from 'projects/ng-lotus/src';
 
 @Component({
   selector: 'app-root',

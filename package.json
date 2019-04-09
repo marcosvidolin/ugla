@@ -9,8 +9,8 @@
     "lint": "ng lint",
     "e2e": "ng e2e",
     "deploy:site": "ng build && firebase deploy",
-    "compodoc:s": "node_modules/@compodoc/compodoc/bin/index-cli.js -p projects/lotus/tsconfig.lib.json -s --theme material",
-    "build-lib": "ng-packagr -p projects/lotus/package.json"
+    "compodoc:s": "node_modules/@compodoc/compodoc/bin/index-cli.js -p projects/ng-lotus/tsconfig.lib.json -s --theme material",
+    "build-lib": "ng-packagr -p projects/ng-lotus/package.json"
   },
   "repository": {
     "type": "git",

@@ -9,7 +9,7 @@ install() {
 
 build() {
   ng build
-  compodoc -p projects/lotus/tsconfig.lib.json -d dist/docs/ --theme material
+  compodoc -p projects/ng-lotus/tsconfig.lib.json -d dist/docs/ --theme material
 }
 
 deploy() {

@@ -135,33 +135,33 @@
         }
       }
     },
-    "lotus": {
-      "root": "projects/lotus",
-      "sourceRoot": "projects/lotus/src",
+    "ng-lotus": {
+      "root": "projects/ng-lotus",
+      "sourceRoot": "projects/ng-lotus/src",
       "projectType": "library",
       "prefix": "lts",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/lotus/tsconfig.lib.json",
-            "project": "projects/lotus/ng-package.json"
+            "tsConfig": "projects/ng-lotus/tsconfig.lib.json",
+            "project": "projects/ng-lotus/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/lotus/src/test.ts",
-            "tsConfig": "projects/lotus/tsconfig.spec.json",
-            "karmaConfig": "projects/lotus/karma.conf.js"
+            "main": "projects/ng-lotus/src/test.ts",
+            "tsConfig": "projects/ng-lotus/tsconfig.spec.json",
+            "karmaConfig": "projects/ng-lotus/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/lotus/tsconfig.lib.json",
-              "projects/lotus/tsconfig.spec.json"
+              "projects/ng-lotus/tsconfig.lib.json",
+              "projects/ng-lotus/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
