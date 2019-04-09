@@ -35,4 +35,5 @@ jobs:
         - cd dist
         - npm publish
         - cd ..
-        - git push origin --all
+      after_succes:
+        .travis/push.sh
