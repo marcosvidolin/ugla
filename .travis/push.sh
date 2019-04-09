@@ -13,6 +13,8 @@ commit_website_files() {
 
 upload_files() {
   git push origin --all
+  git request-pull new-version https://github.com/ciandt-dev/lotus master
+  git push origin new-version:master
 }
 
 setup_git
