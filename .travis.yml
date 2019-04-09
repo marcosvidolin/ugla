@@ -7,12 +7,12 @@ jobs:
       caches:
         - node
       script:
-        .travis/deploy_site
+        .travis/deploy_site.sh
     - stage: 'Deploy'
       name: 'Deploy to npmjs'
       caches:
         - node
       script:
-        .travis/deploy_lib
+        .travis/deploy_lib.sh
       after_succes:
         .travis/push.sh
