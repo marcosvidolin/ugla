@@ -1,7 +1,7 @@
 #!/bin/sh
 
 config() {
-  printf "//`node -p \"require('url').parse('https://registry.npmjs.org').host\"`/:_authToken=${NPM_TOKEN}\nregistry=${NPM_REGISTRY_URL:-https://registry.npmjs.org/ciandt_it/}\n" >> ~/.npmrc
+  printf "//`node -p \"require('url').parse('https://registry.npmjs.org').host\"`/:_authToken=${NPM_TOKEN}\nregistry=${NPM_REGISTRY_URL:-https://registry.npmjs.org}\n" >> ~/.npmrc
 }
 
 install() {
@@ -14,7 +14,7 @@ build() {
   npm version patch
   cd ../..
   node version.js
-  ng build --project=lotus
+  ng build --project=ng-lotus
   if [[ `git status --porcelain` ]]; then git add . && git commit -m "Changes build"; fi
   npm version patch
   cp -r projects/ng-lotus/src/sass dist/sass
