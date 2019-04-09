@@ -12,7 +12,6 @@
     "compodoc:s": "node_modules/@compodoc/compodoc/bin/index-cli.js -p projects/lotus/tsconfig.lib.json -s --theme material",
     "build-lib": "ng-packagr -p projects/lotus/package.json"
   },
-  "private": true,
   "repository": {
     "type": "git",
     "url": "git@github.com:ciandt-dev/lotus.git"
