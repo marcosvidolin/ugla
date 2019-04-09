@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
-import { LotusService } from '../../lotus.service';
+import { uglaService } from '../../ugla.service';
 
 /**
  * Button

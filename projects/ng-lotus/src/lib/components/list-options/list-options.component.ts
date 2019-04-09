@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { List } from '../../models';
-import { LotusService } from '../../lotus.service';
+import { uglaService } from '../../ugla.service';
 
 /**
  * List component
@@ -44,10 +44,10 @@ export class ListOptionsComponent {
 
   /**
    * Receives the component's name
-   * @param lotus: LotusService
+   * @param ugla: uglaService
    */
-  constructor(private lotus: LotusService) {
-    this.theme = lotus.theme;
+  constructor(private ugla: uglaService) {
+    this.theme = ugla.theme;
   }
 
   selectItem(index) {

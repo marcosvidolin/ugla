@@ -20,7 +20,7 @@ export class ThemeConfig {
 @Injectable({
   providedIn: 'root'
 })
-export class LotusService {
+export class uglaService {
 
   /**
    * Emitter for header shadow changed
@@ -65,14 +65,14 @@ export class LotusService {
    * Create meta tag and include theme class on body
    */
   meta() {
-    this.metaTheme.setAttribute('name', 'lotus-theme');
+    this.metaTheme.setAttribute('name', 'ugla-theme');
     this.metaTheme.setAttribute('content', this._theme);
 
     document.head.appendChild(this.metaTheme);
     document.body.classList.add(this._theme);
 
 
-    this.metaVersion.setAttribute('name', 'lotus-version');
+    this.metaVersion.setAttribute('name', 'ugla-version');
     this.metaVersion.setAttribute('content', this._version);
 
     document.head.appendChild(this.metaVersion);

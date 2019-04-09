@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Header, People, Menu, MenuItem, Select, Options, LotusService } from 'projects/ng-lotus/src';
+import { Header, People, Menu, MenuItem, Select, Options, uglaService } from 'projects/ugla/src';
 
 @Component({
   selector: 'app-root',
@@ -7,11 +7,11 @@ import { Header, People, Menu, MenuItem, Select, Options, LotusService } from 'p
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(private vanilla: LotusService) {}
+  constructor(private vanilla: uglaService) {}
 
   public isAutenticated: boolean;
 
-  public header = new Header('Lotus',
+  public header = new Header('ugla',
   'https://firebasestorage.googleapis.com/v0/b/vanilla-js-acf1d.appspot.com/o/vania.png' +
   '?alt=media&token=f6c6b19c-0aaf-4cd8-84dd-5cd89ed61a82');
   

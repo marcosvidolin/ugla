@@ -1,20 +1,20 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { LotusComponent } from './lotus.component';
+import { uglaComponent } from './ugla.component';
 
-describe('LotusComponent', () => {
-  let component: LotusComponent;
-  let fixture: ComponentFixture<LotusComponent>;
+describe('uglaComponent', () => {
+  let component: uglaComponent;
+  let fixture: ComponentFixture<uglaComponent>;
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ LotusComponent ]
+      declarations: [ uglaComponent ]
     })
     .compileComponents();
   }));
 
   beforeEach(() => {
-    fixture = TestBed.createComponent(LotusComponent);
+    fixture = TestBed.createComponent(uglaComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });

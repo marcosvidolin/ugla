@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
 import { Select } from '../../models';
 import { NgClass } from '@angular/common';
-import { LotusService } from '../../lotus.service';
+import { uglaService } from '../../ugla.service';
 import { Form } from '../../enum';
 import { validateConfig } from '@angular/router/src/config';
 import { directiveDef } from '@angular/core/src/view';
@@ -150,9 +150,9 @@ export class SelectComponent implements OnInit {
 
   /**
    * Receives the component's name
-   * @param lotus: LotusService
+   * @param ugla: uglaService
    */
-  constructor(private lotus: LotusService) { }
+  constructor(private ugla: uglaService) { }
 
   /**
    * Current values
@@ -212,7 +212,7 @@ export class SelectComponent implements OnInit {
   }
 
   getTheme() {
-    this.theme = this.lotus.theme;
+    this.theme = this.ugla.theme;
 
     if (this.stylized) {
       this.theme = `${this.theme} ${this.stylizedType}`;

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { List, Link } from '../../models';
-import { LotusService } from '../../lotus.service';
+import { uglaService } from '../../ugla.service';
 
 /**
  * List links component
@@ -54,8 +54,8 @@ export class ListLinksComponent implements OnInit {
    */
   private theme: string;
 
-  constructor(private lotus: LotusService) {
-    this.theme = lotus.theme;
+  constructor(private ugla: uglaService) {
+    this.theme = ugla.theme;
   }
 
   ngOnInit() {

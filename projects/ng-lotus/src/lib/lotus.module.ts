@@ -1,5 +1,5 @@
 import { NgModule, Optional, SkipSelf } from '@angular/core';
-import { LotusComponent } from './lotus.component';
+import { uglaComponent } from './ugla.component';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 
@@ -39,7 +39,7 @@ import {
   PaginationComponent } from './components';
 import { GridDirective, CheckboxColumnDirective } from './directives';
 import { PaginationItemsPerPageComponent } from './components/pagination/pagination-items-per-page/pagination-items-per-page.component';
-import { LotusService, ThemeConfig } from './lotus.service';
+import { uglaService, ThemeConfig } from './ugla.service';
 import { ModuleWithProviders } from '@angular/compiler/src/core';
 
 registerPlugin(FilePondPluginFileValidateType,
@@ -52,7 +52,7 @@ registerPlugin(FilePondPluginFileValidateType,
 
 @NgModule({
   declarations: [
-    LotusComponent,
+    uglaComponent,
     BrandComponent,
     ButtonComponent,
     CheckboxComponent,
@@ -88,7 +88,7 @@ registerPlugin(FilePondPluginFileValidateType,
     FilePondModule
   ],
   exports: [
-    LotusComponent,
+    uglaComponent,
     BrandComponent,
     ButtonComponent,
     CheckboxComponent,
@@ -117,28 +117,28 @@ registerPlugin(FilePondPluginFileValidateType,
     PaginationComponent,
     PaginationItemsPerPageComponent
   ],
-  providers: [LotusService]
+  providers: [uglaService]
 })
-export class LotusModule {
+export class uglaModule {
   /**
-   * Constructor LotusModule
+   * Constructor uglaModule
    *
-   * @param parentModule: LotusModule
+   * @param parentModule: uglaModule
    */
-  constructor (@Optional() @SkipSelf() parentModule: LotusModule) {
+  constructor (@Optional() @SkipSelf() parentModule: uglaModule) {
     if (parentModule) {
-      throw new Error('LotusModule is already loaded. Import it in the AppModule only');
+      throw new Error('uglaModule is already loaded. Import it in the AppModule only');
     }
   }
 
   /**
-   * Initialize Lotus with theme configurations.
+   * Initialize ugla with theme configurations.
    * @param config typeof ThemeConfig
    * @returns typeof ModuleWithProviders
    */
   static forRoot(config: ThemeConfig): ModuleWithProviders {
     return {
-      ngModule: LotusModule,
+      ngModule: uglaModule,
       providers: [
         { provide: ThemeConfig, useValue: config }
       ]

@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/lotus-workspace",
+    "public": "dist/ugla-workspace",
     "ignore": [
       "firebase.json",
       "**/.*",

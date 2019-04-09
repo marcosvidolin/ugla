@@ -19,11 +19,11 @@
       "dom"
     ],
     "paths": {
-      "lotus": [
-        "dist/lotus"
+      "ugla": [
+        "dist/ugla"
       ],
-      "lotus/*": [
-        "dist/lotus/*"
+      "ugla/*": [
+        "dist/ugla/*"
       ]
     }
   }

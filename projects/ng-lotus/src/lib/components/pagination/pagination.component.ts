@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
 import { PaginationItemsPerPageComponent } from './pagination-items-per-page/pagination-items-per-page.component';
 import { Select } from '../../models';
-import { LotusService } from '../../lotus.service';
+import { uglaService } from '../../ugla.service';
 
 /**
  * Constant for default first page
@@ -154,10 +154,10 @@ export class PaginationComponent implements OnInit {
 
   /**
    * Receives the component's name
-   * @param lotus: LotusService
+   * @param ugla: uglaService
    */
-  constructor(private lotus: LotusService) {
-    this.theme = lotus.theme;
+  constructor(private ugla: uglaService) {
+    this.theme = ugla.theme;
   }
 
   /**

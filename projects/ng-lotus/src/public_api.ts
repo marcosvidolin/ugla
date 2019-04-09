@@ -1,10 +1,10 @@
 /*
- * Public API Surface of lotus
+ * Public API Surface of ugla
  */
 
-export * from './lib/lotus.service';
-export * from './lib/lotus.component';
-export * from './lib/lotus.module';
+export * from './lib/ugla.service';
+export * from './lib/ugla.component';
+export * from './lib/ugla.module';
 
 export * from './lib/components';
 export * from './lib/models';

@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { People } from '../../models';
-import { LotusService } from '../../lotus.service';
+import { uglaService } from '../../ugla.service';
 
 /**
  * People Card
@@ -40,10 +40,10 @@ export class PeopleCardComponent {
 
   /**
    * Receives the component's name
-   * @param lotus: LotusService
+   * @param ugla: uglaService
    */
-  constructor(private lotus: LotusService) {
-    this.theme = this.lotus.theme;
+  constructor(private ugla: uglaService) {
+    this.theme = this.ugla.theme;
   }
 
   /**

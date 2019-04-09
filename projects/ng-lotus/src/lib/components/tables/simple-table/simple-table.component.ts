@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { Table } from '../../../models';
-import { LotusService } from '../../../lotus.service';
+import { uglaService } from '../../../ugla.service';
 
 
 /**
@@ -31,10 +31,10 @@ export class SimpleTableComponent implements OnInit {
 
   /**
    * Receives the component's name
-   * @param lotus: LotusService
+   * @param ugla: uglaService
    */
-  constructor(private lotus: LotusService) {
-    this.theme = this.lotus.theme;
+  constructor(private ugla: uglaService) {
+    this.theme = this.ugla.theme;
   }
 
   ngOnInit() {

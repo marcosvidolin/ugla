@@ -1,5 +1,5 @@
 import { Component, OnInit, Output, EventEmitter, Input, OnChanges, HostListener, ChangeDetectorRef, SimpleChanges } from '@angular/core';
-import { LotusService } from '../../lotus.service';
+import { uglaService } from '../../ugla.service';
 
 /**
  * @example
@@ -55,11 +55,11 @@ export class FilterComponent implements OnInit, OnChanges {
 
   /**
    * Param to receive the theme name
-   * @param lotus: LotusService
+   * @param ugla: uglaService
   */
-  constructor(private lotus: LotusService,
+  constructor(private ugla: uglaService,
               private changeDetector: ChangeDetectorRef) {
-    this.classes = lotus.theme;
+    this.classes = ugla.theme;
   }
 
   ngOnInit() {
@@ -103,7 +103,7 @@ export class FilterComponent implements OnInit, OnChanges {
   @HostListener('window:resize', [])
   onWindowSizeChange() {
     if (window.innerWidth < 980) {
-      this.color = this.lotus.color;
+      this.color = this.ugla.color;
     } else {
       this.color = 'white';
     }
@@ -114,9 +114,9 @@ export class FilterComponent implements OnInit, OnChanges {
    */
   private changeClass() {
     if (this.isOpen) {
-      this.classes = `${this.lotus.theme} opened`;
+      this.classes = `${this.ugla.theme} opened`;
     } else {
-        this.classes = `${this.lotus.theme}`;
+        this.classes = `${this.ugla.theme}`;
     }
   }
 }

@@ -1,15 +1,15 @@
 import { Component, OnInit } from '@angular/core';
 
 @Component({
-  selector: 'lib-lotus',
+  selector: 'lib-ugla',
   template: `
     <p>
-      lotus works!
+      ugla works!
     </p>
   `,
   styles: []
 })
-export class LotusComponent implements OnInit {
+export class uglaComponent implements OnInit {
 
   constructor() { }
 

@@ -1,12 +1,12 @@
 import { TestBed } from '@angular/core/testing';
 
-import { LotusService } from './lotus.service';
+import { uglaService } from './ugla.service';
 
-describe('LotusService', () => {
+describe('uglaService', () => {
   beforeEach(() => TestBed.configureTestingModule({}));
 
   it('should be created', () => {
-    const service: LotusService = TestBed.get(LotusService);
+    const service: uglaService = TestBed.get(uglaService);
     expect(service).toBeTruthy();
   });
 });

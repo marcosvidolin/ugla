@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { LotusService } from '../../lotus.service';
+import { uglaService } from '../../ugla.service';
 
 /**
  * Page title
@@ -23,10 +23,10 @@ export class PageTitleComponent {
 
   /**
    * Receives the component's name
-   * @param lotus: LotusService
+   * @param ugla: uglaService
    */
-  constructor(private lotus: LotusService) {
-    this.theme = lotus.theme;
+  constructor(private ugla: uglaService) {
+    this.theme = ugla.theme;
   }
 
   /**

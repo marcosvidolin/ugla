@@ -1,5 +1,5 @@
 import { Component, Input } from '@angular/core';
-import { LotusService } from '../../lotus.service';
+import { uglaService } from '../../ugla.service';
 
 /**
  * Brand component
@@ -40,9 +40,9 @@ export class BrandComponent {
 
   /**
    * Receives the component's name
-   * @param lotus: LotusService
+   * @param ugla: uglaService
    */
-  constructor(private lotus: LotusService) {
-    this.theme = lotus.theme;
+  constructor(private ugla: uglaService) {
+    this.theme = ugla.theme;
   }
 }

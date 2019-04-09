@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, OnDestroy, Renderer2, ElementRef } from '@angular/core';
 import { LoadingService } from './loading.service';
-import { LotusService } from '../../lotus.service';
+import { uglaService } from '../../ugla.service';
 
 
 /**
@@ -50,8 +50,8 @@ export class LoadingComponent implements OnInit, OnDestroy {
   public theme: string;
 
 
-  constructor(private service: LoadingService, private lotus: LotusService) {
-    this.theme = lotus.theme;
+  constructor(private service: LoadingService, private ugla: uglaService) {
+    this.theme = ugla.theme;
   }
 
   ngOnInit() {

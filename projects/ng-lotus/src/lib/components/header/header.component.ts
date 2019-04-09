@@ -1,6 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output, ChangeDetectorRef } from '@angular/core';
 import { Header } from '../../models';
-import { LotusService } from '../../lotus.service';
+import { uglaService } from '../../ugla.service';
 
 /**
  * Header component
@@ -13,7 +13,7 @@ import { LotusService } from '../../lotus.service';
  </lts-header>
  ```
  ```typescript
-  import { Header, People, Menu, MenuItem, Select, Options } from '@ciandt_it/cit-lotus';
+  import { Header, People, Menu, MenuItem, Select, Options } from '@ciandt_it/cit-ugla';
 
   public header = new Header('BRAND NAME');
   public people = new People('PEOPLE NAME', 'LOGIN\@ciandt.com', 'IMAGE URL');
@@ -70,13 +70,13 @@ export class HeaderComponent implements OnInit {
 
   /**
    * Receives the component's name
-   * @param lotus: LotusService
+   * @param ugla: uglaService
    * @param changeDetector: ChangeDetectorRef
    */
-  constructor(private lotus: LotusService,
+  constructor(private ugla: uglaService,
               private changeDetector: ChangeDetectorRef) {
-    this.theme = lotus.theme;
-    this.setClasses(lotus.headerShadow);
+    this.theme = ugla.theme;
+    this.setClasses(ugla.headerShadow);
   }
 
   /**
@@ -118,7 +118,7 @@ export class HeaderComponent implements OnInit {
       }
     }
 
-    this.lotus.changedHeaderShadow.subscribe((hasShadow: boolean) => {
+    this.ugla.changedHeaderShadow.subscribe((hasShadow: boolean) => {
       this.setClasses(hasShadow);
       this.changeDetector.detectChanges();
     });

@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "lotus-workspace": {
+    "ugla-workspace": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/lotus-workspace",
+            "outputPath": "dist/ugla-workspace",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "lotus-workspace:build"
+            "browserTarget": "ugla-workspace:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "lotus-workspace:build:production"
+              "browserTarget": "ugla-workspace:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "lotus-workspace:build"
+            "browserTarget": "ugla-workspace:build"
           }
         },
         "test": {
@@ -107,7 +107,7 @@
         }
       }
     },
-    "lotus-workspace-e2e": {
+    "ugla-workspace-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "prefix": "",
@@ -116,11 +116,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "lotus-workspace:serve"
+            "devServerTarget": "ugla-workspace:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "lotus-workspace:serve:production"
+              "devServerTarget": "ugla-workspace:serve:production"
             }
           }
         },
@@ -135,33 +135,33 @@
         }
       }
     },
-    "ng-lotus": {
-      "root": "projects/ng-lotus",
-      "sourceRoot": "projects/ng-lotus/src",
+    "ugla": {
+      "root": "projects/ugla",
+      "sourceRoot": "projects/ugla/src",
       "projectType": "library",
       "prefix": "lts",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
-            "tsConfig": "projects/ng-lotus/tsconfig.lib.json",
-            "project": "projects/ng-lotus/ng-package.json"
+            "tsConfig": "projects/ugla/tsconfig.lib.json",
+            "project": "projects/ugla/ng-package.json"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/ng-lotus/src/test.ts",
-            "tsConfig": "projects/ng-lotus/tsconfig.spec.json",
-            "karmaConfig": "projects/ng-lotus/karma.conf.js"
+            "main": "projects/ugla/src/test.ts",
+            "tsConfig": "projects/ugla/tsconfig.spec.json",
+            "karmaConfig": "projects/ugla/karma.conf.js"
           }
         },
         "lint": {
           "builder": "@angular-devkit/build-angular:tslint",
           "options": {
             "tsConfig": [
-              "projects/ng-lotus/tsconfig.lib.json",
-              "projects/ng-lotus/tsconfig.spec.json"
+              "projects/ugla/tsconfig.lib.json",
+              "projects/ugla/tsconfig.spec.json"
             ],
             "exclude": [
               "**/node_modules/**"
@@ -171,5 +171,5 @@
       }
     }
   },
-  "defaultProject": "lotus-workspace"
+  "defaultProject": "ugla-workspace"
 }
