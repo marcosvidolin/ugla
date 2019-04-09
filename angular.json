@@ -139,7 +139,7 @@
       "root": "projects/ugla",
       "sourceRoot": "projects/ugla/src",
       "projectType": "library",
-      "prefix": "lts",
+      "prefix": "ugl",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",

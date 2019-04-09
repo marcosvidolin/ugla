@@ -1,8 +1,8 @@
-<lts-header [header]="header" (logoutAction)="logout($event)" *ngIf="isAutenticated">
-  <div ltsGrid [grid]="true" [col]="1">
-    <lts-select class="fluid" [select]="select" (selectLanguage)="selectLanguage($event)" [stylized]="'true'" [dataTitle]="'Select an option'"></lts-select>
+<ugl-header [header]="header" (logoutAction)="logout($event)" *ngIf="isAutenticated">
+  <div uglGrid [grid]="true" [col]="1">
+    <ugl-select class="fluid" [select]="select" (selectLanguage)="selectLanguage($event)" [stylized]="'true'" [dataTitle]="'Select an option'"></ugl-select>
    </div>
-</lts-header>
+</ugl-header>
 
 <vnl-loading ></vnl-loading>
 <article class="central">

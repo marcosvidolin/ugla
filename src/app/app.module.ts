@@ -3,7 +3,7 @@ import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { uglaModule, Themes } from 'projects/ugla/src';
+import { UglaModule, Themes } from 'projects/ugla/src';
 
 @NgModule({
   declarations: [
@@ -12,7 +12,7 @@ import { uglaModule, Themes } from 'projects/ugla/src';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    uglaModule.forRoot({themeName: Themes.AQUAMARINE})
+    UglaModule.forRoot({themeName: Themes.AQUAMARINE})
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

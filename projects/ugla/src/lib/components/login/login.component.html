@@ -1,0 +1,30 @@
+<section class="login">
+
+  <header class="login__header" id="login-header" tabindex="0">
+    <h1 class="login__header-title">{{ header }}</h1>
+    <h1 class="login__header-title--bold">{{ subheader }}</h1>
+  </header>
+
+  <div uglGrid [grid]="true" [col]="'8'" [colSm]="'1'">
+    <ugl-button class="login__button"
+                #authButton
+                [size]="'large'"
+                [color]="'red'"
+                [title]="buttonText"
+                [wave]="true"
+                (click)="authenticate()"
+                [id]="'login-button'"
+                >
+      <img *ngIf="googleLogo !== undefined" [src]="googleLogo" alt="Google Logo">
+      {{ buttonText}}
+    </ugl-button>
+  </div>
+
+  <img *ngIf="floatLogo !== undefined" [src]="floatLogo" alt="CI&T Logo" class="float-logo">
+
+  <picture id="login-picture">
+    <source media="(min-width: 727px)" [srcset]="desktopImage">
+    <source media="(max-width: 728px)" [srcset]="mobileImage">
+    <img [src]="desktopImage" [alt]="header + ' ' + subheader">
+  </picture>
+</section>

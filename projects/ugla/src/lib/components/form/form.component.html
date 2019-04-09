@@ -1,0 +1,22 @@
+<form class="simple" novalidate="novalidate" (submit)="onSubmitClick($event)">
+  <div class='content'>
+    <ng-content></ng-content>
+  </div>
+  <div class="footer">
+    <ugl-button
+      [type]="'button'"
+      [color]="'red'"
+      [style]="'border'"
+      [title]="cancelText"
+      (click)="onCancelClick()"
+      [id]="'cancel-button'">{{ cancelText }}</ugl-button>
+    <ugl-button *ngIf="!hiddenButtonSubmit"
+                [type]="'submit'"
+                [color]="'aquamarine'"
+                [style]="'fill'"
+                [title]="submitText"
+                [disabled]="disableSubmitButton"
+                [id]="'submit-button'"
+    >{{ submitText }}</ugl-button>
+  </div>
+</form>

@@ -1,0 +1,29 @@
+<div class='filter'
+    [ngClass]="classes"
+    [id]="'filter-'+ id">
+
+  <div class='filter-header'>
+    <h2>{{title}}</h2>
+
+    <ugl-button
+      [title]="'Lock filter'"
+      [color]="color"
+      [style]="'icon'"
+      class="desktop-only"
+      (click)="toggleLockFilter()">
+      <i class="material-icons" [id]="'lock'"> {{lockFilter ? 'turned_in' : 'turned_in_not'}}</i>
+    </ugl-button>
+
+    <ugl-button
+      [title]="'Close filter'"
+      [color]="color"
+      [style]="'icon'"
+      (click)="toggleFilter()">
+      <i class="material-icons" [id]="'filter'">close</i>
+    </ugl-button>
+  </div>
+
+  <div class='filter-content'>
+    <ng-content></ng-content>
+  </div>
+</div>
