@@ -10,14 +10,14 @@ install() {
 }
 
 build() {
-  cd projects/lotus/
+  cd projects/ng-lotus/
   npm version patch
   cd ../..
   node version.js
   ng build --project=lotus
   if [[ `git status --porcelain` ]]; then git add . && git commit -m "Changes build"; fi
   npm version patch
-  cp -r projects/lotus/src/sass dist/sass
+  cp -r projects/ng-lotus/src/sass dist/sass
 }
 
 publish() {
