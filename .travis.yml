@@ -7,33 +7,12 @@ jobs:
       caches:
         - node
       script:
-        - echo "Deploying to test environment"
-        - npm install -g firebase-tools
-        - npm install -g @angular/cli@7.1.4
-        - npm install -g compodoc
-        - npm install
-        - ng build
-        - compodoc -p projects/lotus/tsconfig.lib.json -d dist/doc --theme material
-        - firebase deploy --token $FIREBASE_TOKEN
+        .travis/deploy_site
     - stage: 'Deploy'
       name: 'Deploy to npmjs'
       caches:
         - node
       script:
-        - echo "Deployment to procution environment"
-        - printf "//`node -p \"require('url').parse(process.env.NPM_REGISTRY_URL || 'https://registry.npmjs.org').host\"`/:_authToken=${NPM_TOKEN}\nregistry=${NPM_REGISTRY_URL:-https://registry.npmjs.org}\n" >> ~/.npmrc
-        - npm install -g @angular/cli@7.1.4
-        - npm install
-        - cd projects/lotus/
-        - npm version patch
-        - cd ../..
-        - node version.js
-        - ng build --project=lotus
-        - if [[ `git status --porcelain` ]]; then git add . && git commit -m "Changes build"; fi
-        - npm version patch
-        - cp -r projects/lotus/src/sass dist/sass
-        - cd dist
-        - npm publish
-        - cd ..
+        .travis/deploy_lib
       after_succes:
         .travis/push.sh
