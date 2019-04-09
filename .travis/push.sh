@@ -12,7 +12,7 @@ commit_website_files() {
 }
 
 upload_files() {
-  - git push origin --all
+  git push origin --all
 }
 
 setup_git
