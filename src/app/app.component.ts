@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
     new MenuItem('Notifications', '/notifications', true),
     new MenuItem('Dashboard', '/dashboard', true, true),
     new MenuItem('Table', '/table', true),
-    new MenuItem('Doc', 'https://vanilla-js-acf1d.firebaseapp.com/doc', true)
+    new MenuItem('Docs', '/docs', true)
   ]);
 
   public select = new Select('language1', [
