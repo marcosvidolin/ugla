@@ -12,7 +12,7 @@ import { UglaModule, Themes } from 'projects/ugla/src';
   imports: [
     BrowserModule,
     AppRoutingModule,
-    UglaModule.forRoot({themeName: Themes.AQUAMARINE})
+    UglaModule.forRoot({themeName: Themes.YELLOW})
   ],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],

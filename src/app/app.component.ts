@@ -11,7 +11,7 @@ export class AppComponent implements OnInit {
 
   public isAutenticated: boolean;
 
-  public header = new Header('ugla', './src/assets/logo.png');
+  public header = new Header('Ugla', './assets/logo.png');
   
   public people = new People('Regivaldo Silva', 'regivaldo@ciandt.com',
   'https://firebasestorage.googleapis.com/v0/b/vanilla-js-acf1d.appspot.com/o/vania.png' +
