@@ -2,10 +2,11 @@
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/dab0deb9bbe1463a8c5ef52c1f55a03a)](https://www.codacy.com/app/marcosvidolin/ugla?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ciandt-dev/ugla&amp;utm_campaign=Badge_Grade)
 [![Open issues](https://img.shields.io/github/issues-raw/ciandt-dev/ugla.svg)](https://github.com/ciandt-dev/ugla/issues)
-![node](https://img.shields.io/node/v/ugla.svg)
 ![licence](https://img.shields.io/npm/l/ugla.svg)
 ![version](https://img.shields.io/github/package-json/v/ciandt-dev/ugla.svg)
 [![angular](https://img.shields.io/github/package-json/dependency-version/ciandt-dev/ugla/dev/@angular/cli.svg)](https://angular.io)
+![build](https://travis-ci.com/ciandt-dev/ugla.svg?branch=master)
+
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
 

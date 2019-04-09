@@ -18,6 +18,7 @@ build() {
   if [[ `git status --porcelain` ]]; then git add . && git commit -m "Changes build"; fi
   npm version patch
   cp -r projects/ugla/src/sass dist/sass
+  cp LICENSE dist/
 }
 
 publish() {
