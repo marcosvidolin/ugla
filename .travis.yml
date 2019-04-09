@@ -28,7 +28,7 @@ jobs:
         - npm version patch
         - cd ../..
         - node version.js
-        - ng build lotus
+        - ng build --project=lotus
         - if [[ `git status --porcelain` ]]; then git add . && git commit -m "Changes build"; fi
         - npm version patch
         - cp -r projects/lotus/src/sass dist/sass
