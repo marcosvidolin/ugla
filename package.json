@@ -19,6 +19,8 @@
   "bugs": {
     "url": "https://github.com/ciandt-dev/ugla/issues"
   },
+  "keywords": ["angular", "javascript", "typescript", "components", "library", "scss"],
+  "homepage": "https://ugla-1c7e1.firebaseapp.com",
   "license": "MIT",
   "dependencies": {
     "@angular/animations": "~7.2.0",
