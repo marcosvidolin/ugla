@@ -1,6 +1,16 @@
 {
   "name": "ugla",
-  "version": "0.0.3",
+  "version": "0.0.4",
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:ciandt-dev/ugla.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ciandt-dev/ugla/issues"
+  },
+  "keywords": ["angular", "javascript", "typescript", "components", "library", "scss"],
+  "homepage": "https://ugla-1c7e1.firebaseapp.com",
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^7.2.0",
     "@angular/core": "^7.2.0",
