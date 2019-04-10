@@ -14,5 +14,5 @@ jobs:
         - node
       script:
         .travis/deploy_lib.sh
-      after_succes:
-        .travis/push.sh
+    after_succes:
+      .travis/push.sh
