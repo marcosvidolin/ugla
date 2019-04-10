@@ -2,6 +2,7 @@ import { Injectable, Optional, Output, EventEmitter } from '@angular/core';
 import { Themes } from './enum/themes.enum';
 import { VERSION } from './config';
 
+
 /**
  * Theme configuration default
  */

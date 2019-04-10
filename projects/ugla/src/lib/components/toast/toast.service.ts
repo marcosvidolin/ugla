@@ -1,8 +1,6 @@
 import { Injectable, NgZone } from '@angular/core';
 import { Observable, Subject } from 'rxjs';
 
-const defaultTimeout = 3000;
-
 export class Message {
   id: string;
   content: string;
@@ -24,7 +22,7 @@ export class Message {
     this.content = content;
     this.type = type || 'info';
     this.dismissed = false;
-    this.timeout = timeout || defaultTimeout;
+    this.timeout = timeout;
     this.cleanOld = cleanOld || true;
     this.onShown = this._afterShow.asObservable();
     this.onHidden = this._afterHidden.asObservable();
@@ -57,7 +55,7 @@ export interface ToastEvent {
 })
 export class ToastService {
 
-  private emitter = new Subject<ToastEvent>();
+  private toastEventEmitter = new Subject<ToastEvent>();
 
   constructor(private ngZone: NgZone) {}
 
@@ -68,10 +66,10 @@ export class ToastService {
    * @param type Is optional. Available options: 'success', 'error', 'warning', 'info'
    * @param timeout time in milliseconds. Default: error notifications hasn't timeout
    */
-  setToastMessage(title, content, type?, timeout?) {
+  private setToastMessage(title: string, content: string, type?: string, timeout?: number) {
     return this.ngZone.run(() => {
-      const message =  new Message(title, content, type || 'info', timeout);
-      this.emitter.next({ command: NotificationCommand.SET, notification: message });
+      const message =  new Message(title, content, type, timeout);
+      this.toastEventEmitter.next({ command: NotificationCommand.SET, notification: message });
       return message;
     });
   }
@@ -79,7 +77,7 @@ export class ToastService {
   // closes a toast message
   dismissToastMessage(message: Message) {
     return this.ngZone.run(() => {
-      this.emitter.next({ command: NotificationCommand.CLOSE, notification: message });
+      this.toastEventEmitter.next({ command: NotificationCommand.CLOSE, notification: message });
       return message;
     });
   }
@@ -87,12 +85,51 @@ export class ToastService {
   // closes all the toast messages
   dismissAllToastMessages() {
     this.ngZone.run(() => {
-      this.emitter.next({ command: NotificationCommand.CLEAR_ALL });
+      this.toastEventEmitter.next({ command: NotificationCommand.CLEAR_ALL });
     });
   }
 
-  // shares the Subject emitter
   getEmitter() {
-    return this.emitter;
+    return this.toastEventEmitter;
+  }
+
+  /**
+   * Add success message
+   * @param title
+   * @param content
+   * @param timeout
+   */
+  public success(title: string, content: string, timeout?: number) {
+    return this.setToastMessage(title, content, 'success', timeout);
+  }
+
+  /**
+   * Add error message
+   * @param title
+   * @param content
+   * @param timeout
+   */
+  public error(title: string, content: string, timeout?: number) {
+    return this.setToastMessage(title, content, 'error', timeout);
+  }
+
+  /**
+   * Add warning message
+   * @param title
+   * @param content
+   * @param timeout
+   */
+  public warning(title: string, content: string, timeout?: number) {
+    return this.setToastMessage(title, content, 'warning', timeout);
+  }
+
+  /**
+  * Add info message
+  * @param title
+  * @param content
+  * @param timeout
+  */
+  public info(title: string, content: string, timeout?: number) {
+    return this.setToastMessage(title, content, 'info', timeout);
   }
 }

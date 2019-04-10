@@ -53,8 +53,7 @@
   }
 
   &-content {
-    padding: 0 10px 10px;
-    height: calc(100vh - 158px);
+    height: calc(100vh - 139px);
     overflow-y: auto;
 
     @include mobile() {

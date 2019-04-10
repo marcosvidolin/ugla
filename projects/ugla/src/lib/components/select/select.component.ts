@@ -1,10 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter } from '@angular/core';
-import { Select } from '../../models';
-import { NgClass } from '@angular/common';
+import { Select, Options } from '../../models';
 import { UglaService } from '../../ugla.service';
 import { Form } from '../../enum';
-import { validateConfig } from '@angular/router/src/config';
-import { directiveDef } from '@angular/core/src/view';
 /**
  * Select
  *
@@ -139,6 +136,11 @@ export class SelectComponent implements OnInit {
   @Input() messageRequired: string;
 
   /**
+   * Set a truncate length for the text.
+   */
+  @Input() truncateLength: number;
+
+  /**
    * Original message
    */
   public originalMessage: string;
@@ -167,9 +169,14 @@ export class SelectComponent implements OnInit {
   ngOnInit() {
     const checkedItem = this.select.options.findIndex((item) => item.checked);
 
-    this.current = (checkedItem > -1) ? this.select.options[checkedItem] : this.select.options[0];
+    this.current = this.truncateCurrentOption(this.select.options[0]);
+    if (checkedItem > -1) {
+      this.current = this.truncateCurrentOption(this.select.options[checkedItem]);
+    }
+
     this.stylized = (this.stylized !== undefined) ? this.stylized : false;
     this.disabled = (this.disabled !== undefined) ? this.disabled : false;
+    this.originalMessage = this.message;
     this.messageRequired = (this.messageRequired !== undefined) ? this.messageRequired : Form.REQUIRED;
 
     this.selectStyle = {
@@ -178,7 +185,7 @@ export class SelectComponent implements OnInit {
   }
 
   open(event) {
-    if (event.keyCode === 13) {
+    if (event.keyCode === 13 || event.type === 'click') {
       this.checkbox.nativeElement.checked = !this.checkbox.nativeElement.checked;
     }
   }
@@ -189,7 +196,7 @@ export class SelectComponent implements OnInit {
    */
   selectedItem(value, event) {
     if (event.keyCode === 13 || event.keyCode === undefined) {
-      this.current = this.select.options[ value ];
+      this.current = this.truncateCurrentOption(this.select.options[ value ]);
       this.checkbox.nativeElement.checked = false;
       this.checkbox.nativeElement.nextSibling.focus();
       this.validate(this.checkbox.nativeElement, value);
@@ -231,5 +238,28 @@ export class SelectComponent implements OnInit {
         }
       }).bind(this));
     });
+  }
+
+  /**
+   * Return a truncated value.
+   *
+   * @param value
+   */
+  truncateValue(value: string) {
+    const ending = '...';
+    if (this.truncateLength && value.length > this.truncateLength) {
+      return value.substring(0, this.truncateLength - ending.length) + ending;
+    }
+    return value;
+  }
+
+  /**
+   * Generate current option.
+   *
+   * @param currentOption
+   */
+  truncateCurrentOption(currentOption: Options) {
+    const currentDescription: string = this.truncateValue(currentOption.description);
+    return new Options(currentDescription, currentOption.value, currentOption.checked);
   }
 }

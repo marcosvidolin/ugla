@@ -84,6 +84,11 @@ export class FormComponent implements OnInit {
   constructor() { }
 
   /**
+   * Set class background to footer.
+   */
+  @Input() footerWithBackground = false;
+
+  /**
    * Set text to cancel button
    */
   @Input() cancelText: string;

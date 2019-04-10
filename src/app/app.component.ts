@@ -7,28 +7,25 @@ import { Header, People, Menu, MenuItem, Select, Options, UglaService } from 'pr
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit {
-  constructor(private vanilla: UglaService) {}
 
-  public isAutenticated: boolean;
+  constructor(private ugla: UglaService) {}
 
-  public header = new Header('Ugla', './assets/logo.png');
-  
-  public people = new People('Regivaldo Silva', 'regivaldo@ciandt.com',
-  'https://firebasestorage.googleapis.com/v0/b/vanilla-js-acf1d.appspot.com/o/vania.png' +
-  '?alt=media&token=f6c6b19c-0aaf-4cd8-84dd-5cd89ed61a82');
+  isAutenticated = false;
 
-  public menu = new Menu([
+  header = new Header('Ugla', './assets/imgs/logo.png');
+
+  people = new People('Regivaldo Silva', 'regivaldo@ciandt.com', './assets/imgs/people.png');
+
+  menu = new Menu([
     new MenuItem('Home', '/', true),
     new MenuItem('Login', '/login', true),
-    new MenuItem('Buttons', '/buttons', true),
-    new MenuItem('Form', '/form', true),
-    new MenuItem('Notifications', '/notifications', true),
-    new MenuItem('Dashboard', '/dashboard', true, true),
-    new MenuItem('Table', '/table', true),
+    new MenuItem('Components', '/components', true),
+    new MenuItem('Directives', '/directives', true),
+    new MenuItem('Services', '/services', true),
     new MenuItem('Docs', '/docs', true)
   ]);
 
-  public select = new Select('language1', [
+  select = new Select('language', [
     new Options('Select a language', '-1'),
     new Options('Portuguese PT-BR', 'pt-br'),
     new Options('English EN', 'en'),
@@ -40,9 +37,8 @@ export class AppComponent implements OnInit {
   ngOnInit() {
     this.header.people = this.people;
     this.header.menu = this.menu;
-    this.isAutenticated = true;
-    this.vanilla.headerShadow = true;
-    this.vanilla.hasToolBar();
+    this.ugla.headerShadow = true;
+    this.ugla.hasToolBar();
   }
 
   logout(status) {

@@ -2,7 +2,7 @@
   <div class='content'>
     <ng-content></ng-content>
   </div>
-  <div class="footer">
+  <div class="footer" [ngClass]="{'background': footerWithBackground}">
     <ugl-button
       [type]="'button'"
       [color]="'red'"

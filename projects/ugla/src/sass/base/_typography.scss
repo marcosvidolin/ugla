@@ -61,15 +61,13 @@ p {
   }
 }
 
+.color-white {
+  color: color(_others, 'light');
+}
+
 @each $theme in $themes {
   .color-#{$theme} {
     color: color(_#{$theme}, 'medium');
-  }
-}
-
-@each $color in $color-names {
-  .color-#{$color} {
-    color: color(_#{$color}, 'medium');
   }
 }
 

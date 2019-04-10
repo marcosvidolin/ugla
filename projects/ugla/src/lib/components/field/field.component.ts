@@ -144,6 +144,15 @@ export class FieldComponent implements OnInit {
    * @param event
    */
   keyupHandler(event) {
+    const val = event.currentTarget.value;
+    if (this.type === 'number' && val !== '') {
+      if (this.min && Number(val) < Number(this.min)) {
+        event.currentTarget.value = '';
+      }
+      if (this.max && Number(val) > Number(this.max)) {
+        event.currentTarget.value = '';
+      }
+    }
     this.num = event.currentTarget.value.length;
     this.infos__count = `${this.num}/${this.maxLength}`;
   }
@@ -173,15 +182,6 @@ export class FieldComponent implements OnInit {
         event.currentTarget.classList.remove('invalid');
       }
       this.message = this.originalMessage;
-    }
-
-    if (this.type === 'number' && val !== '') {
-      if (this.min && Number(val) < Number(this.min)) {
-        event.currentTarget.value = '';
-      }
-      if (this.max && Number(val) > Number(this.max)) {
-        event.currentTarget.value = '';
-      }
     }
   }
 

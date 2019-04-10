@@ -12,7 +12,8 @@
     (focusout)="onFocusOut(this.picker)"
     aria-describedby="pickerDesc"
     aria-labelledby="pickerLabel"
-    aria-relevant="all">
+    aria-relevant="all"
+    [value]="value">
   <label [id]="'pickerLabel-' + name" [attr.aria-label]="label" [for]="'datepicker-' + name">{{ label }}</label>
   <label [for]="'datepicker-' + name" class="icon"><i class="material-icons">calendar_today</i></label>
   <div class="infos" >

@@ -1,12 +1,12 @@
-<ugl-header [header]="header" (logoutAction)="logout($event)" *ngIf="isAutenticated">
+<ugl-header [header]="header" (logoutAction)="logout($event)" *ngIf="!isAutenticated">
   <div uglGrid [grid]="true" [col]="1">
     <ugl-select class="fluid" [select]="select" (selectLanguage)="selectLanguage($event)" [stylized]="'true'" [dataTitle]="'Select an option'"></ugl-select>
    </div>
 </ugl-header>
 
-<vnl-loading ></vnl-loading>
-<article class="central">
+<ugl-loading ></ugl-loading>
+<article>
   <router-outlet></router-outlet>
 </article>
 
-<vnl-toast></vnl-toast>
+<ugl-toast></ugl-toast>

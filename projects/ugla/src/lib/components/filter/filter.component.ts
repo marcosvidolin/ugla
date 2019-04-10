@@ -7,7 +7,7 @@ import { UglaService } from '../../ugla.service';
  *  [id]="'id'"
  *  [isOpen]="boolean"
  *  [title]="'Title'"
- *  (filterEmmiter)="openFilter()" >
+ *  (filterEmitter)="openFilter()" >
  *  </ugl-filter>
  */
 @Component({
@@ -41,7 +41,7 @@ export class FilterComponent implements OnInit, OnChanges {
   /**
    * Output() Property to emit if the filter is open or not.
    */
-  @Output() filterEmmiter = new EventEmitter<boolean>();
+  @Output() filterEmitter = new EventEmitter<boolean>();
 
   /**
    * Property to receive the css classes
@@ -82,7 +82,7 @@ export class FilterComponent implements OnInit, OnChanges {
   */
   toggleFilter() {
     this.toggleLockFilter();
-    this.filterEmmiter.emit();
+    this.filterEmitter.emit();
   }
 
   /**
@@ -90,12 +90,16 @@ export class FilterComponent implements OnInit, OnChanges {
   */
   toggleLockFilter() {
     if (document.getElementsByClassName('has-filter').length === 0) {
-      const table = document.getElementsByClassName('base-table')[0];
-      table.classList.add('has-filter');
+      const elements = Array.from(document.getElementsByClassName('need-filter'));
+      for (const element of elements) {
+        element.classList.add('has-filter');
+      }
       this.lockFilter = true;
     } else {
-      const table = document.getElementsByClassName('has-filter')[0];
-      table.classList.remove('has-filter');
+      const elements = Array.from(document.getElementsByClassName('has-filter'));
+      for (const element of elements) {
+        element.classList.remove('has-filter');
+      }
       this.lockFilter = false;
     }
   }

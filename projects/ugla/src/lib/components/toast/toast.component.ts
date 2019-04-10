@@ -1,6 +1,5 @@
-import { Component, OnInit, ElementRef } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { Message, ToastService, NotificationCommand } from './toast.service';
-import { Subject } from 'rxjs';
 import { remove } from 'lodash';
 
 @Component({

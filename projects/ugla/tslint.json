@@ -7,13 +7,13 @@
     "directive-selector": [
       true,
       "attribute",
-      "lib",
-      "camelCase"
+      "ugl",
+      "camelCase",
     ],
     "component-selector": [
       true,
       "element",
-      "lib",
+      "ugl",
       "kebab-case"
     ]
   }

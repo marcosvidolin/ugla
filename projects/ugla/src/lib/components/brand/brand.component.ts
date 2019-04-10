@@ -20,18 +20,16 @@ export class BrandComponent {
    * Receives the brand's name
    */
   @Input() brandName: string;
+  
+  /**
+   * Brand image
+   */
+  @Input() brandImage: string;
 
   /**
    * Receives the path to redirect
    */
   @Input() path = 'home';
-
-  /**
-   * Image logo
-   * 
-   * Size: 55px x 55px
-   */
-  @Input() image = '';
 
   /**
    * Insert the theme name on html component

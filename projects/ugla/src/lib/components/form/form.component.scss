@@ -20,5 +20,11 @@ form.simple {
     padding: 1rem;
     margin-top: 1rem !important;
     border-top: 1px solid color(_others, 'body');
+
+    &.background {
+      background: color(_others, 'body');
+      border: 0;
+      padding: 10px;
+    }
   }
 }

@@ -10,4 +10,3 @@ export * from './lib/components';
 export * from './lib/models';
 export * from './lib/enum';
 export * from './lib/directives';
-export * from './lib/utils';

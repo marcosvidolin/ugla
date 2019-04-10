@@ -59,16 +59,15 @@ export class ToastItemComponent implements OnInit, AfterViewInit {
   }
 
   autoClose() {
-    if (this.messageType !== 'error') {
-
+    if (this.message.timeout) {
       this.timeout = setTimeout(() => {
         this.closeToast(this.message.id);
-      }, (this.message.timeout || 3000));
+      }, (this.message.timeout));
     }
   }
 
   ngAfterViewInit() {
-    (this.element.nativeElement as HTMLDivElement).querySelector<'h2'>('h2').focus();
+    (this.element.nativeElement as HTMLDivElement).querySelector<HTMLBodyElement>(`#toast-item-${this.message.id}`).focus();
     this.onShow.emit(this.element);
   }
 }

@@ -50,7 +50,19 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
   /**
    * Set initial value
    */
-  @Input() value: string;
+  @Input()
+  set value(value: any) {
+    if (value) {
+      this._value = new Date(value);
+    }
+  }
+
+  get value() {
+    if (this.picker) {
+      this.picker.dateSelected = this._value;
+    }
+    return null;
+  }
 
   /**
    * Set message
@@ -132,6 +144,8 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
 
   id: string;
 
+  _value: Date;
+
   /**
    * @ignore
    */
@@ -164,9 +178,9 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
   ngOnInit() {
     this.id = 'datepicker-' + this.name;
     this.originalMessage = this.message;
+    this.value = this.value ? this.value : '';
     this.invalid = (this.invalid !== undefined) ? this.invalid : false;
     this.disabled = (this.disabled !== undefined) ? this.disabled : false;
-    this.value = (this.value !== undefined) ? this.value : '';
     this.messageInvalidSelection = (this.messageInvalidSelection !== undefined) ? this.messageInvalidSelection : Form.INVALID_SELECTION;
     this.messageRequired = (this.messageRequired !== undefined) ? this.messageRequired : Form.REQUIRED;
     this.language = (this.language !== undefined) ? this.language : 'en';
@@ -181,7 +195,6 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
       const event = new Event('change');
       instance.el.dispatchEvent(event);
     };
-
   }
 
   /**
@@ -213,9 +226,22 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
   }
 
   /**
+   * Set a current date value.
+   */
+  setCurrentDate() {
+    if (this._value) {
+      this.picker.setDate(this._value, true);
+    } else {
+      this.picker.setDate(null, false);
+    }
+  }
+
+  /**
    * Execute on after view
    */
   ngAfterViewInit() {
     this.picker = datepicker('#datepicker-' + this.name, this.options);
+
+    this.setCurrentDate();
   }
 }

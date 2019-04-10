@@ -1,6 +1,6 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { UglaComponent } from './ugla.component';
+import { UglaComponent } from './ugla-lib.component';
 
 describe('UglaComponent', () => {
   let component: UglaComponent;

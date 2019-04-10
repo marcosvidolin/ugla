@@ -3,7 +3,7 @@
 .card-timeline {
   padding: 2.5px 10px 2.5px 36px;
 
-  @each $color in $color-names {
+  @each $color in $themes {
     &.#{$color} {
       .card {
         &::before {

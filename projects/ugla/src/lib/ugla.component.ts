@@ -1,19 +1,15 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
+/**
+ * Ugla main class
+ */
 @Component({
-  selector: 'lib-ugla',
-  template: `
-    <p>
-      ugla works!
-    </p>
-  `,
-  styles: []
+  selector: 'ugl-ugla',
+  template: ''
 })
-export class UglaComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit() {
-  }
-
+export class UglaComponent {
+  /**
+   * @ignore
+   */
+  constructor() {}
 }

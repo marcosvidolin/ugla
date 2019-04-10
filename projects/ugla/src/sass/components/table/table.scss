@@ -9,11 +9,12 @@
 
     tr {
       border-radius: 5px 5px 0 0;
+      height: 50px;
 
       th {
         font-size: 0.875rem;
         color: color(_others, 'light');
-        padding: 1rem 0 1rem 0.625rem;
+        padding: 0 0 0 0.625rem;
 
         &:first-child {
           border-radius: 5px 0 0 0;
@@ -29,6 +30,7 @@
   tbody {
     > tr {
       border-top: 5px solid color(_others, 'body');
+      line-height: 2;
 
       &:first-of-type {
         border: 0;
@@ -37,7 +39,7 @@
 
     td {
       font-size: 0.75rem;
-      padding: 1rem 0 1rem 0.625rem;
+      padding: 0 0 0 0.625rem;
       background-color: color(_others, 'light');
       height: 47px;
     }
