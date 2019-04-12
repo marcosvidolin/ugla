@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
 
   header = new Header('Ugla', './assets/imgs/logo.png');
 
-  people = new People('Regivaldo Silva', 'regivaldo@ciandt.com', './assets/imgs/people.png');
+  people = new People('Jack Connor', 'jack.connor@ugla.dev', './assets/imgs/people.png');
 
   menu = new Menu([
     new MenuItem('Home', '/', true),
