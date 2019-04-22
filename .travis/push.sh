@@ -15,6 +15,7 @@ upload_files() {
   git push origin --all
   git request-pull new-version https://github.com/ciandt-dev/ugla master
   git push origin new-version:master
+  git push --all
 }
 
 setup_git
