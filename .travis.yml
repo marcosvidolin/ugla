@@ -13,5 +13,5 @@ jobs:
       caches:
         - node
       script:
-        .travis/deploy_lib.sh
-        .travis/push.sh
+        - .travis/deploy_lib.sh
+        - .travis/push.sh
