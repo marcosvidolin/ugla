@@ -18,6 +18,6 @@ upload_files() {
   git push --all
 }
 
-setup_git
+# setup_git
 commit_website_files
 upload_files

@@ -13,10 +13,10 @@ build() {
   cd projects/ugla/
   npm version patch
   cd ../..
+  npm version patch
   node version.js
   ng build --project=ugla
   if [[ `git status --porcelain` ]]; then git add . && git commit -m "Changes build"; fi
-  npm version patch
   cp -r projects/ugla/src/sass dist/sass
   cp LICENSE dist/
 }

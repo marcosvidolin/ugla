@@ -3,7 +3,7 @@ import {ModalService} from './modal.service';
 import { cycleTabs } from './../common/tab.service';
 
 @Component({
-  selector: 'vnl-modal',
+  selector: 'ugl-modal',
   templateUrl: './modal.component.html',
   styleUrls: ['./modal.component.scss']
 })

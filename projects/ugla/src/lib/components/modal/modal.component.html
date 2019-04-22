@@ -14,16 +14,16 @@
     </div>
 
     <div class="modal-footer">
-      <vnl-button
+      <ugl-button
         *ngIf="!hiddenCancelButton"
         [type]="'button'"
         [color]="'red'"
         [style]="'border'"
         [title]="cancelButtonText"
         (click)="onCancelClick()"
-        [id]="'cancel-button'">{{ cancelButtonText }}</vnl-button>
+        [id]="'cancel-button'">{{ cancelButtonText }}</ugl-button>
 
-      <vnl-button
+      <ugl-button
         *ngIf="!hiddenConfirmButton"
         [type]="'submit'"
         [color]="'aquamarine'"
@@ -31,7 +31,7 @@
         [title]="confirmButtonText"
         [disabled]="disableConfirmButton"
         (click)="onConfirmClick()"
-        [id]="'submit-button'">{{ confirmButtonText }}</vnl-button>
+        [id]="'submit-button'">{{ confirmButtonText }}</ugl-button>
     </div>
 
   </div>

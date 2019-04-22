@@ -25,7 +25,7 @@
           border-radius: 0 5px 0 0;
         }
 
-        > vnl-select {
+        > ugl-select {
             .field {
               &.combo {
                 margin-top: 2px !important;
@@ -57,7 +57,7 @@
       background-color: color(_others, 'light');
       height: 47px;
 
-      > vnl-select {
+      > ugl-select {
         .field {
           &.combo {
             margin-top: 2px !important;
