@@ -22,16 +22,16 @@ import { Form } from '../../enum';
  * @example
  * public select = new Select('language', [
  *  new Options('Select an option', '-1');
- *  new Options('Portuguese PT-BR', 'pt_br', true),
+ *  new Options('Portuguese PT-BR', 'pt_br', true, 'green'),
  *  new Options('English EN', 'en')
- * ]);
+ * ], 'white', 'aquamarine');
  */
 @Component({
   selector: 'ugl-select',
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss']
 })
-export class SelectComponent implements OnInit {
+export class SelectComponent implements OnInit, AfterViewInit {
 
   /**
    * Receives theme's name
@@ -150,18 +150,27 @@ export class SelectComponent implements OnInit {
    */
   public selectStyle: {};
 
+  private _open: boolean;
+
   /**
    * Receives the component's name
    * @param ugla: UglaService
    */
-  constructor(private ugla: UglaService) { }
+  constructor(private ugla: UglaService,
+              protected elementRef: ElementRef) { }
 
   /**
    * Current values
    */
   public current = {
-    description: ''
+    description: '',
+    value: '',
+    checked: false,
+    color: ''
   };
+
+  originalBackgroundColor = '';
+  originalZindex;
 
   /**
    * Set initials configurations
@@ -174,19 +183,58 @@ export class SelectComponent implements OnInit {
       this.current = this.truncateCurrentOption(this.select.options[checkedItem]);
     }
 
+    this.originalBackgroundColor = this.select.labelBackgroundColor;
+
+    this.setLabelColor();
+
     this.stylized = (this.stylized !== undefined) ? this.stylized : false;
     this.disabled = (this.disabled !== undefined) ? this.disabled : false;
     this.originalMessage = this.message;
     this.messageRequired = (this.messageRequired !== undefined) ? this.messageRequired : Form.REQUIRED;
+    this.originalZindex = this.zindex;
+  }
 
-    this.selectStyle = {
-      'z-index': this.zindex
-    };
+  ngAfterViewInit() {
+    document.addEventListener('click', ev => {
+      if (!this.elementRef.nativeElement.contains(ev.target)) {
+        this.close();
+      }
+    });
   }
 
   open(event) {
-    if (event.keyCode === 13 || event.type === 'click') {
-      this.checkbox.nativeElement.checked = !this.checkbox.nativeElement.checked;
+    if (event.key === 'ArrowDown' || event.key === 'Down' // `"Down"` is IE specific value
+        || event.keyCode === 13 || event.type === 'click') {
+
+      if (!this.open) {
+        this.checkbox.nativeElement.checked = true;
+        this._open = true;
+        if (!this.disabled) {
+          if (this.zindex === 5) {
+            this.zindex = this.originalZindex;
+          } else {
+            this.zindex = 5;
+          }
+        }
+      } else {
+        this.close();
+      }
+    }
+  }
+
+  close() {
+    this.checkbox.nativeElement.checked = false;
+    this._open = false;
+    this.zindex = this.originalZindex;
+  }
+
+  onClick() {
+    if (!this.disabled) {
+      if (this.zindex === 5) {
+        this.zindex = this.originalZindex;
+      } else {
+        this.zindex = 5;
+      }
     }
   }
 
@@ -197,10 +245,14 @@ export class SelectComponent implements OnInit {
   selectedItem(value, event) {
     if (event.keyCode === 13 || event.keyCode === undefined) {
       this.current = this.truncateCurrentOption(this.select.options[ value ]);
+
+      this.setLabelColor();
+
       this.checkbox.nativeElement.checked = false;
       this.checkbox.nativeElement.nextSibling.focus();
       this.validate(this.checkbox.nativeElement, value);
       this.selected.emit(this.current);
+      this.zindex = this.originalZindex;
     }
   }
 
@@ -228,8 +280,10 @@ export class SelectComponent implements OnInit {
     return this.theme;
   }
 
-  setSelect(value) {
+  setSelect(value, labelColor?, backgroundColor?) {
     setTimeout(() => {
+      this.select.labelColor = (labelColor) ? labelColor : this.select.labelColor;
+      this.select.labelBackgroundColor = (backgroundColor) ? backgroundColor : this.select.labelBackgroundColor;
       this.select.options.forEach(((item) => {
         item.checked = false;
         if (item.value === String(value)) {
@@ -260,6 +314,36 @@ export class SelectComponent implements OnInit {
    */
   truncateCurrentOption(currentOption: Options) {
     const currentDescription: string = this.truncateValue(currentOption.description);
-    return new Options(currentDescription, currentOption.value, currentOption.checked);
+    return new Options(currentDescription, currentOption.value, currentOption.checked, currentOption.color);
+  }
+
+  setClass(color: string, backgroundColor: string) {
+    const classColor = color ? `color-${color}` : '';
+    const classBackgroundcolor  = backgroundColor ? `background-${backgroundColor}` : '';
+    const classCustom = color ? 'custom' : '';
+    const classComboSelected = 'combo-selected';
+    return `${classComboSelected} ${classColor} ${classBackgroundcolor} ${classCustom} `;
+  }
+
+  setLabelColor() {
+    this.select.labelColor = this.current.color;
+    if (this.current.value !== '-1') {
+      this.select.labelBackgroundColor = 'white';
+    } else {
+      this.select.labelBackgroundColor = this.originalBackgroundColor;
+    }
+  }
+
+  /**
+   * Handles `Escape` key closing the dropdown, and arrow up/down focus to/from the dropdown list.
+   */
+  @HostListener('keydown', ['$event'])
+  hostkeys(ev: KeyboardEvent) {
+    if (ev.key === 'Escape') {
+      this.close();
+    } else if (this.elementRef && this.elementRef.nativeElement.contains(ev.target)) {
+      ev.stopPropagation();
+      this.open(ev);
+    }
   }
 }

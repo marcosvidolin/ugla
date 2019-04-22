@@ -1,0 +1,121 @@
+@import '../../../sass/index.scss';
+
+.modal-overlay {
+  /* modal are hidden by default */
+  display: none;
+
+  /* modal container fixed across whole screen */
+  align-items: center;
+  position: fixed;
+  justify-content: center;
+  overflow-y: auto;
+  top: 0;
+  right: 0;
+  left: 0;
+  bottom: 0;
+  background-color: color(_gray, 'medium-alpha');
+  height: 100vh;
+  width: 100vw;
+
+  z-index: 1000;
+}
+
+.modal--show {
+  display: flex;
+}
+
+.modal {
+  @include cross-browser(box-shadow, 0 4px 8px 0 color(_others, shadow));
+  background-color: color(_others, 'light');
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  height: auto;
+  max-width: 480px;
+  min-width: 300px;
+  pointer-events: auto;
+  position: absolute;
+  width: calc(100% - 20px);
+
+  /* z-index must be higher than .modal-overlay */
+  z-index: 1001;
+
+  .modal-body {
+    flex: 1;
+    padding: 20px 20px 0;
+  }
+
+  h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    margin-top: 0;
+    text-align: center;
+
+    @include mobile() {
+      font-size: 1.714rem;
+    }
+  }
+
+  p {
+    font-size: 1rem;
+    margin: 0 auto 1rem;
+    max-inline-size: 16.75em;
+    text-align: center;
+    color: color(_gray, 'medium');
+  }
+
+}
+
+.modal-icon {
+  text-align: center;
+
+  i {
+    font-size: 128px;
+  }
+}
+
+.modal-footer {
+  align-items: center;
+  border-top: 1px solid color(_others, 'body');
+  display: flex;
+  height: 60px;
+  justify-content: space-between;
+  margin-top: 15px !important;
+  padding: .625rem;
+
+  &.background {
+    background: color(_others, 'body');
+    border: 0;
+    padding: 10px;
+  }
+}
+
+
+.info {
+  h2,
+  i {
+    color: color(_aquamarine, 'medium');
+  }
+}
+
+.error {
+  h2,
+  i {
+    color: color(_red, 'medium');
+  }
+}
+
+.success {
+  h2,
+  i {
+    color: color(_green, 'medium');
+  }
+}
+
+.warning {
+  h2,
+  i {
+    color: color(_yellow, 'medium');
+  }
+}

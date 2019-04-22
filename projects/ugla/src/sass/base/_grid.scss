@@ -13,10 +13,6 @@
   
   article section {
     padding-top: 105px;
-
-    &.padding {
-      padding: 105px 10px 10px 10px;
-    }
   }
 }
 
@@ -36,10 +32,6 @@ article {
     margin: 0 auto;
     padding-top: 60px;
 
-    &.padding {
-      padding: 60px 10px 10px 10px;
-    }
-
     @include mobile() {
       width: 100%;
     }
@@ -47,7 +39,7 @@ article {
     &:not(.central):not(.login) {
       margin-top: 1rem;
     }
-    
+
     &.central {
       width: 1024px;
       background-color: color(_others, 'light');

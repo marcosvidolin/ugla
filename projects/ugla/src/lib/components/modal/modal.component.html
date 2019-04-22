@@ -1,0 +1,38 @@
+<div *ngIf="isOpened" class="modal-overlay" [ngClass]="{'modal--show': isOpened, 'modal--hide': isClosing}">
+
+  <div id="modal" role="dialog" class="modal" [ngClass]="type" aria-labelledby="modalTitle" aria-modal="true" [attr.aria-label]="'modalTitle'"> 
+    <div class="modal-body" tabindex="0">
+      <div class="modal-icon" *ngIf="hasIcon">
+        <i class="material-icons" aria-hidden="true">{{icon}}</i>
+      </div>
+      <h2 id="modalTitle">{{title}}</h2>
+      <p id="modalSubtitle" [innerHtml]="subtitle">{{subtitle}}</p>
+
+      <div class="modal-content">
+        <ng-content></ng-content>
+      </div>
+    </div>
+
+    <div class="modal-footer">
+      <vnl-button
+        *ngIf="!hiddenCancelButton"
+        [type]="'button'"
+        [color]="'red'"
+        [style]="'border'"
+        [title]="cancelButtonText"
+        (click)="onCancelClick()"
+        [id]="'cancel-button'">{{ cancelButtonText }}</vnl-button>
+
+      <vnl-button
+        *ngIf="!hiddenConfirmButton"
+        [type]="'submit'"
+        [color]="'aquamarine'"
+        [style]="'fill'"
+        [title]="confirmButtonText"
+        [disabled]="disableConfirmButton"
+        (click)="onConfirmClick()"
+        [id]="'submit-button'">{{ confirmButtonText }}</vnl-button>
+    </div>
+
+  </div>
+</div>

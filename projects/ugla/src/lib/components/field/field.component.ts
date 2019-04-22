@@ -45,7 +45,15 @@ export class FieldComponent implements OnInit {
   /**
    * Set initial value
    */
-  @Input() value: string;
+  @Input() set value(val: string) {
+    this._value = val;
+  }
+
+  get value() {
+    return this._value;
+  }
+
+  private _value: string;
 
   /**
    * Set limit characters.
@@ -162,6 +170,7 @@ export class FieldComponent implements OnInit {
    * @param event
    */
   changeHandler(event) {
+    this.value = event.currentTarget.value;
     this.onChangeValue.emit(event.currentTarget.value);
   }
 
