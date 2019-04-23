@@ -10,13 +10,15 @@ install() {
 }
 
 build() {
-  cd projects/ugla/
-  npm version patch
-  cd ../..
-  npm version patch
   node version.js
   ng build --project=ugla
-  if [[ `git status --porcelain` ]]; then git add . && git commit -m "Changes build"; fi
+  if [[ `git status --porcelain` ]]; then 
+    git checkout -b trevis-version
+    git add .
+    git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
+    git request-pull trevis-version https://github.com/ciandt-dev/ugla master
+    git push origin trevis-version:master
+  fi
   cp -r projects/ugla/src/sass dist/sass
   cp LICENSE dist/
 }
