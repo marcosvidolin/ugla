@@ -40,6 +40,11 @@ article {
       margin-top: 1rem;
     }
 
+    &.padding {
+      padding-left: 1rem;
+      padding-right: 1rem;
+    }
+
     &.central {
       width: 1024px;
       background-color: color(_others, 'light');
