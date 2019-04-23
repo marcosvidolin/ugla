@@ -13,7 +13,7 @@ import { UglaService } from '../../ugla.service';
  </ugl-header>
  ```
  ```typescript
-  import { Header, People, Menu, MenuItem, Select, Options } from '@ciandt_it/cit-ugla';
+  import { Header, People, Menu, MenuItem, Select, Options } from 'ugla-ugla';
 
   public header = new Header('BRAND NAME');
   public people = new People('PEOPLE NAME', 'LOGIN\@ciandt.com', 'IMAGE URL');
