@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter, AfterViewInit, HostListener } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter, HostListener, AfterViewInit } from '@angular/core';
 import { Select, Options } from '../../models';
 import { UglaService } from '../../ugla.service';
 import { Form } from '../../enum';

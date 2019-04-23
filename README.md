@@ -8,7 +8,15 @@
 ![build](https://travis-ci.com/ciandt-dev/ugla.svg?branch=master)
 
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.3.7.
+
+## Versioning
+Given a version number MAJOR.MINOR.PATCH, increment the:
+
+1. MAJOR version when you make incompatible API changes,
+1. MINOR version when you add functionality in a backwards-compatible manner, and
+1. PATCH version when you make backwards-compatible bug fixes.
+
+Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 
 ## Development server
 
@@ -26,10 +34,9 @@ Run `ng build` to build the project. The build artifacts will be stored in the `
 
 Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
 
-## Running end-to-end tests
-
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Oficial Site
+Read more on:[Ugla](https://ugla-1c7e1.firebaseapp.com)
