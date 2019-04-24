@@ -36,10 +36,13 @@ import { SwitchComponent } from './components/switch/switch.component';
 import { ListLinksComponent } from './components/list-links/list-links.component';
 import { FilterComponent } from './components/filter/filter.component';
 import { CardTimelineComponent } from './components/cards/card-timeline/card-timeline.component';
-import { SimpleTableComponent, ModalComponent } from './components';
+import { SimpleTableComponent } from './components';
 import { CheckboxColumnDirective } from './directives/checkbox-column.directive';
 import { PaginationComponent } from './components/pagination/pagination.component';
 import { PaginationItemsPerPageComponent } from './components/pagination/pagination-items-per-page/pagination-items-per-page.component';
+import { ModalComponent } from './components/modal/modal.component';
+import { ClickOutsideDirective } from './directives';
+
 registerPlugin(FilePondPluginFileValidateType,
   FilePondPluginFileValidateSize,
   FilePondPluginImageCrop,
@@ -74,6 +77,7 @@ registerPlugin(FilePondPluginFileValidateType,
     ToastComponent,
     ToastItemComponent,
     GridDirective,
+    ClickOutsideDirective,
     ListOptionsComponent,
     LoginComponent,
     LoadingComponent,
@@ -85,8 +89,8 @@ registerPlugin(FilePondPluginFileValidateType,
     SimpleTableComponent,
     CheckboxColumnDirective,
     PaginationComponent,
-    ModalComponent,
-    PaginationItemsPerPageComponent
+    PaginationItemsPerPageComponent,
+    ModalComponent
   ],
   exports: [
     UglaComponent,
@@ -106,6 +110,7 @@ registerPlugin(FilePondPluginFileValidateType,
     ToastComponent,
     ToastItemComponent,
     GridDirective,
+    ClickOutsideDirective,
     ListOptionsComponent,
     LoginComponent,
     LoadingComponent,
@@ -116,8 +121,8 @@ registerPlugin(FilePondPluginFileValidateType,
     SimpleTableComponent,
     CheckboxColumnDirective,
     PaginationComponent,
-    ModalComponent,
-    PaginationItemsPerPageComponent
+    PaginationItemsPerPageComponent,
+    ModalComponent
   ],
   providers: [UglaService]
 })

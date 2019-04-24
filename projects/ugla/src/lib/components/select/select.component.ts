@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter, HostListener, AfterViewInit } from '@angular/core';
+import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter, HostListener, AfterViewInit, Renderer2 } from '@angular/core';
 import { Select, Options } from '../../models';
 import { UglaService } from '../../ugla.service';
 import { Form } from '../../enum';
@@ -31,7 +31,7 @@ import { Form } from '../../enum';
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss']
 })
-export class SelectComponent implements OnInit, AfterViewInit {
+export class SelectComponent implements OnInit {
 
   /**
    * Receives theme's name
@@ -150,14 +150,15 @@ export class SelectComponent implements OnInit, AfterViewInit {
    */
   public selectStyle: {};
 
-  private _open: boolean;
+  private _open = false;
 
   /**
    * Receives the component's name
    * @param ugla: UglaService
    */
   constructor(private ugla: UglaService,
-              protected elementRef: ElementRef) { }
+              protected elementRef: ElementRef,
+              private renderer: Renderer2) { }
 
   /**
    * Current values
@@ -171,6 +172,8 @@ export class SelectComponent implements OnInit, AfterViewInit {
 
   originalBackgroundColor = '';
   originalZindex;
+
+  listenClick: any;
 
   /**
    * Set initials configurations
@@ -194,38 +197,46 @@ export class SelectComponent implements OnInit, AfterViewInit {
     this.originalZindex = this.zindex;
   }
 
-  ngAfterViewInit() {
-    document.addEventListener('click', ev => {
-      if (!this.elementRef.nativeElement.contains(ev.target)) {
-        this.close();
-      }
-    });
-  }
-
-  open(event) {
-    if (event.key === 'ArrowDown' || event.key === 'Down' // `"Down"` is IE specific value
-        || event.keyCode === 13 || event.type === 'click') {
-
-      if (!this.open) {
-        this.checkbox.nativeElement.checked = true;
-        this._open = true;
-        if (!this.disabled) {
-          if (this.zindex === 5) {
-            this.zindex = this.originalZindex;
-          } else {
-            this.zindex = 5;
-          }
-        }
+  /**
+   * Toggles the combobox.
+   */
+  toggleCombobox(event) {
+    if (event.keyCode === 13 || event.type === 'click') {
+      if (!this._open) {
+        this.open();
       } else {
         this.close();
       }
     }
   }
 
+  open() {
+    if (this._open) {
+      return;
+    }
+
+    this.listenClick = this.renderer.listen('window', 'click', (evt) => {      
+      if (!this.elementRef.nativeElement.contains(evt.target)) {
+        this.close();
+      }
+    });
+
+    this._open = true;
+    if (!this.disabled) {
+      if (this.zindex === 5) {
+        this.zindex = this.originalZindex;
+      } else {
+        this.zindex = 5;
+      }
+    }
+    setTimeout(() => this.checkbox.nativeElement.checked = true, 0);
+  }
+
   close() {
-    this.checkbox.nativeElement.checked = false;
     this._open = false;
     this.zindex = this.originalZindex;
+    this.listenClick(); // destroy event listener
+    setTimeout(() => this.checkbox.nativeElement.checked = false, 0);
   }
 
   onClick() {
@@ -343,7 +354,7 @@ export class SelectComponent implements OnInit, AfterViewInit {
       this.close();
     } else if (this.elementRef && this.elementRef.nativeElement.contains(ev.target)) {
       ev.stopPropagation();
-      this.open(ev);
+      this.open();
     }
   }
 }
