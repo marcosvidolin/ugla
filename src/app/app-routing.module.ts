@@ -7,11 +7,13 @@ import { ComponentsPageComponent } from './pages/components-page/components-page
 import { DirectivesPageComponent } from './pages/directives-page/directives-page.component';
 import { ServicesPageComponent } from './pages/services-page/services-page.component';
 import { DevPageComponent } from './pages/dev-page/dev-page.component';
+import { BrandComponent } from './pages/components-page/brand/brand.component';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
   {path: 'login', component: LoginPageComponent},
   {path: 'components', component: ComponentsPageComponent},
+  {path: 'components/brand', component: BrandComponent},
   {path: 'directives', component: DirectivesPageComponent},
   {path: 'services', component: ServicesPageComponent},
   {path: 'dev', component: DevPageComponent}

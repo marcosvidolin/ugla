@@ -2,11 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { List, Link } from 'projects/ugla/src';
 
 @Component({
-  selector: 'app-components-page',
-  templateUrl: './components-page.component.html',
-  styleUrls: ['./components-page.component.scss']
+  selector: 'app-brand',
+  templateUrl: './brand.component.html',
+  styleUrls: ['./brand.component.scss']
 })
-export class ComponentsPageComponent implements OnInit {
+export class BrandComponent implements OnInit {
 
   constructor() { }
 
@@ -16,7 +16,7 @@ export class ComponentsPageComponent implements OnInit {
     this.list = new List('components-list');
     this.list.name = 'components-list';
     this.list.links = [
-      new Link('Brand', '/components/brand', false, 'Brand', 'component-brand'),
+      new Link('Brand', '/components/brand', true, 'Brand', 'component-brand'),
       new Link('Button', '/components/button', false, 'Button', 'component-button'),
       new Link('Cards', '/components/cards', false, 'Cards', 'component-cards'),
       new Link('Checkbox', '/components/checkbox', false, 'Checkbox', 'component-checkbox'),

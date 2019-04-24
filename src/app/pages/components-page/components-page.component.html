@@ -1,3 +1,10 @@
-<section class="central padding">
-  <ugl-page-title [firstTitle]="'Components'" [secondTitle]="'Documentation'"></ugl-page-title>
+<section class="no-margin">
+  <div uglGrid [grid]="true" [col]="10" [gap]="2">
+    <aside>
+      <ugl-list-links [list]="list" id="'components'" [orientation]="'column'"></ugl-list-links>
+    </aside>
+    <div uglGrid [span]="8" class="border">
+      <ugl-page-title [firstTitle]="'Components'" [secondTitle]="'Documentation'"></ugl-page-title>
+    </div>
+  </div>
 </section>

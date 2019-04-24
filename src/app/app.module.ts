@@ -6,10 +6,11 @@ import { AppComponent } from './app.component';
 import { UglaModule, Themes } from 'projects/ugla/src';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { ComponentsPageComponent } from './pages/components-page/components-page.component';
 import { DirectivesPageComponent } from './pages/directives-page/directives-page.component';
 import { ServicesPageComponent } from './pages/services-page/services-page.component';
 import { DevPageComponent } from './pages/dev-page/dev-page.component';
+import { ComponentsPageComponent } from './pages/components-page/components-page.component';
+import { BrandComponent } from './pages/components-page/brand/brand.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { DevPageComponent } from './pages/dev-page/dev-page.component';
     ComponentsPageComponent,
     DirectivesPageComponent,
     ServicesPageComponent,
-    DevPageComponent
+    DevPageComponent,
+    BrandComponent
   ],
   imports: [
     BrowserModule,

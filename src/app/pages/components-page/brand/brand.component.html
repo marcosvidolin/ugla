@@ -1,0 +1,18 @@
+<section class="no-margin">
+  <div uglGrid [grid]="true" [col]="10" [gap]="2">
+    <aside>
+      <ugl-list-links [list]="list" id="'components'" [orientation]="'column'"></ugl-list-links>
+    </aside>
+    <div uglGrid [span]="8" class="border">
+      <h3 class="color-yellow">Brand</h3>
+
+      <p class="code-block">
+        &#60;ugl-brand [brandName]="'Brand name'" [brandImage]="'./assets/imgs/logo.png'"&#62;&#60;/ugl-brand&#62;
+      </p>
+
+      <div class="visual">
+        <ugl-brand [brandName]="'Brand name'" [brandImage]="'./assets/imgs/logo.png'"></ugl-brand>
+      </div>
+    </div>
+  </div>
+</section>

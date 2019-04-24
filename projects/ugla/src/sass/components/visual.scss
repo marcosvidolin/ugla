@@ -1,0 +1,19 @@
+
+.visual {
+  padding: 1rem;
+  background-color: color(_gray, light);
+}
+
+.code {
+  color: color(_gray, dark);
+  font-weight: 500;
+  background-color: color(_gray, extra-light);
+
+  &-block {
+    display: block;
+    padding: 10px;
+    font-weight: 500;
+    color: color(_gray, dark);
+    background-color: color(_gray, extra-light);
+  }
+}

@@ -26,34 +26,34 @@ article {
       min-height: 100vh;
     }
   }
+}
 
-  section {
+section {
+  width: 100%;
+  margin: 0 auto;
+  padding-top: 60px;
+
+  @include mobile() {
     width: 100%;
-    margin: 0 auto;
-    padding-top: 60px;
+  }
+
+  &:not(.central):not(.login) {
+    margin-top: 1rem;
+  }
+
+  &.padding {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  &.central {
+    width: 1024px;
+    background-color: color(_others, 'light');
+    box-shadow: 0 1rem 1rem color(_others, 'shadow');
 
     @include mobile() {
-      width: 100%;
-    }
-
-    &:not(.central):not(.login) {
-      margin-top: 1rem;
-    }
-
-    &.padding {
-      padding-left: 1rem;
-      padding-right: 1rem;
-    }
-
-    &.central {
-      width: 1024px;
+      width: 95%;
       background-color: color(_others, 'light');
-      box-shadow: 0 1rem 1rem color(_others, 'shadow');
-
-      @include mobile() {
-        width: 95%;
-        background-color: color(_others, 'light');
-      }
     }
   }
 }
