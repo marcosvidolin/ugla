@@ -103,7 +103,7 @@ $label-animate-time: 0.2s;
     }
 
     &[disabled] {
-      color: color(_gray, extra-light);
+      color: color(_gray, dark-alpha);
       border: 1px solid color(_gray, extra-light);
       background: transparent;
     }
