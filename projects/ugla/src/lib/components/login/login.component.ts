@@ -33,6 +33,7 @@ export class LoginComponent implements OnInit {
   @Input() subheader: string;
   @Input() desktopImage: string;
   @Input() mobileImage: string;
+  @Input() buttonBackgroud = 'red';
 
   /**
    * Image to Google icon
