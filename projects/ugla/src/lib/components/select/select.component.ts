@@ -31,7 +31,7 @@ import { Form } from '../../enum';
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss']
 })
-export class SelectComponent implements OnInit {
+export class SelectComponent implements OnInit, OnDestroy {
 
   /**
    * Receives theme's name
@@ -173,7 +173,7 @@ export class SelectComponent implements OnInit {
   originalBackgroundColor = '';
   originalZindex;
 
-  listenClick: any;
+  listenClick: () => void;
 
   /**
    * Set initials configurations
@@ -197,6 +197,12 @@ export class SelectComponent implements OnInit {
     this.originalZindex = this.zindex;
   }
 
+  ngOnDestroy() {
+    if (this.listenClick) {
+      this.listenClick();
+    }
+  }
+
   /**
    * Toggles the combobox.
    */
@@ -215,7 +221,7 @@ export class SelectComponent implements OnInit {
       return;
     }
 
-    this.listenClick = this.renderer.listen('window', 'click', (evt) => {      
+    this.listenClick = this.renderer.listen('window', 'click', (evt) => {
       if (!this.elementRef.nativeElement.contains(evt.target)) {
         this.close();
       }
@@ -263,7 +269,7 @@ export class SelectComponent implements OnInit {
       this.checkbox.nativeElement.nextSibling.focus();
       this.validate(this.checkbox.nativeElement, value);
       this.selected.emit(this.current);
-      this.zindex = this.originalZindex;
+      this.close();
     }
   }
 
@@ -354,7 +360,11 @@ export class SelectComponent implements OnInit {
       this.close();
     } else if (this.elementRef && this.elementRef.nativeElement.contains(ev.target)) {
       ev.stopPropagation();
-      this.open();
+      if ( ev.key === 'ArrowDown' || ev.key === 'Down') {
+        this.open();
+      } else {
+        this.toggleCombobox(ev);
+      }
     }
   }
 }
