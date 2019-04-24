@@ -9,7 +9,7 @@ install() {
 
 build() {
   ng build
-  compodoc -p projects/ugla/tsconfig.lib.json -d dist/docs/ --theme material
+  compodoc -p projects/ugla/tsconfig.lib.json -d dist/ugla-workspace/docs/ --theme material
 }
 
 deploy() {

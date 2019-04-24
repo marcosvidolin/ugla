@@ -9,6 +9,7 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { ComponentsPageComponent } from './pages/components-page/components-page.component';
 import { DirectivesPageComponent } from './pages/directives-page/directives-page.component';
 import { ServicesPageComponent } from './pages/services-page/services-page.component';
+import { DevPageComponent } from './pages/dev-page/dev-page.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,8 @@ import { ServicesPageComponent } from './pages/services-page/services-page.compo
     HomePageComponent,
     ComponentsPageComponent,
     DirectivesPageComponent,
-    ServicesPageComponent
+    ServicesPageComponent,
+    DevPageComponent
   ],
   imports: [
     BrowserModule,
