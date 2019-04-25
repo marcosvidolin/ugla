@@ -163,6 +163,7 @@ export class FieldComponent implements OnInit {
     }
     this.num = event.currentTarget.value.length;
     this.infos__count = `${this.num}/${this.maxLength}`;
+    this.focusoutHandler(event);
   }
 
   /**
@@ -171,6 +172,7 @@ export class FieldComponent implements OnInit {
    */
   changeHandler(event) {
     this.value = event.currentTarget.value;
+    this.focusoutHandler(event);
     this.onChangeValue.emit(event.currentTarget.value);
   }
 
