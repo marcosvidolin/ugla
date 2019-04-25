@@ -89,7 +89,7 @@ $label-animate-time: 0.2s;
 
     &[disabled] {
       + label {
-        color: color(_gray, extra-light);
+        color: color(_gray, dark-alpha);
       }
 
       ~ .icon {
