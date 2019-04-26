@@ -1,6 +1,5 @@
 import {Component, OnInit, Input, Output, EventEmitter, ElementRef} from '@angular/core';
 import {Form} from '../../enum';
-
 /**
  * Field
  *
@@ -126,6 +125,13 @@ export class FieldComponent implements OnInit {
   @Input() messageRequired: string;
 
   /**
+   * This property show the counter
+   *
+   * Default: false
+   */
+  @Input() counter = false;
+
+  /**
    * @ignore
    */
   public num: number;
@@ -209,6 +215,7 @@ export class FieldComponent implements OnInit {
    */
   ngOnInit() {
     this.type = this.type === undefined ? 'text' : this.type;
+    this.counter = this.counter === undefined ? false : this.counter;
     this.originalMessage = this.message;
     this.num = 0;
     this.infos__count = (this.maxLength !== undefined) ? `${this.num}/${this.maxLength}` : ' ';

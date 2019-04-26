@@ -20,7 +20,7 @@
     class="material-icons">query_builder</i></label>
   <div class="infos">
     <span class="infos__message">{{ message }}</span>
-    <span class="infos__count" *ngIf="type !== 'time'">{{ infos__count }}</span>
+    <span class="infos__count" *ngIf="type !== 'time' && counter">{{ infos__count }}</span>
   </div>
 </div>
 
