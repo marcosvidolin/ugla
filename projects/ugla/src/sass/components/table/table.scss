@@ -29,6 +29,10 @@
             .field {
               &.combo {
                 margin-top: 2px !important;
+
+                i {
+                  z-index: 0 !important;
+                }
               }
             }
             input[type=checkbox]{
@@ -61,6 +65,10 @@
         .field {
           &.combo {
             margin-top: 2px !important;
+
+            i {
+              z-index: 0 !important;
+            }
           }
         }
         input[type=checkbox] {

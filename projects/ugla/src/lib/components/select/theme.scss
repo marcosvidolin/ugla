@@ -204,7 +204,7 @@ $label-animate-time: 0.2s;
       position: absolute;
       top: 1rem;
       right: 0.5rem;
-      z-index: 0;
+      z-index: 2;
     }
 
     [type='checkbox'] {
@@ -424,7 +424,7 @@ $label-animate-time: 0.2s;
             display: block;
             min-height: 3rem;
             border-bottom: 1px solid color(_gray, light);
-           
+
             &:hover {
               background-color: rgba(color(_gray, extra-light), 0.2);
             }
