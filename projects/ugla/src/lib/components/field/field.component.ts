@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
-import { Form } from '../../enum';
+import {Component, OnInit, Input, Output, EventEmitter, ElementRef} from '@angular/core';
+import {Form} from '../../enum';
 
 /**
  * Field
@@ -108,7 +108,15 @@ export class FieldComponent implements OnInit {
    *
    * Default: false
    */
-  @Input() invalid: boolean;
+  @Input() set invalid(value: boolean) {
+    this._invalid = value;
+  }
+
+  get invalid() {
+    return this._invalid;
+  }
+
+  private _invalid: boolean;
 
   /**
    * Message for invalid selection

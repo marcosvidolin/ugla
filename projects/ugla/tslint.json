@@ -8,7 +8,7 @@
       true,
       "attribute",
       "ugl",
-      "camelCase",
+      "camelCase"
     ],
     "component-selector": [
       true,

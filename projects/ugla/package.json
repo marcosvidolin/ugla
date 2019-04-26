@@ -8,7 +8,14 @@
   "bugs": {
     "url": "https://github.com/ciandt-dev/ugla/issues"
   },
-  "keywords": ["angular", "typescript", "javascript", "components", "library", "scss"],
+  "keywords": [
+    "angular",
+    "typescript",
+    "javascript",
+    "components",
+    "library",
+    "scss"
+  ],
   "homepage": "https://ugla-1c7e1.firebaseapp.com",
   "license": "MIT",
   "peerDependencies": {
