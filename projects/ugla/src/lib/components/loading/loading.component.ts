@@ -75,6 +75,7 @@ export class LoadingComponent implements OnInit, OnDestroy {
   onHide() {
     if (this.show) {
       this.show = !this.show;
+      document.body.classList.remove('no-scroll');
     }
   }
 }
