@@ -175,8 +175,12 @@ $label-animate-time: 0.2s;
 
   .infos {
     display: flex;
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: color(_gray, light);
+
+    @include mobile {
+      font-size: 0.857rem;
+    }
 
     &__message {
       width: 90%;
