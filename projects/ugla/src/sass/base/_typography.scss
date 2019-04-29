@@ -41,6 +41,18 @@ p {
   @include mobile() {
     font-size: 1rem;
   }
+
+  &.highlight {
+    padding: 10px;
+    line-height: normal;
+    text-align: center;
+    color: color(_gray, dark);
+    background-color: color(_yellow, medium);
+
+    @include mobile() {
+      font-size: 1rem;
+    }
+  }
 }
 
 .align {
