@@ -10,7 +10,7 @@
   form.simple .content {
     min-height: calc(100vh - 202px) !important;
   }
-  
+
   article section {
     padding-top: 105px;
   }
@@ -87,6 +87,10 @@ section {
     &.col-#{$i} {
       height: fit-content;
       grid-template-columns: repeat(#{$i}, 1fr);
+
+      @include firefoxOnly() {
+        height: 0;
+      }
     }
 
     .span-#{$i} {

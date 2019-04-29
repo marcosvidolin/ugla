@@ -92,3 +92,9 @@
   background: linear-gradient(to $orientationTwo, $color1 $position1,$color2 $position2); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
   filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#{$color1}', endColorstr='#{$color2}',GradientType=$gradientType ); /* IE6-9 */
 }
+
+@mixin firefoxOnly {
+   @supports (-moz-appearance:meterbar)  {
+    @content;
+  }
+}
