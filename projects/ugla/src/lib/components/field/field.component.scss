@@ -173,23 +173,14 @@ $label-animate-time: 0.2s;
     &:focus,
     &:not(:placeholder-shown) {
       + label {
+        display: table;
+        @include cross-browser(width, fit-content, true);
         font-size: 0.8rem;
         top: -0.5rem;
         padding: 0 0.2rem;
         transition: $label-animate-time all;
         z-index: 1;
-
-        &::after {
-          content: "";
-          position: absolute;
-          display: block;
-          width: 100%;
-          height: 100%;
-          left: 0;
-          bottom: 0;
-          background-color: color(_others, light);
-          z-index: -1;
-        }
+        background-color: color(_others, light);
       }
     }
   }
