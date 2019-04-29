@@ -1,5 +1,5 @@
-import { Component, OnInit, Input, AfterViewInit, Output, EventEmitter } from '@angular/core';
-import { Form } from '../../enum';
+import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
+import {Form} from '../../enum';
 import * as datepicker_ from 'js-datepicker';
 
 /**
@@ -21,14 +21,14 @@ const datepicker = datepicker_;
  *   [invalid]="false"
  *   (onSelectValue)="onDateChange($event)"></ugl-datepicker>
  *
-    ```typescript
-    options: object;
-    this.options = {
+ ```typescript
+ options: object;
+ this.options = {
       minDate: new Date(2019, 1, 3), //hide dates before
       maxDate: new Date(2019, 12, 3), //hide dates after
       position: 'tr' //position of calendar | tr = top right
     };
-    ```
+ ```
  */
 @Component({
   selector: 'ugl-datepicker',
@@ -149,7 +149,8 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
   /**
    * @ignore
    */
-  constructor() { }
+  constructor() {
+  }
 
   /**
    * Event on change inputs
@@ -159,7 +160,7 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
     if (picker) {
       try {
         const format = this.language === 'en' ? '$1/$2/$3' : '$2/$1/$3';
-        picker.setDate(new Date(picker.el.value.replace( /(\d{2})[-/](\d{2})[-/](\d+)/, format)), true);
+        picker.setDate(new Date(picker.el.value.replace(/(\d{2})[-/](\d{2})[-/](\d+)/, format)), true);
         this.invalid = false;
         this.message = this.originalMessage;
       } catch (e) {
@@ -198,9 +199,9 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
   }
 
   /**
-  * Event focus in
-  * @param instance
-  */
+   * Event focus in
+   * @param instance
+   */
   onFocusIn(instance) {
     const input: HTMLInputElement = instance.el;
     input.setAttribute('focused', 'true');
@@ -215,11 +216,10 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
     const input: HTMLInputElement = instance.el;
     if (this.required && input.hasAttribute('focused')) {
       if (input.value === '') {
-        input.classList.remove('valid');
-        input.classList.add('invalid');
+        this.invalid = true;
         this.message = this.messageRequired;
       } else if (!this.invalid) {
-        input.classList.remove('invalid');
+        this.invalid = false;
         this.message = this.originalMessage;
       }
     }
@@ -231,6 +231,9 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
   setCurrentDate() {
     if (this._value) {
       this.picker.setDate(this._value, true);
+      const event = new Event('change');
+      const input: HTMLInputElement = this.picker.el;
+      input.dispatchEvent(event);
     } else {
       this.picker.setDate(null, false);
     }
@@ -243,5 +246,17 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
     this.picker = datepicker('#datepicker-' + this.name, this.options);
 
     this.setCurrentDate();
+  }
+
+  /**
+   * Set a date
+   * @param date
+   */
+  setDate(date: Date) {
+    this.picker.setDate(date);
+
+    const event = new Event('change');
+    const input: HTMLInputElement = this.picker.el;
+    input.dispatchEvent(event);
   }
 }
