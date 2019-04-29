@@ -45,9 +45,8 @@ p {
   &.highlight {
     padding: 10px;
     line-height: normal;
-    text-align: center;
     color: color(_gray, dark);
-    background-color: color(_yellow, medium);
+    background-color: color(_yellow, light);
 
     @include mobile() {
       font-size: 1rem;
