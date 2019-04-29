@@ -89,7 +89,7 @@ section {
       grid-template-columns: repeat(#{$i}, 1fr);
 
       @include firefoxOnly() {
-        height: 0;
+        min-height: 0;
       }
     }
 
