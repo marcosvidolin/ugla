@@ -207,7 +207,7 @@ export class SelectComponent implements OnInit, OnDestroy {
    * Toggles the combobox.
    */
   toggleCombobox(event) {
-    if (event.keyCode === 13 || event.type === 'click') {
+    if (event.keyCode === 13 || event.keyCode === 32 || event.type === 'click') {
       if (!this._open) {
         this.open();
       } else {
@@ -260,7 +260,7 @@ export class SelectComponent implements OnInit, OnDestroy {
    * @param value
    */
   selectedItem(value, event) {
-    if (event.keyCode === 13 || event.keyCode === undefined) {
+    if (event.keyCode === 13 || event.keyCode === 32 || event.keyCode === undefined) {
       this.current = this.truncateCurrentOption(this.select.options[ value ]);
 
       this.setLabelColor();
