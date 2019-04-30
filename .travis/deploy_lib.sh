@@ -10,9 +10,9 @@ install() {
 }
 
 build() {
-  node version.js
+  node -e 'require("./version").changeConfig()';
   ng build --project=ugla
-  if [[ `git status --porcelain` ]]; then 
+  if [[ `git status --porcelain` ]]; then
     git checkout -b trevis-version
     git add .
     git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
@@ -28,7 +28,7 @@ publish() {
   npm publish
 }
 
-config
-install
+# config
+# install
 build
-publish
+# publish
