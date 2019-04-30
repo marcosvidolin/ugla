@@ -31,7 +31,12 @@ export class PeopleCardComponent {
   /**
    * Object type People
    */
-  @Input('people') public people: People;
+  @Input() public people: People;
+
+  /**
+   * Logout text alt
+   */
+  @Input() public logoutText: string;
 
   /**
    * Function logout

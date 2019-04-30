@@ -4,7 +4,7 @@
     <span [innerHtml]="people.email"></span>
   </div>
   <img [src]="people.photo" alt="Your photo" />
-  <ugl-button [title]="'Logout'" [style]="'icon'" [theme]="theme" (click)="logout()" class="logout">
+  <ugl-button [title]="logoutText" [style]="'icon'" [theme]="theme" (click)="logout()" class="logout">
     <i class="material-icons" [id]="'logout-button'">power_settings_new</i>
   </ugl-button>
 </div>

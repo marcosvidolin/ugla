@@ -49,6 +49,11 @@ export class HeaderComponent implements OnInit {
   @Output() logoutAction = new EventEmitter();
 
   /**
+   * Logout text alt
+   */
+  @Input() public logoutText: string;
+
+  /**
    * Identify menu is open
    */
   public open: boolean;
@@ -110,6 +115,7 @@ export class HeaderComponent implements OnInit {
   ngOnInit() {
     this.open = false;
     const current = location.pathname.charAt(0) === '/' ? location.pathname.substr(1) : location.pathname;
+    this.logoutText = (this.logoutText === undefined) ? 'Logout' : this.logoutText;
 
     if (this.header.menu) {
       for (const item of this.header.menu.items) {

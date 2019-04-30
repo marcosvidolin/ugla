@@ -14,6 +14,6 @@
     <div class="content">
       <ng-content></ng-content>
     </div>
-    <ugl-people-card [people]="header.people" (logoutAction)="logout()"></ugl-people-card>
+    <ugl-people-card [people]="header.people" [logoutText]="logoutText" (logoutAction)="logout()"></ugl-people-card>
   </div>
 </header>
