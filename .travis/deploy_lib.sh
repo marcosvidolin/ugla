@@ -28,7 +28,7 @@ publish() {
   npm publish
 }
 
-# config
-# install
+config
+install
 build
-# publish
+publish
