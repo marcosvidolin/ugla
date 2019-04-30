@@ -7,29 +7,29 @@ import { UglaService } from '../../ugla.service';
  *
  * # Example
  *
- ```html
- <ugl-header [header]="header" (logoutAction)="logout($event)">
-  <another-component></another-component>
- </ugl-header>
- ```
- ```typescript
-  import { Header, People, Menu, MenuItem, Select, Options } from 'ugla-ugla';
+  ```html
+    <ugl-header [header]="header" (logoutAction)="logout($event)">
+      <another-component></another-component>
+    </ugl-header>
+  ```
+  ```typescript
+    import { Header, People, Menu, MenuItem, Select, Options } from 'ugla-ugla';
 
-  public header = new Header('BRAND NAME', './assets/images/logo.png');
-  public people = new People('PEOPLE NAME', 'LOGIN\@ciandt.com', 'IMAGE URL');
+    public header = new Header('BRAND NAME', './assets/images/logo.png');
+    public people = new People('PEOPLE NAME', 'LOGIN\@ciandt.com', 'IMAGE URL');
 
-  public menu = new Menu([
-    new MenuItem('Home Page', '/', true),
-    new MenuItem('Content', '/content', false),
-    new MenuItem('Menu Hidden in mobile', '/no-mobile', true),
-  ]);
+    public menu = new Menu([
+      new MenuItem('Home Page', '/', true),
+      new MenuItem('Content', '/content', false),
+      new MenuItem('Menu Hidden in mobile', '/no-mobile', true),
+    ]);
 
-  ngOnInit() {
-    this.header.people = this.people;
-    this.header.menu = this.menu;
-    this.contentType = ContentTypes.FLUID;
-  }
- ```
+    ngOnInit() {
+      this.header.people = this.people;
+      this.header.menu = this.menu;
+      this.contentType = ContentTypes.FLUID;
+    }
+  ```
  */
 @Component({
   selector: 'ugl-header',
@@ -41,7 +41,7 @@ export class HeaderComponent implements OnInit {
   /**
    * Object type Header
    */
-  @Input('header') header: Header;
+  @Input() header: Header;
 
   /**
    * Function logout

@@ -20,7 +20,7 @@ export class BrandComponent {
    * Receives the brand's name
    */
   @Input() brandName: string;
-  
+
   /**
    * Brand image
    */
@@ -29,7 +29,7 @@ export class BrandComponent {
   /**
    * Receives the path to redirect
    */
-  @Input() path = 'home';
+  @Input() path: string;
 
   /**
    * Insert the theme name on html component
