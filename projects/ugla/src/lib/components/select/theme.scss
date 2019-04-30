@@ -203,12 +203,12 @@ $label-animate-time: 0.2s;
       margin: 5px 0 0 0;
     }
 
-
     i {
       cursor: pointer;
+      font-size: 1.5rem;
       position: absolute;
+      right: .5rem;
       top: 1rem;
-      right: 0.5rem;
       z-index: 2;
     }
 
@@ -272,6 +272,7 @@ $label-animate-time: 0.2s;
             &.top {
               bottom: 2rem;
             }
+
             li {
               [type='radio'] {
                 + label {
@@ -326,6 +327,7 @@ $label-animate-time: 0.2s;
             border: 1px solid transparent;
             cursor: default;
           }
+
           + i {
             color: color(_gray, extra-light);
           }
@@ -367,6 +369,7 @@ $label-animate-time: 0.2s;
             border: 1px solid color(_gray, light);
           }
         }
+
         ~ .combo-list {
           display: block;
           position: absolute;

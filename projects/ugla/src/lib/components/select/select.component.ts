@@ -1,7 +1,8 @@
-import { Component, OnInit, Input, ViewChild, ElementRef, Output, EventEmitter, HostListener, AfterViewInit, Renderer2, OnDestroy } from '@angular/core';
-import { Select, Options } from '../../models';
-import { UglaService } from '../../ugla.service';
-import { Form } from '../../enum';
+import {Component, ElementRef, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output, Renderer2, ViewChild} from '@angular/core';
+import {Options, Select} from '../../models';
+import {UglaService} from '../../ugla.service';
+import {Form} from '../../enum';
+
 /**
  * Select
  *
@@ -63,7 +64,7 @@ export class SelectComponent implements OnInit, OnDestroy {
    *
    * Stylized is used only header
    *
-   * Deafult value: false
+   * Default value: false
    */
   @Input() stylized: boolean;
 
@@ -72,7 +73,7 @@ export class SelectComponent implements OnInit, OnDestroy {
    *
    * Stylized type options: header or pagination
    *
-   * Deafult value: header
+   * Default value: header
    */
   @Input() stylizedType = 'header';
 
@@ -107,7 +108,7 @@ export class SelectComponent implements OnInit, OnDestroy {
   /**
    * Direction to open list
    *
-   * Defaukt: bottom
+   * Default: bottom
    */
   @Input() direction = 'bottom';
 
@@ -121,7 +122,7 @@ export class SelectComponent implements OnInit, OnDestroy {
    */
   @Output() selected = new EventEmitter();
 
-   /**
+  /**
    * Is invalid
    *
    * Default: false
@@ -155,6 +156,8 @@ export class SelectComponent implements OnInit, OnDestroy {
   /**
    * Receives the component's name
    * @param ugla: UglaService
+   * @param elementRef
+   * @param renderer
    */
   constructor(private ugla: UglaService,
               protected elementRef: ElementRef,
