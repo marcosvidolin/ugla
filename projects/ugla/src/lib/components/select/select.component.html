@@ -7,7 +7,7 @@
   <ul class="select_list" [ngClass]="direction" [attr.data-title]="dataTitle">
     <li *ngFor="let option of select.options; let i = index">
       <input type="radio" [name]="'options-' + select.name" [id]="'option-' + select.name + '-' + i" (change)="selectedItem( i, $event )" [value]="option.value">
-      <label [for]="'option-' + select.name + '-' + i" (click)="selectedItem( i, $event )" (keypress)="selectedItem( i, $event )" tabindex="0">{{ option.description }}</label>
+      <label [for]="'option-' + select.name + '-' + i" (keypress)="selectedItem( i, $event )" tabindex="0">{{ option.description }}</label>
     </li>
   </ul>
 </div>
@@ -24,7 +24,7 @@
   <ul class="combo-list" [ngClass]="direction">
     <li *ngFor="let option of select.options; let i = index" >
         <input type="radio" [name]="'options-' + select.name" [id]="'option-' + select.name + '-' + i" (change)="selectedItem( i, $event )" [value]="option.value" [checked]="option.checked">
-        <label [for]="'option-' + select.name + '-' + i" (click)="selectedItem( i, $event )" (keypress)="selectedItem( i, $event )" tabindex="0">{{ option.description }}</label>
+        <label [for]="'option-' + select.name + '-' + i" (keypress)="selectedItem( i, $event )" tabindex="0">{{ option.description }}</label>
     </li>
   </ul>
 </div>
