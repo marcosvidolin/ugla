@@ -1,12 +1,12 @@
 <div class="field-check" *ngIf="!this.subText">
-  <input type="checkbox" [id]="'check-'+ this.name" tabindex="0" aria-hidden="true" (change)="onCheck($event)" [disabled]="disabled" [checked]="isChecked">
-  <label [innerHTML]="mainText" [for]="'check-'+ this.name">
+  <input type="checkbox" [id]="'check-'+ this.name"  aria-hidden="true" (change)="onCheck($event)" [disabled]="disabled" [checked]="isChecked">
+  <label [innerHTML]="mainText" [for]="'check-'+ this.name" tabindex="0">
   </label>
 </div>
 
 <div class="field-check" *ngIf="this.subText">
-  <input type="checkbox" [id]="'check-sub-'+ this.name" tabindex="0" aria-hidden="true" (change)="onCheck($event)" [disabled]="disabled" [checked]="isChecked">
-  <label [for]="'check-sub-'+ this.name">
+  <input type="checkbox" [id]="'check-sub-'+ this.name"  aria-hidden="true" (change)="onCheck($event)" [disabled]="disabled" [checked]="isChecked">
+  <label [for]="'check-sub-'+ this.name" tabindex="0">
     <span class="text">
       <strong>{{this.mainText}}</strong>
       <div [innerHTML]="this.subText"></div>
