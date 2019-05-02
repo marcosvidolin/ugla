@@ -118,6 +118,14 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
    */
   @Input() language: string;
 
+  /**
+   * Allow set field readonly
+   * Use as needed to assure a disabled look and feel, but still readable by accessibility's screen readers.
+   * Default:  false
+   */
+  @Input() readonly: boolean;
+
+
   @Output() onSelectValue = new EventEmitter<Date>();
 
   /**
@@ -182,6 +190,7 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
     this.value = this.value ? this.value : '';
     this.invalid = (this.invalid !== undefined) ? this.invalid : false;
     this.disabled = (this.disabled !== undefined) ? this.disabled : false;
+    this.readonly = (this.readonly !== undefined) ? this.readonly : false;
     this.messageInvalidSelection = (this.messageInvalidSelection !== undefined) ? this.messageInvalidSelection : Form.INVALID_SELECTION;
     this.messageRequired = (this.messageRequired !== undefined) ? this.messageRequired : Form.REQUIRED;
     this.language = (this.language !== undefined) ? this.language : 'en';
@@ -196,6 +205,9 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
       const event = new Event('change');
       instance.el.dispatchEvent(event);
     };
+
+    if (this.disabled) {
+    }
   }
 
   /**

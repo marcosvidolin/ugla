@@ -1,5 +1,8 @@
 {
-  "extends": "tslint:recommended",
+  "extends": [
+    "tslint-angular",
+    "tslint:recommended"
+  ],
   "rulesDirectory": [
     "codelyzer"
   ],

@@ -1,6 +1,6 @@
 {
   "name": "ugla",
-  "version": "0.0.41",
+  "version": "0.0.42",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -53,6 +53,7 @@
     "ngx-filepond": "^5.0.0",
     "rxjs": "~6.3.3",
     "tslib": "^1.9.0",
+    "tslint-angular": "^2.0.0",
     "zone.js": "~0.8.26"
   },
   "devDependencies": {

@@ -132,6 +132,14 @@ export class FieldComponent implements OnInit {
   @Input() counter = false;
 
   /**
+   * Allow set field readonly
+   * Use as needed to assure a disabled look and feel, but still readable by accessibility's screen readers.
+   * Default:  false
+   */
+  @Input() readonly: boolean;
+
+
+  /**
    * @ignore
    */
   public num: number;
@@ -155,6 +163,8 @@ export class FieldComponent implements OnInit {
    * Event emitter to value changes
    */
   @Output() onChangeValue = new EventEmitter<string>();
+
+  validateEmail: boolean;
 
   /**
    * @ignore
@@ -221,6 +231,7 @@ export class FieldComponent implements OnInit {
     this.infos__count = (this.maxLength !== undefined) ? `${this.num}/${this.maxLength}` : ' ';
     this.multiple = this.multiple === undefined ? false : this.multiple;
     this.disabled = (this.disabled !== undefined) ? this.disabled : false;
+    this.readonly = (this.readonly !== undefined) ? this.readonly : false;
     this.value = (this.value !== undefined) ? this.value : '';
     this.invalid = (this.invalid !== undefined) ? this.invalid : false;
     this.messageRequired = (this.messageRequired !== undefined) ? this.messageRequired : Form.REQUIRED;

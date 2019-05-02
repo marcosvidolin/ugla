@@ -13,6 +13,7 @@
     (keyup)="keyupHandler($event)"
     (focusout)="focusoutHandler($event)"
     [disabled]="disabled"
+    [readOnly]="readonly"
     (invalid)="invalid"
     [ngClass]="{'invalid': invalid}">
   <label [for]="'field-' + name">{{ label }}</label>

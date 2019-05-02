@@ -66,7 +66,8 @@ $label-animate-time: 0.2s;
     border: 1px solid color(_gray, medium);
     border-radius: 0.5rem;
 
-    &[disabled] {
+    &[disabled],
+    &[readonly] {
       color: color(_gray, dark-alpha);
       border: 1px solid color(_gray, extra-light);
       background: transparent;
@@ -91,7 +92,8 @@ $label-animate-time: 0.2s;
       left: 1rem;
     }
 
-    &[disabled] {
+    &[disabled],
+    &[readonly] {
       + label {
         color: color(_gray, dark-alpha);
       }
@@ -104,10 +106,6 @@ $label-animate-time: 0.2s;
           background-color: color(_gray, extra-light);
         }
       }
-    }
-
-    &:focus {
-      border: 1px solid color(_aquamarine, light);
     }
 
     &:required {
@@ -133,6 +131,10 @@ $label-animate-time: 0.2s;
       ~ .infos {
         color: color(_aquamarine, medium);
       }
+    }
+
+    &:focus:not([readonly]) {
+      border: 1px solid color(_aquamarine, light);
     }
 
     &:focus,
