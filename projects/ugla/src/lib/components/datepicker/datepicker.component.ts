@@ -73,6 +73,10 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
    * Set a options
    *
    * [See more](https://github.com/qodesmith/datepicker)
+   * Default:
+   * - startDate: new Date()
+   * - position: 'br'
+   * - formatter: locale en-US
    */
   @Input() options: any;
 
@@ -123,7 +127,21 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
    * Use as needed to assure a disabled look and feel, but still readable by accessibility's screen readers.
    * Default:  false
    */
-  @Input() readonly: boolean;
+  @Input() set readonly(value: boolean) {
+    this._readonly = value;
+
+    if (this.picker) {
+      if (value) {
+        this.picker.remove();
+      } else {
+        this.picker = datepicker('#datepicker-' + this.name, this.options);
+      }
+    }
+  }
+
+  get readonly() {
+    return this._readonly;
+  }
 
 
   @Output() onSelectValue = new EventEmitter<Date>();
@@ -152,7 +170,9 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
 
   id: string;
 
-  _value: Date;
+  private _value: Date;
+
+  private _readonly: boolean;
 
   /**
    * @ignore
@@ -195,6 +215,7 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
     this.messageRequired = (this.messageRequired !== undefined) ? this.messageRequired : Form.REQUIRED;
     this.language = (this.language !== undefined) ? this.language : 'en';
     this.invalidFormat = (this.invalidFormat !== undefined) ? this.invalidFormat : false;
+    this.options = (this.options !== undefined) ? this.options : this.defaultInitDatepicker();
 
     this.options.onHide = (instance) => {
       this.onFocusOut(instance);
@@ -206,8 +227,6 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
       instance.el.dispatchEvent(event);
     };
 
-    if (this.disabled) {
-    }
   }
 
   /**
@@ -270,5 +289,18 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
     const event = new Event('change');
     const input: HTMLInputElement = this.picker.el;
     input.dispatchEvent(event);
+  }
+
+  /**
+   * Default init datepicker options.
+   */
+  defaultInitDatepicker() {
+    return this.options = {
+      startDate: new Date(),
+      position: 'br',
+      formatter: (input, date, instance) => {
+        input.value = date.toLocaleDateString('en-US');
+      },
+    };
   }
 }
