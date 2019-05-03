@@ -9,9 +9,15 @@ export class Message {
   dismissed = false;
   timeout: number;
   cleanOld: boolean;
-  /** triggered when toast is active */
+
+  /**
+   * triggered when toast is active
+   */
   onShown: Observable<any>;
-  /** triggered when toast is destroyed */
+
+  /**
+   * triggered when toast is destroyed
+   */
   onHidden: Observable<any>;
 
   private _afterShow = new Subject<any>();
@@ -61,8 +67,8 @@ export class ToastService {
 
   /**
    * Add a {@link Message} to notifications.
-   * @param title
-   * @param content
+   * @param title of message
+   * @param content of message
    * @param type Is optional. Available options: 'success', 'error', 'warning', 'info'
    * @param timeout time in milliseconds. Default: error notifications hasn't timeout
    */
@@ -95,9 +101,9 @@ export class ToastService {
 
   /**
    * Add success message
-   * @param title
-   * @param content
-   * @param timeout
+   * @param title of message
+   * @param content of message
+   * @param timeout to close
    */
   public success(title: string, content: string, timeout?: number) {
     return this.setToastMessage(title, content, 'success', timeout);
@@ -105,9 +111,9 @@ export class ToastService {
 
   /**
    * Add error message
-   * @param title
-   * @param content
-   * @param timeout
+   * @param title of message
+   * @param content of message
+   * @param timeout to close
    */
   public error(title: string, content: string, timeout?: number) {
     return this.setToastMessage(title, content, 'error', timeout);
@@ -115,20 +121,20 @@ export class ToastService {
 
   /**
    * Add warning message
-   * @param title
-   * @param content
-   * @param timeout
+   * @param title of message
+   * @param content of message
+   * @param timeout to close
    */
   public warning(title: string, content: string, timeout?: number) {
     return this.setToastMessage(title, content, 'warning', timeout);
   }
 
   /**
-  * Add info message
-  * @param title
-  * @param content
-  * @param timeout
-  */
+   *
+   * @param title of message
+   * @param content of message
+   * @param timeout to close
+   */
   public info(title: string, content: string, timeout?: number) {
     return this.setToastMessage(title, content, 'info', timeout);
   }

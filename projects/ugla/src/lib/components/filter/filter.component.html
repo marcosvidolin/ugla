@@ -3,7 +3,7 @@
     [id]="'filter-'+ id">
 
   <div class='filter-header'>
-    <h2>{{title}}</h2>
+    <h2>{{ title }}</h2>
 
     <ugl-button
       [title]="'Lock filter'"
@@ -11,7 +11,7 @@
       [style]="'icon'"
       class="desktop-only"
       (click)="toggleLockFilter()">
-      <i class="material-icons" [id]="'lock'"> {{lockFilter ? 'turned_in' : 'turned_in_not'}}</i>
+      <i class="material-icons" [id]="'lock'">{{ lockFilter ? 'turned_in' : 'turned_in_not' }}</i>
     </ugl-button>
 
     <ugl-button

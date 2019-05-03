@@ -1,7 +1,7 @@
 <header [ngClass]="classes" id="header">
   <ugl-brand [path]="header.homePath" [brandName]="header.brandName" [brandImage]="header.brandImage"></ugl-brand>
   <a (click)="toggleMenu()" class="toggle-menu">
-    <i class="material-icons">{{ open ? 'close' : 'menu'}}</i>
+    <i class="material-icons">{{ open ? 'close' : 'menu' }}</i>
   </a>
   <nav [ngClass]="open ? 'opened' : ''" id="main-menu" [ngStyle]="{'height': 'calc(100vh - ' + headerRightHeight + 'px - 60px)'}">
       <a *ngFor="let item of header.menu.items; let idx = index"

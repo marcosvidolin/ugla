@@ -5,13 +5,13 @@
 
   <thead>
     <tr>
-      <th scope="col" tabindex="0" *ngFor="let item of table.header" [ngClass]="'align-' + item.align" [ngStyle]="{'width': item.size + '%'}">{{item.text}}</th>
+      <th scope="col" tabindex="0" *ngFor="let item of table.header" [ngClass]="'align-' + item.align" [ngStyle]="{'width': item.size + '%'}">{{ item.text }}</th>
     </tr>
   </thead>
 
   <tbody>
     <tr *ngFor="let data of table.data">
-      <td tabindex="0" *ngFor="let column of data.columns; let i = index" [ngClass]="setClass(column.options.color, column.options.align, column.options.type)" [ngStyle]="{'width': table.header[i].size + '%'}">{{column.text}}</td>
+      <td tabindex="0" *ngFor="let column of data.columns; let i = index" [ngClass]="setClass(column.options.color, column.options.align, column.options.type)" [ngStyle]="{'width': table.header[i].size + '%'}">{{ column.text }}</td>
     </tr>
   </tbody>
 </table>

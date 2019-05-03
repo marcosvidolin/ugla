@@ -24,9 +24,9 @@
       <a href=""
         [ngClass]="{'active': isCurrentPage(page)}"
         (click)="fireNavigatePageEvent(page)"
-        title="{{labelPage}}{{page}}"
+        [title]="labelPage + ' ' + page"
         [attr.aria-label]="labelPage+page"
-        tabindex="0">{{page}}
+        tabindex="0">{{ page }}
       </a>
     </li>
     <li>

@@ -120,11 +120,13 @@ export class ButtonComponent implements OnInit, OnChanges {
   }
 
   ngOnChanges(changes: SimpleChanges) {
-     if (changes['color'] !== undefined ) {
-       this.color = changes['color'].currentValue;
-       const isIcon = this.style === 'icon' ? `btn-icon btn-${this.style}-${this.color}` : `btn btn-${this.style}-${this.color}`;
-       this.groupClass = `${this.size} ${isIcon}`;
-       this.groupClass = (this.wave) ? `${this.groupClass} wave` : this.groupClass;
+    const COLOR = 'color';
+
+    if (changes[COLOR] !== undefined ) {
+      this.color = changes[COLOR].currentValue;
+      const isIcon = this.style === 'icon' ? `btn-icon btn-${this.style}-${this.color}` : `btn btn-${this.style}-${this.color}`;
+      this.groupClass = `${this.size} ${isIcon}`;
+      this.groupClass = (this.wave) ? `${this.groupClass} wave` : this.groupClass;
      }
   }
 }

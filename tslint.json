@@ -63,6 +63,17 @@
       true,
       "single"
     ],
+    "jsdoc-format": [
+      true,
+      "check-multiline-start"
+    ],
+    "experimentalDecorators": true,
+    "variable-name": [
+      true,
+      "ban-keywords",
+      "check-format",
+      "allow-leading-underscore"
+    ],
     "trailing-comma": false,
     "no-output-on-prefix": true,
     "use-input-property-decorator": true,

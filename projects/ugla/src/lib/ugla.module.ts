@@ -133,7 +133,7 @@ export class UglaModule {
    *
    * @param parentModule: UglaModule
    */
-  constructor (@Optional() @SkipSelf() parentModule: UglaModule) {
+  constructor(@Optional() @SkipSelf() parentModule: UglaModule) {
     if (parentModule) {
       throw new Error('UglaModule is already loaded. Import it in the AppModule only');
     }

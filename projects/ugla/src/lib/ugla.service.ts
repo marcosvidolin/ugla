@@ -2,7 +2,6 @@ import { Injectable, Optional, Output, EventEmitter } from '@angular/core';
 import { Themes } from './enum/themes.enum';
 import { VERSION } from './config';
 
-
 /**
  * Theme configuration default
  */
@@ -26,7 +25,7 @@ export class UglaService {
   /**
    * Emitter for header shadow changed
    */
-  @Output('changedHeaderShadow') changedHeaderShadow = new EventEmitter<boolean>();
+  @Output() changedHeaderShadow = new EventEmitter<boolean>();
 
   /**
    * Set default theme
@@ -82,7 +81,7 @@ export class UglaService {
 
   /**
    * Add class do body if there's toolbar on the page
-   * @param toolbar
+   * @param toolbar false | element
    */
   hasToolBar(toolbar = false) {
     if (toolbar) {

@@ -5,31 +5,27 @@ import { CheckboxColumnItem } from '../models';
  * Directive for checkbox column - check all
  *
  * For parent checkbox, use directive:
-  ```html
-    <ugl-checkbox
-      [name]="'checkbox'"
-      uglCheckboxColumn
-      #selectAll="checkboxColumn"
-      [items]="items"
-      (checkboxColumnChange)="checkAll($event)">
-    </ugl-checkbox>
-  ```
  *
- * For children checkboxes, convert list into a CheckboxListColumn, to be used in interator:
-  ```typescript
-    this.items = CheckboxListColumn.create<any>(listItems);
-  ```
+ * @example
+ * <ugl-checkbox
+ *   [name]="'checkbox'"
+ *   uglCheckboxColumn
+ *   #selectAll="checkboxColumn"
+ *   [items]="items"
+ *   (checkboxColumnChange)="checkAll($event)">
+ * </ugl-checkbox>
  *
- * Then, use change method of directive on component:
-  ```html
-    <div *ngFor="let item of items; let idx = index;">
-      <ugl-checkbox
-        [name]="'checkbox-item-' + idx"
-        [isChecked]="item.selected"
-        (checked)="selectAll.changeItem($event, item)">
-      </ugl-checkbox>
-    </div>
-  ```
+ * // For children checkboxes, convert list into a CheckboxListColumn, to be used in interator:
+ * this.items = CheckboxListColumn.create<any>(listItems);
+ *
+ * // Then, use change method of directive on component:
+ * <div *ngFor="let item of items; let idx = index;">
+ *    <ugl-checkbox
+ *      [name]="'checkbox-item-' + idx"
+ *      [isChecked]="item.selected"
+ *      (checked)="selectAll.changeItem($event, item)">
+ *    </ugl-checkbox>
+ * </div>
  *
  */
 @Directive({
@@ -81,13 +77,13 @@ export class CheckboxColumnDirective<V, T extends CheckboxColumnItem<V>> impleme
   /**
    * Set initials configurations
    */
-  ngOnInit () {
+  ngOnInit() {
   }
 
   /**
    * Set configurations after view is initializes
    */
-  ngAfterViewInit () {
+  ngAfterViewInit() {
     this.parent = this.elementRef.nativeElement.firstElementChild.firstElementChild as HTMLInputElement;
   }
 
@@ -95,8 +91,8 @@ export class CheckboxColumnDirective<V, T extends CheckboxColumnItem<V>> impleme
    * Method on change of item of list.
    * Emitts the new value of item, and call function to change the parent status.
    *
-   * @param event
-   * @param item
+   * @param event true | false
+   * @param item class item
    */
   changeItem(event: boolean, item: T) {
     item.selected = event;
@@ -116,7 +112,7 @@ export class CheckboxColumnDirective<V, T extends CheckboxColumnItem<V>> impleme
 
   /**
    * Toggle check on parent click
-   * @param checked
+   * @param checked true | false
    */
   private toggleCheck(checked: boolean) {
     if (this.parent) {

@@ -3,11 +3,11 @@
      aria-describedby="dialogDesc" aria-labelledby="dialogTitle" aria-relevant="all"
      class="toast__container" role="alertdialog" (click)="closeToast(message.id)">
 
-  <div class="toast" role="document" id="toast-item-{{message.id}}" tabindex="0">
+  <div class="toast" role="document" [id]="'toast-item-' + message.id" tabindex="0">
     <div class="toast__icon">
-      <i class="material-icons" aria-hidden="true">{{icon}}</i>
+      <i class="material-icons" aria-hidden="true">{{ icon }}</i>
     </div>
-    <h2 id="dialogTitle" >{{message.title}}</h2>
+    <h2 id="dialogTitle">{{ message.title }}</h2>
     <p id="dialogDesc" [innerHtml]="message.content"></p>
     <button (click)="closeToast(message.id)" aria-label="Close" class="toast__close">
       <i class="material-icons">close</i>

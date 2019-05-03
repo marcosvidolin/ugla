@@ -8,7 +8,7 @@
   <input type="checkbox" [id]="'check-sub-'+ this.name" tabindex="0" [attr.aria-labelledby]="'check-'+ this.name + '-label'" (change)="onCheck($event)" [disabled]="disabled" [checked]="isChecked">
   <label [for]="'check-sub-'+ this.name" [id]="'check-'+ this.name + '-label'" >
     <span class="text">
-      <strong>{{this.mainText}}</strong>
+      <strong>{{ this.mainText }}</strong>
       <div [innerHTML]="this.subText"></div>
     </span>
   </label>

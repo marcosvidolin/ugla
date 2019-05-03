@@ -3,16 +3,12 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 /**
  * Directive for create a grid
  *
- * # Examples
+ * @example
+ * // Create a grid div:
+ * <div uglGrid [grid]="true" [col]="'2'" [colSm]="'3'"></div>
+ * // Generated html:
+ * <div class="grid col-2 col-sm-3"></div>
  *
- * Create a grid div
- ```html
-  <div uglGrid [grid]="true" [col]="'2'" [colSm]="'3'"></div>
- ```
- * Generated html
- ```html
-  <div class="grid col-2 col-sm-3"></div>
- ```
  */
 @Directive({
   selector: '[uglGrid]'

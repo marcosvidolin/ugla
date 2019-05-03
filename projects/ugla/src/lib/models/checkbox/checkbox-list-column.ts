@@ -14,7 +14,7 @@ export class CheckboxListColumn<T> extends Array<CheckboxColumnItem<T>> {
 
   /**
    * Converts the list of items of specified type into a CheckboxListColumn
-   * @param list
+   * @param list of CheckboxListColumn
    */
   static create<T>(list: T[]): CheckboxListColumn<T> {
     const cp = Object.create(CheckboxListColumn.prototype);
