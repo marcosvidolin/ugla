@@ -25,6 +25,7 @@ export class ToastItemComponent implements OnInit, AfterViewInit {
 
   @Output() close: EventEmitter<any> = new EventEmitter();
 
+  // TODO: Fix this by TS Lint rules
   @Output() onShow: EventEmitter<any> = new EventEmitter();
 
   timeout: any;

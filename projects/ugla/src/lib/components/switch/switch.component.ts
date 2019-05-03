@@ -52,6 +52,7 @@ export class SwitchComponent {
   /**
    * Event emitter to value changes
    */
+  // TODO: Fix this by TS Lint rules
   @Output() onChangeValue = new EventEmitter<boolean>();
 
   /**
