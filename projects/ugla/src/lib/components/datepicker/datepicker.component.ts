@@ -132,8 +132,9 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
 
     if (this.picker) {
       if (value) {
-        this.picker.remove();
+        this.picker.calendar.remove();
       } else {
+        this.picker.remove();
         this.picker = datepicker('#datepicker-' + this.name, this.options);
       }
     }
