@@ -42,7 +42,7 @@ export class ListLinksComponent implements OnInit {
   /**
    * Emmiter for link clicked
    */
-  @Output('linkClicked') linkClicked = new EventEmitter<Link>();
+  @Output() linkClicked = new EventEmitter<Link>();
 
   /**
    * Classes of the component
@@ -64,7 +64,7 @@ export class ListLinksComponent implements OnInit {
 
   /**
    * Function called on click of the link. Set the active link and emitts the object.
-   * @param item
+   * @param item Link element
    */
   onClickLink(item: Link) {
     this.list.links.forEach(link => link.active = false);

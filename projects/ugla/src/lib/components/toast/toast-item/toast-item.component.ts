@@ -20,8 +20,12 @@ export class ToastItemComponent implements OnInit, AfterViewInit {
   }
 
   @Input() messageType: string;
+
   @Input() index: number;
+
   @Output() close: EventEmitter<any> = new EventEmitter();
+
+  // TODO: Fix this by TS Lint rules
   @Output() onShow: EventEmitter<any> = new EventEmitter();
 
   timeout: any;

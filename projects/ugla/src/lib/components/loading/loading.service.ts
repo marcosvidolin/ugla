@@ -5,6 +5,7 @@ import { LoadingComponent } from './loading.component';
   providedIn: 'root'
 })
 export class LoadingService {
+  loadingComponent = 'loadingComponent';
 
   private instances: {[key: string]: LoadingComponent} = {};
 
@@ -19,12 +20,15 @@ export class LoadingService {
   }
 
   public hide() {
-    this.instances['loadingComponent'].onHide();
+    this.instances[this.loadingComponent].onHide();
   }
 
   public show(transparency?: boolean) {
-    this.instances['loadingComponent'].onShow(transparency);
+    this.instances[this.loadingComponent].onShow(transparency);
   }
 
+  /**
+   * @ignore
+   */
   constructor() { }
 }

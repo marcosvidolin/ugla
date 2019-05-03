@@ -39,7 +39,7 @@ export class ListOptionsComponent {
 
   /**
    * Insert the theme name on html component
-  */
+   */
   public theme: string;
 
   /**
