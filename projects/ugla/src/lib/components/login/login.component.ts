@@ -4,23 +4,17 @@ import { ButtonComponent } from '../button/button.component';
 /**
  * Login component
  *
- * # Example
- *
- *```html
- // Instantiate in your HTML
- <ugl-login #auth
-           [header]="'Título'"
-           [subheader]="'Subtítulo'"
-           [buttonText]="'Autenticar'"
-           [desktopImage]="'../../assets/autentication-desktop.jpg'"
-           [mobileImage]="'../../assets/autentication-mobile.jpg'"
-           (signIn)="signIn()"></ugl-login>
- ```
- *
- ```typescript
-    // In your component's TS
-    @ViewChild('loginComponent') loginComponent: LoginComponent;
- ```
+ * @example
+ *  // Instantiate in your HTML
+ *  <ugl-login #auth
+ *      [header]="'Título'"
+ *      [subheader]="'Subtítulo'"
+ *      [buttonText]="'Autenticar'"
+ *      [desktopImage]="'../../assets/autentication-desktop.jpg'"
+ *      [mobileImage]="'../../assets/autentication-mobile.jpg'"
+ *      (signIn)="signIn()"></ugl-login>
+ *  // In your component's TS
+ *  @ViewChild('loginComponent') loginComponent: LoginComponent;
  *
  */
 @Component({

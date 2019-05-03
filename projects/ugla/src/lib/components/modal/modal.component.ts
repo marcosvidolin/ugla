@@ -62,7 +62,6 @@ export class ModalComponent implements OnInit {
    */
   @Output() confirmClick = new EventEmitter<any>();
 
-
   @Output() onShow: EventEmitter<any> = new EventEmitter();
 
   icon: string;

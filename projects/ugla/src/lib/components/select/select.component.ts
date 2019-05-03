@@ -156,8 +156,8 @@ export class SelectComponent implements OnInit, OnDestroy {
   /**
    * Receives the component's name
    * @param ugla: UglaService
-   * @param elementRef
-   * @param renderer
+   * @param elementRef: ElementRef
+   * @param renderer: Render2
    */
   constructor(private ugla: UglaService,
               protected elementRef: ElementRef,
@@ -260,7 +260,8 @@ export class SelectComponent implements OnInit, OnDestroy {
 
   /**
    * Call selected event
-   * @param value
+   * @param value input value
+   * @param event Event element
    */
   selectedItem(value, event) {
     if (event.keyCode === 13 || event.keyCode === 32 || event.keyCode === undefined) {
@@ -316,8 +317,7 @@ export class SelectComponent implements OnInit, OnDestroy {
 
   /**
    * Return a truncated value.
-   *
-   * @param value
+   * @param value input value
    */
   truncateValue(value: string) {
     const ending = '...';
@@ -330,7 +330,7 @@ export class SelectComponent implements OnInit, OnDestroy {
   /**
    * Generate current option.
    *
-   * @param currentOption
+   * @param currentOption past selected option
    */
   truncateCurrentOption(currentOption: Options) {
     const currentDescription: string = this.truncateValue(currentOption.description);

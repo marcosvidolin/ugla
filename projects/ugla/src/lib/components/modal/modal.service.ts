@@ -30,9 +30,9 @@ export class ModalService {
 
   /**
    * Open a success modal.
-   * @param title
-   * @param text
-   * @param hasIcon. Optional
+   * @param title of message
+   * @param text of message
+   * @param hasIcon Optional, default is true
    */
   public success(title: string, text: string, hasIcon?: boolean) {
     return this.open(title, text, 'success', hasIcon);
@@ -40,9 +40,9 @@ export class ModalService {
 
   /**
    * Open an error modal.
-   * @param title
-   * @param text
-   * @param hasIcon. Optional
+   * @param title of message
+   * @param text of message
+   * @param hasIcon Optional, default is true
    */
   public error(title: string, text: string, hasIcon?: boolean) {
     return this.open(title, text, 'error', hasIcon);
@@ -50,9 +50,9 @@ export class ModalService {
 
   /**
    * Open a warning modal.
-   * @param title
-   * @param text
-   * @param hasIcon. Optional
+   * @param title of message
+   * @param text of message
+   * @param hasIcon Optional, default is true
    */
   public warning(title: string, text: string, hasIcon?: boolean) {
     return this.open(title, text, 'warning', hasIcon);
@@ -60,9 +60,9 @@ export class ModalService {
 
   /**
    * Open an info modal.
-   * @param title
-   * @param text
-   * @param hasIcon. Optional
+   * @param title of message
+   * @param text of message
+   * @param hasIcon Optional, default is true
    */
   public info(title: string, text: string, hasIcon?: boolean) {
     return this.open(title, text, 'info', hasIcon);
@@ -80,10 +80,10 @@ export class ModalService {
 
   /**
    * Open a modal.
-   * @param title
-   * @param text
-   * @param type. Available options: 'success', 'error', 'warning', 'info'
-   * @param hasIcon. Optional, default is true
+   * @param title of message
+   * @param text of message
+   * @param type Available options: 'success', 'error', 'warning', 'info'
+   * @param hasIcon Optional, default is true
    */
   private open(title: string, text: string, type: string, hasIcon?: boolean) {
     this.modal = new Modal(title, text, true, type, hasIcon);

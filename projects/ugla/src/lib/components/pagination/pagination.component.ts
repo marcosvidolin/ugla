@@ -366,7 +366,7 @@ export class PaginationComponent implements OnInit {
   /**
    * Return true if the selected page is in left interval.
    *
-   * @param leftInterval
+   * @param leftInterval: number
    */
   isLeftInterval(leftInterval: number): boolean {
     return this.selectedPage <= leftInterval;
@@ -375,7 +375,7 @@ export class PaginationComponent implements OnInit {
   /**
    * Return true if the selected page is in right interval.
    *
-   * @param rightInterval
+   * @param rightInterval: number
    */
   isRightInterval(rightInterval: number): boolean {
     return this.selectedPage >= (this.totalPages + 1) - rightInterval;
@@ -384,7 +384,7 @@ export class PaginationComponent implements OnInit {
   /**
    * Validate if the current page is inside interval.
    *
-   * @param finalinterval
+   * @param finalinterval: number
    */
   isInsideInterval(finalinterval: number) {
     if (this.isNext) {
@@ -397,8 +397,8 @@ export class PaginationComponent implements OnInit {
   /**
    * Get last page from any select page.
    *
-   * @param selectedPage
-   * @param interval
+   * @param page page number
+   * @param interval number of interval
    */
   getNextLastPage(page: number, interval: number) {
     let rightPage: number = page;
@@ -413,7 +413,7 @@ export class PaginationComponent implements OnInit {
   /**
    * Get first page from last page.
    *
-   * @param lastPage
+   * @param lastPage last page number
    */
   getNextFirstPage(lastPage: number) {
     let leftPage: number = lastPage;

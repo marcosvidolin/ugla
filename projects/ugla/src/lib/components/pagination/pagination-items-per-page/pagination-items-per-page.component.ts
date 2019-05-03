@@ -7,13 +7,13 @@ import { SelectComponent } from '../../select/select.component';
  *
  * @example
  * <ugl-pagination-items-per-page class="pagination-items-per-page"
- * [range]="itemsPerPageRange"
- * (changeItemsPerPagePageSize)="changePaginationPageSize.emit($event)"
- * [id]="'pagination-items-per-page'"
- * [beforeText]="'Before Text'"
- * [afterText]="'After Text'"
- * [title]="'Title'"
- * #itemsPerPageComponent>
+ *    [range]="itemsPerPageRange"
+ *    (changeItemsPerPagePageSize)="changePaginationPageSize.emit($event)"
+ *    [id]="'pagination-items-per-page'"
+ *    [beforeText]="'Before Text'"
+ *    [afterText]="'After Text'"
+ *    [title]="'Title'"
+ *    #itemsPerPageComponent>
  */
 @Component({
   selector: 'ugl-pagination-items-per-page',
@@ -65,7 +65,7 @@ export class PaginationItemsPerPageComponent {
   /**
    * Set selected value.
    *
-   * @param pageSize
+   * @param pageSize number of page size
    */
   setSelected(pageSize: number) {
     this.itemsPerPageSelect.setSelect(pageSize.toString());
@@ -74,7 +74,7 @@ export class PaginationItemsPerPageComponent {
   /**
    * Fire pagination size.
    */
-  fireChangePage(size) {
+  fireChangePage(size: any) {
     let selectedSize: number;
 
     if (Number(size.value) > 0) {

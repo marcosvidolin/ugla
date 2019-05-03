@@ -61,9 +61,9 @@ export class SwitchComponent {
 
   /**
    * Executed when value of checkbox is changed. Emits onChangeValue output.
-   * @param event
+   * @param event of Element
    */
-  onChange(event) {
+  onChange(event: any) {
     this.checked = event.target.checked;
     this.onChangeValue.emit(event.target.checked);
   }

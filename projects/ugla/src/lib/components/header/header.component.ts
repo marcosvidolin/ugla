@@ -5,31 +5,29 @@ import { UglaService } from '../../ugla.service';
 /**
  * Header component
  *
- * # Example
+ * @example
+ * // HTML
+ * <ugl-header [header]="header" (logoutAction)="logout($event)">
+ *    <another-component></another-component>
+ * </ugl-header>
  *
-  ```html
-    <ugl-header [header]="header" (logoutAction)="logout($event)">
-      <another-component></another-component>
-    </ugl-header>
-  ```
-  ```typescript
-    import { Header, People, Menu, MenuItem, Select, Options } from 'ugla-ugla';
-
-    public header = new Header('BRAND NAME', './assets/images/logo.png');
-    public people = new People('PEOPLE NAME', 'LOGIN\@ciandt.com', 'IMAGE URL');
-
-    public menu = new Menu([
-      new MenuItem('Home Page', '/', true),
-      new MenuItem('Content', '/content', false),
-      new MenuItem('Menu Hidden in mobile', '/no-mobile', true),
-    ]);
-
-    ngOnInit() {
-      this.header.people = this.people;
-      this.header.menu = this.menu;
-      this.contentType = ContentTypes.FLUID;
-    }
-  ```
+ * // Typescript
+ * import { Header, People, Menu, MenuItem, Select, Options } from 'ugla-ugla';
+ *
+ * public header = new Header('BRAND NAME', './assets/images/logo.png', '/home');
+ * public people = new People('PEOPLE NAME', 'LOGIN\@ciandt.com', 'IMAGE URL');
+ *
+ * public menu = new Menu([
+ *    new MenuItem('Home Page', '/', true),
+ *    new MenuItem('Content', '/content', false),
+ *    new MenuItem('Menu Hidden in mobile', '/no-mobile', true),
+ * ]);
+ *
+ * ngOnInit() {
+ *    this.header.people = this.people;
+ *    this.header.menu = this.menu;
+ *    this.contentType = ContentTypes.FLUID;
+ * }
  */
 @Component({
   selector: 'ugl-header',
@@ -42,7 +40,7 @@ export class HeaderComponent implements OnInit {
    * Instance of header right area
    */
   @ViewChild('headerRight') headerRightInstance: ElementRef;
- 
+
   /**
    * Object type Header
    */
@@ -79,7 +77,7 @@ export class HeaderComponent implements OnInit {
   public classes: string;
 
   /**
-   * Height of header right area 
+   * Height of header right area
    */
   headerRightHeight: number;
 
@@ -96,7 +94,7 @@ export class HeaderComponent implements OnInit {
 
   /**
    * Set the header classes
-   * @param shadow
+   * @param shadow active or not the shadow, default is false
    */
   private setClasses(shadow: boolean) {
     this.hasShadow = shadow;
