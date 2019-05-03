@@ -3,14 +3,14 @@
   <a (click)="toggleMenu()" class="toggle-menu">
     <i class="material-icons">{{ open ? 'close' : 'menu'}}</i>
   </a>
-  <nav [ngClass]="open ? 'opened' : ''" id="main-menu">
+  <nav [ngClass]="open ? 'opened' : ''" id="main-menu" [ngStyle]="{'height': 'calc(100vh - ' + headerRightHeight + 'px - 60px)'}">
       <a *ngFor="let item of header.menu.items; let idx = index"
          [href]="item.url"
          [ngClass]="{'active': item.active, 'hide-mobile': item.hideMobile, 'hidden': !item.visible}"
          class="gtm-menu-item"
          [id]="'item-menu-' + idx">{{ item.description }}</a>
   </nav>
-  <div class="right" [ngClass]="open ? 'opened' : ''" id="header-right">
+  <div class="right" [ngClass]="open ? 'opened' : ''" id="header-right" #headerRight>
     <div class="content">
       <ng-content></ng-content>
     </div>

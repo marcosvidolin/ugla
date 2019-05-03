@@ -12,6 +12,10 @@ header {
     text-align: center;
     width: 100%;
     padding: 0;
+    grid-auto-rows: minmax(min-content, max-content);
+    display: grid;
+    grid-template-rows: [header-line] 60px [nav-line] auto [right-line];
+    justify-items: stretch;
   }
 
   .toggle-menu {
@@ -40,19 +44,11 @@ nav {
     display: none;
     flex-direction: column;
     width: 90%;
-    min-height: calc(100vh - 217px);
+    align-self: stretch;    
     margin: 0 auto;
     padding: 1rem 0;
     align-items: baseline;
     overflow: auto;
-
-    @include safariOnly('all') {
-      min-height: calc(100vh - 296px);
-    }
-
-    @include safariOnly('large') {
-      min-height: calc(100vh - 334px);
-    }
 
     &.opened {
       display: flex;
@@ -106,9 +102,15 @@ nav {
     vertical-align: middle;
 
     @include mobile() {
-      padding: 10px 0;
+      padding: 10px 10px;
       width: 100%;
       justify-content: center;
+    }
+
+    &:empty {
+      @include mobile() {
+        padding: 0;
+      }
     }
   }
 
@@ -119,7 +121,9 @@ nav {
     margin: 0 auto;
 
     &.opened {
-      display: block;
+      display: grid;
+      grid-auto-rows: minmax(min-content, max-content);
+      grid-template-rows: [menu-right-1] auto  [menu-right-2] 60px;
     }
 
     .language {

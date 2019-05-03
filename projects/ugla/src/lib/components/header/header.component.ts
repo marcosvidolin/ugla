@@ -1,4 +1,4 @@
-import { Component, EventEmitter, Input, OnInit, Output, ChangeDetectorRef } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output, ChangeDetectorRef, ViewChild, ElementRef } from '@angular/core';
 import { Header } from '../../models';
 import { UglaService } from '../../ugla.service';
 
@@ -39,6 +39,11 @@ import { UglaService } from '../../ugla.service';
 export class HeaderComponent implements OnInit {
 
   /**
+   * Instance of header right area
+   */
+  @ViewChild('headerRight') headerRightInstance: ElementRef;
+ 
+  /**
    * Object type Header
    */
   @Input() header: Header;
@@ -74,6 +79,11 @@ export class HeaderComponent implements OnInit {
   public classes: string;
 
   /**
+   * Height of header right area 
+   */
+  headerRightHeight: number;
+
+  /**
    * Receives the component's name
    * @param ugla: UglaService
    * @param changeDetector: ChangeDetectorRef
@@ -100,6 +110,9 @@ export class HeaderComponent implements OnInit {
    */
   toggleMenu() {
     this.open = !(this.open);
+    setTimeout(() => {
+      this.headerRightHeight = this.headerRightInstance.nativeElement.offsetHeight;
+    }, 0);
   }
 
   /**
