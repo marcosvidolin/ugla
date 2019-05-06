@@ -134,7 +134,14 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
       if (value) {
         this.picker.calendar.remove();
       } else {
+        // instantiate a new datepicker
         this.picker.remove();
+        this.options = this.defaultInitDatepicker();
+        this.options.onSelect = (instance) => {
+          // force trigger event of input
+          const event = new Event('change');
+          instance.el.dispatchEvent(event);
+        };
         this.picker = datepicker('#datepicker-' + this.name, this.options);
       }
     }
@@ -247,7 +254,7 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
     // Both instances will be set because they are linked by `id`.
     const input: HTMLInputElement = instance.el;
     if (this.required && input.hasAttribute('focused')) {
-      if (input.value === '') {
+      if (input.value.length === 0) {
         this.invalid = true;
         this.message = this.messageRequired;
       } else if (!this.invalid) {
