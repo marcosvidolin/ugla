@@ -3,9 +3,9 @@
      aria-describedby="toastDescription" 
      aria-labelledby="toastTitle" 
      role="alertdialog"
+     aria-modal="true"
      class="toast__container"
      (click)="closeToast(message.id)">
-
   <div class="toast" role="document" id="toast-item-{{message.id}}" tabindex="0">
     <div class="toast__icon">
       <i class="material-icons" aria-hidden="true">{{icon}}</i>
