@@ -252,6 +252,7 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
         this.message = this.messageRequired;
       } else if (!this.invalid) {
         this.invalid = false;
+        input.classList.remove('invalid');
         this.message = this.originalMessage;
       }
     }
@@ -285,7 +286,9 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
    * @param date
    */
   setDate(date: Date) {
-    this.picker.setDate(date);
+    if (date === null) {
+      this.picker.setDate();
+    } else { this.picker.setDate(date); }
 
     const event = new Event('change');
     const input: HTMLInputElement = this.picker.el;

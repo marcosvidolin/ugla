@@ -17,7 +17,7 @@
          placeholder=" "
          type="text">
   <label [id]="'pickerLabel-' + name" [attr.aria-label]="label" [for]="'datepicker-' + name">{{ label }}</label>
-  <label [for]="'datepicker-' + name" class="icon"><i class="material-icons">calendar_today</i></label>
+  <label [for]="'datepicker-' + name" class="icon" aria-hidden="true"><i class="material-icons">calendar_today</i></label>
   <div class="infos">
     <span [id]="'pickerDesc-' + name" [attr.aria-details]="message" class="infos__message"
           [attr.data-original]="originalMessage">{{ message }}</span>
