@@ -7,14 +7,13 @@ $label-animate-time: 0.2s;
   margin: 0 0 12px 0;
   color: color(_others, dark);
 
-  label:not(.icon) {
+  label {
     background-color: color(_others, light);
     position: absolute;
     font-size: 1.4rem;
     top: 0;
     right: 0;
     transition: $label-animate-time all;
-
   }
 
   .icon {
@@ -33,13 +32,14 @@ $label-animate-time: 0.2s;
     justify-content: center;
     cursor: pointer;
 
+    i {
+      font-size: 1.5rem;
+    }
+
     &:hover {
       background-color: color(_aquamarine, dark);
     }
 
-    i {
-      font-size: 1.5rem;
-    }
   }
 
   .infos {
@@ -57,33 +57,14 @@ $label-animate-time: 0.2s;
     }
   }
 
-  [type='text'],
-  textarea {
+  input {
     width: 100%;
     padding: 1rem;
     font-size: 1rem;
     color: color(_gray, medium);
     border: 1px solid color(_gray, medium);
     border-radius: 0.5rem;
-
-    &[disabled],
-    &[readonly] {
-      color: color(_gray, dark-alpha);
-      border: 1px solid color(_gray, extra-light);
-      background: transparent;
-
-      @include safariOnly {
-        color: color(_gray, medium);
-      }
-    }
-
-    &[type='search'] {
-      width: 100%;
-    }
-
-    &textarea {
-      width: calc(100% - 1.5rem);
-    }
+    line-height: normal;
 
     + label {
       position: absolute;
@@ -94,6 +75,14 @@ $label-animate-time: 0.2s;
 
     &[disabled],
     &[readonly] {
+      color: color(_gray, dark-alpha);
+      border: 1px solid color(_gray, extra-light);
+      background: transparent;
+
+      @include safariOnly {
+        color: color(_gray, medium);
+      }
+
       + label {
         color: color(_gray, dark-alpha);
       }
@@ -151,40 +140,4 @@ $label-animate-time: 0.2s;
     }
   }
 
-  &.date {
-    [type='text'] {
-      ~ .content {
-        display: flex;
-        justify-content: flex-end;
-
-        label:not(.icon) {
-          border-radius: 0 0.5rem 0.5rem 0;
-          padding: 0.5rem;
-          font-size: 1rem;
-          color: color(_others, light);
-          border: 1px solid color(_aquamarine, medium);
-          background-color: color(_aquamarine, medium);
-          cursor: pointer;
-
-          &.material-icons {
-            width: 17px !important;
-            height: 17px !important;
-            object-fit: contain;
-            background-color: color(_aquamarine, medium);
-          }
-
-          &:focus {
-            border: 1px solid color(_aquamarine, dark);
-            background-color: color(_aquamarine, dark);
-          }
-        }
-
-        input {
-          width: 85%;
-          border: 1px solid color(_aquamarine, medium);
-          border-radius: 0 0.5rem 0.5rem 0;
-        }
-      }
-    }
-  }
 }

@@ -3,15 +3,17 @@
          (focusin)="onFocusIn(this.picker)"
          (focusout)="onFocusOut(this.picker)"
          (invalid)="invalid"
+         [attr.aria-describedby]="originalMessage"
+         [attr.aria-invalid]="invalid"
+         [attr.aria-labelledby]="'pickerLabel-' + name"
+         [attr.aria-readonly]="readonly"
          [disabled]="disabled"
-         [readOnly]="readonly"
          [id]="id"
          [name]="name"
          [ngClass]="{'invalid': invalid}"
+         [readOnly]="readonly"
          [required]="required"
          [value]="value"
-         aria-describedby="pickerDesc"
-         aria-labelledby="pickerLabel"
          aria-relevant="all"
          autocomplete="off"
          placeholder=" "
@@ -20,6 +22,6 @@
   <label [for]="'datepicker-' + name" class="icon" aria-hidden="true"><i class="material-icons">calendar_today</i></label>
   <div class="infos">
     <span [id]="'pickerDesc-' + name" [attr.aria-details]="message" class="infos__message"
-          [attr.data-original]="originalMessage">{{ message }}</span>
+          [attr.data-original]="originalMessage" aria-live="polite">{{ message }}</span>
   </div>
 </div>

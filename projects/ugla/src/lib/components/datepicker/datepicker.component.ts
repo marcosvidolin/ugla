@@ -142,7 +142,7 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
           const event = new Event('change');
           instance.el.dispatchEvent(event);
         };
-        this.picker = datepicker('#datepicker-' + this.name, this.options);
+        this.newDatepickerInstance();
       }
     }
   }
@@ -283,8 +283,7 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
    * Execute on after view
    */
   ngAfterViewInit() {
-    this.picker = datepicker('#datepicker-' + this.name, this.options);
-
+    this.newDatepickerInstance();
     this.setCurrentDate();
   }
 
@@ -295,7 +294,9 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
   setDate(date: Date) {
     if (date === null) {
       this.picker.setDate();
-    } else { this.picker.setDate(date); }
+    } else {
+      this.picker.setDate(date);
+    }
 
     const event = new Event('change');
     const input: HTMLInputElement = this.picker.el;
@@ -310,8 +311,21 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
       startDate: new Date(),
       position: 'br',
       formatter: (input, date, instance) => {
-        input.value = date.toLocaleDateString('en-US');
+        input.value = date.toLocaleDateString();
       },
     };
+  }
+
+  /**
+   * Hide datepicker calendar from screen readers
+   */
+  private hideFromScreenReaders() {
+    document.querySelectorAll('.qs-datepicker').forEach(item => item.setAttribute('aria-hidden', 'true'));
+    document.querySelectorAll('qs-overlay-year').forEach(item => item.setAttribute('aria-hidden', 'true'));
+  }
+
+  private newDatepickerInstance() {
+    this.picker = datepicker('#datepicker-' + this.name, this.options);
+    this.hideFromScreenReaders();
   }
 }
