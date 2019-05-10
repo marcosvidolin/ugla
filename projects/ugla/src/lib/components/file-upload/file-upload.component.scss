@@ -37,7 +37,16 @@
         height: 100% !important;
 
         .filepond--assistant {
-          display: none;
+          position: absolute;
+          overflow: hidden;
+          height: 1px;
+          width: 1px;
+          padding: 0;
+          border: 0;
+          clip: rect(1px,1px,1px,1px);
+          -webkit-clip-path: inset(50%);
+          clip-path: inset(50%);
+          white-space: nowrap;
         }
       }
 

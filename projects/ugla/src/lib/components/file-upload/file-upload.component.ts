@@ -166,6 +166,7 @@ export class FileUploadComponent implements OnInit, AfterViewInit {
       } else {
         this.isFileValid = true;
       }
+
       this.onAddFile.emit(true);
       this.addPreview(event);
       this.handleError(event);
@@ -218,18 +219,6 @@ export class FileUploadComponent implements OnInit, AfterViewInit {
   handleError(event: any) {
     const fileWrapper = this.element.querySelector('.filepond--wrapper');
     if (event.error || event.status) {
-      const statusMain = this.element.querySelector('.filepond--file-status-main');
-      const statusSub = this.element.querySelector('.filepond--file-status-sub');
-
-      if (event.status.main.indexOf('invalid type') > -1 && this.messages && this.messages['type']) {
-        statusMain.innerHTML = this.messages['type']['main'];
-        statusSub.innerHTML = this.messages['type']['sub'];
-      }
-      if (event.status.main.indexOf('too large') > -1 && this.messages && this.messages['size']) {
-        statusMain.innerHTML = this.messages['size']['main'];
-        statusSub.innerHTML = this.messages['size']['sub'];
-      }
-
       fileWrapper.classList.add('error');
     } else {
       fileWrapper.classList.remove('error');
@@ -264,6 +253,7 @@ export class FileUploadComponent implements OnInit, AfterViewInit {
    */
   browse(event: any) {
     if (event.keyCode === 13) {
+      (this.element as HTMLDivElement).querySelector<HTMLInputElement>('.filepond--browser').focus();
       this.instance.browse();
     }
   }
