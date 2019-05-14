@@ -42,6 +42,7 @@ import { PaginationComponent } from './components/pagination/pagination.componen
 import { PaginationItemsPerPageComponent } from './components/pagination/pagination-items-per-page/pagination-items-per-page.component';
 import { ModalComponent } from './components/modal/modal.component';
 import { ClickOutsideDirective } from './directives';
+import { TooltipDirective } from './directives/tooltip.directive';
 
 registerPlugin(FilePondPluginFileValidateType,
   FilePondPluginFileValidateSize,
@@ -90,7 +91,8 @@ registerPlugin(FilePondPluginFileValidateType,
     CheckboxColumnDirective,
     PaginationComponent,
     PaginationItemsPerPageComponent,
-    ModalComponent
+    ModalComponent,
+    TooltipDirective
   ],
   exports: [
     UglaComponent,
@@ -122,7 +124,8 @@ registerPlugin(FilePondPluginFileValidateType,
     CheckboxColumnDirective,
     PaginationComponent,
     PaginationItemsPerPageComponent,
-    ModalComponent
+    ModalComponent,
+    TooltipDirective
   ],
   providers: [UglaService]
 })
