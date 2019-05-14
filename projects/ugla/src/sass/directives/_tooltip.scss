@@ -5,16 +5,17 @@
   padding: 10px;
   background-color: color(_others, 'dark-alpha');
   color: color(_others, 'light');
-  font-size: 10px;
+  font-size: 0.625rem;
   min-width: 90px;
   min-height: 33px;
+
+  @include mobile() {
+    font-size: 0.714rem;
+  }
 }
 
 .tooltip.tooltip-animation {
-  -webkit-animation: tooltip-fadeIn 150ms ease-out;
-  -moz-animation: tooltip-fadeIn 150ms ease-out;
-  -o-animation: tooltip-fadeIn 150ms ease-out;
-  animation: tooltip-fadeIn 150ms ease-out;
+  @include cross-browser(animation, tooltip-fadeIn 150ms ease-out);
 }
 
 .tooltip > .tooltip-arrow {
