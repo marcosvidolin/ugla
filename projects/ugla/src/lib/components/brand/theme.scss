@@ -11,6 +11,10 @@
   img {
     margin-right: 10px;
     width: 55px;
+
+    @include mobile() {
+      width: 24px;
+    }
   }
 
   span {
