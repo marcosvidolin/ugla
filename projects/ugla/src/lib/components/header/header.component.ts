@@ -80,6 +80,7 @@ export class HeaderComponent implements OnInit {
    * Height of header right area
    */
   headerRightHeight: number;
+  windowHeight = window.innerHeight;
 
   /**
    * Receives the component's name
@@ -111,6 +112,7 @@ export class HeaderComponent implements OnInit {
     setTimeout(() => {
       this.headerRightHeight = this.headerRightInstance.nativeElement.offsetHeight;
     }, 0);
+    console.log(this.windowHeight);
   }
 
   /**

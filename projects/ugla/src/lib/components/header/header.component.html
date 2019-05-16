@@ -3,7 +3,7 @@
   <a (click)="toggleMenu()" class="toggle-menu">
     <i class="material-icons">{{ open ? 'close' : 'menu' }}</i>
   </a>
-  <nav [ngClass]="open ? 'opened' : ''" id="main-menu" [ngStyle]="{'height': 'calc(100vh - ' + headerRightHeight + 'px - 60px)'}">
+  <nav [ngClass]="open ? 'opened' : ''" id="main-menu" [ngStyle]="{'height': 'calc(' + windowHeight + 'px' + ' - ' + headerRightHeight + 'px - 60px)'}">
       <a *ngFor="let item of header.menu.items; let idx = index"
          [href]="item.url"
          [ngClass]="{'active': item.active, 'hide-mobile': item.hideMobile, 'hidden': !item.visible}"
