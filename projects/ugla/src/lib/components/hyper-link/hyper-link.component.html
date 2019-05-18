@@ -1,1 +1,4 @@
-<a [href]="href" target="_blank" class="hyper-link">{{ text }} <i class="material-icons">open_in_new</i></a>
+<a [href]="href" target="_blank" class="hyper-link" [attr.aria-label]="ariaLabel || text">
+  {{ text }}
+  <i class="material-icons" aria-hidden="true">open_in_new</i>
+</a>
