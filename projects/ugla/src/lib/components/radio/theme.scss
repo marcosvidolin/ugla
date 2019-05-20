@@ -1,0 +1,46 @@
+.form-group {
+  min-height: 2.5rem;
+
+  input[type=radio] {
+    opacity: 0;
+    display: none;
+
+    + label {
+      display: inline-block;
+      position: absolute;
+      vertical-align: middle;
+      cursor: pointer;
+      width: 100%;
+      font-size: 0.875rem;
+
+      &::before {
+        content: 'check_box_outline_blank';
+        @extend %material-icons;
+        display: inline-flex;
+        vertical-align: middle;
+        align-items: center;
+        justify-content: center;
+        width: 18px;
+        height: 18px;
+        margin: 11px 10px;
+        text-align: center;
+      }
+    }
+
+    &:checked {
+      +label {
+        &::before {
+          content: 'check_box';
+          @extend %material-icons;
+          display: inline-block;
+          vertical-align: middle;
+          width: 18px;
+          height: 18px;
+          margin: 11px 10px;
+          text-align: center;
+          font-size: 18px;
+        }
+      }
+    }
+  }
+}

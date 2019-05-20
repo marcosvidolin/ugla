@@ -1,0 +1,10 @@
+<div class="form-group"  [ngClass]="theme" *ngFor="let item of items; let idx = index" [id]="'row-' + idx">
+  <input type="radio"
+    [name]="item.groupName"
+    [id]="'radio-' + idx"
+    (click)="onCheck(item)"
+    [value]="item.checked"
+    [checked]="item.checked"
+    tabindex="0">
+  <label [for]="'radio-' + idx" [ngStyle]="{'color': item.color}">{{ item.description }}</label>
+</div>

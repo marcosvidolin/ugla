@@ -45,6 +45,7 @@ import { ClickOutsideDirective } from './directives';
 import { TooltipDirective } from './directives/tooltip.directive';
 import { HyperLinkComponent } from './components/hyper-link/hyper-link.component';
 import { BackPanelComponent } from './components/panels/back-panel/back-panel.component';
+import { RadioComponent } from './components/radio/radio.component';
 
 registerPlugin(FilePondPluginFileValidateType,
   FilePondPluginFileValidateSize,
@@ -97,6 +98,7 @@ registerPlugin(FilePondPluginFileValidateType,
     TooltipDirective,
     HyperLinkComponent,
     BackPanelComponent
+    RadioComponent
   ],
   exports: [
     UglaComponent,
@@ -132,6 +134,7 @@ registerPlugin(FilePondPluginFileValidateType,
     TooltipDirective,
     HyperLinkComponent,
     BackPanelComponent
+    RadioComponent
   ],
   providers: [UglaService]
 })

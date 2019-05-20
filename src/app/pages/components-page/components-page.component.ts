@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { List, Link } from 'projects/ugla/src';
+import { List, Link, Options } from 'projects/ugla/src';
 
 @Component({
   selector: 'app-components-page',
@@ -11,8 +11,15 @@ export class ComponentsPageComponent implements OnInit {
   constructor() { }
 
   public list: List;
+  public radioItems: Options[];
 
   ngOnInit() {
+    this.radioItems = [new Options('Recovery', '1', false, '#d71f3c', 'radios'),
+    new Options('Training', '2', false, '#656565', 'radios'),
+    new Options('Developing', '3', false, '#656565', 'radios'),
+    new Options('Observed', '3', true, '#656565', 'radios'),
+    new Options('Observed with honors', '3', false, '#656565', 'radios')];
+
     this.list = new List('components-list');
     this.list.name = 'components-list';
     this.list.links = [

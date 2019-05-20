@@ -1,0 +1,34 @@
+.form-group {
+  background-color: color(_others, body);
+
+  input[type=radio] {
+    &:checked {
+      background-color: color(_aquamarine, 'medium');
+      color: color(_others, 'light');
+    }
+  }
+
+}
+
+input[type=radio] {
+
+  + label {
+    color: color(_gray, medium);
+
+    &::before {
+      color: color(_aquamarine, 'medium');
+    }
+
+    &:hover {
+      color: color(_others, 'light');
+    }
+  }
+}
+
+ .form-group input[type=radio]:checked + label {
+    background: color(_gray, 'medium');
+    color: color(_others, 'light');
+    &::before {
+      background: color(_others, 'light');
+    }
+}

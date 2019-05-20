@@ -1,0 +1,33 @@
+.form-group {
+  @each $theme in $themes {
+    &.theme-colored-#{$theme} {
+      background-color: color(_others, body);
+
+      input[type=radio] {
+        &:checked {
+          background-color: color(_#{$theme}, 'medium');
+          color: white;
+        }
+        + label {
+          color: color(_gray, medium);
+
+          &::before {
+            color: color(_#{$theme}, 'medium');
+          }
+
+          &:hover {
+            color: white;
+          }
+        }
+      }
+
+      input[type=radio]:checked + label {
+        background: color(_#{$theme}, 'medium');
+        color: white !important;
+        &::before {
+          background: white;
+        }
+      }
+    }
+  }
+}
