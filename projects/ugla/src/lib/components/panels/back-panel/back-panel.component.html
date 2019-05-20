@@ -1,23 +1,25 @@
 <section class="back-panel">
-  <ugl-button
-    [title]="backButtonLabel"
-    [style]="'icon'"
-    [color]="'gray'"
-    class="mobile-only"
-    [id]="'back-button'"
-    (click)="back()">
-    <i class="material-icons" [id]="'lock'">keyboard_arrow_left</i>
-  </ugl-button>
-  <ugl-button (click)="back()"
-    [style]="'border'"
-    [color]="'white'"
-    [size]="'small'"
-    [title]="backButtonLabel"
-    [wave]="false"
-    class="desktop-only"
-    [id]="'back-button'">
-    <i class="material-icons">keyboard_arrow_left</i> {{ backButtonLabel }}
-  </ugl-button>
+    <ugl-button
+      (click)="back()"
+      [color]="'gray'"
+      [id]="'back-button'"
+      [style]="'icon'"
+      [title]="backButtonLabel"
+      [wave]="true"
+      class="mobile-only">
+      <i class="material-icons" [id]="'lock'" aria-hidden="true">keyboard_arrow_left</i>
+    </ugl-button>
+    <ugl-button
+      (click)="back()"
+      [color]="'white'"
+      [id]="'back-button'"
+      [size]="'small'"
+      [style]="'border'"
+      [title]="backButtonLabel"
+      [wave]="true"
+      class="desktop-only">
+      <i class="material-icons" aria-hidden="true">keyboard_arrow_left</i> {{ backButtonLabel }}
+    </ugl-button>
   <div class="panel-content">
     <ng-content></ng-content>
   </div>
