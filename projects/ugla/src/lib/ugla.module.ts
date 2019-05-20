@@ -97,7 +97,7 @@ registerPlugin(FilePondPluginFileValidateType,
     ModalComponent,
     TooltipDirective,
     HyperLinkComponent,
-    BackPanelComponent
+    BackPanelComponent,
     RadioComponent
   ],
   exports: [
@@ -133,7 +133,7 @@ registerPlugin(FilePondPluginFileValidateType,
     ModalComponent,
     TooltipDirective,
     HyperLinkComponent,
-    BackPanelComponent
+    BackPanelComponent,
     RadioComponent
   ],
   providers: [UglaService]
