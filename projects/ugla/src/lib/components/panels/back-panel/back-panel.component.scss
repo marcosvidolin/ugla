@@ -1,0 +1,33 @@
+@import '../../../../sass/index';
+
+:host /deep/ {
+  section.back-panel {
+    margin-top: 0 !important;
+    min-height: 100vh;
+    background-color: color(_others, 'light');
+    box-shadow: 0 .25rem .5rem color(_gray, 'extra-light');
+    height: 100%;
+    max-width: 1024px;
+    width: calc(100% - 20px);
+
+    #back-button {
+      font-size: .875rem;
+      font-weight: 600;
+      margin: 20px;
+
+      @include desktop {
+        width: 120px;
+
+        i {
+          font-size: 1.5rem;
+          line-height: 1.2;
+          padding-left: 5px;
+        }
+      }
+
+      @include mobile {
+        margin: 10px;
+      }
+    }
+  }
+}

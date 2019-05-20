@@ -80,6 +80,11 @@ button,
           transition: background 0s;
         }
       }
+
+      &-white {
+        background-color: color(_others, 'light');
+        color: color(_others, 'dark');
+      }
     }
   }
 
@@ -104,6 +109,12 @@ button,
           transition: background 0s;
         }
       }
+    }
+
+    &-white {
+      background-color: color(_others, 'light');
+      border: 2px solid color(_others, 'dark');
+      color: color(_others, 'dark');
     }
   }
 

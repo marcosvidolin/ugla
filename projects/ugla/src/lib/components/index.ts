@@ -27,3 +27,4 @@ export { PaginationComponent } from './pagination/pagination.component';
 export { ModalComponent } from './modal/modal.component';
 export { ModalService } from './modal/modal.service';
 export { HyperLinkComponent } from './hyper-link/hyper-link.component';
+export { BackPanelComponent } from './panels/back-panel/back-panel.component';

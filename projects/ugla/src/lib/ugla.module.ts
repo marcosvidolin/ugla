@@ -44,6 +44,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { ClickOutsideDirective } from './directives';
 import { TooltipDirective } from './directives/tooltip.directive';
 import { HyperLinkComponent } from './components/hyper-link/hyper-link.component';
+import { BackPanelComponent } from './components/panels/back-panel/back-panel.component';
 
 registerPlugin(FilePondPluginFileValidateType,
   FilePondPluginFileValidateSize,
@@ -94,7 +95,8 @@ registerPlugin(FilePondPluginFileValidateType,
     PaginationItemsPerPageComponent,
     ModalComponent,
     TooltipDirective,
-    HyperLinkComponent
+    HyperLinkComponent,
+    BackPanelComponent
   ],
   exports: [
     UglaComponent,
@@ -128,7 +130,8 @@ registerPlugin(FilePondPluginFileValidateType,
     PaginationItemsPerPageComponent,
     ModalComponent,
     TooltipDirective,
-    HyperLinkComponent
+    HyperLinkComponent,
+    BackPanelComponent
   ],
   providers: [UglaService]
 })
