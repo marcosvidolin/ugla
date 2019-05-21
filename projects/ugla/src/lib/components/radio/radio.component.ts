@@ -22,7 +22,7 @@ import { UglaService } from '../../ugla.service';
   templateUrl: './radio.component.html',
   styleUrls: ['./radio.component.scss']
 })
-export class RadioComponent implements OnInit {
+export class RadioComponent {
 
   @Input() items: Options[];
   @Output() itemChecked = new EventEmitter<Options>();
@@ -38,9 +38,6 @@ export class RadioComponent implements OnInit {
    */
   constructor(private ugla: UglaService) {
     this.theme = ugla.theme;
-  }
-
-  ngOnInit() {
   }
 
   onCheck(item: Options) {
