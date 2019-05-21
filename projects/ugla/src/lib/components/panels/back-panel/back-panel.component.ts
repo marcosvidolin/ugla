@@ -7,7 +7,9 @@ import { Form } from '../../../enum';
  * This component generates a panel with back button
  *
  * @example
- * <ugl-back-panel [backButtonLabel]="'Back'"></ugl-back-panel>
+ * <ugl-back-panel
+ *  [backButtonLabel]="'Back'"
+ *  [floatingButton]="true"></ugl-back-panel>
  */
 @Component({
   selector: 'ugl-back-panel',
@@ -21,6 +23,12 @@ export class BackPanelComponent {
    * Default: Back
    */
   @Input() backButtonLabel = Form.BACK_BUTTON_LABEL;
+
+  /**
+   * Indicates if back button is floating on desktop
+   * Default: false
+   */
+  @Input() floatingButton = false;
 
   /**
    * Emit the back button click

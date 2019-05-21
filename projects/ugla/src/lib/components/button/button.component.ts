@@ -88,6 +88,13 @@ export class ButtonComponent implements OnInit, OnChanges {
   @Input() tabindex: number;
 
   /**
+   * Indicates if button should be floating
+   *
+   * Default: false
+   */
+  @Input() floating = false;
+
+  /**
    * @ignore
    */
   public groupClass = '';
@@ -117,6 +124,7 @@ export class ButtonComponent implements OnInit, OnChanges {
 
     this.groupClass = `${this.size} ${isIcon}`;
     this.groupClass = (this.wave) ? `${this.groupClass} wave` : this.groupClass;
+    this.groupClass = (this.floating) ? `${this.groupClass} floating` : this.groupClass;
   }
 
   ngOnChanges(changes: SimpleChanges) {

@@ -142,4 +142,8 @@ button,
     cursor: default;
     pointer-events: none;
   }
+
+  &.floating {
+    position: absolute;
+  }
 }
