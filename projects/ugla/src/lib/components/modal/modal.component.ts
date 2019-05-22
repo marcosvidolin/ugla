@@ -83,6 +83,12 @@ export class ModalComponent implements OnInit {
         this.subtitle = modal.text;
         this.type = modal.type;
         this.isOpened = modal.open;
+
+        setTimeout(function() {
+          if (modal.open) {
+            document.body.querySelector<HTMLBodyElement>(`.modal-body`).focus();
+          }
+        }, 0);
       }
     });
 
@@ -121,4 +127,21 @@ export class ModalComponent implements OnInit {
     this.confirmClick.emit();
   }
 
+  /**
+   * Handle keyboard events to close modal and tab through the content within the modal.
+   */
+  @HostListener('keydown', ['$event'])
+  handleKeyboardEvent(event: KeyboardEvent) {
+    switch (event.key) {
+      case 'Escape': {
+        event.stopImmediatePropagation();  // prevents events being fired for multiple modals if more than 2 open
+        break;
+      }
+
+      case 'Tab': {
+        cycleTabs(event, this.element);
+        break;
+      }
+    }
+  }
 }
