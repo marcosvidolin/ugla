@@ -10,11 +10,12 @@
     [required]="required"
     placeholder=" "
     (change)="changeHandler($event)"
-    (keyup)="keyupHandler($event)"
     (focusout)="focusoutHandler($event)"
+    (input)="inputValidation($event)"
+    (invalid)="invalid"
+    (keyup)="keyupHandler($event)"
     [disabled]="disabled"
     [readOnly]="readonly"
-    (invalid)="invalid"
     [ngClass]="{'invalid': invalid}">
   <label [for]="'field-' + name">{{ label }}</label>
   <label [for]="'field-' + name" class="icon" *ngIf="type === 'time'"><i

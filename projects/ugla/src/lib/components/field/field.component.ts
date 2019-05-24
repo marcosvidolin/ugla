@@ -1,5 +1,6 @@
-import {Component, OnInit, Input, Output, EventEmitter, ElementRef} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Form} from '../../enum';
+
 /**
  * Field
  *
@@ -138,6 +139,15 @@ export class FieldComponent implements OnInit {
    */
   @Input() readonly: boolean;
 
+  /**
+   * Allowing decimal values in number input type:
+   * If true: Any number is an acceptable value, as long as it is a valid floating point number;
+   * If false: only integer numbers are acceptable;
+   *
+   * Valid only for input type=number
+   * Default: true;
+   */
+  @Input() allowDecimal: boolean;
 
   /**
    * @ignore
@@ -238,5 +248,16 @@ export class FieldComponent implements OnInit {
     this.min = (this.min !== undefined) ? this.min : '';
     this.max = (this.max !== undefined) ? this.max : '';
     this.maxLength = (this.maxLength !== undefined) ? this.maxLength : 1000;
+    this.allowDecimal = (this.allowDecimal !== undefined) ? this.allowDecimal : true;
+  }
+
+  inputValidation(event: any) {
+    if (this.type === 'number' && !this.allowDecimal) {
+      this.removeDecimal(event);
+    }
+  }
+
+  private removeDecimal(event: any) {
+    event.target.value = parseInt(event.target.value, 10) || '';
   }
 }
