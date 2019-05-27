@@ -33,7 +33,7 @@ export enum KEY_CODE {
 export class RadioComponent {
 
   @Input() items: Options[];
-  @Input() accessibilityLabel: string;
+  @Input() radioGroupAriaLabel: string;
   @Output() itemChecked = new EventEmitter<Options>();
 
   @ViewChild('radioButton') radioButton: HTMLDivElement;

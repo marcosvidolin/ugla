@@ -1,4 +1,4 @@
-<div [attr.aria-label]="accessibilityLabel" class="radio-container" role="radiogroup" tabindex="0">
+<div [attr.aria-label]="radioGroupAriaLabel" class="radio-container" role="radiogroup" tabindex="0">
   <div #radioButton
        (keydown)="keydownEvent($event, item)"
        *ngFor="let item of items; let idx = index"
