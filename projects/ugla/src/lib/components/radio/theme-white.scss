@@ -1,4 +1,4 @@
-.form-group {
+.radio-item {
   background-color: color(_others, body);
 
   input[type=radio] {
@@ -25,10 +25,11 @@ input[type=radio] {
   }
 }
 
- .form-group input[type=radio]:checked + label {
-    background: color(_gray, 'medium');
-    color: color(_others, 'light');
-    &::before {
-      background: color(_others, 'light');
-    }
+.radio-item input[type=radio]:checked + label {
+  background: color(_gray, 'medium');
+  color: color(_others, 'light');
+
+  &::before {
+    background: color(_others, 'light');
+  }
 }

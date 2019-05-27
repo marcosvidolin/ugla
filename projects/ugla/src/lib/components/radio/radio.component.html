@@ -1,19 +1,17 @@
-<div class="form-group"
-    role="radio"
-    [id]="'row-' + idx"
-    *ngFor="let item of items; let idx = index"
-    [attr.aria-checked]="item.checked"
-    [attr.aria-labelledby]="'label-radio-' + idx"
-    tabindex="0"
-    [ngClass]="theme"
-    (keydown)="keydownEvent($event, item)"
-    #radioButton>
-  <input type="radio"
-    [name]="item.groupName"
-    [id]="'radio-' + idx"
-    (click)="setChecked(item)"
-    [value]="item.checked"
-    [checked]="item.checked">
-  <label aria-hidden="true" [for]="'radio-' + idx" [ngStyle]="{'color': item.color}">{{ item.description }}</label>
-  <label [id]="'label-radio-' + idx" hidden>{{ item.description }}</label>
+<div [attr.aria-label]="accessibilityLabel" class="radio-container" role="radiogroup" tabindex="0">
+  <div #radioButton
+       (keydown)="keydownEvent($event, item)"
+       *ngFor="let item of items; let idx = index"
+       [attr.aria-checked]="item.checked"
+       [attr.aria-labelledby]="'label-radio-' + idx"
+       [id]="'row-' + idx"
+       [ngClass]="theme"
+       class="radio-item"
+       role="radio" tabindex="0">
+    <input (click)="setChecked(item)" [checked]="item.checked" [id]="'radio-' + idx" [name]="item.groupName"
+           [value]="item.checked"
+           type="radio">
+    <label [for]="'radio-' + idx" [ngStyle]="{'color': item.color}" aria-hidden="true">{{ item.description }}</label>
+    <label [id]="'label-radio-' + idx" hidden>{{ item.description }}</label>
+  </div>
 </div>

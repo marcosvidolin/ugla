@@ -17,7 +17,7 @@ export enum KEY_CODE {
  *
  *
  * @example
- * <ugl-radio [items]="radioItems" (itemChecked)="getItemChecked($event)">
+ * <ugl-radio [items]="radioItems" (itemChecked)="getItemChecked($event)" [radioGroupAriaLabel]="'Select an option'">
  *
  * @example
  * this.radioItems = [new Options('Check1', '1', false, '#d71f3c', 'radios'),
@@ -33,6 +33,7 @@ export enum KEY_CODE {
 export class RadioComponent {
 
   @Input() items: Options[];
+  @Input() accessibilityLabel: string;
   @Output() itemChecked = new EventEmitter<Options>();
 
   @ViewChild('radioButton') radioButton: HTMLDivElement;
@@ -124,7 +125,7 @@ export class RadioComponent {
   }
 
   private setFocusToPreviousItem(current: any) {
-    let index;
+    let index: number;
     if (current === this.firstRadioButton) {
       this.setFocus(this.lastRadioButton);
     } else {
@@ -134,7 +135,7 @@ export class RadioComponent {
     }
   }
   private setFocusToNextItem(current: any) {
-    let index;
+    let index: number;
     if (current === this.lastRadioButton) {
       this.setFocus(this.firstRadioButton);
     } else {

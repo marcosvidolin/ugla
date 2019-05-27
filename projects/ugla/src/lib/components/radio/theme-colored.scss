@@ -1,4 +1,4 @@
-.form-group {
+.radio-item {
   @each $theme in $themes {
     &.theme-colored-#{$theme} {
       background-color: color(_others, body);
@@ -6,8 +6,9 @@
       input[type=radio] {
         &:checked {
           background-color: color(_#{$theme}, 'medium');
-          color: white;
+          color: color(_others, 'light');
         }
+
         + label {
           color: color(_gray, medium);
 
@@ -16,16 +17,17 @@
           }
 
           &:hover {
-            color: white;
+            color: color(_others, 'light');
           }
         }
       }
 
       input[type=radio]:checked + label {
         background: color(_#{$theme}, 'medium');
-        color: white !important;
+        color: color(_others, 'light') !important;
+
         &::before {
-          background: white;
+          background: color(_others, 'light');
         }
       }
     }
