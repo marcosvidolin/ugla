@@ -11,6 +11,7 @@ import { ServicesPageComponent } from './pages/services-page/services-page.compo
 import { DevPageComponent } from './pages/dev-page/dev-page.component';
 import { ComponentsPageComponent } from './pages/components-page/components-page.component';
 import { BrandComponent } from './pages/components-page/brand/brand.component';
+import { SelectPageComponent } from './pages/components-page/select-page/select-page.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { BrandComponent } from './pages/components-page/brand/brand.component';
     DirectivesPageComponent,
     ServicesPageComponent,
     DevPageComponent,
-    BrandComponent
+    BrandComponent,
+    SelectPageComponent
   ],
   imports: [
     BrowserModule,

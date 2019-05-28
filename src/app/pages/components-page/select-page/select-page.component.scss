@@ -1,0 +1,13 @@
+@import './projects/ugla/src/sass/index.scss';
+
+
+aside {
+  padding: 10px 0;
+  min-height: calc(100vh - 80px);
+}
+
+.no-margin {
+  &:not(.central):not(.login) {
+    margin-top: 0;
+  }
+}

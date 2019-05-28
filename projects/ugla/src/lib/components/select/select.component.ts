@@ -12,6 +12,7 @@ import {Form} from '../../enum';
  * <ugl-select
  *   [label]="'Language'"
  *   [select]="select"
+ *   [readonly]="true"
  *   [message]="'Select your language'"
  *   [dataTitle]="'Select an option'"
  *   (selected)="selectLanguage($event)">
@@ -140,6 +141,11 @@ export class SelectComponent implements OnInit, OnDestroy {
    * Set a truncate length for the text.
    */
   @Input() truncateLength: number;
+
+  /**
+   * Set a readonly mode
+   */
+  @Input() readonly = false;
 
   /**
    * Original message
@@ -296,6 +302,10 @@ export class SelectComponent implements OnInit, OnDestroy {
 
     if (this.stylized) {
       this.theme = `${this.theme} ${this.stylizedType}`;
+    }
+
+    if (this.readonly) {
+      return this.theme + ' readonly';
     }
 
     return this.theme;

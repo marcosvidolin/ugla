@@ -1,6 +1,10 @@
 $animation-time: 0.5s;
 $label-animate-time: 0.2s;
 
+.readonly {
+  pointer-events: none;
+}
+
 .select {
   position: relative;
   @extend %inline-flex;
@@ -192,7 +196,6 @@ $label-animate-time: 0.2s;
       text-align: right;
     }
   }
-
 
   &.combo {
     position: relative;
