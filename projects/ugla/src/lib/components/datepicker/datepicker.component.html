@@ -1,4 +1,4 @@
-<div class="datepicker date">
+<div class="datepicker date" [ngClass]="classes">
   <input (change)="onDateChange(this.picker)"
          (focusin)="onFocusIn(this.picker)"
          (focusout)="onFocusOut(this.picker)"

@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Form } from '../../enum';
+import { UglaService } from '../../ugla.service';
 
 /**
  * Form
@@ -65,10 +67,11 @@ import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
   styleUrls: ['./form.component.scss']
 })
 export class FormComponent implements OnInit {
+
   /**
    * @ignore
    */
-  constructor() { }
+  constructor(private ugla: UglaService) { }
 
   /**
    * Set class background to footer.
@@ -77,13 +80,21 @@ export class FormComponent implements OnInit {
 
   /**
    * Set text to cancel button
+   * Default: Cancel
    */
   @Input() cancelText: string;
 
   /**
    * Set text to submit button
+   * Default: Submit
    */
   @Input() submitText: string;
+
+  /**
+   * Set color to submit button
+   * Default is color of current theme
+   */
+  @Input() submitColor: string;
 
   /**
    * Event to cancel button
@@ -128,9 +139,10 @@ export class FormComponent implements OnInit {
    * Set initials configurations
    */
   ngOnInit() {
-    this.cancelText = (this.cancelText === undefined) ? 'Cancel' : this.cancelText;
-    this.submitText = (this.submitText === undefined) ? 'Cancel' : this.submitText;
+    this.cancelText = (this.cancelText === undefined) ? Form.CANCEL_BUTTON_LABEL : this.cancelText;
+    this.submitText = (this.submitText === undefined) ? Form.SUBMIT_BUTTON_LABEL : this.submitText;
     this.hiddenButtonSubmit = (this.hiddenButtonSubmit === undefined) ? false : this.hiddenButtonSubmit;
     this.disableSubmitButton = (this.disableSubmitButton === undefined) ? false : this.disableSubmitButton;
+    this.submitColor = (this.submitColor === undefined) ? this.ugla.color : this.submitColor;
   }
 }

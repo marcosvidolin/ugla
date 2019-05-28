@@ -1,6 +1,7 @@
 import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Form} from '../../enum';
 import * as datepicker_ from 'js-datepicker';
+import { UglaService } from '../../ugla.service';
 
 /**
  * @ignore
@@ -172,6 +173,11 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
   public invalidFormat: boolean;
 
   /**
+   * Classes of the component
+   */
+  public classes: string;
+
+  /**
    * @ignore
    */
   picker: any;
@@ -185,7 +191,13 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
   /**
    * @ignore
    */
-  constructor() {
+  private theme: string;
+
+  /**
+   * @ignore
+   */
+  constructor(private ugla: UglaService) {
+    this.theme = ugla.theme;
   }
 
   /**
@@ -224,6 +236,7 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
     this.language = (this.language !== undefined) ? this.language : 'en';
     this.invalidFormat = (this.invalidFormat !== undefined) ? this.invalidFormat : false;
     this.options = (this.options !== undefined) ? this.options : this.defaultInitDatepicker();
+    this.classes = `${this.theme}`;
 
     this.options.onHide = (instance) => {
       this.onFocusOut(instance);

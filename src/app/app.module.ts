@@ -12,6 +12,8 @@ import { DevPageComponent } from './pages/dev-page/dev-page.component';
 import { ComponentsPageComponent } from './pages/components-page/components-page.component';
 import { BrandComponent } from './pages/components-page/brand/brand.component';
 import { SelectPageComponent } from './pages/components-page/select-page/select-page.component';
+import { FormComponent } from './pages/components-page/form/form.component';
+import { DatepickerComponent } from './pages/components-page/datepicker/datepicker.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,9 @@ import { SelectPageComponent } from './pages/components-page/select-page/select-
     ServicesPageComponent,
     DevPageComponent,
     BrandComponent,
-    SelectPageComponent
+    SelectPageComponent,
+    FormComponent,
+    DatepickerComponent
   ],
   imports: [
     BrowserModule,
