@@ -1,0 +1,26 @@
+.datepicker {
+  &.theme-white {
+    .icon {
+      background-color: color(_aquamarine, 'medium');
+
+      &:hover {
+        background-color: color(_aquamarine, dark);
+      }
+    }
+
+    input {
+      &.valid {
+        border: 1px solid color(_aquamarine, medium);
+
+        + label,
+        ~ .infos {
+          color: color(_aquamarine, medium);
+        }
+      }
+
+      &:focus:not([readonly]) {
+        border: 1px solid color(_aquamarine, light);
+      }
+    }
+  }
+}

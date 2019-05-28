@@ -1,0 +1,20 @@
+<section id="form" class="central">
+  <ugl-page-title
+     [firstTitle]="'Datepicker'"
+     [secondTitle]="'Usage'">
+  </ugl-page-title>
+  <ugl-form
+     [hiddenButtonSubmit]="false"
+     (cancelClick)="onCancelClick()"
+     (submitClick)="onSubmitClick()"
+     [cancelText]="'Cancelar'"
+     [submitText]="'Enviar'">
+     <ugl-datepicker [label]="'Date'"
+                      [name]="'date'"
+                      [options]="onInitDatepicker()"
+                      [message]="'Select a Date'"
+                      [required]="true"
+                      (onSelectValue)="onChangeFinalDate($event)"
+                      #date></ugl-datepicker>
+  </ugl-form>
+</section>

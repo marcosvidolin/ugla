@@ -1,0 +1,30 @@
+.datepicker {
+  @each $theme in $themes {
+    &.theme-colored {
+      &-#{$theme} {
+        .icon {
+          background-color: color(_#{$theme}, 'medium');
+
+          &:hover {
+            background-color: color(_#{$theme}, dark);
+          }
+        }
+
+        input {
+          &.valid {
+            border: 1px solid color(_#{$theme}, medium);
+
+            + label,
+            ~ .infos {
+              color: color(_#{$theme}, medium);
+            }
+          }
+
+          &:focus:not([readonly]) {
+            border: 1px solid color(_#{$theme}, light);
+          }
+        }
+      }
+    }
+  }
+}

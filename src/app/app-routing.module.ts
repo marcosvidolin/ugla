@@ -8,12 +8,16 @@ import { DirectivesPageComponent } from './pages/directives-page/directives-page
 import { ServicesPageComponent } from './pages/services-page/services-page.component';
 import { DevPageComponent } from './pages/dev-page/dev-page.component';
 import { BrandComponent } from './pages/components-page/brand/brand.component';
+import { FormComponent } from './pages/components-page/form/form.component';
+import { DatepickerComponent } from './pages/components-page/datepicker/datepicker.component';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
   {path: 'login', component: LoginPageComponent},
   {path: 'components', component: ComponentsPageComponent},
   {path: 'components/brand', component: BrandComponent},
+  {path: 'components/form', component: FormComponent},
+  {path: 'components/datepicker', component: DatepickerComponent},
   {path: 'directives', component: DirectivesPageComponent},
   {path: 'services', component: ServicesPageComponent},
   {path: 'dev', component: DevPageComponent}
