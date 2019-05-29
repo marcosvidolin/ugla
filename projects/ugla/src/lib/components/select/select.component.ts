@@ -216,11 +216,13 @@ export class SelectComponent implements OnInit, OnDestroy {
    * Toggles the combobox.
    */
   toggleCombobox(event) {
-    if (event.keyCode === 13 || event.keyCode === 32 || event.type === 'click') {
-      if (!this._open) {
-        this.open();
-      } else {
-        this.close();
+    if (!this.readonly) {
+      if (event.keyCode === 13 || event.keyCode === 32 || event.type === 'click') {
+        if (!this._open) {
+          this.open();
+        } else {
+          this.close();
+        }
       }
     }
   }
@@ -271,7 +273,7 @@ export class SelectComponent implements OnInit, OnDestroy {
    */
   selectedItem(value, event) {
     if (event.keyCode === 13 || event.keyCode === 32 || event.keyCode === undefined) {
-      this.current = this.truncateCurrentOption(this.select.options[ value ]);
+      this.current = this.truncateCurrentOption(this.select.options[value]);
 
       this.setLabelColor();
 
@@ -349,7 +351,7 @@ export class SelectComponent implements OnInit, OnDestroy {
 
   setClass(color: string, backgroundColor: string) {
     const classColor = color ? `color-${color}` : '';
-    const classBackgroundcolor  = backgroundColor ? `background-${backgroundColor}` : '';
+    const classBackgroundcolor = backgroundColor ? `background-${backgroundColor}` : '';
     const classCustom = color ? 'custom' : '';
     const classComboSelected = 'combo-selected';
     return `${classComboSelected} ${classColor} ${classBackgroundcolor} ${classCustom} `;
@@ -364,6 +366,8 @@ export class SelectComponent implements OnInit, OnDestroy {
     }
   }
 
+  isOpened = () => this._open;
+
   /**
    * Handles `Escape` key closing the dropdown, and arrow up/down focus to/from the dropdown list.
    */
@@ -373,7 +377,7 @@ export class SelectComponent implements OnInit, OnDestroy {
       this.close();
     } else if (this.elementRef && this.elementRef.nativeElement.contains(ev.target)) {
       ev.stopPropagation();
-      if ( ev.key === 'ArrowDown' || ev.key === 'Down') {
+      if (ev.key === 'ArrowDown' || ev.key === 'Down') {
         this.open();
       } else {
         this.toggleCombobox(ev);
