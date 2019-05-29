@@ -1,6 +1,6 @@
 <!--Stylized  -->
-<div class="select" [ngClass]="getTheme()" *ngIf="stylized" [id]="'form-select-' + select.name">
-  <input type="checkbox" [ngClass]="{'required' : this.required}" [name]="select.name" [id]="select.id" #checkbox>
+<div class="select" [ngClass]="getTheme()" *ngIf="stylized" [id]="'form-select-' + select.name" [attr.aria-readonly]="readonly">
+  <input type="checkbox" [ngClass]="{'required' : this.required}" [name]="select.name" [id]="select.id" #checkbox [readOnly]="readonly">
   <label class="selected" [for]="select.id" tabindex="0" (click)="toggleCombobox($event)">{{ current.description }}</label>
   <i class="material-icons" aria-hidden="true" (click)="toggleCombobox($event)">keyboard_arrow_down</i>
 
@@ -13,18 +13,28 @@
 </div>
 
 <!-- Not stylized  -->
-<div class="field combo" [ngClass]="{'theme' : theme, 'no-margin' : select.labelColor, 'readonly' : readonly}" *ngIf="!stylized" [id]="'form-select-' + select.name" [ngStyle]="{'z-index': zindex }">
-  <input type="checkbox" [ngClass]="{'required' : this.required}" [disabled]="disabled" [name]="select.name" [id]="select.id" #checkbox>
-  <label class="selected" [ngClass]="setClass(select.labelColor, select.labelBackgroundColor)" [for]="select.id" [attr.data-label]="label" tabindex="0" (click)="toggleCombobox($event)">{{ current.description }}</label>
+<div *ngIf="!stylized"
+     [attr.aria-expanded]="isOpened()"
+     [attr.aria-label]="label"
+     [attr.aria-readonly]="readonly" [id]="'form-select-' + select.name"
+     [ngClass]="{'theme' : theme, 'no-margin' : select.labelColor, 'readonly' : readonly}"
+     [ngStyle]="{'z-index': zindex }"
+     class="field combo" role="listbox">
+  <input type="checkbox" [ngClass]="{'required' : this.required}" [disabled]="disabled" [name]="select.name"
+         [id]="select.id" #checkbox [readOnly]="readonly">
+  <label class="selected" [ngClass]="setClass(select.labelColor, select.labelBackgroundColor)" [for]="select.id"
+         [attr.data-label]="label" tabindex="0" (click)="toggleCombobox($event)">{{ current.description }}</label>
   <i class="material-icons" aria-hidden="true" (click)="toggleCombobox($event)">keyboard_arrow_down</i>
 
   <div class="infos">
     <span class="infos__message">{{ message }}</span>
   </div>
-  <ul class="combo-list" [ngClass]="direction">
-    <li *ngFor="let option of select.options; let i = index" >
-        <input type="radio" [name]="'options-' + select.name" [id]="'option-' + select.name + '-' + i" (change)="selectedItem( i, $event )" [value]="option.value" [checked]="option.checked">
-        <label [for]="'option-' + select.name + '-' + i" (keypress)="selectedItem( i, $event )" tabindex="0">{{ option.description }}</label>
+  <ul id="combo-list" class="combo-list" [ngClass]="direction">
+    <li *ngFor="let option of select.options; let i = index" role="option" [attr.aria-selected]="option.checked">
+      <input type="radio" [name]="'options-' + select.name" [id]="'option-' + select.name + '-' + i"
+             (change)="selectedItem( i, $event )" [value]="option.value" [checked]="option.checked">
+      <label [for]="'option-' + select.name + '-' + i" (keypress)="selectedItem( i, $event )"
+             tabindex="0">{{ option.description }}</label>
     </li>
   </ul>
 </div>
