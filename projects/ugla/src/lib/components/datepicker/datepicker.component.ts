@@ -207,6 +207,9 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
   onDateChange(picker) {
     if (picker) {
       try {
+        if (Date.parse(picker.el.value) === undefined) {
+          picker.el.value = '01 '.concat(picker.el.value);
+        }
         const format = this.language === 'en' ? '$1/$2/$3' : '$2/$1/$3';
         picker.setDate(new Date(picker.el.value.replace(/(\d{2})[-/](\d{2})[-/](\d+)/, format)), true);
         this.invalid = false;
