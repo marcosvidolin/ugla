@@ -378,7 +378,9 @@ export class SelectComponent implements OnInit, OnDestroy {
     } else if (this.elementRef && this.elementRef.nativeElement.contains(ev.target)) {
       ev.stopPropagation();
       if (ev.key === 'ArrowDown' || ev.key === 'Down') {
-        this.open();
+        if (!this.readonly) {
+          this.open();
+        }
       } else {
         this.toggleCombobox(ev);
       }
