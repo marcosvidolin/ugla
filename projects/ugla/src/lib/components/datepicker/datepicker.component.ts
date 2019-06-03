@@ -2,12 +2,13 @@ import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@an
 import {Form} from '../../enum';
 import * as datepicker_ from 'js-datepicker';
 import {UglaService} from '../../ugla.service';
-import * as moment from 'moment';
+import * as moment_ from 'moment';
 
 /**
  * @ignore
  */
 const datepicker = datepicker_;
+const moment = moment_;
 
 /**
  * Datepicker
@@ -217,7 +218,7 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
 
       if (!!this.datePattern) {
 
-        let momentDate: moment.Moment;
+        let momentDate: moment_.Moment;
 
         // If date was selected using datepicker
         if (!!picker.dateSelected) {

@@ -1,6 +1,6 @@
 {
   "name": "ugla",
-  "version": "0.0.89",
+  "version": "0.0.90",
   "repository": {
     "type": "git",
     "url": "git@github.com:ciandt-dev/ugla.git"
@@ -48,7 +48,7 @@
         "filepond-plugin-image-transform": "FilePondPluginImageTransform",
         "filepond-plugin-image-preview": "FilePondPluginImagePreview",
         "filepond-plugin-image-exif-orientation": "FilePondPluginImageExifOrientation",
-        "moment": "moment"
+        "moment": "moment_"
       }
     },
     "whitelistedNonPeerDependencies": [
