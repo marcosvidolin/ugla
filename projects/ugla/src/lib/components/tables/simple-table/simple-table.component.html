@@ -13,5 +13,10 @@
     <tr *ngFor="let data of table.data">
       <td tabindex="0" *ngFor="let column of data.columns; let i = index" [ngClass]="setClass(column.options.color, column.options.align, column.options.type)" [ngStyle]="{'width': table.header[i].size + '%'}">{{ column.text }}</td>
     </tr>
+    <tr *ngIf="table.data.length === 0">
+      <td [attr.colspan]="table.header.length" class="align-center">
+          {{noDataMessage}}
+      </td>
+    </tr>
   </tbody>
 </table>

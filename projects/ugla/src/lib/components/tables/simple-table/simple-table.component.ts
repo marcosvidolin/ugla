@@ -25,6 +25,12 @@ export class SimpleTableComponent implements OnInit {
    */
   @Input() style: string;
 
+  /**
+   * Property to receive the message for empty list.
+   * Default: No data found.
+   */
+  @Input() noDataMessage = 'No data found.';
+
   classes: string;
 
   public theme: string;
