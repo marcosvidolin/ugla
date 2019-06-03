@@ -1,7 +1,8 @@
 import {AfterViewInit, Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Form} from '../../enum';
 import * as datepicker_ from 'js-datepicker';
-import { UglaService } from '../../ugla.service';
+import {UglaService} from '../../ugla.service';
+import * as moment from 'moment';
 
 /**
  * @ignore
@@ -20,6 +21,7 @@ const datepicker = datepicker_;
  *   [required]="true"
  *   [disabled]="true"
  *   [invalid]="false"
+ *   [datePattern]="'MM/YYYY'"
  *   (onSelectValue)="onDateChange($event)"></ugl-datepicker>
  *
  ```typescript
@@ -152,6 +154,12 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
     return this._readonly;
   }
 
+  /**
+   * Set a date custom date pattern.
+   * Using the pattern, it's possible to parse into a valid date object.
+   * Default: null
+   */
+  @Input() datePattern: string;
 
   @Output() onSelectValue = new EventEmitter<Date>();
 
@@ -202,25 +210,46 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
 
   /**
    * Event on change inputs
-   * @param event
+   * @param picker
    */
   onDateChange(picker) {
     if (picker) {
-      try {
-        if (isNaN(Date.parse(picker.el.value))) {
-          picker.el.value = '01 '.concat(picker.el.value);
+
+      if (!!this.datePattern) {
+
+        let momentDate: moment.Moment;
+
+        // If date was selected using datepicker
+        if (!!picker.dateSelected) {
+          momentDate = moment(picker.dateSelected);
+          picker.el.value = momentDate.format(this.datePattern);
         }
-        const format = this.language === 'en' ? '$1/$2/$3' : '$2/$1/$3';
-        picker.setDate(new Date(picker.el.value.replace(/(\d{2})[-/](\d{2})[-/](\d+)/, format)), true);
-        this.invalid = false;
-        this.message = this.originalMessage;
-      } catch (e) {
-        this.invalid = true;
-        this.message = this.messageInvalidSelection;
-      } finally {
-        this.invalidFormat = this.invalid;
-        this.onSelectValue.emit(picker.dateSelected);
+
+        const dateValue = moment(picker.el.value, this.datePattern, this.language, true);
+
+        if (dateValue.isValid()) {
+          picker.setDate(dateValue.toDate(), true);
+          picker.el.value = dateValue.format(this.datePattern);
+        }
+
+        this.invalid = !dateValue.isValid();
+        this.message = dateValue.isValid() ? this.originalMessage : this.messageInvalidSelection;
+        this.invalidFormat = dateValue.parsingFlags().invalidFormat;
+
+      } else {
+        try {
+          const format = this.language === 'en' ? '$1/$2/$3' : '$2/$1/$3';
+          picker.setDate(new Date(picker.el.value.replace(/(\d{2})[-/](\d{2})[-/](\d+)/, format)), true);
+          this.invalid = false;
+          this.message = this.originalMessage;
+        } catch (e) {
+          this.invalid = true;
+          this.message = this.messageInvalidSelection;
+        } finally {
+          this.invalidFormat = this.invalid;
+        }
       }
+      this.onSelectValue.emit(picker.dateSelected);
     }
   }
 
@@ -240,6 +269,7 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
     this.invalidFormat = (this.invalidFormat !== undefined) ? this.invalidFormat : false;
     this.options = (this.options !== undefined) ? this.options : this.defaultInitDatepicker();
     this.classes = `${this.theme}`;
+    this.datePattern = !!this.datePattern ? this.datePattern : null;
 
     this.options.onHide = (instance) => {
       this.onFocusOut(instance);

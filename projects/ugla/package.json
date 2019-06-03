@@ -30,7 +30,8 @@
     "filepond-plugin-image-resize": "^2.0.2",
     "filepond-plugin-image-transform": "^3.2.2",
     "js-datepicker": "^4.0.10",
-    "ngx-filepond": "^5.0.0"
+    "ngx-filepond": "^5.0.0",
+    "moment": "^2.24.0"
   },
   "ngPackage": {
     "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
@@ -46,7 +47,8 @@
         "filepond-plugin-image-resize": "FilePondPluginImageResize",
         "filepond-plugin-image-transform": "FilePondPluginImageTransform",
         "filepond-plugin-image-preview": "FilePondPluginImagePreview",
-        "filepond-plugin-image-exif-orientation": "FilePondPluginImageExifOrientation"
+        "filepond-plugin-image-exif-orientation": "FilePondPluginImageExifOrientation",
+        "moment": "moment"
       }
     },
     "whitelistedNonPeerDependencies": [
@@ -58,7 +60,8 @@
       "filepond-plugin-image-resize",
       "filepond-plugin-image-transform",
       "filepond-plugin-image-preview",
-      "filepond-plugin-image-exif-orientation"
+      "filepond-plugin-image-exif-orientation",
+      "moment"
     ]
   }
 }
