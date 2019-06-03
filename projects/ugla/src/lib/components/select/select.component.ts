@@ -157,6 +157,11 @@ export class SelectComponent implements OnInit, OnDestroy {
    */
   public selectStyle: {};
 
+  /**
+   * Classes of the component
+   */
+  public classes = '';
+
   private _open = false;
 
   /**
@@ -167,7 +172,9 @@ export class SelectComponent implements OnInit, OnDestroy {
    */
   constructor(private ugla: UglaService,
               protected elementRef: ElementRef,
-              private renderer: Renderer2) { }
+              private renderer: Renderer2) {
+    this.theme = this.ugla.theme;
+  }
 
   /**
    * Current values
@@ -204,6 +211,7 @@ export class SelectComponent implements OnInit, OnDestroy {
     this.originalMessage = this.message;
     this.messageRequired = (this.messageRequired !== undefined) ? this.messageRequired : Form.REQUIRED;
     this.originalZindex = this.zindex;
+    this.classes = `${this.theme} ${this.select.labelColor ? 'no-margin' : ''} ${this.readonly ? 'readonly' : ''}`;
   }
 
   ngOnDestroy() {
@@ -300,17 +308,16 @@ export class SelectComponent implements OnInit, OnDestroy {
   }
 
   getTheme() {
-    this.theme = this.ugla.theme;
-
+    let theme = this.theme;
     if (this.stylized) {
-      this.theme = `${this.theme} ${this.stylizedType}`;
+      theme = `${theme} ${this.stylizedType}`;
     }
 
     if (this.readonly) {
-      return this.theme + ' readonly';
+      theme = `${theme} readonly`;
     }
 
-    return this.theme;
+    return theme;
   }
 
   setSelect(value, labelColor?, backgroundColor?) {

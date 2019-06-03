@@ -42,3 +42,43 @@
     }
   }
 }
+
+
+.field {
+  &.theme-white {
+    [type='checkbox'] {
+      + label {
+        &:focus {
+          border: 1px solid color(_aquamarine, medium);
+        }
+      }
+      &.valid {
+        border: 1px solid color(_aquamarine, medium);
+
+        + label,
+        ~ .infos {
+          color: color(_aquamarine, medium);
+        }
+      }
+
+      &:checked {
+        ~ .combo-list {
+          li {
+            [type='radio'] {
+              + label {
+                &:hover {
+                  color: color(_aquamarine, medium);
+                }
+              }
+              &:checked {
+                + label {
+                  color: color(_aquamarine, medium);
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

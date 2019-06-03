@@ -17,7 +17,7 @@
      [attr.aria-expanded]="isOpened()"
      [attr.aria-label]="label"
      [attr.aria-readonly]="readonly" [id]="'form-select-' + select.name"
-     [ngClass]="{'theme' : theme, 'no-margin' : select.labelColor, 'readonly' : readonly}"
+     [ngClass]="classes"
      [ngStyle]="{'z-index': zindex }"
      class="field combo" role="listbox">
   <input type="checkbox" [ngClass]="{'required' : this.required}" [disabled]="disabled" [name]="select.name"

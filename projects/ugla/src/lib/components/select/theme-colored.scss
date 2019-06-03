@@ -43,3 +43,44 @@
     }
   }
 }
+
+.field {
+  @each $theme in $themes {
+    &.theme-colored-#{$theme} {
+      [type='checkbox'] {
+        + label {
+          &:focus {
+            border: 1px solid color(_#{$theme}, medium);
+          }
+        }
+        &.valid {
+          border: 1px solid color(_#{$theme}, medium);
+
+          + label,
+          ~ .infos {
+            color: color(_#{$theme}, medium);
+          }
+        }
+
+        &:checked {
+          ~ .combo-list {
+            li {
+              [type='radio'] {
+                + label {
+                  &:hover {
+                    color: color(_#{$theme}, medium);
+                  }
+                }
+                &:checked {
+                  + label {
+                    color: color(_#{$theme}, medium);
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -307,10 +307,6 @@ $label-animate-time: 0.2s;
           padding: 0 0.2rem;
           background-color: color(_others, light);
         }
-
-        &:focus {
-          border: 1px solid color(_aquamarine, medium);
-        }
       }
 
       &.required {
@@ -348,15 +344,6 @@ $label-animate-time: 0.2s;
         ~ .infos,
         ~ i {
           color: color(_red, medium);
-        }
-      }
-
-      &.valid {
-        border: 1px solid color(_aquamarine, medium);
-
-        + label,
-        ~ .infos {
-          color: color(_aquamarine, medium);
         }
       }
 
@@ -451,16 +438,6 @@ $label-animate-time: 0.2s;
                 padding: 1rem;
                 color: color(_gray, medium);
                 cursor: pointer;
-
-                &:hover {
-                  color: color(_aquamarine, medium);
-                }
-              }
-
-              &:checked {
-                + label {
-                  color: color(_aquamarine, medium);
-                }
               }
 
               &[value='-1'] {
