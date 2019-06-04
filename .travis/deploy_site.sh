@@ -17,5 +17,4 @@ deploy() {
 }
 
 install
-build
-deploy
+build && deploy
