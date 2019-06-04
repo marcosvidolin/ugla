@@ -1,6 +1,6 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalService } from 'projects/ugla/src/lib/components/modal/modal.service';
-import { ModalComponent } from 'ugla';
+import { ModalComponent } from 'projects/ugla/src';
 
 @Component({
   selector: 'app-services-page',

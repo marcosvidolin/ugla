@@ -3,6 +3,18 @@ $label-animate-time: 0.2s;
 
 .readonly {
   pointer-events: none;
+
+  &.select > label + i {
+    display: none;
+  }
+
+  &.field.combo [type='checkbox'] + label {
+    border: 1px solid color(_gray, 'extra-light');
+
+    + i {
+      display: none;
+    }
+  }
 }
 
 .select {
