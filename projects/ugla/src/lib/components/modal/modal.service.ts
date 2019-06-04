@@ -71,6 +71,7 @@ export class ModalService {
   public closeModal() {
     this.modal.open = false;
     this.modalEventEmitter.next(this.modal);
+    document.body.classList.remove('no-scroll');
   }
 
 
@@ -87,7 +88,7 @@ export class ModalService {
    */
   private open(title: string, text: string, type: string, hasIcon?: boolean) {
     this.modal = new Modal(title, text, true, type, hasIcon);
-
+    document.body.classList.add('no-scroll');
     this.modal.open = true;
     this.modalEventEmitter.next(this.modal);
     return this.modal;

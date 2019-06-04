@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { ModalService } from 'projects/ugla/src/lib/components/modal/modal.service';
+import { ModalComponent } from 'ugla';
 
 @Component({
   selector: 'app-services-page',
@@ -7,9 +9,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ServicesPageComponent implements OnInit {
 
-  constructor() { }
+  constructor(private modalService: ModalService) { }
+
+  @ViewChild('modal') modalComponent: ModalComponent;
 
   ngOnInit() {
+  }
+
+  openModal() {
+    this.modalService.warning('Teste', 'teste');
+  }
+
+  onCancelModalClick() {
+    this.modalService.closeModal();
+  }
+
+  onConfirmModalClick() {
+
   }
 
 }
