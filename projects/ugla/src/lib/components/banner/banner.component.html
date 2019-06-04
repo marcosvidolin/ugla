@@ -1,0 +1,7 @@
+<div class="banner" aria-describedby="description" aria-labelledby="title" [ngClass]="getClasses()">
+  <h2 id="title" tabindex="1">{{title}}</h2>
+  <p id="description" [innerHtml]="message" tabindex="1"></p>
+  <button id="close-button" (click)="closeBanner()" [attr.aria-label]="closeButtonTitle" class="close" tabindex="1" [title]="closeButtonTitle">
+    <i class="material-icons" aria-hidden="true">close</i>
+  </button>
+</div>
