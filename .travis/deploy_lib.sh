@@ -30,5 +30,4 @@ publish() {
 
 config
 install
-build
-publish
+build && publish
