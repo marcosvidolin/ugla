@@ -157,7 +157,7 @@ export class FieldComponent implements OnInit {
   /**
    * @ignore
    */
-  public infos__count: string;
+  public charCounter: string;
 
   /**
    * List classes
