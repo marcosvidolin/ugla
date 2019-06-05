@@ -1,5 +1,6 @@
 import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {Form} from '../../enum';
+import { UglaService } from '../../ugla.service';
 
 /**
  * Field
@@ -192,9 +193,21 @@ export class FieldComponent implements OnInit {
   validateEmail: boolean;
 
   /**
+   * Classes of the component
+   */
+  public classes: string;
+
+  /**
    * @ignore
    */
-  constructor() {}
+  private theme: string;
+
+  /**
+   * @ignore
+   */
+  constructor(private ugla: UglaService) {
+    this.theme = ugla.theme;
+  }
 
   /**
    * Event keyup input
@@ -264,6 +277,7 @@ export class FieldComponent implements OnInit {
     this.max = (this.max !== undefined) ? this.max : '';
     this.maxLength = (this.maxLength !== undefined) ? this.maxLength : 1000;
     this.allowDecimal = (this.allowDecimal !== undefined) ? this.allowDecimal : true;
+    this.classes = `${this.theme}`;
   }
 
   inputValidation(event: any) {

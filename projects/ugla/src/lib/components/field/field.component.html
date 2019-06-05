@@ -1,4 +1,4 @@
-<div class="field" *ngIf="type !== 'file' && type !== 'textarea'">
+<div [ngClass]="classes" class="field" *ngIf="type !== 'file' && type !== 'textarea'">
   <input
     [type]="type"
     [name]="name"
@@ -26,7 +26,7 @@
   </div>
 </div>
 
-<div class="field file" *ngIf="type === 'file'">
+<div [ngClass]="classes" class="field file" *ngIf="type === 'file'">
   <input
     type="file"
     [name]="name"
@@ -42,7 +42,7 @@
   </div>
 </div>
 
-<div class="field" *ngIf="type === 'textarea'">
+<div [ngClass]="classes" class="field" *ngIf="type === 'textarea'">
   <textarea
     [name]="name"
     [id]="name"
