@@ -77,7 +77,22 @@ export class FieldComponent implements OnInit {
   /**
    * Set message
    */
-  @Input() message: string;
+  @Input() set message(value: string) {
+    this._message = value;
+    this.originalMessage = value;
+  }
+
+  /**
+   * Get message
+   */
+  get message(): string {
+    return this._message;
+  }
+
+  /**
+   * Intenal property for message
+   */
+  private _message: string;
 
   /**
    * Is disabled?
@@ -218,7 +233,7 @@ export class FieldComponent implements OnInit {
     const val = event.currentTarget.value;
 
     if (event.currentTarget.hasAttribute('required') && val === '') {
-      this.message = this.messageRequired;
+      this._message = this.messageRequired;
 
       event.currentTarget.classList.remove('valid');
       event.currentTarget.classList.add('invalid');
@@ -226,7 +241,7 @@ export class FieldComponent implements OnInit {
       if (!this.invalid) {
         event.currentTarget.classList.remove('invalid');
       }
-      this.message = this.originalMessage;
+      this._message = this.originalMessage;
     }
   }
 
