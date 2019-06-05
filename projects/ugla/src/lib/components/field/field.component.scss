@@ -3,367 +3,369 @@
 $label-animate-time: 0.2s;
 
 .field {
-  position: relative;
-  z-index: 0;
-  margin: 0 0 12px 0;
-  color: color(_others, dark);
-
-  label {
-    position: absolute;
-    font-size: 1.4rem;
-    top: 0;
-    left: 0;
-    transition: $label-animate-time all;
-  }
-
-  .icon {
-    position: absolute;
-    display: flex;
-    left: auto;
-    right: 0;
-    top: 0;
-    align-items: center;
-    font-size: 1rem;
-    border: 0;
-    color: color(_others, light);
-    background-color: color(_aquamarine, medium);
-    border-radius: 0 5px 5px 0;
-    width: 3.5rem;
-    height: calc(100% - 1rem);
-    justify-content: center;
-    cursor: pointer;
-
-    &:hover {
-      background-color: color(_aquamarine, dark);
-    }
-
-    i {
-      font-size: 1.5rem;
-    }
-  }
-
-  .infos {
-    display: flex;
-    font-size: 0.75rem;
-    color: color(_gray, light);
-    height: 1rem;
-
-    @include mobile {
-      font-size: 0.857rem;
-    }
-
-    &__message {
-      width: 90%;
-    }
-
-    &__count {
-      float: right;
-      width: 10%;
-      text-align: right;
-    }
-  }
-
-
-  [type='search'],
-  [type='time'],
-  [type='datetime-local'],
-  [type='month'],
-  [type='week'] {
-    @include cross-browser(appearance, textfield);
-  }
-
-  [type='text'],
-  [type='number'],
-  [type='email'],
-  [type='date'],
-  [type='search'],
-  [type='password'],
-  [type='tel'],
-  [type='url'],
-  [type='time'],
-  [type='datetime-local'],
-  [type='month'],
-  [type='week'],
-  [type='file'],
-  textarea {
-    width: 100%;
-    padding: 1rem;
-    font-size: 1rem;
-    color: color(_gray, medium);
-    border: 1px solid color(_gray, medium);
-    border-radius: 0.5rem;
-    background: color(_others, light);
-
-    @supports (-webkit-overflow-scrolling: touch) {
-      height: 51px !important;
-    }
-
-
-    &[type='search'] {
-      @include safariOnly {
-        -webkit-appearance: none;
-        padding-bottom: calc(1rem - 2px);
-      }
-    }
-
-    &[disabled],
-    &[readonly] {
-      color: color(_gray, dark-alpha);
-      border: 1px solid color(_gray, extra-light);
-      background: transparent;
-    }
-
-    &[type='search'] {
-      width: 100%;
-    }
-
-    &textarea {
-      width: calc(100% - 1.5rem);
-    }
-
-    + label {
-      position: absolute;
-      font-size: 1rem;
-      top: 1rem;
-      left: 1rem;
-    }
-
-    &[disabled],
-    &[readonly] {
-      + label {
-        color: color(_gray, dark-alpha);
-      }
-
-      ~ .icon {
-        background-color: color(_gray, extra-light);
-        cursor: default;
-
-        &:hover {
-          background-color: color(_gray, extra-light);
-        }
-      }
-    }
-
-    &:required {
-      + label::after {
-        content: ' *';
-      }
-    }
-
-    &.invalid {
-      border: 1px solid color(_red, medium);
-
-      + label,
-      ~ .infos {
-        color: color(_red, medium);
-      }
-    }
-
-    &.valid {
-      border: 1px solid color(_aquamarine, medium);
-
-      + label,
-      ~ .infos {
-        color: color(_aquamarine, medium);
-      }
-    }
-
-    &:focus:not([readonly]) {
-      border: 1px solid color(_aquamarine, light);
-    }
-
-    &:focus,
-    &:not(:placeholder-shown) {
-      + label {
-        display: table;
-        @include cross-browser(width, fit-content, true);
-        font-size: 0.8rem;
-        top: -0.5rem;
-        padding: 0 0.2rem;
-        transition: $label-animate-time all;
-        z-index: 1;
-        background-color: color(_others, light);
-      }
-    }
-  }
-
-  &.two-fields {
-    .content {
-      position: relative;
-      display: inline-block;
-      width: 50%;
-
-      input {
-        width: 100%;
-        border-radius: 0 0.5rem 0.5rem 0;
-      }
-
-      &:first-child {
-        margin-right: -4px;
-
-        input {
-          border-radius: 0.5rem 0 0 0.5rem;
-        }
-      }
-    }
+  @each $theme in $themes {
+    position: relative;
+    z-index: 0;
+    margin: 0 0 12px 0;
+    color: color(_others, dark);
 
     label {
       position: absolute;
-      font-size: 0.8rem;
-      top: -0.5rem;
-      left: 0.8rem;
-      padding: 0 0.2rem;
-      background-color: color(_others, light);
+      font-size: 1.4rem;
+      top: 0;
+      left: 0;
       transition: $label-animate-time all;
     }
-  }
 
-  &.file {
-    [type='file'] {
-      display: none;
+    .icon {
+      position: absolute;
+      display: flex;
+      left: auto;
+      right: 0;
+      top: 0;
+      align-items: center;
+      font-size: 1rem;
+      border: 0;
+      color: color(_others, light);
+      background-color: color(_#{$theme}, medium);
+      border-radius: 0 5px 5px 0;
+      width: 3.5rem;
+      height: calc(100% - 1rem);
+      justify-content: center;
+      cursor: pointer;
 
-      ~ .content {
-        display: flex;
-        justify-content: flex-end;
+      &:hover {
+        background-color: color(_#{$theme}, dark);
+      }
 
-        label {
-          min-width: 55px;
-          padding: 1rem;
-          font-size: 1rem;
-          color: color(_others, light);
-          border: 1px solid color(_aquamarine, medium);
-          background-color: color(_aquamarine, medium);
-          border-radius: 0.5rem 0 0 0.5rem;
-          cursor: pointer;
-
-          &:focus {
-            border: 1px solid color(_aquamarine, dark);
-            background-color: color(_aquamarine, dark);
-          }
-        }
-
-        input {
-          width: 85%;
-          border: 1px solid color(_aquamarine, medium);
-          border-radius: 0 0.5rem 0.5rem 0;
-        }
+      i {
+        font-size: 1.5rem;
       }
     }
-  }
 
-  &.combo {
-    position: relative;
-    z-index: map-get($z-index, combo);
+    .infos {
+      display: flex;
+      font-size: 0.75rem;
+      color: color(_gray, light);
+      height: 1rem;
 
-    i {
-      position: absolute;
-      top: 1rem;
-      right: 0.5rem;
-      z-index: 1;
+      @include mobile {
+        font-size: 0.857rem;
+      }
+
+      &__message {
+        width: 90%;
+      }
+
+      &__count {
+        float: right;
+        width: 10%;
+        text-align: right;
+      }
     }
 
-    [type='checkbox'] {
-      display: none;
+
+    [type='search'],
+    [type='time'],
+    [type='datetime-local'],
+    [type='month'],
+    [type='week'] {
+      @include cross-browser(appearance, textfield);
+    }
+
+    [type='text'],
+    [type='number'],
+    [type='email'],
+    [type='date'],
+    [type='search'],
+    [type='password'],
+    [type='tel'],
+    [type='url'],
+    [type='time'],
+    [type='datetime-local'],
+    [type='month'],
+    [type='week'],
+    [type='file'],
+    textarea {
+      width: 100%;
+      padding: 1rem;
+      font-size: 1rem;
+      color: color(_gray, medium);
+      border: 1px solid color(_gray, medium);
+      border-radius: 0.5rem;
+      background: color(_others, light);
+
+      @supports (-webkit-overflow-scrolling: touch) {
+        height: 51px !important;
+      }
+
+
+      &[type='search'] {
+        @include safariOnly {
+          -webkit-appearance: none;
+          padding-bottom: calc(1rem - 2px);
+        }
+      }
+
+      &[disabled],
+      &[readonly] {
+        color: color(_gray, dark-alpha);
+        border: 1px solid color(_gray, extra-light);
+        background: transparent;
+      }
+
+      &[type='search'] {
+        width: 100%;
+      }
+
+      &textarea {
+        width: calc(100% - 1.5rem);
+      }
 
       + label {
-        display: flex;
-        position: relative;
-        width: 100%;
-        height: 3.5rem;
-        padding: 1rem;
-        justify-content: space-between;
-        align-content: center;
+        position: absolute;
         font-size: 1rem;
-        font-weight: 500;
-        line-height: 1.4;
-        color: color(_gray, medium);
-        border: 1px solid color(_gray, medium);
-        border-radius: 0.5rem;
-        cursor: pointer;
-        z-index: 2;
+        top: 1rem;
+        left: 1rem;
+      }
 
-        &::before {
-          content: attr(data-label);
-          position: absolute;
+      &[disabled],
+      &[readonly] {
+        + label {
+          color: color(_gray, dark-alpha);
+        }
+
+        ~ .icon {
+          background-color: color(_gray, extra-light);
+          cursor: default;
+
+          &:hover {
+            background-color: color(_gray, extra-light);
+          }
+        }
+      }
+
+      &:required {
+        + label::after {
+          content: ' *';
+        }
+      }
+
+      &.invalid {
+        border: 1px solid color(_red, medium);
+
+        + label,
+        ~ .infos {
+          color: color(_red, medium);
+        }
+      }
+
+      &.valid {
+        border: 1px solid color(_#{$theme}, medium);
+
+        + label,
+        ~ .infos {
+          color: color(_#{$theme}, medium);
+        }
+      }
+
+      &:focus:not([readonly]) {
+        border: 1px solid color(_#{$theme}, light);
+      }
+
+      &:focus,
+      &:not(:placeholder-shown) {
+        + label {
+          display: table;
+          @include cross-browser(width, fit-content, true);
           font-size: 0.8rem;
           top: -0.5rem;
-          line-height: 1;
           padding: 0 0.2rem;
-          background-color: color(_others, light);
           transition: $label-animate-time all;
-        }
-
-        &:focus {
-          border: 1px solid color(_aquamarine, medium);
-        }
-      }
-
-      ~ .combo-list {
-        display: none;
-      }
-
-      &:checked {
-        ~ .combo-list {
-          display: block;
-          position: absolute;
-          width: 100%;
-          top: 3.5rem;
-          padding: 0.5rem 0 0;
-          margin: -0.5rem 0 0;
-          list-style: none;
-          border-left: 1px solid color(_gray, light);
-          border-right: 1px solid color(_gray, light);
-          border-bottom: 1px solid color(_gray, light);
-          border-radius: 0 0 0.5rem 0.5rem;
+          z-index: 1;
           background-color: color(_others, light);
-          box-shadow: 2px 2px 4px rgba(color(_others, shadow), 0.8);
-          z-index: map-get($z-index, combo);
+        }
+      }
+    }
 
-          li {
+    &.two-fields {
+      .content {
+        position: relative;
+        display: inline-block;
+        width: 50%;
+
+        input {
+          width: 100%;
+          border-radius: 0 0.5rem 0.5rem 0;
+        }
+
+        &:first-child {
+          margin-right: -4px;
+
+          input {
+            border-radius: 0.5rem 0 0 0.5rem;
+          }
+        }
+      }
+
+      label {
+        position: absolute;
+        font-size: 0.8rem;
+        top: -0.5rem;
+        left: 0.8rem;
+        padding: 0 0.2rem;
+        background-color: color(_others, light);
+        transition: $label-animate-time all;
+      }
+    }
+
+    &.file {
+      [type='file'] {
+        display: none;
+
+        ~ .content {
+          display: flex;
+          justify-content: flex-end;
+
+          label {
+            min-width: 55px;
+            padding: 1rem;
+            font-size: 1rem;
+            color: color(_others, light);
+            border: 1px solid color(_#{$theme}, medium);
+            background-color: color(_#{$theme}, medium);
+            border-radius: 0.5rem 0 0 0.5rem;
+            cursor: pointer;
+
+            &:focus {
+              border: 1px solid color(_#{$theme}, dark);
+              background-color: color(_#{$theme}, dark);
+            }
+          }
+
+          input {
+            width: 85%;
+            border: 1px solid color(_#{$theme}, medium);
+            border-radius: 0 0.5rem 0.5rem 0;
+          }
+        }
+      }
+    }
+
+    &.combo {
+      position: relative;
+      z-index: map-get($z-index, combo);
+
+      i {
+        position: absolute;
+        top: 1rem;
+        right: 0.5rem;
+        z-index: 1;
+      }
+
+      [type='checkbox'] {
+        display: none;
+
+        + label {
+          display: flex;
+          position: relative;
+          width: 100%;
+          height: 3.5rem;
+          padding: 1rem;
+          justify-content: space-between;
+          align-content: center;
+          font-size: 1rem;
+          font-weight: 500;
+          line-height: 1.4;
+          color: color(_gray, medium);
+          border: 1px solid color(_gray, medium);
+          border-radius: 0.5rem;
+          cursor: pointer;
+          z-index: 2;
+
+          &::before {
+            content: attr(data-label);
+            position: absolute;
+            font-size: 0.8rem;
+            top: -0.5rem;
+            line-height: 1;
+            padding: 0 0.2rem;
+            background-color: color(_others, light);
+            transition: $label-animate-time all;
+          }
+
+          &:focus {
+            border: 1px solid color(_#{$theme}, medium);
+          }
+        }
+
+        ~ .combo-list {
+          display: none;
+        }
+
+        &:checked {
+          ~ .combo-list {
             display: block;
-            min-height: 3rem;
+            position: absolute;
+            width: 100%;
+            top: 3.5rem;
+            padding: 0.5rem 0 0;
+            margin: -0.5rem 0 0;
+            list-style: none;
+            border-left: 1px solid color(_gray, light);
+            border-right: 1px solid color(_gray, light);
             border-bottom: 1px solid color(_gray, light);
+            border-radius: 0 0 0.5rem 0.5rem;
+            background-color: color(_others, light);
+            box-shadow: 2px 2px 4px rgba(color(_others, shadow), 0.8);
+            z-index: map-get($z-index, combo);
 
-            &:hover {
-              background-color: rgba(color(_gray, extra-light), 0.2);
-              transition: $label-animate-time all;
-            }
+            li {
+              display: block;
+              min-height: 3rem;
+              border-bottom: 1px solid color(_gray, light);
 
-            &:first-child {
-              border-radius: 0.5rem 0.5rem 0 0;
-            }
-
-            &:last-child {
-              border-radius: 0 0 0.5rem 0.5rem;
-              border-bottom: 0;
-            }
-
-            [type='radio'] {
-              display: none;
-
-              + label {
-                position: relative;
-                display: block;
-                width: calc(100% - 2rem);
-                font-size: 1rem;
-                padding: 1rem;
-                color: color(_gray, medium);
-                cursor: pointer;
-
-                &:hover {
-                  color: color(_aquamarine, medium);
-                }
+              &:hover {
+                background-color: rgba(color(_gray, extra-light), 0.2);
+                transition: $label-animate-time all;
               }
 
-              &:checked {
-                + label {
-                  color: color(_aquamarine, medium);
-                }
+              &:first-child {
+                border-radius: 0.5rem 0.5rem 0 0;
               }
 
-              &[value='-1'] {
+              &:last-child {
+                border-radius: 0 0 0.5rem 0.5rem;
+                border-bottom: 0;
+              }
+
+              [type='radio'] {
+                display: none;
+
                 + label {
-                  color: color(_gray, light);
+                  position: relative;
+                  display: block;
+                  width: calc(100% - 2rem);
+                  font-size: 1rem;
+                  padding: 1rem;
+                  color: color(_gray, medium);
+                  cursor: pointer;
+
+                  &:hover {
+                    color: color(_#{$theme}, medium);
+                  }
+                }
+
+                &:checked {
+                  + label {
+                    color: color(_#{$theme}, medium);
+                  }
+                }
+
+                &[value='-1'] {
+                  + label {
+                    color: color(_gray, light);
+                  }
                 }
               }
             }
@@ -371,80 +373,80 @@ $label-animate-time: 0.2s;
         }
       }
     }
-  }
 
-  &.checkbox,
-  &.radio {
-    padding: 0.5rem 0;
+    &.checkbox,
+    &.radio {
+      padding: 0.5rem 0;
 
-    [type='checkbox'],
-    [type='radio'] {
-      display: none;
+      [type='checkbox'],
+      [type='radio'] {
+        display: none;
 
-      + label {
-        position: relative;
-        display: flex;
-        align-content: center;
-        font-size: 1rem;
-        line-height: 1.4;
-        color: color(_gray, medium);
-
-        &:focus {
-          color: color(_aquamarine, medium);
-        }
-
-        &::before {
-          @extend %material-icons;
-
-          display: block;
-          padding-right: 0.5rem;
-          width: 2rem;
-          height: 1.5rem;
-          font-size: 1.5rem;
-          color: color(_gray, medium);
-        }
-      }
-
-      &:checked {
         + label {
           position: relative;
           display: flex;
-          align-content: flex-start;
+          align-content: center;
+          font-size: 1rem;
+          line-height: 1.4;
+          color: color(_gray, medium);
+
+          &:focus {
+            color: color(_#{$theme}, medium);
+          }
 
           &::before {
+            @extend %material-icons;
+
             display: block;
+            padding-right: 0.5rem;
+            width: 2rem;
+            height: 1.5rem;
+            font-size: 1.5rem;
+            color: color(_gray, medium);
+          }
+        }
+
+        &:checked {
+          + label {
+            position: relative;
+            display: flex;
+            align-content: flex-start;
+
+            &::before {
+              display: block;
+            }
           }
         }
       }
-    }
 
-    [type='radio'] {
-      + label {
-        &::before {
-          content: 'radio_button_unchecked';
-        }
-      }
-
-      &:checked {
+      [type='radio'] {
         + label {
           &::before {
-            content: 'radio_button_checked';
+            content: 'radio_button_unchecked';
+          }
+        }
+
+        &:checked {
+          + label {
+            &::before {
+              content: 'radio_button_checked';
+            }
           }
         }
       }
-    }
 
-    [type='checkbox'] {
-      + label {
-        &::before {
-          content: 'check_box_outline_blank';
-        }
-      }
-
-      &:checked {
+      [type='checkbox'] {
         + label {
           &::before {
-            content: 'check_box';
+            content: 'check_box_outline_blank';
+          }
+        }
+
+        &:checked {
+          + label {
+            &::before {
+              content: 'check_box';
+            }
           }
         }
       }
