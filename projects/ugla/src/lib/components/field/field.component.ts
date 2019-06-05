@@ -196,7 +196,7 @@ export class FieldComponent implements OnInit {
       }
     }
     this.num = event.currentTarget.value.length;
-    this.infos__count = `${this.num}/${this.maxLength}`;
+    this.charCounter = `${this.num}/${this.maxLength}`;
     this.focusoutHandler(event);
   }
 
@@ -238,7 +238,7 @@ export class FieldComponent implements OnInit {
     this.counter = this.counter === undefined ? false : this.counter;
     this.originalMessage = this.message;
     this.num = 0;
-    this.infos__count = (this.maxLength !== undefined) ? `${this.num}/${this.maxLength}` : ' ';
+    this.charCounter = (this.maxLength !== undefined) ? `${this.num}/${this.maxLength}` : ' ';
     this.multiple = this.multiple === undefined ? false : this.multiple;
     this.disabled = (this.disabled !== undefined) ? this.disabled : false;
     this.readonly = (this.readonly !== undefined) ? this.readonly : false;
