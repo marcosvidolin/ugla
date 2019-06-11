@@ -82,8 +82,8 @@
     "ts-node": "~7.0.0",
     "tsickle": ">=0.34.0",
     "tslib": "^1.9.0",
-    "tslint": "~5.11.0",
-    "tslint-angular": "^2.0.0",
+    "tslint": "^5.17.0",
+    "tslint-angular": "^3.0.2",
     "typescript": "~3.2.2"
   },
   "main": "dist/ugla/ugla.d.ts",
