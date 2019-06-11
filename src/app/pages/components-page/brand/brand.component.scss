@@ -1,13 +1,14 @@
-@import './projects/ugla/src/sass/index.scss';
-
+@import './projects/ugla/src/sass/index';
 
 aside {
-  padding: 10px 0;
   min-height: calc(100vh - 80px);
+  padding: 10px 0;
 }
 
 .no-margin {
-  &:not(.central):not(.login) {
-    margin-top: 0;
+  &:not(.central) {
+    &:not(.login) {
+      margin-top: 0;
+    }
   }
 }

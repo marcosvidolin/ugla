@@ -1,9 +1,9 @@
 %border-after {
   content: '';
-  position: absolute;
   height: 100%;
+  left: -.5rem;
+  position: absolute;
   top: 0;
-  left: -0.5rem;
 }
 
 .has-toolbar {
@@ -47,13 +47,13 @@ section {
   }
 
   &.central {
-    width: 1024px;
     background-color: color(_others, 'light');
     box-shadow: 0 1rem 1rem color(_others, 'shadow');
+    width: 1024px;
 
     @include mobile() {
-      width: 95%;
       background-color: color(_others, 'light');
+      width: 95%;
     }
   }
 }
