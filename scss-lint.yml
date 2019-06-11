@@ -1,0 +1,10 @@
+options:
+  formatter: stylish
+  max-warnings: 50
+files:
+  include:
+    - "src/**/*.s+(a|c)ss"
+    - "projects/src/**/*.s+(a|c)ss"
+  ignore:
+    - "node_modules/**/*.s+(a|c)ss"
+

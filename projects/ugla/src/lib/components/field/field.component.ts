@@ -188,7 +188,7 @@ export class FieldComponent implements OnInit {
   /**
    * Event emitter to value changes
    */
-  @Output() onChangeValue = new EventEmitter<string>();
+  @Output() changeValue = new EventEmitter<string>();
 
   validateEmail: boolean;
 
@@ -211,9 +211,9 @@ export class FieldComponent implements OnInit {
 
   /**
    * Event keyup input
-   * @param event
+   * @param event of Event
    */
-  keyupHandler(event) {
+  keyupHandler(event: any) {
     const val = event.currentTarget.value;
     if (this.type === 'number' && val !== '') {
       if (this.min && Number(val) < Number(this.min)) {
@@ -230,19 +230,19 @@ export class FieldComponent implements OnInit {
 
   /**
    * Event on change input
-   * @param event
+   * @param event of Event
    */
-  changeHandler(event) {
+  changeHandler(event: any) {
     this.value = event.currentTarget.value;
     this.focusoutHandler(event);
-    this.onChangeValue.emit(event.currentTarget.value);
+    this.changeValue.emit(event.currentTarget.value);
   }
 
   /**
    * Event focus out
-   * @param event
+   * @param event of Event
    */
-  focusoutHandler(event) {
+  focusoutHandler(event: any) {
     const val = event.currentTarget.value;
 
     if (event.currentTarget.hasAttribute('required') && val === '') {

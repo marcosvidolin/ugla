@@ -5,73 +5,71 @@ import { Component, EventEmitter, Input, OnInit, Output, ViewChild, AfterViewIni
  *
  * This component generates a element for uploading file.
  *
- * # Example
- ```html
- <ugl-file-upload [options]="options"
- (uploadPath)="getUploadPath($event)
- (onAddFile)="onAddFile($event)
- (onRemoveFile)="onRemoveFile($event)
- (onUpdateFile)="onUpdateFile($event)
- [id]="'id'"></ugl-file-upload>
- ```
- ```typescript
- let pondOptions = {
-      name: 'file',
-      instantUpload: false,
-      imageTransformOutputQuality: 20,
-      imagePreviewHeight: 300,
-      multiple: false,
-      styleButtonRemoveItemPosition: 'center bottom',
-      styleButtonProcessItemPosition: 'center',
-      labelButtonRemoveItem: 'Remove File',
-      maxFileSize: '500kb',
-      allowFileSizeValidation: true,
-      labelIdle: '<i class="material-icons">insert_photo</i>',
-      acceptedFileTypes: 'image/jpeg, image/png, application/pdf',
-      server: {
-        url: 'http://localhost:9000/api/v1',
-        process: (fieldName, file, metadata, load, error, progress, abort) => {
-          // fieldName is the name of the input field
-          // file is the actual file object to send
-          const formData = new FormData();
-          formData.append(fieldName, file, file.name);
-          const request = new XMLHttpRequest();
-          request.open('POST', 'http://localhost:9000/api/v1/upload');
-          // Should call the progress method to update the progress to 100% before calling load
-          // Setting computable to false switches the loading indicator to infinite mode
-          request.upload.onprogress = (e) => {
-              progress(e.lengthComputable, e.loaded, e.total);
-          };
-          // Should call the load method when done and pass the returned server file id
-          // this server file id is then used later on when reverting or restoring a file
-          // so your server knows which file to return without exposing that info to the client
-          request.onload = function() {
-              if (request.status >= 200 && request.status < 300) {
-                // the load method accepts either a string (id) or an object
-                load(request.responseText);
-              } else {
-                // Can call the error method if something is wrong, should exit after
-                error('oh no');
-              }
-          };
-          request.send(formData);
-          // Should expose an abort method so the request can be cancelled
-            return {
-              abort: () => {
-                // This function is entered if the user has tapped the cancel button
-                request.abort();
-                // Let FilePond know the request has been cancelled
-                abort();
-              }
-            };
-        },
-        revert: '/undo',
-        restore: '/restore/',
-        load: '/load/',
-        fetch: '/fetch/',
-      }
-    };
- ```
+ * @example
+ * <ugl-file-upload [options]="options"
+ *    (uploadPath)="getUploadPath($event)
+ *    (onAddFile)="onAddFile($event)
+ *    (onRemoveFile)="onRemoveFile($event)
+ *    (onUpdateFile)="onUpdateFile($event)
+ *    [id]="'id'"></ugl-file-upload>
+ *
+ * @example
+ * let pondOptions = {
+ *      name: 'file',
+ *      instantUpload: false,
+ *      imageTransformOutputQuality: 20,
+ *      imagePreviewHeight: 300,
+ *      multiple: false,
+ *      styleButtonRemoveItemPosition: 'center bottom',
+ *      styleButtonProcessItemPosition: 'center',
+ *      labelButtonRemoveItem: 'Remove File',
+ *      maxFileSize: '500kb',
+ *      allowFileSizeValidation: true,
+ *      labelIdle: '<i class="material-icons">insert_photo</i>',
+ *      acceptedFileTypes: 'image/jpeg, image/png, application/pdf',
+ *      server: {
+ *        url: 'http://localhost:9000/api/v1',
+ *        process: (fieldName, file, metadata, load, error, progress, abort) => {
+ *          // fieldName is the name of the input field
+ *          // file is the actual file object to send
+ *          const formData = new FormData();
+ *          formData.append(fieldName, file, file.name);
+ *          const request = new XMLHttpRequest();
+ *          request.open('POST', 'http://localhost:9000/api/v1/upload');
+ *          // Should call the progress method to update the progress to 100% before calling load
+ *          // Setting computable to false switches the loading indicator to infinite mode
+ *          request.upload.onprogress = (e) => {
+ *              progress(e.lengthComputable, e.loaded, e.total);
+ *          };
+ *          // Should call the load method when done and pass the returned server file id
+ *          // this server file id is then used later on when reverting or restoring a file
+ *          // so your server knows which file to return without exposing that info to the client
+ *          request.onload = function() {
+ *              if (request.status >= 200 && request.status < 300) {
+ *                // the load method accepts either a string (id) or an object
+ *                load(request.responseText);
+ *              } else {
+ *                // Can call the error method if something is wrong, should exit after
+ *                error('oh no');
+ *              }
+ *          };
+ *          request.send(formData);
+ *          // Should expose an abort method so the request can be cancelled
+ *            return {
+ *              abort: () => {
+ *                // This function is entered if the user has tapped the cancel button
+ *                request.abort();
+ *                // Let FilePond know the request has been cancelled
+ *                abort();
+ *              }
+ *            };
+ *        },
+ *        revert: '/undo',
+ *        restore: '/restore/',
+ *        load: '/load/',
+ *        fetch: '/fetch/',
+ *      }
+ *   };
  */
 @Component({
   selector: 'ugl-file-upload',
@@ -110,25 +108,28 @@ export class FileUploadComponent implements OnInit, AfterViewInit {
   /**
    *  Emitter uploadPath function
    */
-  @Output() onUploadPath = new EventEmitter<string>();
+  @Output() uploadPath = new EventEmitter<string>();
 
   /**
    *  Emitter on handleAddFile function.
    */
-  @Output() onAddFile = new EventEmitter<boolean>();
+  @Output() addFile = new EventEmitter<boolean>();
 
   /**
    * Emmiter on handleRemoveFile.
    * @return true when a file was removed
    */
-  @Output() onRemoveFile = new EventEmitter<boolean>();
+  @Output() removeFile = new EventEmitter<boolean>();
 
   /**
+   * TODO:// Verify lint message:
+   * Don't use 'Object' as a type. Avoid using the `Object` type. Did you mean `object`?
+   *
    * Emmiter on handleUpdateFile.
    * A file has been added or removed.
    * @return a list of file items
    */
-  @Output() onUpdateFile = new EventEmitter<Object[]>();
+  @Output() updateFile = new EventEmitter<Object[]>();
 
   /**
    * Indicates if file is valid.
@@ -151,12 +152,11 @@ export class FileUploadComponent implements OnInit, AfterViewInit {
   /**
    * Function called on oninit event of file pond
    */
-  pondHandleInit() {
-  }
+  pondHandleInit() {}
 
   /**
    * Function called on onaddfile event of file pond
-   * @param event
+   * @param event of Event
    */
   pondHandleAddFile(event: any) {
     console.log('A file was added', event);
@@ -167,7 +167,7 @@ export class FileUploadComponent implements OnInit, AfterViewInit {
         this.isFileValid = true;
       }
 
-      this.onAddFile.emit(true);
+      this.addFile.emit(true);
       this.addPreview(event);
       this.handleError(event);
     }
@@ -175,11 +175,11 @@ export class FileUploadComponent implements OnInit, AfterViewInit {
 
   /**
    * Function called on onprocessfile event of file pond
-   * @param event
+   * @param event of Event
    */
   pondHandleProcessFile(event: any) {
     console.log('A file was processed', event);
-    this.onUploadPath.emit(this.instance.getFile().serverId);
+    this.uploadPath.emit(this.instance.getFile().serverId);
   }
 
   /**
@@ -200,7 +200,7 @@ export class FileUploadComponent implements OnInit, AfterViewInit {
 
   /**
    * Add a preview, case it doesn't have.
-   * @param event
+   * @param event of Event
    */
   addPreview(event: any) {
     if (!event.error && !event.status) {
@@ -214,7 +214,7 @@ export class FileUploadComponent implements OnInit, AfterViewInit {
 
   /**
    * Error on adding file. Handle error messages.
-   * @param event
+   * @param event of Event
    */
   handleError(event: any) {
     const fileWrapper = this.element.querySelector('.filepond--wrapper');
@@ -227,11 +227,11 @@ export class FileUploadComponent implements OnInit, AfterViewInit {
 
   /**
    * A file has been removed, emit remove event
-   * @param event
+   * @param event of Event
    */
   pondHandleRemoveFile(event: any) {
     if (event) {
-      this.onRemoveFile.emit(true);
+      this.removeFile.emit(true);
       const fileWrapper = this.element.querySelector('.filepond--wrapper');
       fileWrapper.classList.remove('error');
     }
@@ -239,17 +239,17 @@ export class FileUploadComponent implements OnInit, AfterViewInit {
 
   /**
    * A file has been added or removed, receives a list of file items
-   * @param event
+   * @param event of Event
    */
   pondHandleUpdateFiles(event: any) {
     if (event) {
-      this.onUpdateFile.emit(event.items);
+      this.updateFile.emit(event.items);
     }
   }
 
   /**
    * Function to browse files on enter key press
-   * @param event
+   * @param event of Event
    */
   browse(event: any) {
     if (event.keyCode === 13) {

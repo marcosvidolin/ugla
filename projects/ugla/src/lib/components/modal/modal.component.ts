@@ -84,7 +84,7 @@ export class ModalComponent implements OnInit {
         this.type = modal.type;
         this.isOpened = modal.open;
 
-        setTimeout(function() {
+        setTimeout(() => {
           if (modal.open) {
             document.body.querySelector<HTMLBodyElement>(`.modal-body`).focus();
           }
