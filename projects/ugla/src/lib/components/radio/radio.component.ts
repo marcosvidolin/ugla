@@ -55,7 +55,6 @@ export class RadioComponent {
     this.theme = ugla.theme;
   }
 
-  //TODO: Fix lint error
   ngDoCheck(): void {
     // get all radio buttons in radiogroup
     this.radioButtons = document.querySelectorAll('[role=radio]');

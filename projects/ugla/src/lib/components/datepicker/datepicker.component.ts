@@ -23,15 +23,16 @@ const moment = moment_;
  *   [disabled]="true"
  *   [invalid]="false"
  *   [datePattern]="'MM/YYYY'"
- *   (selectValue)="onDateChange($event)"></ugl-datepicker>
+ *   (onSelectValue)="onDateChange($event)"></ugl-datepicker>
  *
- * @example
- * options: object;
- * this.options = {
- *     minDate: new Date(2019, 1, 3), //hide dates before
- *     maxDate: new Date(2019, 12, 3), //hide dates after
- *     position: 'tr' //position of calendar | tr = top right
- *  };
+ ```typescript
+ options: object;
+ this.options = {
+      minDate: new Date(2019, 1, 3), //hide dates before
+      maxDate: new Date(2019, 12, 3), //hide dates after
+      position: 'tr' //position of calendar | tr = top right
+    };
+ ```
  */
 @Component({
   selector: 'ugl-datepicker',
@@ -160,10 +161,7 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
    */
   @Input() datePattern: string;
 
-  /**
-   * Output select value
-   */
-  @Output() selectValue = new EventEmitter<Date>();
+  @Output() onSelectValue = new EventEmitter<Date>();
 
   /**
    * List classes
@@ -212,9 +210,9 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
 
   /**
    * Event on change inputs
-   * @param picker of Event
+   * @param picker
    */
-  onDateChange(picker: any) {
+  onDateChange(picker) {
     if (picker) {
 
       if (!!this.datePattern) {
@@ -253,7 +251,7 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
           this.invalidFormat = this.invalid;
         }
       }
-      this.selectValue.emit(picker.dateSelected);
+      this.onSelectValue.emit(picker.dateSelected);
     }
   }
 
@@ -289,18 +287,18 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
 
   /**
    * Event focus in
-   * @param instance of Event
+   * @param instance
    */
-  onFocusIn(instance: any) {
+  onFocusIn(instance) {
     const input: HTMLInputElement = instance.el;
     input.setAttribute('focused', 'true');
   }
 
   /**
    * Event focus out
-   * @param instance of Event
+   * @param instance
    */
-  onFocusOut(instance: any) {
+  onFocusOut(instance) {
     // Both instances will be set because they are linked by `id`.
     const input: HTMLInputElement = instance.el;
     if (this.required && input.hasAttribute('focused')) {
@@ -339,7 +337,7 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
 
   /**
    * Set a date
-   * @param date of Date
+   * @param date
    */
   setDate(date: Date) {
     if (date === null) {

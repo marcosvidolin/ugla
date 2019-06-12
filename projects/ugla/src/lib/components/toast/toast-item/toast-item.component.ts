@@ -20,9 +20,13 @@ export class ToastItemComponent implements OnInit, AfterViewInit {
   }
 
   @Input() messageType: string;
+
   @Input() index: number;
+
   @Output() close: EventEmitter<any> = new EventEmitter();
-  @Output() showEmitter: EventEmitter<any> = new EventEmitter();
+
+  // TODO: Fix this by TS Lint rules
+  @Output() onShow: EventEmitter<any> = new EventEmitter();
 
   timeout: any;
   icon: string;
@@ -32,6 +36,7 @@ export class ToastItemComponent implements OnInit, AfterViewInit {
   constructor(private element: ElementRef) {}
 
   ngOnInit() {
+
     switch (this.messageType) {
       case 'success':
         this.icon = 'check_circle_outline';
@@ -67,6 +72,6 @@ export class ToastItemComponent implements OnInit, AfterViewInit {
 
   ngAfterViewInit() {
     (this.element.nativeElement as HTMLDivElement).querySelector<HTMLBodyElement>(`#toast-close-${this.message.id}`).focus();
-    this.showEmitter.emit(this.element);
+    this.onShow.emit(this.element);
   }
 }

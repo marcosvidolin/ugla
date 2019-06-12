@@ -52,7 +52,8 @@ export class SwitchComponent {
   /**
    * Event emitter to value changes
    */
-  @Output() changeValueEmitter = new EventEmitter<boolean>();
+  // TODO: Fix this by TS Lint rules
+  @Output() onChangeValue = new EventEmitter<boolean>();
 
   /**
    * @ignore
@@ -60,12 +61,12 @@ export class SwitchComponent {
   constructor() { }
 
   /**
-   * Executed when value of checkbox is changed. Emits changeValueEmitter output.
+   * Executed when value of checkbox is changed. Emits onChangeValue output.
    * @param event of Element
    */
   onChange(event: any) {
     this.checked = event.target.checked;
-    this.changeValueEmitter.emit(event.target.checked);
+    this.onChangeValue.emit(event.target.checked);
   }
 
 }

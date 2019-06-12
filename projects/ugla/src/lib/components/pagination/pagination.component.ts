@@ -83,8 +83,8 @@ export class PaginationComponent implements OnInit {
   @Input() itemsPerPage: number;
 
  /**
-  * Show text before select input.
-  */
+   * Show text before select input.
+   */
   @Input() itemsPerPageBeforeText?: string;
 
   /**
@@ -284,9 +284,9 @@ export class PaginationComponent implements OnInit {
   /**
    * Fire page navigation.
    *
-   * @param page of Any
+   * @param page
    */
-  fireNavigatePageEvent(page: any) {
+  fireNavigatePageEvent(page) {
     this.selectedPage = page;
     this.changePaginationPage.emit(this.selectedPage);
     return false;
