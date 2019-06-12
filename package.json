@@ -1,6 +1,6 @@
 {
   "name": "ugla",
-  "version": "0.0.96",
+  "version": "0.0.97",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -11,7 +11,7 @@
     "preinstall": "npm install js-datepicker",
     "deploy:site": "ng build && firebase deploy",
     "compodoc:s": "node_modules/@compodoc/compodoc/bin/index-cli.js -p projects/ugla/tsconfig.lib.json -s --theme material",
-    "build-lib": "ng-packagr -p projects/ugla/package.json"
+    "build-lib": "ng-packagr -p projects/ugla/package.json && cp -r projects/ugla/src/sass/ dist/ && cd dist && npm pack"
   },
   "repository": {
     "type": "git",

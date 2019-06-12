@@ -140,7 +140,7 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
       } else {
         // instantiate a new datepicker
         this.picker.remove();
-        this.options = this.defaultInitDatepicker();
+        //this.options = this.options;
         this.options.onSelect = (instance) => {
           // force trigger event of input
           const event = new Event('change');
@@ -231,11 +231,13 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
         if (dateValue.isValid()) {
           picker.setDate(dateValue.toDate(), true);
           picker.el.value = dateValue.format(this.datePattern);
+          this.invalid = false;
+          this.message = dateValue.isValid() ? this.originalMessage : this.messageInvalidSelection;
+        } else {
+          this.invalid = !dateValue.isValid();
+          this.message = dateValue.isValid() ? this.originalMessage : this.messageInvalidSelection;
+          this.invalidFormat = dateValue.parsingFlags().invalidFormat;
         }
-
-        this.invalid = !dateValue.isValid();
-        this.message = dateValue.isValid() ? this.originalMessage : this.messageInvalidSelection;
-        this.invalidFormat = dateValue.parsingFlags().invalidFormat;
 
       } else {
         try {
@@ -270,7 +272,7 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
     this.invalidFormat = (this.invalidFormat !== undefined) ? this.invalidFormat : false;
     this.options = (this.options !== undefined) ? this.options : this.defaultInitDatepicker();
     this.classes = `${this.theme}`;
-    this.datePattern = !!this.datePattern ? this.datePattern : null;
+    this.datePattern = !!this.datePattern ? this.datePattern : this.language === 'br' ? 'DD/MM/YYYY' : 'MM/DD/YYYY';
 
     this.options.onHide = (instance) => {
       this.onFocusOut(instance);
@@ -356,10 +358,7 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
   defaultInitDatepicker() {
     return this.options = {
       startDate: new Date(),
-      position: 'br',
-      formatter: (input, date, instance) => {
-        input.value = date.toLocaleDateString();
-      },
+      position: 'br'
     };
   }
 
