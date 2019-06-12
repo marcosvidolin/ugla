@@ -366,7 +366,7 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
    */
   private hideFromScreenReaders() {
     document.querySelectorAll('.qs-datepicker').forEach(item => item.setAttribute('aria-hidden', 'true'));
-    document.querySelectorAll('qs-overlay-year').forEach(item => item.setAttribute('aria-hidden', 'true'));
+    document.querySelectorAll('.qs-overlay-year').forEach(item => item.setAttribute('aria-hidden', 'true'));
   }
 
   private newDatepickerInstance() {
