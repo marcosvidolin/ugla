@@ -140,7 +140,6 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
       } else {
         // instantiate a new datepicker
         this.picker.remove();
-        //this.options = this.options;
         this.options.onSelect = (instance) => {
           // force trigger event of input
           const event = new Event('change');
