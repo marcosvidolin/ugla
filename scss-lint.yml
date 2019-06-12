@@ -1,0 +1,15 @@
+options:
+  formatter: stylish
+  max-warnings: 150
+files:
+  include:
+    - "src/**/*.s+(a|c)ss"
+    - "./projects/ugla/src/sass/**/*.s+(a|c)ss"
+  ignore:
+    - "node_modules/**/*.s+(a|c)ss"
+rules:
+  empty-args: false
+  final-newline: true
+  no-empty-rulesets: false
+  no-warn: false
+  zero-unit: true

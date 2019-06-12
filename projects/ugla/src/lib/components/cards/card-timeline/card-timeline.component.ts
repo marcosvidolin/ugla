@@ -57,15 +57,18 @@ export class CardTimelineComponent {
   /**
    * Emitter for card clicked.
    */
-  @Output('cardClicked') cardClicked = new EventEmitter<boolean>();
+  @Output() cardClicked = new EventEmitter<boolean>();
 
+  /**
+   * @ignore
+   */
   constructor() { }
 
   /**
    * Function called on click of the card. Emit true.
-   * @param event
+   * @param event of Event
    */
-  onCardClicked(event) {
+  onCardClicked(event: any) {
     this.cardClicked.emit(true);
   }
 

@@ -25,7 +25,7 @@ export class ListOptionsComponent {
   /**
    *  Receive onClick function
    */
-  @Output() onClick = new EventEmitter();
+  @Output() clickEmitter = new EventEmitter();
 
   /**
    * Receive an array of strings
@@ -50,8 +50,7 @@ export class ListOptionsComponent {
     this.theme = ugla.theme;
   }
 
-  selectItem(index) {
-    this.onClick.emit(index);
+  selectItem(index: any) {
+    this.clickEmitter.emit(index);
   }
-
 }
