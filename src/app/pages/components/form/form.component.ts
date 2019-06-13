@@ -9,6 +9,14 @@ export class FormComponent implements OnInit {
 
   constructor() { }
 
+  html = `<ugl-form
+      [hiddenButtonSubmit]="false"
+      (cancelClick)="onCancelClick()"
+      (submitClick)="onSubmitClick()"
+      [cancelText]="'Cancelar'"
+      [submitText]="'Enviar'">
+  </ugl-form>`;
+
   ngOnInit() {
   }
 

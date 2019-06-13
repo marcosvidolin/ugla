@@ -9,6 +9,8 @@ export class BrandComponent implements OnInit {
 
   constructor() { }
 
+  html = `<ugl-brand [brandName]="'Brand name'" [brandImage]="'./assets/imgs/logo.png'"></ugl-brand>`;
+
   ngOnInit() {
   }
 

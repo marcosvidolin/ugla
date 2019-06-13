@@ -10,6 +10,15 @@ export class SelectComponent implements OnInit {
 
   constructor() { }
 
+  html = `<ugl-select
+      [select]="select"
+      [stylized]="false"
+      [zindex]="1"
+      [dataTitle]="'Select an option'"
+      [direction]="'bottom'"
+      (selected)="onSelectedItem($event)">
+  </ugl-select>`;
+
   public select;
 
   ngOnInit() {

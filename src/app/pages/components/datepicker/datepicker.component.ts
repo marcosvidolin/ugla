@@ -9,6 +9,16 @@ export class DatepickerComponent implements OnInit {
 
   constructor() { }
 
+  html = `
+    <ugl-datepicker [label]="'Date'"
+      [name]="'date'"
+      [options]="onInitDatepicker()"
+      [message]="'Select a Date'"
+      [required]="true"
+      (onSelectValue)="onChangeFinalDate($event)"
+      #date></ugl-datepicker>
+  `;
+
   ngOnInit() {
   }
 
