@@ -3,7 +3,7 @@
       (click)="onClickLink(item)"
       [ngClass]="{'active': item.active}"
       class="gtm-link"
-      [href]="item.path || '#'"
+      [routerLink]="item.path || '#'"
       [id]="'link-' + idx"
       [title]="item.description"
       [attr.aria-label]="item.label">{{ item.description }}</a>

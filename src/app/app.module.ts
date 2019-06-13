@@ -9,28 +9,20 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { DirectivesPageComponent } from './pages/directives-page/directives-page.component';
 import { ServicesPageComponent } from './pages/services-page/services-page.component';
 import { DevPageComponent } from './pages/dev-page/dev-page.component';
-import { ComponentsPageComponent } from './pages/components-page/components-page.component';
-import { BrandComponent } from './pages/components-page/brand/brand.component';
-import { SelectPageComponent } from './pages/components-page/select-page/select-page.component';
-import { FormComponent } from './pages/components-page/form/form.component';
-import { DatepickerComponent } from './pages/components-page/datepicker/datepicker.component';
+import { ComponentsModule } from './pages/components/components.module';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     HomePageComponent,
-    ComponentsPageComponent,
     DirectivesPageComponent,
     ServicesPageComponent,
-    DevPageComponent,
-    BrandComponent,
-    SelectPageComponent,
-    FormComponent,
-    DatepickerComponent
+    DevPageComponent
   ],
   imports: [
     BrowserModule,
+    ComponentsModule,
     AppRoutingModule,
     UglaModule.forRoot({themeName: Themes.YELLOW})
   ],

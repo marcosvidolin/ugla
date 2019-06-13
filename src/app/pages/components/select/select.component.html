@@ -1,0 +1,22 @@
+<h3 class="color-yellow">Select</h3>
+
+<p class="code-block">
+  &#60;ugl-select
+      [select]="select"
+      [stylized]="false"
+      [zindex]="1"
+      [direction]="'bottom'"
+      (selected)="onSelectedItem($event)"&#62;
+  &#60;/ugl-select&#62;
+</p>
+
+<div class="visual white">
+  <ugl-select
+      [select]="select"
+      [stylized]="false"
+      [zindex]="1"
+      [dataTitle]="'Select an option'"
+      [direction]="'bottom'"
+      (selected)="onSelectedItem($event)">
+  </ugl-select>
+</div>

@@ -2,6 +2,10 @@
 .visual {
   padding: 1rem;
   background-color: color(_gray, light);
+
+  &.white {
+    background-color: color(_others, light);
+  }
 }
 
 .code {
