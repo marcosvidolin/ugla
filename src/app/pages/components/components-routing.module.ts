@@ -21,10 +21,10 @@ import { SwitchComponent } from './switch/switch.component';
 import { TablesComponent } from './tables/tables.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 
-
 const routes: Routes = [
   {path: 'components', component: ComponentsComponent,
     children: [
+      { path: '', redirectTo: '/components/brand', pathMatch: 'full'},
       { path: 'brand', component:  BrandComponent},
       { path: 'button', component:  ButtonComponent},
       { path: 'cards', component:  CardsComponent},

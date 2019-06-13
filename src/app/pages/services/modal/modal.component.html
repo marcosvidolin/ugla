@@ -1,0 +1,17 @@
+<h3 class="color-yellow">Modal</h3>
+
+<div uglGrid [grid]="true" [col]="4" [gap]="2">
+  <ugl-button
+      [id]="'modal-button'"
+      [style]="'border'"
+      [color]="'yellow'"
+      [wave]="true"
+      [size]="'small'"
+      (click)="openModal()"
+      [title]="'Modal'">Open Modal Service</ugl-button>
+</div>
+
+<ugl-modal (cancelClick)="onCancelModalClick()"
+           (confirmClick)="onConfirmModalClick()"
+           [cancelButtonText]="'Cancel'"
+           [confirmButtonText]="'Confirm'">
