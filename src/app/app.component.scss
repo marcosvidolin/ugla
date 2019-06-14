@@ -1,0 +1,17 @@
+@import '../../projects/ugla/src/sass/index';
+
+.link-external{
+  color: color('_others','light');
+  font-size: 1rem;
+  font-weight: 600;
+  text-decoration: none;
+  display: flex;
+  align-content: center;
+  align-items: center;
+  margin-right: 10px;
+
+  > i {
+    font-size: 1.25rem;
+    margin-left: 5px;
+  }
+}

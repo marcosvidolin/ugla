@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Header, People, Menu, MenuItem, Select, Options, UglaService } from 'projects/ugla/src';
+import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
   selector: 'app-root',
@@ -8,7 +9,11 @@ import { Header, People, Menu, MenuItem, Select, Options, UglaService } from 'pr
 })
 export class AppComponent implements OnInit {
 
-  constructor(private ugla: UglaService) {}
+  constructor(
+    private ugla: UglaService,
+    private router: Router) {
+      this.routeEvent(this.router);
+    }
 
   isAutenticated = false;
 
@@ -21,8 +26,7 @@ export class AppComponent implements OnInit {
     new MenuItem('Login', '/login', true),
     new MenuItem('Components', '/components', true),
     new MenuItem('Directives', '/directives', true),
-    new MenuItem('Services', '/services', true),
-    new MenuItem('Docs', '/docs', true)
+    new MenuItem('Services', '/services', true)
   ]);
 
   select = new Select('language', [
@@ -33,6 +37,28 @@ export class AppComponent implements OnInit {
     new Options('汉语', 'ch_st'),
     new Options('漢語', 'ch_tr')
   ]);
+
+  routeEvent(router: Router) {
+    router.events.subscribe(e => {
+      if (e instanceof NavigationEnd) {
+        this.header.menu.items.filter((item) => {
+          return item.active = false;
+        });
+
+        if (this.router.url === '/') {
+          this.header.menu.items[0].active = true;
+        } else if (this.router.url === '/login') {
+          this.header.menu.items[1].active = true;
+        } else if (this.router.url.indexOf('/components') > -1) {
+          this.header.menu.items[2].active = true;
+        } else if (this.router.url.indexOf('/directives') > -1) {
+          this.header.menu.items[3].active = true;
+        } else if (this.router.url.indexOf('/services') > -1) {
+          this.header.menu.items[4].active = true;
+        }
+      }
+    });
+  }
 
   ngOnInit() {
     this.header.people = this.people;
