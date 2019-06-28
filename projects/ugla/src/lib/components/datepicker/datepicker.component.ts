@@ -216,26 +216,32 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
     if (picker) {
 
       if (!!this.datePattern) {
+        try {
+          let momentDate: moment_.Moment;
 
-        let momentDate: moment_.Moment;
+          // If date was selected using datepicker
+          if (!!picker.dateSelected) {
+            momentDate = moment(picker.dateSelected);
+            picker.el.value = momentDate.format(this.datePattern);
+          }
 
-        // If date was selected using datepicker
-        if (!!picker.dateSelected) {
-          momentDate = moment(picker.dateSelected);
-          picker.el.value = momentDate.format(this.datePattern);
-        }
+          const dateValue = moment(picker.el.value, this.datePattern, this.language, true);
 
-        const dateValue = moment(picker.el.value, this.datePattern, this.language, true);
-
-        if (dateValue.isValid()) {
-          picker.setDate(dateValue.toDate(), true);
-          picker.el.value = dateValue.format(this.datePattern);
-          this.invalid = false;
-          this.message = dateValue.isValid() ? this.originalMessage : this.messageInvalidSelection;
-        } else {
-          this.invalid = !dateValue.isValid();
-          this.message = dateValue.isValid() ? this.originalMessage : this.messageInvalidSelection;
-          this.invalidFormat = dateValue.parsingFlags().invalidFormat;
+          if (dateValue.isValid()) {
+            picker.setDate(dateValue.toDate(), true);
+            picker.el.value = dateValue.format(this.datePattern);
+            this.invalid = false;
+            this.message = dateValue.isValid() ? this.originalMessage : this.messageInvalidSelection;
+          } else {
+            this.invalid = !dateValue.isValid();
+            this.message = dateValue.isValid() ? this.originalMessage : this.messageInvalidSelection;
+            this.invalidFormat = dateValue.parsingFlags().invalidFormat;
+          }
+        } catch (e) {
+          this.invalid = true;
+          this.message = this.messageInvalidSelection;
+        } finally {
+          this.invalidFormat = this.invalid;
         }
 
       } else {
