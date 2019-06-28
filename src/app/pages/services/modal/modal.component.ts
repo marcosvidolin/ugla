@@ -10,10 +10,27 @@ export class ModalComponent implements OnInit {
 
   constructor(private modalService: ModalService) { }
 
+  public html = `
+    <div uglGrid [grid]="true" [col]="4" [gap]="2">
+    <ugl-button
+        [id]="'modal-button'"
+        [style]="'border'"
+        [color]="'yellow'"
+        [wave]="true"
+        [size]="'small'"
+        (click)="openModal()"
+        [title]="'Modal'">Open Modal Service</ugl-button>
+    </div>
+
+    <ugl-modal (cancelClick)="onCancelModalClick()"
+            (confirmClick)="onConfirmModalClick()"
+            [cancelButtonText]="'Cancel'"
+            [confirmButtonText]="'Confirm'">
+  `;
+
   @ViewChild('modal') modalComponent: ModalComponent;
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   openModal() {
     this.modalService.warning('Modal Title', 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Voluptas, minima?');

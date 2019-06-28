@@ -3,7 +3,6 @@ import { Routes, RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
-import { ServicesPageComponent } from './pages/services-page/services-page.component';
 import { DevPageComponent } from './pages/dev-page/dev-page.component';
 
 const routes: Routes = [
