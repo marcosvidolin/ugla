@@ -56,6 +56,16 @@ registerPlugin(FilePondPluginFileValidateType,
   FilePondPluginImageExifOrientation,
   FilePondPluginImagePreview);
 
+let theme: ThemeConfig;
+
+function setTheme(config: ThemeConfig) {
+  theme = config;
+}
+
+function getTheme() {
+  return theme;
+}
+
 /**
  * Imports: Common and Router
  * Declararions and Exports: all Ugla's components
@@ -148,11 +158,7 @@ export class UglaModule {
    *
    * @param parentModule: UglaModule
    */
-  constructor(@Optional() @SkipSelf() parentModule: UglaModule) {
-    // if (parentModule) {
-    //   throw new Error('UglaModule is already loaded. Import it in the AppModule only');
-    // }
-  }
+  constructor(@Optional() @SkipSelf() parentModule: UglaModule) {}
 
   /**
    * Initialize Ugla with theme configurations.
@@ -160,6 +166,7 @@ export class UglaModule {
    * @returns typeof ModuleWithProviders
    */
   static forRoot(config: ThemeConfig): ModuleWithProviders {
+    setTheme(config);
     return {
       ngModule: UglaModule,
       providers: [
@@ -171,10 +178,12 @@ export class UglaModule {
   /**
    * Use when import on Lazy Loading module
    */
-  static forChild(): ModuleWithProviders {
+  static forChild(config?: ThemeConfig): ModuleWithProviders {
     return {
       ngModule: UglaModule,
-      providers: []
+      providers: [
+        { provide: ThemeConfig, useValue: config ? config : getTheme() }
+      ]
     };
   }
 }

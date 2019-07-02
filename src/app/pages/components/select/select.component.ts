@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Select, Options } from 'projects/ugla/src';
+import { Select, Options, UglaService } from 'projects/ugla/src';
 
 @Component({
   selector: 'app-select',
@@ -8,7 +8,9 @@ import { Select, Options } from 'projects/ugla/src';
 })
 export class SelectComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ugla: UglaService) { }
+
+  public color = `color-${this.ugla.color}`;
 
   html = `<ugl-select
       [select]="select"

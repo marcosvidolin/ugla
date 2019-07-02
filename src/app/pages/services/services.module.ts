@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ServicesComponent } from './services.component';
 import { ServicesRoutingModule } from './services-routing.module';
 import { ModalComponent } from './modal/modal.component';
-import { UglaModule } from 'projects/ugla/src';
+import { UglaModule, Themes } from 'projects/ugla/src';
 import { HighlightModule } from 'ngx-highlightjs';
 
 @NgModule({

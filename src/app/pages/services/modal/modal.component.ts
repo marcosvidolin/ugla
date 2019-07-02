@@ -1,5 +1,5 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ModalService } from 'projects/ugla/src';
+import { ModalService, UglaService } from 'projects/ugla/src';
 
 @Component({
   selector: 'app-modal',
@@ -8,7 +8,10 @@ import { ModalService } from 'projects/ugla/src';
 })
 export class ModalComponent implements OnInit {
 
-  constructor(private modalService: ModalService) { }
+  constructor(private modalService: ModalService,
+              private ugla: UglaService) { }
+
+  public color = `color-${this.ugla.color}`;
 
   public html = `
     <div uglGrid [grid]="true" [col]="4" [gap]="2">

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UglaService } from 'projects/ugla/src';
 
 @Component({
   selector: 'app-brand',
@@ -7,7 +8,9 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BrandComponent implements OnInit {
 
-  constructor() { }
+  constructor(private ugla: UglaService) { }
+
+  public color = `color-${this.ugla.color}`;
 
   html = `<ugl-brand [brandName]="'Brand name'" [brandImage]="'./assets/imgs/logo.png'"></ugl-brand>`;
 
