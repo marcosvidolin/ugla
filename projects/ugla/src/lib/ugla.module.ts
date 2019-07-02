@@ -149,9 +149,9 @@ export class UglaModule {
    * @param parentModule: UglaModule
    */
   constructor(@Optional() @SkipSelf() parentModule: UglaModule) {
-    if (parentModule) {
-      throw new Error('UglaModule is already loaded. Import it in the AppModule only');
-    }
+    // if (parentModule) {
+    //   throw new Error('UglaModule is already loaded. Import it in the AppModule only');
+    // }
   }
 
   /**
@@ -165,6 +165,16 @@ export class UglaModule {
       providers: [
         { provide: ThemeConfig, useValue: config }
       ]
+    };
+  }
+
+  /**
+   * Use when import on Lazy Loading module
+   */
+  static forChild(): ModuleWithProviders {
+    return {
+      ngModule: UglaModule,
+      providers: []
     };
   }
 }

@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { ModalComponent } from './modal/modal.component';
 
 const routes: Routes = [
-  {path: 'services', component: ServicesComponent,
+  {path: '', component: ServicesComponent,
     children: [
       {path: '', redirectTo: '/services/modal', pathMatch: 'full'},
       {path: 'modal', component: ModalComponent}
@@ -14,7 +14,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forChild(routes)
   ],
   exports: [RouterModule]
 })

@@ -4,17 +4,7 @@ import { ServicesComponent } from './services.component';
 import { ServicesRoutingModule } from './services-routing.module';
 import { ModalComponent } from './modal/modal.component';
 import { UglaModule } from 'projects/ugla/src';
-
 import { HighlightModule } from 'ngx-highlightjs';
-import typescript from 'highlight.js/lib/languages/typescript';
-import xml from 'highlight.js/lib/languages/xml';
-
-export function hljsLanguages() {
-  return [
-    {name: 'typescript', func: typescript},
-    {name: 'xml', func: xml}
-  ];
-}
 
 @NgModule({
   declarations: [
@@ -24,10 +14,8 @@ export function hljsLanguages() {
   imports: [
     CommonModule,
     ServicesRoutingModule,
-    UglaModule,
-    HighlightModule.forRoot({
-      languages: hljsLanguages
-    }),
+    HighlightModule,
+    UglaModule.forChild()
   ]
 })
 export class ServicesModule { }

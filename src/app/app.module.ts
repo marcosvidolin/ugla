@@ -7,10 +7,17 @@ import { UglaModule, Themes } from 'projects/ugla/src';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { DevPageComponent } from './pages/dev-page/dev-page.component';
-import { ComponentsModule } from './pages/components/components.module';
-import { DirectivesModule } from './pages/directives/directives.module';
-import { ServicesModule } from './pages/services/services.module';
 
+import { HighlightModule } from 'ngx-highlightjs';
+import typescript from 'highlight.js/lib/languages/typescript';
+import xml from 'highlight.js/lib/languages/xml';
+
+export function hljsLanguages() {
+  return [
+    {name: 'typescript', func: typescript},
+    {name: 'xml', func: xml}
+  ];
+}
 @NgModule({
   declarations: [
     AppComponent,
@@ -20,12 +27,13 @@ import { ServicesModule } from './pages/services/services.module';
   ],
   imports: [
     BrowserModule,
-    ComponentsModule,
-    DirectivesModule,
-    ServicesModule,
     AppRoutingModule,
+    HighlightModule.forRoot({
+      languages: hljsLanguages
+    }),
     UglaModule.forRoot({themeName: Themes.YELLOW})
   ],
+  exports: [HighlightModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]

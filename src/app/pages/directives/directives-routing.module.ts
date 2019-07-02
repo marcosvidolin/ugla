@@ -4,7 +4,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { GridComponent } from './grid/grid.component';
 
 const routes: Routes = [
-  {path: 'directives', component: DirectivesComponent,
+  {path: '', component: DirectivesComponent,
     children: [
       {path: '', redirectTo: '/directives/grid', pathMatch: 'full'},
       {path: 'grid', component: GridComponent}
@@ -14,7 +14,7 @@ const routes: Routes = [
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forChild(routes)
   ],
   exports: [RouterModule]
 })

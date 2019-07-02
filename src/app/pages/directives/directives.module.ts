@@ -4,7 +4,7 @@ import { DirectivesComponent } from './directives.component';
 import { DirectivesRoutingModule } from './directives-routing.module';
 import { UglaModule } from 'projects/ugla/src';
 import { GridComponent } from './grid/grid.component';
-
+import { HighlightModule } from 'ngx-highlightjs';
 @NgModule({
   declarations: [
     DirectivesComponent,
@@ -13,7 +13,8 @@ import { GridComponent } from './grid/grid.component';
   imports: [
     CommonModule,
     DirectivesRoutingModule,
-    UglaModule
+    HighlightModule,
+    UglaModule.forChild()
   ]
 })
 export class DirectivesModule { }

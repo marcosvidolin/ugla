@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
-import { ComponentsComponent } from './components.component';
 import { BrandComponent } from './brand/brand.component';
 import { DatepickerComponent } from './datepicker/datepicker.component';
 import { FormComponent } from './form/form.component';
@@ -20,9 +19,10 @@ import { PeopleCardComponent } from './people-card/people-card.component';
 import { SwitchComponent } from './switch/switch.component';
 import { TablesComponent } from './tables/tables.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
+import { ComponentsComponent } from './components.component';
 
 const routes: Routes = [
-  {path: 'components', component: ComponentsComponent,
+  {path: '', component: ComponentsComponent,
     children: [
       { path: '', redirectTo: '/components/brand', pathMatch: 'full'},
       { path: 'brand', component:  BrandComponent},
@@ -43,14 +43,14 @@ const routes: Routes = [
       { path: 'select', component:  SelectComponent},
       { path: 'switch', component:  SwitchComponent},
       { path: 'tables', component:  TablesComponent},
-      { path: 'toolbar', component:  ToolbarComponent},
+      { path: 'toolbar', component:  ToolbarComponent}
     ]
   }
 ];
 
 @NgModule({
   imports: [
-    RouterModule.forRoot(routes)
+    RouterModule.forChild(routes)
   ],
   exports: [RouterModule]
 })

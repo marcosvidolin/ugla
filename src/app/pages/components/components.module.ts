@@ -22,17 +22,7 @@ import { PeopleCardComponent } from './people-card/people-card.component';
 import { SwitchComponent } from './switch/switch.component';
 import { TablesComponent } from './tables/tables.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
-
 import { HighlightModule } from 'ngx-highlightjs';
-import typescript from 'highlight.js/lib/languages/typescript';
-import xml from 'highlight.js/lib/languages/xml';
-
-export function hljsLanguages() {
-  return [
-    {name: 'typescript', func: typescript},
-    {name: 'xml', func: xml}
-  ];
-}
 
 @NgModule({
   declarations: [
@@ -60,10 +50,8 @@ export function hljsLanguages() {
   imports: [
     CommonModule,
     ComponentsRoutingModule,
-    HighlightModule.forRoot({
-      languages: hljsLanguages
-    }),
-    UglaModule
+    HighlightModule,
+    UglaModule.forChild()
   ]
 })
 export class ComponentsModule { }
