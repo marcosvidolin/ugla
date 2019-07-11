@@ -32,7 +32,7 @@
 
   .login__header {
     color: color(_others, light);
-    font-size: 9rem;
+    font-size: 6rem;
     @include cross-browser(text-shadow, 2px 2px 4px color(_others, text-shadow));
 
     .login__header-title {
