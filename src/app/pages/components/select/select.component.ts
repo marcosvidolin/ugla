@@ -12,16 +12,17 @@ export class SelectComponent implements OnInit {
 
   public color = `color-${this.ugla.color}`;
 
-  html = `<ugl-select
-      [select]="select"
-      [stylized]="false"
-      [zindex]="1"
-      [dataTitle]="'Select an option'"
-      [direction]="'bottom'"
-      (selected)="onSelectedItem($event)">
+  html = `
+  <ugl-select
+    [select]="select"
+    [stylized]="false"
+    [zindex]="1"
+    [dataTitle]="'Select an option'"
+    [direction]="'bottom'"
+    (selected)="onSelectedItem($event)">
   </ugl-select>`;
 
-  public select;
+  public select: Select;
 
   ngOnInit() {
     const selectItems = new Select('status-item-1', [], 'gray', 'white');
