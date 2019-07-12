@@ -1,0 +1,53 @@
+<h3 [ngClass]="color">Quote</h3>
+
+<pre><code [highlight]="html"></code></pre>
+
+<div class="visual white">
+  <div uglGrid [grid]="true" [col]="4">
+    <ugl-quote
+      [text]="'Lorem Ipsum is simply dummy text of the printing and typesetting industry.'"
+      [color]="'aquamarine'">
+      <a href="/" class="color-white">Generated 3090 bytes of Lorem Ipsum</a> 
+    </ugl-quote>
+  </div>
+</div>
+
+<div uglGrid [grid]="true" [col]="2" [colSm]="1" [gap]="1">
+  <div>
+    <h4 [ngClass]="color">Attributes</h4>
+    <table class="base-table theme-colored-aquamarine">
+      <thead>
+        <tr>
+          <th class="align-left">Attribute</th>
+          <th class="align-left">Values</th>
+          <th class="align-left">Required</th>
+          <th class="align-left">Default</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>text</td>
+          <td>String</td>
+          <td>No</td>
+          <td>n/a</td>
+        </tr>
+        <tr>
+          <td>color</td>
+          <td>
+              <ul>
+                <li class="color-aquamarine"><b>aquamarine</b></li>
+                <li class="color-red"><b>red</b></li>
+                <li class="color-purple"><b>purple</b></li>
+                <li class="color-yellow"><b>yellow</b></li>
+                <li class="color-green"><b>green</b></li>
+                <li class="color-gray"><b>gray</b></li>
+              </ul>
+          </td>
+          <td>No</td>
+          <td>theme color</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div>
+</div>

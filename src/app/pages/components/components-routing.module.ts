@@ -20,6 +20,7 @@ import { SwitchComponent } from './switch/switch.component';
 import { TablesComponent } from './tables/tables.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { ComponentsComponent } from './components.component';
+import { QuoteComponent } from './quote/quote.component';
 
 const routes: Routes = [
   {path: '', component: ComponentsComponent,
@@ -40,6 +41,7 @@ const routes: Routes = [
       { path: 'login', component:  LoginComponent},
       { path: 'pagination', component:  PaginationComponent},
       { path: 'people-card', component:  PeopleCardComponent},
+      { path: 'quote', component:  QuoteComponent},
       { path: 'select', component:  SelectComponent},
       { path: 'switch', component:  SwitchComponent},
       { path: 'tables', component:  TablesComponent},

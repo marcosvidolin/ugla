@@ -36,6 +36,7 @@ export class ComponentsComponent implements OnInit {
       new Link('Login', '/components/login', this.isActiveItem('/components/login'), 'Login', 'c-login'),
       new Link('Pagination', '/components/pagination', this.isActiveItem('/components/pagination'), 'Pagination', 'c-pagination'),
       new Link('People Card', '/components/people-card', this.isActiveItem('/components/people-card'), 'People Card', 'c-people-card'),
+      new Link('Quote', '/components/quote', this.isActiveItem('/components/quote'), 'Quote', 'c-quote'),
       new Link('Select', '/components/select', this.isActiveItem('/components/select'), 'Select', 'c-select'),
       new Link('Switch', '/components/switch', this.isActiveItem('/components/switch'), 'Switch', 'c-switch'),
       new Link('Tables', '/components/tables', this.isActiveItem('/components/tables'), 'Tables', 'c-tables'),

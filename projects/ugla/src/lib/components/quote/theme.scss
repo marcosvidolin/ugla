@@ -1,0 +1,8 @@
+.background {
+  @each $theme in $themes {
+    &-#{$theme} {
+      background-color: color(_#{$theme}, 'medium');
+      padding: 10px;
+    }
+  }
+}

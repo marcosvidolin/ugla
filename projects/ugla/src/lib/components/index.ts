@@ -30,3 +30,4 @@ export { HyperLinkComponent } from './hyper-link/hyper-link.component';
 export { BackPanelComponent } from './panels/back-panel/back-panel.component';
 export { RadioComponent } from './radio/radio.component';
 export { BannerComponent } from './banner/banner.component';
+export { QuoteComponent } from './quote/quote.component';

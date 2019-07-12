@@ -47,6 +47,7 @@ import { HyperLinkComponent } from './components/hyper-link/hyper-link.component
 import { BackPanelComponent } from './components/panels/back-panel/back-panel.component';
 import { RadioComponent } from './components/radio/radio.component';
 import { BannerComponent } from './components/banner/banner.component';
+import { QuoteComponent } from './components/quote/quote.component';
 
 registerPlugin(FilePondPluginFileValidateType,
   FilePondPluginFileValidateSize,
@@ -99,7 +100,8 @@ registerPlugin(FilePondPluginFileValidateType,
     HyperLinkComponent,
     BackPanelComponent,
     RadioComponent,
-    BannerComponent
+    BannerComponent,
+    QuoteComponent,
   ],
   exports: [
     UglaComponent,
@@ -136,7 +138,8 @@ registerPlugin(FilePondPluginFileValidateType,
     HyperLinkComponent,
     BackPanelComponent,
     RadioComponent,
-    BannerComponent
+    BannerComponent,
+    QuoteComponent
   ],
   providers: [UglaService]
 })

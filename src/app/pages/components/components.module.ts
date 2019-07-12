@@ -23,6 +23,7 @@ import { SwitchComponent } from './switch/switch.component';
 import { TablesComponent } from './tables/tables.component';
 import { ToolbarComponent } from './toolbar/toolbar.component';
 import { HighlightModule } from 'ngx-highlightjs';
+import { QuoteComponent } from './quote/quote.component';
 
 @NgModule({
   declarations: [
@@ -45,7 +46,8 @@ import { HighlightModule } from 'ngx-highlightjs';
     PeopleCardComponent,
     SwitchComponent,
     TablesComponent,
-    ToolbarComponent
+    ToolbarComponent,
+    QuoteComponent
   ],
   imports: [
     CommonModule,
