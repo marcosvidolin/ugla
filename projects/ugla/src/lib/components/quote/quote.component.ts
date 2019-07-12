@@ -1,6 +1,17 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { UglaService } from '../../ugla.service';
 
+/**
+ * Quote
+ *
+ * @example
+ * <ugl-quote
+ *  [text]="'text.'"
+ *  [color]="'color'">
+ *  <ng-content></ng-content>
+ * </ugl-quote>
+ *
+ */
 @Component({
   selector: 'ugl-quote',
   templateUrl: './quote.component.html',
