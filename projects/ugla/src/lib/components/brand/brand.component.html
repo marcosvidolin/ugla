@@ -1,4 +1,10 @@
-<a [href]="path" class="brand" [ngClass]="theme" [title]="'Logo ' + brandName" tabindex="1" id="brand">
+<a *ngIf="!!path" [href]="path"  class="brand" [ngClass]="theme" [title]="'Logo ' + brandName" tabindex="1" id="brand">
   <img [src]="brandImage" [alt]="'Logo' + brandName">
-  <span [innerHtml]="brandName"></span>
+  <span [innerHtml]="brandName" *ngIf="brandName !== ''"></span>
 </a>
+ 
+<span *ngIf="!(!!path)"  class="brand" [ngClass]="theme" [title]="'Logo ' + brandName" tabindex="1" id="brand">
+  <img [src]="brandImage" [alt]="'Logo' + brandName">
+  <span [innerHtml]="brandName" *ngIf="brandName !== ''"></span>
+</span>
+     

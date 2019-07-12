@@ -14,7 +14,7 @@ import { UglaService } from '../../ugla.service';
  * // Typescript
  * import { Header, People, Menu, MenuItem, Select, Options } from 'ugla-ugla';
  *
- * public header = new Header('BRAND NAME', './assets/images/logo.png', '/home');
+ * public header = new Header('Ugla', './assets/imgs/logo.png', 'home', true);
  * public people = new People('PEOPLE NAME', 'LOGIN\@ciandt.com', 'IMAGE URL');
  *
  * public menu = new Menu([

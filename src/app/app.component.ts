@@ -17,7 +17,7 @@ export class AppComponent implements OnInit {
 
   isAutenticated = false;
 
-  header = new Header('Ugla', './assets/imgs/logo.png');
+  header = new Header('Ugla', './assets/imgs/logo.png', 'home', true);
 
   people = new People('Jack Connor', 'jack.connor@ugla.dev', './assets/imgs/people.png');
 

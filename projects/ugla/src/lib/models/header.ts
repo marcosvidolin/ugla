@@ -7,10 +7,18 @@ export class Header {
   public menu: Menu;
   public homePath?: string;
   public brandImage: string;
+  public hasLink = true;
 
-  constructor(brandName: string, brandImage: string, homePath?: string) {
-    this.brandName = brandName;
-    this.brandImage = brandImage;
-    this.homePath = (homePath === undefined) ? 'home' : homePath;
+  constructor(brandName: string, brandImage: string, homePath?: string, hasLink?: boolean) {
+    this.brandImage =  (!!brandImage) ? brandImage : '';
+    this.brandName = (!!brandName) ? brandName : '';
+
+    this.hasLink = hasLink !== undefined ? hasLink : this.hasLink;
+
+    if (this.hasLink) {
+      this.homePath = (!!homePath) ? homePath : 'home';
+    } else {
+      this.homePath = '';
+    }
   }
 }
