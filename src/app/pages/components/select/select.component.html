@@ -1,20 +1,29 @@
 <h3 [ngClass]="color">Select</h3>
 
-<pre><code [highlight]="html"></code></pre>
-
-<div class="visual white">
-  <div uglGrid [grid]="true" [col]="4">
-    <ugl-select
-        [select]="select"
-        [stylized]="false"
-        [zindex]="1"
-        [dataTitle]="'Select an option'"
-        [direction]="'bottom'"
-        (selected)="onSelectedItem($event)">
-    </ugl-select>
-  </div>
+<div uglGrid [grid]="true" [col]="2" [colSm]="1" class="code-area">
+  <pre><code [highlight]="html"></code></pre>
+  <pre><code [highlight]="html2"></code></pre>
 </div>
 
+<div class="visual white" uglGrid [grid]="true" [col]="2" [colSm]="1" [gap]="1">
+  <ugl-select
+      [select]="select"
+      [stylized]="false"
+      [zindex]="1"
+      [dataTitle]="'Select an option'"
+      [direction]="'bottom'"
+      (selected)="onSelectedItem($event)">
+  </ugl-select>
+  <ugl-select
+      [select]="select"
+      [stylized]="false"
+      [zindex]="1"
+      [dataTitle]="'Select an option'"
+      [direction]="'bottom'"
+      [disabled]="true"
+      (selected)="onSelectedItem($event)">
+  </ugl-select>
+</div>
 
 <div uglGrid [grid]="true" [col]="2" [colSm]="1" [gap]="1">
   <div>
@@ -58,6 +67,12 @@
           <td>bottom | up</td>
           <td>No</td>
           <td>bottom</td>
+        </tr>
+        <tr>
+          <td>disabled</td>
+          <td>true | false</td>
+          <td>No</td>
+          <td>false</td>
         </tr>
       </tbody>
     </table>

@@ -12,13 +12,22 @@ export class SelectComponent implements OnInit {
 
   public color = `color-${this.ugla.color}`;
 
-  html = `
-  <ugl-select
+  html = `<ugl-select
     [select]="select"
     [stylized]="false"
     [zindex]="1"
     [dataTitle]="'Select an option'"
     [direction]="'bottom'"
+    (selected)="onSelectedItem($event)">
+  </ugl-select>`;
+
+  html2 = `<ugl-select
+    [select]="select"
+    [stylized]="false"
+    [zindex]="1"
+    [dataTitle]="'Select an option'"
+    [direction]="'bottom'"
+    [disabled]="true"
     (selected)="onSelectedItem($event)">
   </ugl-select>`;
 
