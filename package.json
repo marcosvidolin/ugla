@@ -1,6 +1,6 @@
 {
   "name": "ugla",
-  "version": "1.1.0",
+  "version": "1.1.2",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -51,7 +51,7 @@
     "filepond-plugin-image-resize": "^2.0.2",
     "filepond-plugin-image-transform": "^3.2.2",
     "highlight.js": "^9.15.8",
-    "js-datepicker": "^4.0.10",
+    "js-datepicker": "^4.6.1",
     "moment": "^2.24.0",
     "ngx-filepond": "^5.0.0",
     "ngx-highlightjs": "^3.0.3",

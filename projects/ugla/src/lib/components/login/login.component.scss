@@ -11,6 +11,7 @@
   overflow: hidden;
 
   @include mobile() {
+    background-position: top;
     padding: 3.875rem 3.875rem 8.125rem;
   }
 
@@ -32,8 +33,12 @@
 
   .login__header {
     color: color(_others, light);
-    font-size: 9rem;
+    font-size: 6rem;
     @include cross-browser(text-shadow, 2px 2px 4px color(_others, text-shadow));
+
+    @include mobile() {
+      font-size: 3rem;
+    }
 
     .login__header-title {
       font-size: inherit;
@@ -53,24 +58,11 @@
       margin-right: 10px;
     }
   }
+  
   .float-logo {
     position: fixed;
     right: 0;
     bottom: 0;
     z-index: -1;
-  }
-}
-
-@media only screen and (max-width: 768px) {
-  .login {
-    background-position: top;
-
-    .login__header {
-      font-size: 48px;
-    }
-
-    .login__header-title--bold {
-      max-width: 4em;
-    }
   }
 }
