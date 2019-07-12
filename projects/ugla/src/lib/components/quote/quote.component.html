@@ -1,5 +1,5 @@
 <div>
-  <p id="quote" tabindex="0" class="highlight" *ngIf=text [innerHtml]='text'></p>
+  <p id="quote" tabindex="0" class="highlight" *ngIf="text" [innerHtml]="text"></p>
   <div [ngClass]="'background-' + color">
       <ng-content></ng-content>
   </div>
