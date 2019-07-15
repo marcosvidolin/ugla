@@ -7,8 +7,6 @@
 [![angular](https://img.shields.io/github/package-json/dependency-version/ciandt-dev/ugla/dev/@angular/cli.svg)](https://angular.io)
 ![build](https://travis-ci.com/ciandt-dev/ugla.svg?branch=master)
 
-
-
 ## Versioning
 Given a version number MAJOR.MINOR.PATCH, increment the:
 
@@ -39,4 +37,4 @@ Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 ## Oficial Site
-Read more on: [Ugla](https://ugla-1c7e1.firebaseapp.com)
+Read more on: [Ugla](https://ugla.dev)
