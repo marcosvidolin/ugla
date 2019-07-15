@@ -9,7 +9,6 @@
   }
 
   img {
-    margin-right: 10px;
     width: 55px;
 
     @include mobile() {
@@ -18,6 +17,8 @@
   }
 
   span {
+    margin-left: 10px;
+
     @extend %inline-flex;
     @extend %header-commun;
     @include font(1.5rem, bold);

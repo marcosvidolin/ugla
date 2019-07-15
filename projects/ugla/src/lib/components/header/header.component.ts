@@ -142,4 +142,8 @@ export class HeaderComponent implements OnInit {
       this.changeDetector.detectChanges();
     });
   }
+
+  closeMenu() {
+    this.open = false;
+  }
 }
