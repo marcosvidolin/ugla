@@ -6,3 +6,10 @@
     }
   }
 }
+
+.quote {
+  background-color: rgba(color(_yellow, 'light'), .5);
+  padding: 10px;
+  line-height: normal;
+  color: color(_others, 'dark');
+}
