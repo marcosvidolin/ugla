@@ -1,6 +1,6 @@
 {
   "name": "ugla",
-  "version": "1.1.8",
+  "version": "1.1.9",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -9,7 +9,7 @@
     "sass-lint": "./node_modules/sass-lint/bin/sass-lint.js -c src/scss-lint.yml -v -q",
     "lint": "ng lint --format=stylish --type-check true && npm run sass-lint",
     "e2e": "ng e2e",
-    "preinstall": "npm install js-datepicker",
+    "preinstall": "npm install js-datepicker ngx-filepond",
     "deploy:site": "ng build && firebase deploy",
     "compodoc:s": "node_modules/@compodoc/compodoc/bin/index-cli.js -p projects/ugla/tsconfig.lib.json -s --theme material",
     "build-lib": "ng-packagr -p projects/ugla/package.json && cp -r projects/ugla/src/sass/ dist/ && cd dist && npm pack"
