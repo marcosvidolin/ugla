@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "dist/ugla-workspace",
+    "public": "dist/prd",
     "ignore": [
       "firebase.json",
       "**/.*",

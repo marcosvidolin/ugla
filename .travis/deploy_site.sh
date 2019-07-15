@@ -8,8 +8,8 @@ install() {
 }
 
 build() {
-  ng build
-  compodoc -p projects/ugla/tsconfig.lib.json -d dist/ugla-workspace/docs/ --theme material
+  ng build --prod
+  compodoc -p projects/ugla/tsconfig.lib.json -d dist/prd/docs/ --theme material
 }
 
 deploy() {

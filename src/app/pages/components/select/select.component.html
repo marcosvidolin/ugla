@@ -12,7 +12,7 @@
       [zindex]="1"
       [dataTitle]="'Select an option'"
       [direction]="'bottom'"
-      (selected)="onSelectedItem($event)">
+      (selected)="onSelectedItem()">
   </ugl-select>
   <ugl-select
       [select]="select"
@@ -21,7 +21,7 @@
       [dataTitle]="'Select an option'"
       [direction]="'bottom'"
       [disabled]="true"
-      (selected)="onSelectedItem($event)">
+      (selected)="onSelectedItem()">
   </ugl-select>
 </div>
 
@@ -92,8 +92,8 @@
         <tr>
           <td>(selected)</td>
           <td>Dispara o evento assim ao selecionar um item</td>
-          <td>$event</td>
-          <td>(selected)="onSelectedItem($event)"</td>
+          <td></td>
+          <td>(selected)="onSelectedItem()"</td>
         </tr>
       </tbody>
     </table>

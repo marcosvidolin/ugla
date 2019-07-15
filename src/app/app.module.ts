@@ -11,6 +11,8 @@ import { DevPageComponent } from './pages/dev-page/dev-page.component';
 import { HighlightModule } from 'ngx-highlightjs';
 import typescript from 'highlight.js/lib/languages/typescript';
 import xml from 'highlight.js/lib/languages/xml';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 export function hljsLanguages() {
   return [
@@ -31,7 +33,8 @@ export function hljsLanguages() {
     HighlightModule.forRoot({
       languages: hljsLanguages
     }),
-    UglaModule.forRoot({themeName: Themes.YELLOW})
+    UglaModule.forRoot({themeName: Themes.YELLOW}),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   exports: [HighlightModule],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
