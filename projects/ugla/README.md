@@ -38,3 +38,6 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 
 ## Oficial Site
 Read more on: [Ugla](https://ugla.dev)
+
+## Contributors
+[![](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/images/0)](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/links/0)[![](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/images/1)](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/links/1)[![](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/images/2)](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/links/2)[![](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/images/3)](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/links/3)[![](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/images/4)](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/links/4)[![](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/images/5)](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/links/5)[![](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/images/6)](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/links/6)[![](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/images/7)](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/links/7)
