@@ -1,4 +1,5 @@
 # Ugla
+Ugla is a library with make a frontend solutions.
 
 [![Codacy Badge](https://api.codacy.com/project/badge/Grade/dab0deb9bbe1463a8c5ef52c1f55a03a)](https://www.codacy.com/app/marcosvidolin/ugla?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ciandt-dev/ugla&amp;utm_campaign=Badge_Grade)
 [![Open issues](https://img.shields.io/github/issues-raw/ciandt-dev/ugla.svg)](https://github.com/ciandt-dev/ugla/issues)
@@ -15,6 +16,12 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 1. PATCH version when you make backwards-compatible bug fixes.
 
 Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
+
+## Install
+Run 
+`npm install js-datepicker ngx-filepond filepond-plugin-file-validate-type filepond-plugin-file-validate-size filepond-plugin-image-crop filepond-plugin-image-resize filepond-plugin-image-transform filepond-plugin-image-preview filepond-plugin-image-exif-orientation moment --save` for install all dependencies.
+
+Run `npm install ugla` for install Ugla.
 
 ## Development server
 
