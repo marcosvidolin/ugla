@@ -1,6 +1,6 @@
 {
   "name": "ugla",
-  "version": "1.1.16",
+  "version": "1.1.17",
   "repository": {
     "type": "git",
     "url": "git@github.com:ciandt-dev/ugla.git"
@@ -9,7 +9,7 @@
     "url": "https://github.com/ciandt-dev/ugla/issues"
   },
   "scripts": {
-    "preinstall": "npm install js-datepicker ngx-filepond tooltip.js"
+    "preinstall": "npm install js-datepicker ngx-filepond tooltip.js filepond-plugin-file-validate-type filepond-plugin-file-validate-size filepond-plugin-image-crop filepond-plugin-image-resize filepond-plugin-image-transform filepond-plugin-image-preview filepond-plugin-image-exif-orientation moment"
   },
   "keywords": [
     "angular",
