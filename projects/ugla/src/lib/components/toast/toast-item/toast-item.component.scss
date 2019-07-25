@@ -154,6 +154,7 @@
 @include mobile() {
   .toast__container {
     margin: 0 0 8px;
+    min-width: unset;
     width: 100%;
   }
 
