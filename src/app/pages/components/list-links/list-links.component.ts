@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { UglaService } from 'projects/ugla/src';
+import { UglaService, List, Link } from 'projects/ugla/src';
 
 @Component({
   selector: 'app-list-links',
@@ -11,8 +11,15 @@ export class ListLinksComponent implements OnInit {
   constructor(private ugla: UglaService) { }
 
   public color = `color-${this.ugla.color}`;
+  public links: List = new List('filter', [
+    new Link('Link without path', null, true), new Link('Link with path', 'dev', false)
+  ]);
 
   ngOnInit() {
+  }
+
+  clickLink(event) {
+    console.log(`Clicked: ${event}`);
   }
 
 }
