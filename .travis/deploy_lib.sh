@@ -16,7 +16,7 @@ build() {
     git checkout -b trevis-version
     git add .
     git commit --message "Travis build: $TRAVIS_BUILD_NUMBER"
-    git request-pull trevis-version https://github.com/ciandt-dev/ugla master
+    git request-pull trevis-version https://github.com/ciandt/ugla master
     git push origin trevis-version:master
   fi
   cp -r projects/ugla/src/sass dist/sass

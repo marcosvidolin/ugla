@@ -1,12 +1,12 @@
 # Ugla
 Ugla is a library with make a frontend solutions.
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/dab0deb9bbe1463a8c5ef52c1f55a03a)](https://www.codacy.com/app/marcosvidolin/ugla?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ciandt-dev/ugla&amp;utm_campaign=Badge_Grade)
-[![Open issues](https://img.shields.io/github/issues-raw/ciandt-dev/ugla.svg)](https://github.com/ciandt-dev/ugla/issues)
+[![Codacy Badge](https://api.codacy.com/project/badge/Grade/dab0deb9bbe1463a8c5ef52c1f55a03a)](https://www.codacy.com/app/marcosvidolin/ugla?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ciandt/ugla&amp;utm_campaign=Badge_Grade)
+[![Open issues](https://img.shields.io/github/issues-raw/ciandt/ugla.svg)](https://github.com/ciandt/ugla/issues)
 ![licence](https://img.shields.io/npm/l/ugla.svg)
-![version](https://img.shields.io/github/package-json/v/ciandt-dev/ugla.svg)
-[![angular](https://img.shields.io/github/package-json/dependency-version/ciandt-dev/ugla/dev/@angular/cli.svg)](https://angular.io)
-![build](https://travis-ci.com/ciandt-dev/ugla.svg?branch=master)
+![version](https://img.shields.io/github/package-json/v/ciandt/ugla.svg)
+[![angular](https://img.shields.io/github/package-json/dependency-version/ciandt/ugla/dev/@angular/cli.svg)](https://angular.io)
+![build](https://travis-ci.com/ciandt/ugla.svg?branch=master)
 
 ## Versioning
 Given a version number MAJOR.MINOR.PATCH, increment the:
@@ -47,4 +47,4 @@ To get more help on the Angular CLI use `ng help` or go check out the [Angular C
 Read more on: [Ugla](https://ugla.dev)
 
 ## Contributors
-[![](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/images/0)](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/links/0)[![](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/images/1)](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/links/1)[![](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/images/2)](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/links/2)[![](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/images/3)](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/links/3)[![](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/images/4)](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/links/4)[![](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/images/5)](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/links/5)[![](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/images/6)](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/links/6)[![](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/images/7)](https://sourcerer.io/fame/regivaldo/ciandt-dev/ugla/links/7)
+[![](https://sourcerer.io/fame/regivaldo/ciandt/ugla/images/0)](https://sourcerer.io/fame/regivaldo/ciandt/ugla/links/0)[![](https://sourcerer.io/fame/regivaldo/ciandt/ugla/images/1)](https://sourcerer.io/fame/regivaldo/ciandt/ugla/links/1)[![](https://sourcerer.io/fame/regivaldo/ciandt/ugla/images/2)](https://sourcerer.io/fame/regivaldo/ciandt/ugla/links/2)[![](https://sourcerer.io/fame/regivaldo/ciandt/ugla/images/3)](https://sourcerer.io/fame/regivaldo/ciandt/ugla/links/3)[![](https://sourcerer.io/fame/regivaldo/ciandt/ugla/images/4)](https://sourcerer.io/fame/regivaldo/ciandt/ugla/links/4)[![](https://sourcerer.io/fame/regivaldo/ciandt/ugla/images/5)](https://sourcerer.io/fame/regivaldo/ciandt/ugla/links/5)[![](https://sourcerer.io/fame/regivaldo/ciandt/ugla/images/6)](https://sourcerer.io/fame/regivaldo/ciandt/ugla/links/6)[![](https://sourcerer.io/fame/regivaldo/ciandt/ugla/images/7)](https://sourcerer.io/fame/regivaldo/ciandt/ugla/links/7)
