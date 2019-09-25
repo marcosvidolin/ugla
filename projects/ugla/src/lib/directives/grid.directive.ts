@@ -80,6 +80,12 @@ export class GridDirective implements OnInit  {
   @Input() spanSm: number;
 
   /**
+   * Define um valor customizado para as colunas
+   *
+   */
+  @Input() customCol: string;
+
+  /**
    * Define a column length
    *
    * Value: from 1 to 12
@@ -136,6 +142,10 @@ export class GridDirective implements OnInit  {
 
     if (this.spanSm) {
       this.el.nativeElement.classList.value += ` span-sm-${this.spanSm}`;
+    }
+
+    if (this.customCol) {
+      this.el.nativeElement.style.gridTemplateColumns = this.customCol;
     }
   }
 }
