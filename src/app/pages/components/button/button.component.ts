@@ -10,9 +10,19 @@ export class ButtonComponent implements OnInit {
 
   constructor(private ugla: UglaService) { }
 
-  public color = `color-${this.ugla.color}`;
+  color = `color-${this.ugla.color}`;
+  html = `<ugl-button [id]="'button-1'"
+              [type]="'button'"
+              [theme]="'aquamarine'"
+              [style]="'fill'"
+              [wave]="false"
+              [title]="'Teste'"
+              [disabled]="false">TEXT</ugl-button>`;
 
   ngOnInit() {
   }
 
+  showText(test) {
+    alert(`This buttons is ${test}`);
+  }
 }

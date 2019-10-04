@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, SimpleChanges, OnChanges } from '@angular/core';
+import { Component, OnInit, Input, SimpleChanges, OnChanges, EventEmitter, Output } from '@angular/core';
 import { UglaService } from '../../ugla.service';
 
 /**
@@ -95,6 +95,11 @@ export class ButtonComponent implements OnInit, OnChanges {
   @Input() floating = false;
 
   /**
+   * Function to action
+   */
+  @Output() action = new EventEmitter<any>();
+
+  /**
    * @ignore
    */
   public groupClass = '';
@@ -125,6 +130,10 @@ export class ButtonComponent implements OnInit, OnChanges {
     this.groupClass = `${this.size} ${isIcon}`;
     this.groupClass = (this.wave) ? `${this.groupClass} wave` : this.groupClass;
     this.groupClass = (this.floating) ? `${this.groupClass} floating` : this.groupClass;
+  }
+
+  clickedButton(event: any) {
+    this.action.emit(event);
   }
 
   ngOnChanges(changes: SimpleChanges) {
