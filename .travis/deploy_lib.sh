@@ -10,7 +10,7 @@ install() {
 }
 
 build() {
-  node -e 'require("./version").changeConfig()';
+  node ./version.js
   ng build --project=ugla
   if [[ `git status --porcelain` ]]; then
     git checkout -b trevis-version

@@ -1,3 +1,5 @@
+'use strict';
+
 const fs = require('fs-extra');
 const packageProject = require('./projects/ugla/package.json');
 const packageWorkspace = require('./package.json');
@@ -33,3 +35,4 @@ module.exports.changeVersion = function(version) {
   );
 }
 
+this.changeConfig();
