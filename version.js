@@ -34,5 +34,3 @@ module.exports.changeVersion = function(version) {
     { encoding: 'utf-8' }
   );
 }
-
-this.changeConfig();
