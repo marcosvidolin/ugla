@@ -71,12 +71,52 @@ export class UglaService {
     document.head.appendChild(this.metaTheme);
     document.body.classList.add(this._theme);
 
-
     this.metaVersion.setAttribute('name', 'ugla-version');
     this.metaVersion.setAttribute('content', this._version);
 
     document.head.appendChild(this.metaVersion);
     document.body.classList.add(this._version);
+
+    document.body.classList.add(this.browseIdentify());
+    document.body.classList.add(this.soIdentify());
+  }
+
+  /**
+   * Browse identify
+   * return a classe with browse name
+   */
+  browseIdentify() {
+    if ((navigator.userAgent.indexOf('Opera') || navigator.userAgent.indexOf('OPR')) !== -1 ) {
+      return 'opera';
+    } else if (navigator.userAgent.indexOf('Chrome') !== -1 ) {
+      return 'chrome';
+    } else if (navigator.userAgent.indexOf('Safari') !== -1) {
+      return 'safari';
+    } else if (navigator.userAgent.indexOf('Firefox') !== -1 )  {
+      return 'firefox';
+    } else if ((navigator.userAgent.indexOf('MSIE') !== -1 )) {
+      return 'ie';
+    } else {
+      return 'unknown-browse';
+    }
+  }
+
+  /**
+   * Operation System Identify
+   * return a class with so name
+   */
+  soIdentify() {
+    if (navigator.appVersion.indexOf('Win') !== -1) {
+      return 'windows';
+    } else if (navigator.appVersion.indexOf('Mac') !== -1) {
+      return 'macos';
+    } else if (navigator.appVersion.indexOf('X11') !== -1) {
+      return 'unix';
+    } else if (navigator.appVersion.indexOf('Linux') !== -1) {
+      return 'linux';
+    } else {
+      return 'unknown-os';
+    }
   }
 
   /**
