@@ -1,9 +1,12 @@
 language: node_js
 
 branches:
+  except:
+    - dependabot
+    - dependabot/*
   only:
-  - master
-  - stable
+    - master
+    - stable
 
 jobs:
   include:
