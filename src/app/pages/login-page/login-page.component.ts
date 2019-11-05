@@ -1,22 +1,21 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
 import { ToastService } from 'projects/ugla/src';
+import { Auth } from 'projects/ugla/src/lib/models/auth';
 
 @Component({
   selector: 'app-login-page',
   templateUrl: './login-page.component.html',
   styleUrls: ['./login-page.component.scss']
 })
-export class LoginPageComponent implements OnInit {
+export class LoginPageComponent {
 
-  constructor(private router: Router,
-              private toast: ToastService ) { }
+  constructor(private toast: ToastService ) { }
 
-  ngOnInit() {
+  signIn(auth: Auth) {
+    this.toast.success('Login', `Usuário ${auth.user} autenticado com sucesso`, 5000);
   }
 
-  signIn() {
-    this.toast.success('Login', 'Autenticado com sucesso', 5000);
-    this.router.navigate(['/home']);
+  signIn2() {
+    this.toast.success('Login', `Usuário autenticado com sucesso`, 5000);
   }
 }

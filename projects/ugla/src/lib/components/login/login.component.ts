@@ -1,5 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output, ViewChild } from '@angular/core';
 import { ButtonComponent } from '../button/button.component';
+import { Auth } from '../../models/auth';
+import { FieldComponent } from '../field/field.component';
 
 /**
  * Login component
@@ -23,11 +25,21 @@ import { ButtonComponent } from '../button/button.component';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  @Input() header: string;
-  @Input() subheader: string;
-  @Input() desktopImage: string;
-  @Input() mobileImage: string;
+  @Input() header: string = 'Header';
+  @Input() subheader: string = 'Subheader';
+  @Input() desktopImage: string = '';
+  @Input() mobileImage: string = '';
   @Input() buttonBackgroud = 'red';
+  @Input() fieldUser: string = 'User';
+  @Input() fieldPass: string = 'Password';
+  
+  /**
+   * Type of auth
+   * 
+   * Default: google
+   * Values: google, form
+   */
+  @Input() type = 'google';
 
   /**
    * Image to Google icon
@@ -38,26 +50,30 @@ export class LoginComponent implements OnInit {
    * Image to float logo
    */
   @Input() floatLogo: string;
-  @Input() buttonText: string;
-  @Output() signIn: EventEmitter<any> = new EventEmitter();
+  @Input() buttonText: string = 'Button';
+  @Output() signIn = new EventEmitter<any>();
 
   @ViewChild('authButton') loginButton: ButtonComponent;
+  @ViewChild('authUser') authUser: FieldComponent;
+  @ViewChild('authPassword') authPassword: FieldComponent;
 
-  constructor() {
-  }
+  constructor() {}
 
   /**
    * Set initial configurations
    */
-  ngOnInit() {
-    this.header = (this.header === undefined) ? 'Header' : this.header;
-    this.subheader = (this.subheader === undefined) ? 'Subheader' : this.subheader;
-    this.desktopImage = (this.desktopImage === undefined) ? '' : this.desktopImage;
-    this.mobileImage = (this.mobileImage === undefined) ? '' : this.mobileImage;
-    this.buttonText = (this.buttonText === undefined) ? 'Button' : this.buttonText;
+  ngOnInit() {}
+
+  isGoogle() {
+    return this.type == 'google' ;
   }
 
   authenticate() {
-    this.signIn.emit();
+    if(this.isGoogle()) {
+      this.signIn.emit();
+    } else {
+      let auth = new Auth(this.authUser.value, this.authPassword.value);
+      this.signIn.emit(auth);
+    }
   }
 }

@@ -4,9 +4,9 @@
   position: relative;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
   width: 100vw;
   height: 100vh;
+  justify-content: space-between;
   padding: 5%;
   overflow: hidden;
 
@@ -31,7 +31,7 @@
     }
   }
 
-  .login__header {
+  .header {
     color: color(_others, light);
     font-size: 6rem;
     @include cross-browser(text-shadow, 2px 2px 4px color(_others, text-shadow));
@@ -40,20 +40,19 @@
       font-size: 3rem;
     }
 
-    .login__header-title {
+    .title {
       font-size: inherit;
-      line-height: 1;
       font-weight: normal;
-    }
+      line-height: 1;
 
-    .login__header-title--bold {
-      font-size: inherit;
-      font-weight: bold;
-      line-height: 0.88;
+      &.bold {
+        font-weight: bold;
+        line-height: .88;
+      }
     }
   }
 
-  .login__button {
+  .button {
     img {
       margin-right: 10px;
     }

@@ -1,11 +1,10 @@
 <section class="login">
-
-  <header class="login__header" id="login-header" tabindex="0">
-    <h1 class="login__header-title">{{ header }}</h1>
-    <h1 class="login__header-title--bold">{{ subheader }}</h1>
+  <header class="header" id="login-header" tabindex="0">
+    <h1 class="title">{{ header }}</h1>
+    <h1 class="title bold">{{ subheader }}</h1>
   </header>
 
-  <div uglGrid [grid]="true" [col]="'8'" [colSm]="'1'">
+  <div uglGrid [grid]="true" [col]="'8'" [colSm]="'1'" *ngIf="isGoogle()">
     <ugl-button class="login__button"
                 #authButton
                 [size]="'large'"
@@ -13,11 +12,42 @@
                 [title]="buttonText"
                 [wave]="true"
                 (click)="authenticate()"
-                [id]="'login-button'"
-                >
+                [id]="'login-button'">
       <img *ngIf="googleLogo !== undefined" [src]="googleLogo" alt="Google Logo">
       {{ buttonText }}
     </ugl-button>
+  </div>
+
+  <div uglGrid [grid]="true" [col]="'6'" [colSm]="'1'" *ngIf="!isGoogle()">
+    <div uglGrid [grid]="true" [col]="'1'" [colSm]="'1'">
+      <ugl-field
+        #authUser
+        [type]="'email'"
+        [name]="'email'"
+        [label]="'E-mail'"
+        [maxLength]="60"
+        [required]="true"></ugl-field>
+  
+      <ugl-field
+        #authPassword
+        [type]="'password'"
+        [name]="'password'"
+        [label]="'Password'"
+        [maxLength]="20"
+        [required]="true"></ugl-field>
+      
+      <ugl-button uglGrid [grid]="true" [customCol]="'80%'"
+        class="button"
+        #authButton
+        [size]="'large'"
+        [color]="buttonBackgroud"
+        [title]="buttonText"
+        [wave]="true"
+        (click)="authenticate()"
+        [id]="'login-button'">
+        {{ buttonText }}
+      </ugl-button>
+    </div>
   </div>
 
   <img *ngIf="floatLogo !== undefined" [src]="floatLogo" alt="CI&T Logo" class="float-logo">
