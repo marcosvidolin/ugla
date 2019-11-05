@@ -1,5 +1,10 @@
 language: node_js
 
+branches:
+  only:
+  - master
+  - stable
+
 jobs:
   include:
     - stage: 'Deploy'
