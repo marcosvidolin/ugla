@@ -11,12 +11,6 @@ branches:
 jobs:
   include:
     - stage: 'Deploy'
-      name: 'Deploy test site'
-      caches:
-        - node
-      script:
-        .travis/deploy_site.sh
-    - stage: 'Deploy'
       name: 'Deploy to npmjs'
       caches:
         - node

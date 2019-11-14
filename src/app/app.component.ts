@@ -24,9 +24,7 @@ export class AppComponent implements OnInit {
   menu = new Menu([
     new MenuItem('Home', '/', true),
     new MenuItem('Login', '/login', true),
-    new MenuItem('Components', '/components', true),
-    new MenuItem('Directives', '/directives', true),
-    new MenuItem('Services', '/services', true)
+    new MenuItem('Test page', '/dev', true),
   ]);
 
   select = new Select('language', [
