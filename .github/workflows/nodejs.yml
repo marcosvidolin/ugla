@@ -1,0 +1,43 @@
+name: Ugla Deploy
+
+on:
+  push:
+    branches: 
+      - master
+      - stable
+  pull_request:
+    branches: 
+      - master
+      - stable
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [8.x, 10.x, 12.x]
+
+    steps:
+    - uses: actions/checkout@v1
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install dependencies
+      run: |
+        npm ci
+        npm install -g @angular/cli@7.1.4
+        npm install
+    - name: Build project
+      run: |
+        npm build --project=ugla
+        cp -r projects/ugla/src/sass dist/sass
+        cp LICENSE dist/
+    - name: Deploy
+      uses: xmflsct/action-publish-gatsby@v1 # Uses this action to run further steps
+      with:
+        token: ${{ secrets.NPM_TOKEN }} # Your personal access token of GitHub, read more below of how to obtain one and keep it safe
+        name: ${{ secrets.NPM_NAME }} # Not required, default to action's maintainer
+        email: ${{ secrets.NPM_EMAIL }} # Not required, default to action's maintainer
