@@ -21,28 +21,28 @@ jobs:
         node-version: [10.x]
 
     steps:
-      - name: Checkout
-      - uses: actions/checkout@v1
-        
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v1
-        with:
-          node-version: ${{ matrix.node-version }}
-      - name: Install dependencies
-        run: |
-          npm ci
-          npm install -g @angular/cli@7.1.4
-          npm install
-      - name: Build project
-        run: |
-          npm build --project=ugla
-          cp -r projects/ugla/src/sass dist/sass
-          cp LICENSE dist/
-      - name: Deploy
-        uses: xmflsct/action-publish-gatsby@v1
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-          name: ${{ secrets.NPM_NAME }}
-          email: ${{ secrets.NPM_EMAIL }}
+    - name: Checkout
+    - uses: actions/checkout@v1
+
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+    - name: Install dependencies
+      run: |
+        npm ci
+        npm install -g @angular/cli@7.1.4
+        npm install
+    - name: Build project
+      run: |
+        npm build --project=ugla
+        cp -r projects/ugla/src/sass dist/sass
+        cp LICENSE dist/
+    - name: Deploy
+      uses: xmflsct/action-publish-gatsby@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
+        name: ${{ secrets.NPM_NAME }}
+        email: ${{ secrets.NPM_EMAIL }}
     env:
         CI: true
