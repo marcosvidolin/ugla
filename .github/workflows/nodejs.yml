@@ -35,3 +35,5 @@ jobs:
         token: ${{ secrets.NPM_TOKEN }}
         name: ${{ secrets.NPM_NAME }}
         email: ${{ secrets.NPM_EMAIL }}
+    env:
+        CI: true
