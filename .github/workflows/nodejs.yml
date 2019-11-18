@@ -21,7 +21,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: xmflsct/action-publish-gatsby@v1.0.0
+      uses: bitoiu/node-js-action-template@v1.0
       with:
         node-version: 10.x
         
