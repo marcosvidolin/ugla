@@ -21,7 +21,7 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: bitoiu/node-js-action-template@v1.0
+      uses: thonatos/github-actions-nodejs@v0.1.0
       with:
         node-version: 10.x
         
