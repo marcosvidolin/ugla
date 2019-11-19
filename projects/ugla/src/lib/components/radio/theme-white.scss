@@ -2,34 +2,32 @@
   background-color: color(_others, body);
 
   input[type=radio] {
+    + label {
+      color: color(_gray, medium);
+  
+      &::before {
+        color: color(_aquamarine, 'medium');
+      }
+  
+      &:hover {
+        color: color(_others, 'light');
+        background: color(_gray, 'medium');
+      }
+    }
+
     &:checked {
       background-color: color(_aquamarine, 'medium');
       color: color(_others, 'light');
+
+      + label {
+        background: color(_gray, 'medium');
+        color: color(_others, 'light');
+      
+        &::before {
+          background: color(_gray, 'medium');
+          color: color(_aquamarine, 'medium');
+        }
+      }
     }
-  }
-
-}
-
-input[type=radio] {
-
-  + label {
-    color: color(_gray, medium);
-
-    &::before {
-      color: color(_aquamarine, 'medium');
-    }
-
-    &:hover {
-      color: color(_others, 'light');
-    }
-  }
-}
-
-.radio-item input[type=radio]:checked + label {
-  background: color(_gray, 'medium');
-  color: color(_others, 'light');
-
-  &::before {
-    background: color(_others, 'light');
   }
 }

@@ -4,11 +4,6 @@
       background-color: color(_others, body);
 
       input[type=radio] {
-        &:checked {
-          background-color: color(_#{$theme}, 'medium');
-          color: color(_others, 'light');
-        }
-
         + label {
           color: color(_gray, medium);
 
@@ -18,16 +13,27 @@
 
           &:hover {
             color: color(_others, 'light');
+            background-color: color(_#{$theme}, 'medium');
+
+            &::before {
+              color: color(_others, 'light');
+            }
           }
         }
-      }
 
-      input[type=radio]:checked + label {
-        background: color(_#{$theme}, 'medium');
-        color: color(_others, 'light') !important;
+        &:checked {
+          color: color(_others, 'light');
+          background-color: color(_#{$theme}, 'medium');
 
-        &::before {
-          background: color(_others, 'light');
+          + label {
+            background: color(_#{$theme}, 'medium');
+            color: color(_others, 'light');
+    
+            &::before {
+              color: color(_others, 'light');
+              background: color(_#{$theme}, 'medium');
+            }
+          }
         }
       }
     }

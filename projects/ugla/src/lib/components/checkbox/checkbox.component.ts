@@ -49,6 +49,11 @@ export class CheckboxComponent implements OnInit {
   @Input() isChecked = false;
 
   /**
+   * Set a value
+   */
+  @Input() value: string;
+
+  /**
    * Event on clicked checked
    */
   @Output() checked = new EventEmitter<boolean>();
@@ -56,10 +61,11 @@ export class CheckboxComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    console.log('Sub Text >>', this.subText);
     this.disabled = (this.disabled === undefined) ? false : this.disabled;
   }
 
-  onCheck(event) {
+  onCheck(event: any) {
     this.isChecked = event.target.checked;
     this.checked.emit(event.target.checked);
   }

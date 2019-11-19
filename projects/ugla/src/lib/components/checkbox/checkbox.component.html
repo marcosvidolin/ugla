@@ -1,15 +1,15 @@
-<div class="field-check" *ngIf="!this.subText">
-  <input type="checkbox" [id]="'check-'+ this.name"  tabindex="0" [attr.aria-labelledby]="'check-'+ this.name + '-label'"  (change)="onCheck($event)" [disabled]="disabled" [checked]="isChecked">
-  <label [innerHTML]="mainText" [for]="'check-'+ this.name" [id]="'check-'+ this.name + '-label'">
+<div class="field-check" *ngIf="!subText">
+  <input type="checkbox" [value]="value" [id]="'check-'+ name"  tabindex="0" [attr.aria-labelledby]="'check-'+ name + '-label'"  (change)="onCheck($event)" [disabled]="disabled" [checked]="isChecked">
+  <label [innerHTML]="mainText" [for]="'check-'+ name" [id]="'check-'+ name + '-label'">
   </label>
 </div>
 
-<div class="field-check" *ngIf="this.subText">
-  <input type="checkbox" [id]="'check-sub-'+ this.name" tabindex="0" [attr.aria-labelledby]="'check-'+ this.name + '-label'" (change)="onCheck($event)" [disabled]="disabled" [checked]="isChecked">
-  <label [for]="'check-sub-'+ this.name" [id]="'check-'+ this.name + '-label'" >
+<div class="field-check" *ngIf="subText">
+  <input type="checkbox" [value]="value" [id]="'check-sub-'+ name" tabindex="0" [attr.aria-labelledby]="'check-'+ name + '-label'" (change)="onCheck($event)" [disabled]="disabled" [checked]="isChecked">
+  <label [for]="'check-sub-'+ name" [id]="'check-'+ name + '-label'" >
     <span class="text">
-      <strong>{{ this.mainText }}</strong>
-      <div [innerHTML]="this.subText"></div>
+      <strong>{{ mainText }}</strong>
+      <div [innerHTML]="subText"></div>
     </span>
   </label>
 </div>

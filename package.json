@@ -1,6 +1,6 @@
 {
   "name": "ugla",
-  "version": "1.1.31",
+  "version": "1.1.32",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
@@ -42,7 +42,6 @@
     "@angular/pwa": "^0.12.4",
     "@angular/router": "~7.2.0",
     "@angular/service-worker": "~7.2.0",
-    "@compodoc/compodoc": "^1.1.9",
     "core-js": "^2.5.4",
     "filepond": "^4.4.3",
     "filepond-plugin-file-validate-size": "^2.1.1",

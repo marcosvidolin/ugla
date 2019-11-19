@@ -1,6 +1,5 @@
 .radio-item {
   min-height: 2.5rem;
-  //border-radius: 5px;
 
   &:first-child:only-child {
     border-radius: 5px;
@@ -41,7 +40,7 @@
       &::before {
         @extend %material-icons;
         align-items: center;
-        content: 'check_box_outline_blank';
+        content: 'radio_button_unchecked';
         display: inline-flex;
         height: 18px;
         justify-content: center;
@@ -56,9 +55,9 @@
       + label {
         &::before {
           @extend %material-icons;
-          content: 'check_box';
-          display: inline-block;
-          font-size: 18px;
+          content: 'radio_button_checked';
+          display: inline-flex;
+          font-size: 24px;
           height: 18px;
           margin: 11px 10px;
           text-align: center;
