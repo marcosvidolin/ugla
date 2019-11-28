@@ -39,7 +39,7 @@ export class LoginComponent implements OnInit {
    * Default: google
    * Values: google, form
    */
-  @Input() type = 'google';
+  @Input() hasForm = false;
 
   /**
    * Image to Google icon
@@ -63,13 +63,9 @@ export class LoginComponent implements OnInit {
    * Set initial configurations
    */
   ngOnInit() {}
-
-  isGoogle() {
-    return this.type == 'google' ;
-  }
-
+  
   authenticate() {
-    if(this.isGoogle()) {
+    if(this.hasForm) {
       this.signIn.emit();
     } else {
       let auth = new Auth(this.authUser.value, this.authPassword.value);

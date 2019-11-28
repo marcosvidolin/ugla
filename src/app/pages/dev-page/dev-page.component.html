@@ -15,4 +15,13 @@
                     #initialDate></ugl-datepicker>
   </div>
 
+  <ugl-card-timeline
+    [id]="'card-1'"
+    [title]="'Title Card'"
+    [info1]="'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nihil enim iam habes'"
+    [info2]="'Tu autem negas fortem esse quemquam posse, qui dolorem malum putet.'"
+    [status]="'Approve'"
+    [color]="'green'"
+    (cardClicked)="cardClick($event)"></ugl-card-timeline>
+
 </section>
