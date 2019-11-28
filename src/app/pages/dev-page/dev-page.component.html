@@ -1,13 +1,18 @@
 <section class="central padding">
   <ugl-page-title [firstTitle]="'Dev'" [secondTitle]="'Tests'"></ugl-page-title>
 
-  <ugl-checkbox
-      [mainText]="'Main Text'"
-      [name]="'list'"
-      [subText]="'Sub Text'"
-      [value]="'Teste'"
-      ></ugl-checkbox>
+  <div uglGrid [grid]="true" [col]="2">
+    <ugl-datepicker [label]="'Initial Date'"
+                    [name]="'initialDate'"
+                    [options]="onInitDatepicker()"
+                    [message]="'Initial date must be before final date'"
+                    [messageRequired]="'Field required'"
+                    [invalid]="false"
+                    [required]="true"
+                    [messageInvalidSelection]="'This date is invalid for selection'"
+                    [language]="'en-US'"
+                    (onSelectValue)="onChangeInitialDate($event)"
+                    #initialDate></ugl-datepicker>
+  </div>
 
-  <ugl-radio
-    [items]="list"></ugl-radio>
 </section>

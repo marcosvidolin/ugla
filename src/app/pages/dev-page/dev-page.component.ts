@@ -20,4 +20,24 @@ export class DevPageComponent implements OnInit {
   ngOnInit() {
   }
 
+  onInitDatepicker() {
+    return {
+      startDate: new Date(),
+      position: 'br'
+    };
+  }
+
+  onChangeInitialDate(date: Date) {
+    console.log(date);
+  }
+
+  radioChecked(item: Options) {
+    console.log(item);
+    console.log(`O item ${item.description} foi selecionado e seu valor é ${item.value}.`);
+  }
+
+  cardClick($event: any) {
+    
+  }
+
 }
