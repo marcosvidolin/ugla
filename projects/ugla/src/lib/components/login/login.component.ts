@@ -4,20 +4,7 @@ import { Auth } from '../../models/auth';
 import { FieldComponent } from '../field/field.component';
 
 /**
- * Login component
- *
- * @example
- *  // Instantiate in your HTML
- *  <ugl-login #auth
- *      [header]="'Título'"
- *      [subheader]="'Subtítulo'"
- *      [buttonText]="'Autenticar'"
- *      [desktopImage]="'../../assets/autentication-desktop.jpg'"
- *      [mobileImage]="'../../assets/autentication-mobile.jpg'"
- *      (signIn)="signIn()"></ugl-login>
- *  // In your component's TS
- *  @ViewChild('loginComponent') loginComponent: LoginComponent;
- *
+ * Login Component
  */
 @Component({
   selector: 'ugl-login',
