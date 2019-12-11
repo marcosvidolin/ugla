@@ -15,7 +15,6 @@
     #{$attr}: -moz-#{$value};
     #{$attr}: -ms-#{$value};
   }
-
 }
 
 @mixin font($size: 1rem, $weight: regular) {
@@ -43,23 +42,21 @@
   }
 }
 
+@mixin desktop() {
+  @media (min-width: 1024px) {
+    @content;
+  }
+}
+
 @mixin safariOnly($version: 'all') {
   @if $version == 'all' {
     @media only screen and (min-device-width: 320px) and (max-device-width: 568px) and (-webkit-min-device-pixel-ratio: 2) {
       @content;
-
     }
-
   } @else {
     @media only screen and (min-device-width: 375px) and (max-device-width: 812px) and (-webkit-min-device-pixel-ratio: 3) {
       @content;
     }
-  }
-}
-
-@mixin desktop() {
-  @media (min-width: 1024px) {
-    @content;
   }
 }
 
@@ -94,7 +91,23 @@
 }
 
 @mixin firefoxOnly {
-   @supports (-moz-appearance:meterbar)  {
+  @supports (-moz-appearance: meterbar)  {
     @content;
+  }
+}
+
+@mixin truncate($lines: 1) {
+  @if $lines = 1 {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  } @else {
+    overflow: hidden;
+    display: -webkit-box !important;
+
+    @include cross-browser(line-clamp, #{$lines});
+    @include cross-browser(box-orient, vertical);
+    /* autoprefixer: ignore next */
+    -webkit-box-orient: vertical;
   }
 }

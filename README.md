@@ -7,8 +7,6 @@
 [![angular](https://img.shields.io/github/package-json/dependency-version/ciandt/ugla/dev/@angular/cli.svg)](https://angular.io)
 ![build](https://travis-ci.com/ciandt/ugla.svg?branch=master)
 
-
-
 ## Versioning
 Given a version number MAJOR.MINOR.PATCH, increment the:
 
@@ -18,25 +16,60 @@ Given a version number MAJOR.MINOR.PATCH, increment the:
 
 Additional labels for pre-release and build metadata are available as extensions to the MAJOR.MINOR.PATCH format.
 
-## Development server
+# Contributing
+Would you like to contribute to the Ugla project?
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+## Ugla Library
+To contribute to the Ugla project, you must first have an environment ready to run Angular.
 
-## Code scaffolding
+### Starting
+Fork [Ugla] (https://github.com/ciandt/ugla), make any changes you feel necessary and submit a ** Pull Request **.
+PRs are evaluated and the code will be tested, if it meets our standards, will be integrated into the main code and a new version will be generated.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Running
+To test at development time, run the `npm start` command.
+Remember, `npm start` executes` ng serve`.
 
-## Build
+### Tests
+Remember to submit any code snippets before executing the following commands and correcting possible alerts:
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+```bash
+npm run lint
+```
 
-## Running unit tests
+This command will run lint for both Typescript and SCSS.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+### Creating Components
+To create a component, run the command:
+```bash
+ng g c components/<component name> --project=ugla
+```
 
-## Further help
+To create a directive, run the command:
+```bash
+ng g directive directives/<directive name> --project=ugla
+```
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+To create a service, run the command:
+```bash
+ng g service services/<service name> --project=ugla
+```
+
+### Testing on a Local Project
+Run this command on Ugla root path:
+```bash
+npm run build-lib
+```
+
+The `dist 'directory will be created with a file as follows:` ugla-x.y.z.tgz`, where X, Y and Z is the version number.
+
+Then go to the project you want to use Ugla and `package.json` by adding a line below the dependencies:
+
+```bash
+"ugla": "<ugla directory>/dist/ugla-x.y.z.tgz"
+```
+
+Run `npm install` on the project and Ugla will be installed and can be tested as if using a published version.
 
 ## Oficial Site
 Read more on: [Ugla](https://ugla.dev)

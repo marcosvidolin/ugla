@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, OnInit } from '@angular/core';
+import { Directive, ElementRef, Input, OnInit, Renderer } from '@angular/core';
 
 /**
  * Directive for create a grid
@@ -13,139 +13,96 @@ import { Directive, ElementRef, Input, OnInit } from '@angular/core';
 @Directive({
   selector: '[uglGrid]'
 })
-export class GridDirective implements OnInit  {
-
-  /**
-   * Is a grid element?
-   *
-   * Default: false
-   *
-   * Generated a class .grid on element
-   */
-  @Input() grid: boolean;
-
-  /**
-   * Define a column length by mobile
-   *
-   * Value: from 1 to 12
-   *
-   * Default: 1
-   *
-   * Include a class .col-sm-x
-   */
-  @Input() colSm: number;
-
-  /**
-   * Define a gap size
-   *
-   * Value: from 1 to 12
-   *
-   * Default: 1
-   *
-   * Include a class .gap-x
-   */
-  @Input() gap: number;
-
-  /**
-   * Define a gap size by mobile
-   *
-   * Value: from 1 to 12
-   *
-   * Default: 1
-   *
-   * Include a class .gap-sm-x
-   */
-  @Input() gapSm: number;
-
-  /**
-   * Define a span size
-   *
-   * Value: from 1 to 12
-   *
-   * Default: 1
-   *
-   * Include a class .span-x
-   */
-  @Input() span: number;
-
-  /**
-   * Define a span-sm size
-   *
-   * Value: from 1 to 12
-   *
-   * Default: 1
-   *
-   * Include a class .span-sm-x
-   */
-  @Input() spanSm: number;
-
-  /**
-   * Define um valor customizado para as colunas
-   *
-   */
-  @Input() customCol: string;
-
-  /**
-   * Define a column length
-   *
-   * Value: from 1 to 12
-   *
-   * Default: 1
-   *
-   * Include a class .col-x
-   */
-  @Input() set col(col: number) {
-    this._col = col;
-    this.el.nativeElement.classList.value += ` col-${this.col}`;
+export class GridDirective {
+  @Input() set grid(grid: boolean) {
+    this._grid = grid;
+    this.classes.push('grid');
+    this.element.nativeElement.classList.value = this.classes.join(' ');
   }
 
-  /**
-   * Get column length value
-   */
+  get grid(): boolean {
+    return this._grid;
+  }
+
+  @Input() set col(col: number) {
+    this._col = col;
+    this.classes.push(`col-${this.col}`);
+    this.element.nativeElement.classList.value = this.classes.join(' ');
+  }
+  
   get col(): number {
     return this._col;
   }
 
-  /**
-   * Internal attribute to column length value
-   */
-  private _col: number;
-
-  /**
-   * ElementRef to get a element html
-   */
-  constructor(private el: ElementRef) {}
-
-  /**
-   * Set initials configurations
-   */
-  ngOnInit() {
-    if (this.grid) {
-      this.el.nativeElement.classList.value += ' grid';
-    }
-
-    if (this.colSm) {
-      this.el.nativeElement.classList.value += ` col-sm-${this.colSm}`;
-    }
-
-    if (this.gap) {
-      this.el.nativeElement.classList.value += ` gap-${this.gap}`;
-    }
-
-    if (this.gapSm) {
-      this.el.nativeElement.classList.value += ` gap-sm-${this.gapSm}`;
-    }
-
-    if (this.span) {
-      this.el.nativeElement.classList.value += ` span-${this.span}`;
-    }
-
-    if (this.spanSm) {
-      this.el.nativeElement.classList.value += ` span-sm-${this.spanSm}`;
-    }
-
-    if (this.customCol) {
-      this.el.nativeElement.style.gridTemplateColumns = this.customCol;
-    }
+  @Input() set colSm(colSm: number) {
+    this._colSm = colSm;
+    this.classes.push(`col-sm-${this.colSm}`);
+    this.element.nativeElement.classList.value = this.classes.join(' ');
   }
+  
+  get colSm(): number {
+    return this._colSm;
+  }
+
+  @Input() set gap(gap: number) {
+    this._gap = gap;
+    this.classes.push(`gap-${this.gap}`);
+    this.element.nativeElement.classList.value = this.classes.join(' ');
+  }
+  
+  get gap(): number {
+    return this._gap;
+  }
+
+  @Input() set gapSm(gapSm: number) {
+    this._gapSm = gapSm;
+    this.classes.push(`gap-sm-${this.gapSm}`);
+    this.element.nativeElement.classList.value = this.classes.join(' ');
+  }
+  
+  get gapSm(): number {
+    return this._gapSm;
+  }
+
+  @Input() set span(span: number) {
+    this._span = span;
+    this.classes.push(`span-${this.span}`);
+    this.element.nativeElement.classList.value = this.classes.join(' ');
+  }
+  
+  get span(): number {
+    return this._span;
+  }
+
+  @Input() set spanSm(spanSm: number) {
+    this._spanSm = spanSm;
+    this.classes.push(`span-sm-${this.spanSm}`);
+    this.element.nativeElement.classList.value = this.classes.join(' ');
+  }
+  
+  get spanSm(): number {
+    return this._spanSm;
+  }
+
+  @Input() set customCol(customCol: string) {
+    this._customCol = customCol;
+    this.element.nativeElement.style.gridTemplateColumns = this.customCol;
+  }
+  
+  get customCol(): string {
+    return this._customCol;
+  }  
+
+  private _grid: boolean;
+  private _col: number;
+  private _colSm: number;
+  private _gap: number;
+  private _gapSm: number;
+  private _span: number;
+  private _spanSm: number;
+  private _customCol: string;
+
+  private classes = [];
+  
+  constructor(private element: ElementRef) {}
 }
