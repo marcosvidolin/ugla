@@ -1,24 +1,24 @@
 .base-table {
   width: 100%;
-  border-collapse: collapse;
-  border-spacing: 0 5px;
   color: color(_others, 'dark');
+  border-spacing: 0 5px;
+  border-collapse: collapse;
 
   thead {
     width: 100vw;
 
     tr {
-      border-radius: 5px 5px 0 0;
-      max-height: 50px;
       height: 50px;
+      max-height: 50px;
+      border-radius: 5px 5px 0 0;
 
       th {
-        font-size: 0.875rem;
+        padding: 0 0 0 .625rem;
+        font-size: .875rem;
         color: color(_others, 'light');
-        padding: 0 0 0 0.625rem;
 
         &:first-child {
-          border-radius: 5px 0 0 0;
+          border-radius: 5px 0 0;
         }
 
         &:last-child {
@@ -26,17 +26,18 @@
         }
 
         > ugl-select {
-            .field {
-              &.combo {
-                margin-top: 2px !important;
+          .field {
+            &.combo {
+              margin-top: 2px !important;
 
-                i {
-                  z-index: 0 !important;
-                }
+              i {
+                z-index: 0 !important;
               }
             }
-            input[type=checkbox]{
-              + label {
+          }
+
+          input[type=checkbox] {
+            + label {
               font-weight: bold !important;
             }
           }
@@ -47,8 +48,8 @@
 
   tbody {
     > tr {
-      border-top: 5px solid color(_others, 'body');
       line-height: normal;
+      border-top: 5px solid color(_others, 'body');
 
       &:first-of-type {
         border: 0;
@@ -56,10 +57,10 @@
     }
 
     td {
-      font-size: 0.75rem;
-      padding: 0 0 0 0.625rem;
-      background-color: color(_others, 'light');
       height: 47px;
+      padding: 0 0 0 .625rem;
+      font-size: .75rem;
+      background-color: color(_others, 'light');
 
       > ugl-select {
         .field {
@@ -71,9 +72,10 @@
             }
           }
         }
+
         input[type=checkbox] {
           + label {
-            font-size: 0.75rem !important;
+            font-size: .75rem !important;
             font-weight: 600 !important;
           }
         }
@@ -107,24 +109,24 @@
 
       tr {
         display: table;
-        table-layout: fixed;
         width: 1024px;
         margin: 0 auto;
+        table-layout: fixed;
       }
     }
 
     tbody {
+      display: block;
+      width: 100vw;
       min-height: calc(100vh - 180px);
       max-height: calc(100vh - 180px);
-      overflow-y: scroll;
-      display: block;
       padding-left: 13.8px;
-      width: 100vw;
+      overflow-y: scroll;
 
       tr {
-        margin: 0 auto;
         display: table;
         width: 1024px;
+        margin: 0 auto;
         table-layout: fixed;
         border-top: 5px solid color(_others, 'body');
 
