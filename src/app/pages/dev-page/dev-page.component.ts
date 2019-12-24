@@ -40,4 +40,9 @@ export class DevPageComponent implements OnInit {
     
   }
 
+  lightboxAction(event: any) {
+    console.log('Teste', event);
+    return false;
+  }
+
 }

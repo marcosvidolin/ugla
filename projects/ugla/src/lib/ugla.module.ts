@@ -48,6 +48,7 @@ import { BackPanelComponent } from './components/panels/back-panel/back-panel.co
 import { RadioComponent } from './components/radio/radio.component';
 import { BannerComponent } from './components/banner/banner.component';
 import { QuoteComponent } from './components/quote/quote.component';
+import { LightboxDirective } from './directives/lightbox.directive';
 
 registerPlugin(FilePondPluginFileValidateType,
   FilePondPluginFileValidateSize,
@@ -56,11 +57,11 @@ registerPlugin(FilePondPluginFileValidateType,
   FilePondPluginImageTransform,
   FilePondPluginImageExifOrientation,
   FilePondPluginImagePreview);
+
 /**
  * Imports: Common and Router
  * Declararions and Exports: all Ugla's components
  * Provider: Ugla Lib Service
- *
  */
 @NgModule({
   imports: [CommonModule, RouterModule, FilePondModule],
@@ -83,6 +84,7 @@ registerPlugin(FilePondPluginFileValidateType,
     ToastItemComponent,
     GridDirective,
     ClickOutsideDirective,
+    LightboxDirective,
     ListOptionsComponent,
     LoginComponent,
     LoadingComponent,
@@ -121,6 +123,7 @@ registerPlugin(FilePondPluginFileValidateType,
     ToastItemComponent,
     GridDirective,
     ClickOutsideDirective,
+    LightboxDirective,
     ListOptionsComponent,
     LoginComponent,
     LoadingComponent,
