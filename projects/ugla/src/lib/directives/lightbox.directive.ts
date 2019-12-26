@@ -1,4 +1,4 @@
-import { Directive, OnInit, Input, ElementRef, HostListener, Output, EventEmitter } from '@angular/core';
+import { Directive, OnInit, Input, ElementRef, HostListener, Output, EventEmitter, Renderer2 } from '@angular/core';
 
 @Directive({
   selector: '[uglLightbox]'
@@ -8,15 +8,17 @@ export class LightboxDirective {
   @HostListener('click', ['$event']) onClick($event: any) {
     let lightbox = document.createElement('div');
     lightbox.setAttribute('class', 'lightbox');
-    // lightbox.addEventListener('click', (event) => this.close(event));
+
+    if(this.closeOut) {
+      lightbox.addEventListener('click', (event) => this.close());
+    }
 
     let content = document.createElement('div');
     content.setAttribute('class', 'content');
 
     let close = document.createElement('button');
     close.setAttribute('class', 'close');
-
-    close.addEventListener('click', (event) => this.close(event));
+    close.addEventListener('click', (event) => this.close());
 
     let icon = document.createElement('i');
     icon.setAttribute('class', 'material-icons');
@@ -34,11 +36,13 @@ export class LightboxDirective {
       button.setAttribute('class', 'action');
       button.addEventListener('click', (event) => {
         this.action.emit(event);
-        this.close(event);
+        this.close();
       });
       
       if(this.actionIcon_) {
         button.append(this.actionIcon_);
+      } else {
+        console.error('Lightbox Directive – You must add an icon.');
       }
 
       content.appendChild(button);
@@ -53,8 +57,15 @@ export class LightboxDirective {
     return false;
   }
 
-  private close(event: any) {
-    event.currentTarget.closest('.lightbox').remove()
+  @HostListener('document:keydown.escape', ['$event']) onKeydownHandler($event: KeyboardEvent) {
+    this.close();
+  }
+
+  private close() {
+    document.querySelectorAll('.lightbox').forEach((event) => {
+      event.remove();
+    });
+
     event.stopPropagation();
     return false;
   }
@@ -70,20 +81,12 @@ export class LightboxDirective {
     this.actionIcon_.textContent = icon;
   }
 
-
   @Output() action: EventEmitter<any> = new EventEmitter();
+  
+  @Input() closeOut = false;
 
   image_: HTMLElement;
   actionIcon_: HTMLElement;
-  actionClose: boolean;
 
-  private isImage(file: string) {
-    return file.indexOf('.png') > -1 ||
-           file.indexOf('.jpg') > -1 ||
-           file.indexOf('.jpeg') > -1 ||
-           file.indexOf('.bmp') > -1 ||
-           file.indexOf('.gif') > -1;
-  }
-
-  constructor(private el: ElementRef) { }
+  constructor() { }
 }
