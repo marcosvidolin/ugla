@@ -5,6 +5,8 @@
   height: 100vh;
   overflow: hidden;
   background-color: color(_others, dark-alpha);
+  animation-name: showing;
+  animation-duration: 1s;
   z-index: 9999;
   align-items: center;
   justify-content: center;
@@ -60,3 +62,12 @@
   }
 }
 
+@keyframes showing {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
