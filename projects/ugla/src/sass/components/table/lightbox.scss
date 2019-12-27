@@ -59,6 +59,11 @@
       overflow: auto;
       object-fit: cover;
     }
+
+    embed {
+      min-width: 70vw;
+      min-height: 70vh;
+    }
   }
 }
 

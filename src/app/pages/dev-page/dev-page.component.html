@@ -3,13 +3,15 @@
 
     <a href="#"
        uglLightbox
-       [image]="'https://i.pinimg.com/originals/15/ba/b4/15bab4ee6c41dae1c5cbe3af0d9b6ef2.jpg'"
+       [file]="'https://i.pinimg.com/originals/15/ba/b4/15bab4ee6c41dae1c5cbe3af0d9b6ef2.jpg'"
        (action)="lightboxAction(event)"
-       [actionIcon]="'delete_outline'">Open</a>
+       [actionIcon]="'delete_outline'">Image</a>
     
     <br />
 
     <a href="#"
-       uglLightbox
-       [image]="'https://pagarme.zendesk.com/hc/article_attachments/360036206952/comprovante_pgto.PNG'">Open 2</a>
+      uglLightbox
+      [file]="'http://www.africau.edu/images/default/sample.pdf'"
+      (action)="lightboxAction(event)"
+      [actionIcon]="'delete_outline'">PDF</a>
 </section>
