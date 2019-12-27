@@ -27,8 +27,8 @@ export class LightboxDirective {
     close.append(icon);
     content.appendChild(close);
 
-    if(this.file_ !== undefined) {
-      content.appendChild(this.file_);
+    if(this.fileUrl_ !== undefined) {
+      content.appendChild(this.fileUrl_);
     }
 
     if(this.action.observers.length > 0) {
@@ -70,16 +70,16 @@ export class LightboxDirective {
     return false;
   }
 
-  @Input() set file(file: string) {
-    if(this.isImage(file)) {
-      this.file_ = document.createElement('img');
-    } else if(this.isPdf(file)) {
-      this.file_ = document.createElement('embed');
-      this.file_.setAttribute('width', '100%');
-      this.file_.setAttribute('height', '100%');
+  @Input() set fileUrl(fileUrl: string) {
+    if(this.isImage(fileUrl)) {
+      this.fileUrl_ = document.createElement('img');
+    } else if(this.isPdf(fileUrl)) {
+      this.fileUrl_ = document.createElement('embed');
+      this.fileUrl_.setAttribute('width', '100%');
+      this.fileUrl_.setAttribute('height', '100%');
     }
 
-    this.file_.setAttribute('src', file);
+    this.fileUrl_.setAttribute('src', fileUrl);
   }
 
   @Input() set actionIcon(icon: string) {
@@ -92,20 +92,20 @@ export class LightboxDirective {
   
   @Input() closeOut = false;
 
-  file_: HTMLElement;
+  fileUrl_: HTMLElement;
   actionIcon_: HTMLElement;
 
-  isImage(file: string) {
-    if(file.indexOf('.png') > -1 ||
-       file.indexOf('.jpg') > -1 ||
-       file.indexOf('.jpeg') > -1 ||
-       file.indexOf('.bmp') >-1) {
+  isImage(fileUrl: string) {
+    if(fileUrl.indexOf('.png') > -1 ||
+       fileUrl.indexOf('.jpg') > -1 ||
+       fileUrl.indexOf('.jpeg') > -1 ||
+       fileUrl.indexOf('.bmp') >-1) {
          return true;
        }
   }
 
-  isPdf(file: string) {
-    return file.indexOf('.pdf') > -1;
+  isPdf(fileUrl: string) {
+    return fileUrl.indexOf('.pdf') > -1;
   }
 
   constructor() { }
