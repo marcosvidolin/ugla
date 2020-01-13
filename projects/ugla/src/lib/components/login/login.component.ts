@@ -19,10 +19,10 @@ export class LoginComponent implements OnInit {
   @Input() buttonBackgroud = 'red';
   @Input() fieldUser: string = 'User';
   @Input() fieldPass: string = 'Password';
-  
+
   /**
    * Type of auth
-   * 
+   *
    * Default: google
    * Values: google, form
    */
@@ -50,9 +50,9 @@ export class LoginComponent implements OnInit {
    * Set initial configurations
    */
   ngOnInit() {}
-  
+
   authenticate() {
-    if(this.hasForm) {
+    if(!this.hasForm) {
       this.signIn.emit();
     } else {
       let auth = new Auth(this.authUser.value, this.authPassword.value);
