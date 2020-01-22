@@ -13,11 +13,10 @@ import { Directive, ElementRef, Input, OnInit, Renderer } from '@angular/core';
 @Directive({
   selector: '[uglGrid]'
 })
-export class GridDirective {
+export class GridDirective implements OnInit {
   @Input() set grid(grid: boolean) {
     this._grid = grid;
     this.classes.push('grid');
-    this.element.nativeElement.classList.value = this.classes.join(' ');
   }
 
   get grid(): boolean {
@@ -27,9 +26,8 @@ export class GridDirective {
   @Input() set col(col: number) {
     this._col = col;
     this.classes.push(`col-${this.col}`);
-    this.element.nativeElement.classList.value = this.classes.join(' ');
   }
-  
+
   get col(): number {
     return this._col;
   }
@@ -37,9 +35,8 @@ export class GridDirective {
   @Input() set colSm(colSm: number) {
     this._colSm = colSm;
     this.classes.push(`col-sm-${this.colSm}`);
-    this.element.nativeElement.classList.value = this.classes.join(' ');
   }
-  
+
   get colSm(): number {
     return this._colSm;
   }
@@ -47,9 +44,8 @@ export class GridDirective {
   @Input() set gap(gap: number) {
     this._gap = gap;
     this.classes.push(`gap-${this.gap}`);
-    this.element.nativeElement.classList.value = this.classes.join(' ');
   }
-  
+
   get gap(): number {
     return this._gap;
   }
@@ -57,9 +53,8 @@ export class GridDirective {
   @Input() set gapSm(gapSm: number) {
     this._gapSm = gapSm;
     this.classes.push(`gap-sm-${this.gapSm}`);
-    this.element.nativeElement.classList.value = this.classes.join(' ');
   }
-  
+
   get gapSm(): number {
     return this._gapSm;
   }
@@ -67,9 +62,8 @@ export class GridDirective {
   @Input() set span(span: number) {
     this._span = span;
     this.classes.push(`span-${this.span}`);
-    this.element.nativeElement.classList.value = this.classes.join(' ');
   }
-  
+
   get span(): number {
     return this._span;
   }
@@ -77,9 +71,8 @@ export class GridDirective {
   @Input() set spanSm(spanSm: number) {
     this._spanSm = spanSm;
     this.classes.push(`span-sm-${this.spanSm}`);
-    this.element.nativeElement.classList.value = this.classes.join(' ');
   }
-  
+
   get spanSm(): number {
     return this._spanSm;
   }
@@ -88,10 +81,10 @@ export class GridDirective {
     this._customCol = customCol;
     this.element.nativeElement.style.gridTemplateColumns = this.customCol;
   }
-  
+
   get customCol(): string {
     return this._customCol;
-  }  
+  }
 
   private _grid: boolean;
   private _col: number;
@@ -103,6 +96,11 @@ export class GridDirective {
   private _customCol: string;
 
   private classes = [];
-  
+
   constructor(private element: ElementRef) {}
+
+  ngOnInit() {
+    const classes =  this.element.nativeElement.classList;
+    this.element.nativeElement.classList.value = `${this.classes.join(' ')} ${classes.value}`;
+  }
 }
