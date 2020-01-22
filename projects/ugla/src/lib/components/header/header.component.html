@@ -6,7 +6,8 @@
   <nav [ngClass]="open ? 'opened' : ''" id="main-menu" [ngStyle]="{'height': 'calc(' + windowHeight + 'px' + ' - ' + headerRightHeight + 'px - 60px)'}">
       <a *ngFor="let item of header.menu.items; let idx = index"
          [routerLink]="item.url"
-         [ngClass]="{'active': item.active, 'hide-mobile': item.hideMobile, 'hidden': !item.visible}"
+         [routerLinkActive]="'active'"
+         [routerLinkActiveOptions]="{exact: true}"
          class="gtm-menu-item"
          (click)="closeMenu()"
          [id]="'item-menu-' + idx">{{ item.description }}</a>
