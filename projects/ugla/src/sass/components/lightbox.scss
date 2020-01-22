@@ -5,7 +5,7 @@
   height: 100vh;
   overflow: hidden;
   background-color: color(_others, dark-alpha);
-  animation-name: showing;
+  animation-name: lightbox-showing;
   animation-duration: 1s;
   z-index: 9999;
   align-items: center;
@@ -102,7 +102,7 @@
   }
 }
 
-@keyframes showing {
+@keyframes lightbox-showing {
   from {
     opacity: 0;
   }
