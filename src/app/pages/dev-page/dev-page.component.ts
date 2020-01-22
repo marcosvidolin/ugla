@@ -36,11 +36,9 @@ export class DevPageComponent implements OnInit {
     console.log(`O item ${item.description} foi selecionado e seu valor é ${item.value}.`);
   }
 
-  cardClick($event: any) {
-    
-  }
+  cardClick($event: any) {}
 
-  lightboxAction(event: any) {
+  lightboxAction(event: string) {
     console.log('Teste', event);
     return false;
   }

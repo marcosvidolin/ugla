@@ -60,6 +60,41 @@
       object-fit: cover;
     }
 
+    .slide {
+      &-item {
+        display: none;
+
+        &.selected {
+          display: block;
+        }
+      }
+    }
+
+    .navigation {
+      position: absolute;
+      display: flex;
+      width: calc(100% + 60px);
+      top: 50%;
+      left: -30px;
+      margin-top: -25px;
+      justify-content: space-between;
+
+      .arrow {
+        color: color(_others, light);
+        border: 0;
+        background-color: transparent;
+        cursor: pointer;
+      }
+    }
+
+    .page {
+      position: absolute;
+      right: 10px;
+      bottom: 5px;
+      font-size: .9rem;
+      color: color(_others, dark);
+    }
+
     embed {
       min-width: 70vw;
       min-height: 70vh;

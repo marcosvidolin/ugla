@@ -1,17 +1,18 @@
-import { Directive, OnInit, Input, ElementRef, HostListener, Output, EventEmitter, Renderer2 } from '@angular/core';
+import { Directive, Input, HostListener, Output, EventEmitter } from '@angular/core';
 
 @Directive({
   selector: '[uglLightbox]'
 })
 export class LightboxDirective {
 
-  @Output() action: EventEmitter<any> = new EventEmitter();
+  @Output() action = new EventEmitter<string>();
 
   @Input() closeOut = false;
 
-  fileUrlElement: HTMLElement;
+  filesUrlElement: HTMLElement;
   actionIconElement: HTMLElement;
-
+  content: HTMLElement;
+  page: HTMLElement;
 
   @HostListener('click', ['$event']) onClick($event: any) {
     const lightbox = document.createElement('div');
@@ -21,8 +22,8 @@ export class LightboxDirective {
       lightbox.addEventListener('click', (event) => this.close());
     }
 
-    const content = document.createElement('div');
-    content.setAttribute('class', 'content');
+    this.content = document.createElement('div');
+    this.content.setAttribute('class', 'content');
 
     const close = document.createElement('button');
     close.setAttribute('class', 'close');
@@ -33,17 +34,52 @@ export class LightboxDirective {
     icon.textContent = 'close';
 
     close.append(icon);
-    content.appendChild(close);
+    this.content.appendChild(close);
 
-    if (this.fileUrlElement !== undefined) {
-      content.appendChild(this.fileUrlElement);
+    if (this.filesUrlElement !== undefined) {
+      const total = this.filesUrlElement.childElementCount;
+
+      this.content.appendChild(this.filesUrlElement);
+
+      if (total > 1) {
+        const navigation = document.createElement('div');
+        navigation.setAttribute('class', 'navigation');
+
+        const buttonRight = document.createElement('button');
+        buttonRight.setAttribute('class', 'arrow');
+        const iconRight = document.createElement('i');
+        iconRight.setAttribute('class', 'material-icons');
+        iconRight.textContent = 'navigate_next';
+        buttonRight.appendChild(iconRight);
+        buttonRight.addEventListener('click', (event) => this.next());
+
+        const buttonLeft = document.createElement('button');
+        buttonLeft.setAttribute('class', 'arrow');
+        const iconLeft = document.createElement('i');
+        iconLeft.setAttribute('class', 'material-icons');
+        iconLeft.textContent = 'navigate_before';
+        buttonLeft.appendChild(iconLeft);
+        buttonLeft.addEventListener('click', (event) => this.prev());
+
+        navigation.appendChild(buttonLeft);
+        navigation.appendChild(buttonRight);
+        this.content.appendChild(navigation);
+
+        this.page = document.createElement('div');
+        this.page.setAttribute('class', 'page');
+        this.page.textContent = `1 of ${this.filesUrlElement.childElementCount.toString()}`;
+
+        this.content.appendChild(this.page);
+      }
     }
 
     if (this.action.observers.length > 0) {
       const button = document.createElement('button');
       button.setAttribute('class', 'action');
       button.addEventListener('click', (event) => {
-        this.action.emit(event);
+        const position = this.content.querySelector('.selected').getAttribute('data-position');
+
+        this.action.emit(position);
         this.close();
       });
 
@@ -53,10 +89,10 @@ export class LightboxDirective {
         console.error('Lightbox Directive – You must add an icon.');
       }
 
-      content.appendChild(button);
+      this.content.appendChild(button);
     }
 
-    lightbox.appendChild(content);
+    lightbox.appendChild(this.content);
 
     const body = document.getElementsByTagName('app-root')[0];
 
@@ -76,16 +112,61 @@ export class LightboxDirective {
     return false;
   }
 
-  @Input() set fileUrl(fileUrl: string) {
-    if (this.isImage(fileUrl)) {
-      this.fileUrlElement = document.createElement('img');
-    } else if (this.isPdf(fileUrl)) {
-      this.fileUrlElement = document.createElement('embed');
-      this.fileUrlElement.setAttribute('width', '100%');
-      this.fileUrlElement.setAttribute('height', '100%');
+  private next() {
+    const current = this.content.querySelector('.selected');
+
+    if (current.nextElementSibling) {
+      current.nextElementSibling.classList.add('selected');
+      current.classList.remove('selected');
+    } else {
+      current.parentElement.firstElementChild.classList.add('selected');
+      current.classList.remove('selected');
     }
 
-    this.fileUrlElement.setAttribute('src', fileUrl);
+    const currentPage = this.content.querySelector('.selected').getAttribute('data-position');
+    this.page.textContent = `${currentPage} of ${this.filesUrlElement.childElementCount.toString()}`;
+  }
+
+  private prev() {
+    const current = this.content.querySelector('.selected');
+
+    if (current.previousElementSibling) {
+      current.previousElementSibling.classList.add('selected');
+      current.classList.remove('selected');
+    } else {
+      current.parentElement.lastElementChild.classList.add('selected');
+      current.classList.remove('selected');
+    }
+
+    const currentPage = this.content.querySelector('.selected').getAttribute('data-position');
+    this.page.textContent = `${currentPage} of ${this.filesUrlElement.childElementCount.toString()}`;
+  }
+
+  @Input() set filesUrl(filesUrl: string[]) {
+    this.filesUrlElement = document.createElement('div');
+    this.filesUrlElement.setAttribute('class', 'slide');
+
+    filesUrl.forEach((fileUrl, index) => {
+      let element: HTMLElement;
+
+      if (this.isImage(fileUrl)) {
+        element = document.createElement('img');
+      } else if (this.isPdf(fileUrl)) {
+        element = document.createElement('embed');
+        element.setAttribute('width', '100%');
+        element.setAttribute('height', '100%');
+      }
+
+      element.setAttribute('class', 'slide-item');
+      element.setAttribute('src', fileUrl);
+      element.setAttribute('data-position', (index + 1).toString());
+
+      if (index === 0) {
+        element.classList.add('selected');
+      }
+
+      this.filesUrlElement.appendChild(element);
+    });
   }
 
   @Input() set actionIcon(icon: string) {
@@ -93,7 +174,6 @@ export class LightboxDirective {
     this.actionIconElement.setAttribute('class', 'material-icons');
     this.actionIconElement.textContent = icon;
   }
-
 
   isImage(fileUrl: string) {
     if (fileUrl.indexOf('.png') > -1 ||

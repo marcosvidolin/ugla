@@ -1,17 +1,33 @@
 <section class="central">
     <h1>TESTE</h1>
 
+   <a href="#"
+      uglLightbox
+      [filesUrl]="['https://i.pinimg.com/originals/15/ba/b4/15bab4ee6c41dae1c5cbe3af0d9b6ef2.jpg']"
+      (action)="lightboxAction($event)"
+      [actionIcon]="'delete_outline'">Image 1</a>
+
+   <br />
+
     <a href="#"
-       uglLightbox
-       [fileUrl]="'https://i.pinimg.com/originals/15/ba/b4/15bab4ee6c41dae1c5cbe3af0d9b6ef2.jpg'"
-       (action)="lightboxAction(event)"
-       [actionIcon]="'delete_outline'">Image</a>
+      uglLightbox
+      [filesUrl]="['https://i.pinimg.com/originals/15/ba/b4/15bab4ee6c41dae1c5cbe3af0d9b6ef2.jpg', 'http://www.africau.edu/images/default/sample.pdf']"
+      (action)="lightboxAction($event)"
+      [actionIcon]="'delete_outline'">Image Slide</a>
     
     <br />
 
     <a href="#"
       uglLightbox
-      [fileUrl]="'http://www.africau.edu/images/default/sample.pdf'"
-      (action)="lightboxAction(event)"
+      [filesUrl]="['http://www.africau.edu/images/default/sample.pdf']"
+      (action)="lightboxAction($event)"
       [actionIcon]="'delete_outline'">PDF</a>
+
+      <br />
+
+    <a href="#"
+      uglLightbox
+      [filesUrl]="['http://www.africau.edu/images/default/sample.pdf', 'http://www.africau.edu/images/default/sample.pdf']"
+      (action)="lightboxAction($event)"
+      [actionIcon]="'delete_outline'">PDF Slide</a>
 </section>
