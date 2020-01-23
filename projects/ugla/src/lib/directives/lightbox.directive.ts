@@ -101,8 +101,16 @@ export class LightboxDirective {
     return false;
   }
 
-  @HostListener('document:keydown.escape', ['$event']) onKeydownHandler($event: KeyboardEvent) {
-    this.close();
+  @HostListener('document:keydown', ['$event']) onKeydownHandler($event: KeyboardEvent) {
+    const hasSlide = this.filesUrlElement.childElementCount > 1;
+
+    if ($event.key === 'Escape') {
+      this.close();
+    } else if ($event.key === 'ArrowRight' && hasSlide) {
+      this.next();
+    } else if ($event.key === 'ArrowLeft' && hasSlide) {
+      this.prev();
+    }
   }
 
   private close() {

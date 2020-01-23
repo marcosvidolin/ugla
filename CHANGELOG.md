@@ -1,5 +1,8 @@
 # CHANCELOG
 
+## 1.3.6
+Add arrow key navigation on Lighbox component
+
 ## 1.3.5
 Minor fix on style of Toolbar component
 
