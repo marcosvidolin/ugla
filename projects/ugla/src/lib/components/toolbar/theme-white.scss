@@ -7,9 +7,9 @@
     }
 
     h2 {
+      font-weight: 600;
       color: color(_others, 'light');
       background-color: color(_aquamarine, 'medium');
-      font-weight: 600;
 
       &::after {
         border-top: 45px solid color(_aquamarine, medium);

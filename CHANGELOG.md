@@ -1,5 +1,8 @@
 # CHANCELOG
 
+## 1.3.5
+Minor fix on style of Toolbar component
+
 ## BEFORE 1.3.4
 
 ### Create the models
