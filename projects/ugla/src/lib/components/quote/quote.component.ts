@@ -39,9 +39,9 @@ export class QuoteComponent {
     return this._align;
   }
 
-  private _color: string;
-  private _align: string;
-  private classes = ['quote'];
+  _color: string;
+  _align: string;
+  classes = ['quote'];
 
   constructor(private ugla: UglaService) { }
 }
