@@ -1,6 +1,6 @@
 <div>
-  <p id="quote" tabindex="0" class="quote" *ngIf="text" [innerHtml]="text"></p>
-  <div [ngClass]="'background-' + color">
-      <ng-content></ng-content>
+  <p id="quote" tabindex="0" [ngClass]="classes" *ngIf="text" [innerHtml]="text"></p>
+  <div [ngClass]="_color">
+    <ng-content></ng-content>
   </div>
 </div>

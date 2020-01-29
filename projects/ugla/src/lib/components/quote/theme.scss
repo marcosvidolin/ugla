@@ -1,14 +1,36 @@
-.background {
-  @each $theme in $themes {
-    &-#{$theme} {
-      background-color: color(_#{$theme}, 'medium');
+.quote {
+  padding: 10px;
+  line-height: normal;
+  color: color(_others, 'dark');
+  background-color: color(_yellow, 'light-alpha');
+
+  + div {
+    background-color: color(_aquamarine, 'medium');
+
+    &.background {
+      @each $theme in $themes {
+        &-#{$theme} {
+          background-color: color(_#{$theme}, 'medium');
+        }
+      }
     }
   }
 }
 
-.quote {
-  background-color: rgba(color(_yellow, 'light'), .5);
-  padding: 10px;
-  line-height: normal;
-  color: color(_others, 'dark');
+.align {
+  &-center {
+    text-align: center;
+  }
+
+  &-right {
+    text-align: right;
+  }
+
+  &-left {
+    text-align: left;
+  }
+
+  &-justify {
+    text-align: justify;
+  }
 }
