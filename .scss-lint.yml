@@ -55,7 +55,7 @@ rules:
     - 1
     - allow-leading-underscore: true
       convention: hyphenatedlowercase
-  mixins-before-declarations: 1
+  mixins-before-declarations: 0
   nesting-depth:
     - 1
     - max-depth: 4
@@ -105,21 +105,21 @@ rules:
         - height
         - min-height
         - max-height
-        - top
-        - right
-        - bottom
-        - left
-        - float
-        - padding
-        - padding-top
-        - padding-right
-        - padding-bottom
-        - padding-left
         - margin
         - margin-top
         - margin-right
         - margin-bottom
         - margin-left
+        - padding
+        - padding-top
+        - padding-right
+        - padding-bottom
+        - padding-left
+        - top
+        - right
+        - bottom
+        - left
+        - float
         - overflow
         - overflow-x
         - overflow-y

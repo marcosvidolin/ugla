@@ -6,15 +6,15 @@ header {
   left: 0;
   z-index: map-get($z-index, 'menu');
 
-  @include font(0.875rem, 'semi-bold');
+  @include font(.875rem, 'semi-bold');
 
   @include mobile() {
-    text-align: center;
+    display: grid;
     width: 100%;
     padding: 0;
-    grid-auto-rows: minmax(min-content, max-content);
-    display: grid;
+    text-align: center;
     grid-template-rows: [header-line] 60px [nav-line] auto [right-line];
+    grid-auto-rows: minmax(min-content, max-content);
     justify-items: stretch;
   }
 
@@ -39,23 +39,23 @@ nav {
   @extend %inline-flex;
   @extend %header-commun;
   margin-left: 1rem;
-
+  
   @include mobile() {
     display: none;
-    flex-direction: column;
     width: 90%;
-    align-self: stretch;    
     margin: 0 auto;
     padding: 1rem 0;
-    align-items: baseline;
     overflow: auto;
+    flex-direction: column;
+    align-items: baseline;
+    align-self: stretch;    
 
     &.opened {
       display: flex;
 
       &::before {
-        position: absolute;
         content: ' ';
+        position: absolute;
         width: 100vw;
         height: 100vh;
         top: 0;
@@ -66,9 +66,9 @@ nav {
   }
 
   a {
-    padding: 1.2rem 0.625rem 1.3rem;
+    padding: 1.2rem .625rem 1.3rem;
     text-decoration: none;
-    @include font(0.875rem, 'semi-bold');
+    @include font(.875rem, 'semi-bold');
 
     @include mobile() {
       display: block;
@@ -89,7 +89,7 @@ nav {
     }
 
     &:hover {
-      transition: 0.5s all;
+      transition: .5s all;
     }
   }
 }
@@ -102,8 +102,8 @@ nav {
     vertical-align: middle;
 
     @include mobile() {
-      padding: 10px 10px;
       width: 100%;
+      padding: 10px;
       justify-content: center;
     }
 
@@ -115,10 +115,10 @@ nav {
   }
 
   @include mobile() {
-    float: inherit;
     display: none;
     width: 90%;
     margin: 0 auto;
+    float: inherit;
 
     &.opened {
       display: grid;

@@ -1,5 +1,17 @@
 # CHANCELOG
 
+## 1.3.9
+  - Fix minor bugs
+  - Remove ngx-highlightjs and highlight-js
+  - Change rules on scss-lint
+
+## 1.3.8
+  - Fix scss-lint
+  - Fix on Lightbox Component
+
+## 1.3.7
+  - Fix on Lightbox Component
+
 ## 1.3.6
 Add arrow key navigation on Lighbox component
 

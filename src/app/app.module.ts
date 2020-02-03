@@ -7,19 +7,9 @@ import { UglaModule, Themes } from 'projects/ugla/src';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { HomePageComponent } from './pages/home-page/home-page.component';
 import { DevPageComponent } from './pages/dev-page/dev-page.component';
-
-import { HighlightModule } from 'ngx-highlightjs';
-import typescript from 'highlight.js/lib/languages/typescript';
-import xml from 'highlight.js/lib/languages/xml';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
 
-export function hljsLanguages() {
-  return [
-    {name: 'typescript', func: typescript},
-    {name: 'xml', func: xml}
-  ];
-}
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,13 +20,10 @@ export function hljsLanguages() {
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HighlightModule.forRoot({
-      languages: hljsLanguages
-    }),
-    UglaModule.forRoot({themeName: Themes.YELLOW}),
+    UglaModule.forRoot({themeName: Themes.AQUAMARINE}),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
-  exports: [HighlightModule],
+  exports: [],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],
   providers: [],
   bootstrap: [AppComponent]

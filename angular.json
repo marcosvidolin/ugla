@@ -29,8 +29,7 @@
             ],
             "styles": [
               "src/styles.scss",
-              "node_modules/js-datepicker/dist/datepicker.min.css",
-              "node_modules/highlight.js/styles/monokai-sublime.css"
+              "node_modules/js-datepicker/dist/datepicker.min.css"
             ],
             "scripts": [],
             "es5BrowserSupport": true

@@ -3,7 +3,7 @@ header {
     background-color: color(_others, 'light');
 
     &:not(.no-shadow) {
-      box-shadow: 0 0.1rem 0.2rem color(_others, 'shadow');
+      box-shadow: 0 .1rem .2rem color(_others, 'shadow');
     }
 
     @include mobile() {
@@ -19,15 +19,11 @@ header {
     .btn-icon {
       color: color(_aquamarine, 'medium');
     }
-  }
-}
 
-header {
-  &.theme-white {
     nav {
       @include mobile() {
         background-color: color(_others, 'light');
-        box-shadow: 0 0.1rem 0.2rem color(_others, 'shadow');
+        box-shadow: 0 .1rem .2rem color(_others, 'shadow');
 
         &::before {
           background-color: color(_others, body);
@@ -45,8 +41,8 @@ header {
         }
 
         &:hover {
-          background-color: transparent;
           border-bottom: 2px solid color(_aquamarine, 'medium');
+          background-color: transparent;
 
           @include mobile() {
             color: color(_others, 'dark');

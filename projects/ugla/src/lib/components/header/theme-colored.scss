@@ -4,7 +4,7 @@ header {
       background-color: color(_#{$theme}, 'medium');
 
       &:not(.no-shadow) {
-        box-shadow: 0 0.1rem 0.2rem color(_others, 'shadow');
+        box-shadow: 0 .1rem .2rem color(_others, 'shadow');
       }
 
       @include mobile() {
@@ -28,17 +28,11 @@ header {
       .right {
         background-color: color(_#{$theme}, 'medium');
       }
-    }
-  }
-}
 
-header {
-  @each $theme in $themes {
-    &.theme-colored-#{$theme} {
       nav {
         @include mobile() {
           background-color: color(_others, 'light');
-          box-shadow: 0 0.1rem 0.2rem color(_others, 'shadow');
+          box-shadow: 0 .1rem .2rem color(_others, 'shadow');
 
           &::before {
             background-color: color(_others, body);
@@ -56,8 +50,8 @@ header {
           }
 
           &:hover {
-            background-color: transparent;
             border-bottom: 2px solid color(_others, 'light');
+            background-color: transparent;
 
             @include mobile() {
               color: color(_others, 'dark');
@@ -67,8 +61,8 @@ header {
           }
 
           &.active {
+            font-weight: map-get($font-weight, 'black');
             color: color(_others, 'light');
-            font-weight: map-get($font-weight, black);
             border-bottom: 2px solid color(_others, 'light');
 
             @include mobile() {
@@ -86,6 +80,6 @@ header {
 
 .right {
   @include mobile() {
-    box-shadow: 0 0.1rem 0.2rem color(_others, 'shadow');
+    box-shadow: 0 .1rem .2rem color(_others, 'shadow');
   }
 }
