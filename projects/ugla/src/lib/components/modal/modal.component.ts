@@ -85,6 +85,20 @@ export class ModalComponent implements OnInit {
         this.hasIcon = modal.hasIcon;
         this.type = modal.type;
 
+        switch (this.type) {
+          case 'success':
+            this.icon = 'check_circle_outline';
+            break;
+          case 'error':
+            this.icon = 'highlight_off';
+            break;
+          case 'warning':
+            this.icon = 'error_outline';
+            break;
+          default:
+            this.icon = 'info_outline';
+        }
+
         setTimeout(function() {
           if (modal.open) {
             document.body.querySelector<HTMLBodyElement>(`.modal-body`).focus();
@@ -92,20 +106,6 @@ export class ModalComponent implements OnInit {
         }, 0);
       }
     });
-
-    switch (this.type) {
-      case 'success':
-        this.icon = 'check_circle_outline';
-        break;
-      case 'error':
-        this.icon = 'highlight_off';
-        break;
-      case 'warning':
-        this.icon = 'error_outline';
-        break;
-      default:
-        this.icon = 'info_outline';
-    }
   }
 
   /**

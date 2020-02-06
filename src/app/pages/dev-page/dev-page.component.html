@@ -1,11 +1,13 @@
 <section class="central">
     <ugl-page-title [firstTitle]="'Lorem'" [secondTitle]="'ipsum dolor'"></ugl-page-title>
 
-    <button (click)="open()">Warning</button>
+    <button (click)="openWarning()">Warning</button>
     <button (click)="openError()">Error</button>
+    <button (click)="openSuccess()">Success</button>
+    <button (click)="openInfo()">Info</button>
 </section>
 <ugl-modal
     (cancelClick)="cancel()"
     (confirmClick)="confirm()"
     [cancelButtonText]="'Cancelar'"
-    [confirmButtonText]="'Confirmar'">TESTE</ugl-modal>
+    [confirmButtonText]="'Confirmar'"></ugl-modal>

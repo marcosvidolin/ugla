@@ -13,15 +13,22 @@ export class DevPageComponent implements OnInit {
     console.log('Modal?');
   }
 
-  open() {
-    this.modal.warning('Modal de teste', 'Teste teste teste', true);
+  openWarning() {
+    this.modal.warning('Warning', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, rem.', true);
   }
 
 
   openError() {
-    this.modal.error('Modal de teste', 'Teste teste teste', true);
+    this.modal.error('Error', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, rem.', true);
   }
 
+  openSuccess() {
+    this.modal.success('Success', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, rem.', true);
+  }
+
+  openInfo() {
+    this.modal.info('Info', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, rem.', true);
+  }
 
   cancel() {
     this.modal.closeModal();
