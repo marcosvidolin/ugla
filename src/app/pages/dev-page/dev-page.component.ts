@@ -9,14 +9,11 @@ import { ModalService } from 'projects/ugla/src';
 export class DevPageComponent implements OnInit {
   constructor(private modal: ModalService) { }
 
-  ngOnInit() {
-    console.log('Modal?');
-  }
+  ngOnInit() {}
 
   openWarning() {
     this.modal.warning('Warning', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, rem.', true);
   }
-
 
   openError() {
     this.modal.error('Error', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, rem.', true);
