@@ -1,5 +1,8 @@
 # CHANCELOG
 
+## 1.3.10
+  - Fix on hasIcon attribute
+
 ## 1.3.9
   - Fix minor bugs
   - Remove ngx-highlightjs and highlight-js

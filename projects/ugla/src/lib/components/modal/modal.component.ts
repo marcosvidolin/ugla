@@ -76,13 +76,14 @@ export class ModalComponent implements OnInit {
   }
 
   ngOnInit() {
-
     this.modalService.getModalEmitter().subscribe(modal => {
       if (modal) {
         this.title = modal.title;
         this.subtitle = modal.text;
         this.type = modal.type;
         this.isOpened = modal.open;
+        this.hasIcon = modal.hasIcon;
+        this.type = modal.type;
 
         setTimeout(function() {
           if (modal.open) {
@@ -91,9 +92,6 @@ export class ModalComponent implements OnInit {
         }, 0);
       }
     });
-
-    this.hasIcon = (this.hasIcon === undefined) ? true : this.hasIcon;
-    this.type = (this.type === undefined) ? 'warning' : this.type;
 
     switch (this.type) {
       case 'success':
