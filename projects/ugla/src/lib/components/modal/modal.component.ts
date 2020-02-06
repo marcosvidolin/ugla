@@ -85,27 +85,29 @@ export class ModalComponent implements OnInit {
         this.hasIcon = modal.hasIcon;
         this.type = modal.type;
 
-        switch (this.type) {
-          case 'success':
-            this.icon = 'check_circle_outline';
-            break;
-          case 'error':
-            this.icon = 'highlight_off';
-            break;
-          case 'warning':
-            this.icon = 'error_outline';
-            break;
-          default:
-            this.icon = 'info_outline';
-        }
+        this.icon = this.selectIcon(this.type);
 
-        setTimeout(function() {
+        setTimeout(() => {
           if (modal.open) {
-            document.body.querySelector<HTMLBodyElement>(`.modal-body`).focus();
+            this.element.querySelector('.modal-body').focus();
           }
         }, 0);
+
       }
     });
+  }
+
+  private selectIcon(type: string) {
+    switch (this.type) {
+      case 'success':
+        return 'check_circle_outline';
+      case 'error':
+        return 'highlight_off';
+      case 'warning':
+        return 'error_outline';
+      default:
+        return 'info_outline';
+    }
   }
 
   /**

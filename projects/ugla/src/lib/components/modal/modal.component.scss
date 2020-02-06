@@ -1,23 +1,19 @@
 @import '../../../sass/index';
 
 .modal-overlay {
-  /* modal are hidden by default */
-  display: none;
-
-  /* modal container fixed across whole screen */
-  align-items: center;
   position: fixed;
-  justify-content: center;
-  overflow-y: auto;
+  display: none;
+  width: 100vw;
+  height: 100vh;
   top: 0;
   right: 0;
-  left: 0;
   bottom: 0;
+  left: 0;
+  overflow-y: auto;
   background-color: color(_gray, 'medium-alpha');
-  height: 100vh;
-  width: 100vw;
-
   z-index: 1000;
+  justify-content: center;
+  align-items: center;
 }
 
 .modal--show {
@@ -26,30 +22,28 @@
 
 .modal {
   @include cross-browser(box-shadow, 0 4px 8px 0 color(_others, shadow));
-  background-color: color(_others, 'light');
-  border-radius: 5px;
-  display: flex;
-  flex-direction: column;
-  height: auto;
-  max-width: 480px;
-  min-width: 300px;
-  pointer-events: auto;
   position: absolute;
+  display: flex;
   width: calc(100% - 20px);
-
-  /* z-index must be higher than .modal-overlay */
-  z-index: 1001;
+  min-width: 300px;
+  max-width: 480px;
+  height: auto;
+  pointer-events: auto;
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: color(_others, 'light');
+  z-index: map-get($z-index, 'modal');
 
   .modal-body {
-    flex: 1;
     padding: 20px 20px 0;
+    flex: 1;
   }
 
   h2 {
+    margin-top: 0;
+    margin-bottom: 1rem;
     font-size: 2rem;
     font-weight: 600;
-    margin-bottom: 1rem;
-    margin-top: 0;
     text-align: center;
 
     @include mobile() {
@@ -58,13 +52,12 @@
   }
 
   p {
-    font-size: 1rem;
     margin: 0 auto 1rem;
-    max-inline-size: 16.75em;
-    text-align: center;
+    font-size: 1rem;
     color: color(_gray, 'medium');
+    text-align: center;
+    max-inline-size: 16.75em;
   }
-
 }
 
 .modal-icon {
@@ -76,21 +69,20 @@
 }
 
 .modal-footer {
-  align-items: center;
-  border-top: 1px solid color(_others, 'body');
   display: flex;
   height: 60px;
-  justify-content: space-between;
   margin-top: 15px !important;
   padding: .625rem;
+  border-top: 1px solid color(_others, 'body');
+  justify-content: space-between;
+  align-items: center;
 
   &.background {
-    background: color(_others, 'body');
-    border: 0;
     padding: 10px;
+    border: 0;
+    background: color(_others, 'body');
   }
 }
-
 
 .info {
   h2,

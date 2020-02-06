@@ -1,13 +1,57 @@
 <section class="central">
     <ugl-page-title [firstTitle]="'Lorem'" [secondTitle]="'ipsum dolor'"></ugl-page-title>
 
-    <button (click)="openWarning()">Warning</button>
-    <button (click)="openError()">Error</button>
-    <button (click)="openSuccess()">Success</button>
-    <button (click)="openInfo()">Info</button>
+    <div uglGrid [grid]="true" [col]="4">
+        <ugl-button
+          [id]="'btn-warning'"
+          [size]="'medium'"
+          [color]="'yellow'"
+          [style]="'fill'"
+          [title]="'Warning'"
+          [type]="'button'"
+          (action)="openWarning()">Warning Button</ugl-button>
+    
+        <ugl-button
+          [id]="'btn-warning'"
+          [size]="'medium'"
+          [color]="'red'"
+          [style]="'fill'"
+          [title]="'Warning'"
+          [type]="'button'"
+          (action)="openError()">Error Button</ugl-button>
+    
+        <ugl-button
+          [id]="'btn-warning'"
+          [size]="'medium'"
+          [color]="'green'"
+          [style]="'fill'"
+          [title]="'Warning'"
+          [type]="'button'"
+          (action)="openSuccess()">Success Button</ugl-button>
+    
+        <ugl-button
+          [id]="'btn-warning'"
+          [size]="'medium'"
+          [color]="'aquamarine'"
+          [style]="'fill'"
+          [title]="'Warning'"
+          [type]="'button'"
+          (action)="openInfo()">Info Button</ugl-button>
+
+        <ugl-button
+          [id]="'btn-warning'"
+          [size]="'medium'"
+          [color]="'gray'"
+          [style]="'fill'"
+          [title]="'Warning'"
+          [type]="'button'"
+          (action)="openTemplate()">Template Button</ugl-button>
+    </div>
 </section>
+
 <ugl-modal
     (cancelClick)="cancel()"
     (confirmClick)="confirm()"
     [cancelButtonText]="'Cancelar'"
-    [confirmButtonText]="'Confirmar'"></ugl-modal>
+    [confirmButtonText]="'Confirmar'">
+</ugl-modal>

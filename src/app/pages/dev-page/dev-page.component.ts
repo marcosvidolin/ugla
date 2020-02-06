@@ -30,6 +30,10 @@ export class DevPageComponent implements OnInit {
     this.modal.info('Info', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, rem.', true);
   }
 
+  openTemplate() {
+    this.modal.info('Template', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, rem.', true);
+  }
+
   cancel() {
     this.modal.closeModal();
   }
