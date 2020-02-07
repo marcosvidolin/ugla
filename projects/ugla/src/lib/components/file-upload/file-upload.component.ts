@@ -204,6 +204,7 @@ export class FileUploadComponent implements OnInit, AfterViewInit {
    */
   addPreview(event: any) {
     if (!event.error && !event.status) {
+      this.element = document.querySelector(`#${this.id}`);
       const file = this.element.querySelector('.filepond--file');
       const preview = this.element.querySelector('.filepond--image-preview-wrapper') || null;
       if (!preview && event.file.fileExtension === 'pdf') {
