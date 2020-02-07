@@ -9,6 +9,8 @@ import { ModalService } from 'projects/ugla/src';
 export class DevPageComponent implements OnInit {
   constructor(private modal: ModalService) { }
 
+  hiddenContent = true;
+
   ngOnInit() {}
 
   openWarning() {
@@ -28,14 +30,17 @@ export class DevPageComponent implements OnInit {
   }
 
   openTemplate() {
+    this.hiddenContent = true;
     this.modal.info('Template', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, rem.', true);
   }
 
   cancel() {
+    this.hiddenContent = false;
     this.modal.closeModal();
   }
-
+  
   confirm() {
+    this.hiddenContent = false;
     this.modal.closeModal();
   }
 }

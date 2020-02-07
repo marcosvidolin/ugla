@@ -64,4 +64,8 @@
     (confirmClick)="confirm()"
     [cancelButtonText]="'Cancelar'"
     [confirmButtonText]="'Confirmar'">
+
+    <div *ngIf="hiddenContent">
+      <p>This is a hidden content.</p>
+    </div>
 </ugl-modal>
