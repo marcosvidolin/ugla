@@ -11,6 +11,11 @@ export class DevPageComponent implements OnInit {
 
   hiddenContent = true;
 
+  images = [
+    'https://blog.contabilista.com.br/uploads/editor/b826316f960aafb99d29c061e9889560.jpg',
+    'https://blog.pdvend.com.br/wp-content/uploads/2018/11/cupom-fiscal.png'
+  ];
+
   ngOnInit() {}
 
   openWarning() {
@@ -38,7 +43,7 @@ export class DevPageComponent implements OnInit {
     this.hiddenContent = false;
     this.modal.closeModal();
   }
-  
+
   confirm() {
     this.hiddenContent = false;
     this.modal.closeModal();
