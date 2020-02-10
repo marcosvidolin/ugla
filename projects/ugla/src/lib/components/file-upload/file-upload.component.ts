@@ -143,7 +143,7 @@ export class FileUploadComponent implements OnInit, AfterViewInit {
   /**
    * Instance of file pond
    */
-  @ViewChild('myPond') instance: any;
+  @ViewChild('myPond', {static: false}) instance !: any;
 
   constructor() {
   }

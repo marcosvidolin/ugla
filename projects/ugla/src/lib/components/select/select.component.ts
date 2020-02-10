@@ -116,7 +116,8 @@ export class SelectComponent implements OnInit, OnDestroy {
   /**
    * Get a checkbox element under select list
    */
-  @ViewChild('checkbox') checkbox: ElementRef;
+  @ViewChild('checkbox', {static: false}) checkbox !: ElementRef;
+
 
   /**
    * Event on clicked option

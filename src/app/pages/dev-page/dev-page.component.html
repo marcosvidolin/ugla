@@ -57,6 +57,8 @@
           [uglLightbox]
           [filesUrl]="images">Lightbox</ugl-button>
     </div>
+
+    <ugl-radio [items]="radioItems" (itemChecked)="getItemChecked($event)" [radioGroupAriaLabel]="'Select an option'"></ugl-radio>
 </section>
 
 <ugl-modal
