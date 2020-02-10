@@ -12,7 +12,7 @@
   }
 }
 
-:host /deep/ {
+:host ::ng-deep {
   file-pond {
     .filepond--action-process-item {
       display: none;
