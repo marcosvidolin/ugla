@@ -130,7 +130,7 @@ export class PaginationComponent implements OnInit {
   /**
    * Items per page component.
    */
-  @ViewChild('itemsPerPageComponent', {static: false}) itemsPerPageComponent !: PaginationItemsPerPageComponent;
+  @ViewChild('itemsPerPageComponent') itemsPerPageComponent !: PaginationItemsPerPageComponent;
 
 
   /**

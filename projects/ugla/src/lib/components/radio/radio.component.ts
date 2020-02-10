@@ -36,7 +36,7 @@ export class RadioComponent {
   @Input() radioGroupAriaLabel: string;
   @Output() itemChecked = new EventEmitter<Options>();
 
-  @ViewChild('radioButton', {static: false}) radioButton !: HTMLDivElement;
+  @ViewChild('radioButton') radioButton !: HTMLDivElement;
 
   private radioButtons: NodeListOf<HTMLElement>;
   private firstRadioButton = null;
