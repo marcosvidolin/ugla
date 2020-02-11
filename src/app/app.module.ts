@@ -9,13 +9,15 @@ import { HomePageComponent } from './pages/home-page/home-page.component';
 import { DevPageComponent } from './pages/dev-page/dev-page.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { E2ePageComponent } from './pages/e2e-page/e2e-page.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginPageComponent,
     HomePageComponent,
-    DevPageComponent
+    DevPageComponent,
+    E2ePageComponent
   ],
   imports: [
     BrowserModule,
