@@ -156,10 +156,19 @@ export class LightboxDirective {
 
     filesUrl.forEach((fileUrl, index) => {
       let element: HTMLElement;
+      let type: string;
 
-      if (this.isImage(fileUrl)) {
+      if (fileUrl.indexOf('type') > -1) {
+        type = fileUrl.substr(fileUrl.indexOf('type')).split('=')[1];
+        fileUrl = fileUrl.substring(fileUrl.indexOf('&type'), -1);
+      } else {
+        const items = fileUrl.split('.');
+        type = items[items.length - 1];
+      }
+
+      if (this.isImage(type)) {
         element = document.createElement('img');
-      } else if (this.isPdf(fileUrl)) {
+      } else if (this.isPdf(type)) {
         element = document.createElement('embed');
         element.setAttribute('width', '100%');
         element.setAttribute('height', '100%');
@@ -184,16 +193,16 @@ export class LightboxDirective {
   }
 
   isImage(fileUrl: string) {
-    if (fileUrl.indexOf('.png') > -1 ||
-       fileUrl.indexOf('.jpg') > -1 ||
-       fileUrl.indexOf('.jpeg') > -1 ||
-       fileUrl.indexOf('.bmp') > -1) {
-         return true;
-       }
+    if (fileUrl.indexOf('png') > -1 ||
+       fileUrl.indexOf('jpg') > -1 ||
+       fileUrl.indexOf('jpeg') > -1 ||
+       fileUrl.indexOf('bmp') > -1) {
+      return true;
+    }
   }
 
   isPdf(fileUrl: string) {
-    return fileUrl.indexOf('.pdf') > -1;
+    return fileUrl.indexOf('pdf') > -1;
   }
 
   constructor() { }
