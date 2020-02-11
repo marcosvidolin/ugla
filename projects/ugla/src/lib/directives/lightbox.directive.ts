@@ -163,6 +163,8 @@ export class LightboxDirective {
         element = document.createElement('embed');
         element.setAttribute('width', '100%');
         element.setAttribute('height', '100%');
+      } else {
+        element = document.createElement('img');
       }
 
       element.setAttribute('class', 'slide-item');
