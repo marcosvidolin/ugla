@@ -5,7 +5,7 @@ import { Directive, Input, HostListener, Output, EventEmitter } from '@angular/c
 })
 export class LightboxDirective {
 
-  @Output() action = new EventEmitter<string>();
+  @Output() actionIcon = new EventEmitter<string>();
 
   @Input() closeOut = false;
 
@@ -73,13 +73,13 @@ export class LightboxDirective {
       }
     }
 
-    if (this.action.observers.length > 0) {
+    if (this.actionIcon.observers.length > 0) {
       const button = document.createElement('button');
       button.setAttribute('class', 'action');
       button.addEventListener('click', (event) => {
         const position = this.content.querySelector('.selected').getAttribute('data-position');
 
-        this.action.emit(position);
+        this.actionIcon.emit(position);
         this.close();
       });
 
@@ -186,7 +186,7 @@ export class LightboxDirective {
     });
   }
 
-  @Input() set actionIcon(icon: string) {
+  @Input() set imageIcon(icon: string) {
     this.actionIconElement = document.createElement('i');
     this.actionIconElement.setAttribute('class', 'material-icons');
     this.actionIconElement.textContent = icon;
