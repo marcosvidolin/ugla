@@ -88,7 +88,7 @@ export class ModalComponent implements OnInit {
         this.icon = this.selectIcon(this.type);
 
         setTimeout(() => {
-          if (modal.open) {
+          if (modal.open && this.element.querySelector('.modal-body')) {
             this.element.querySelector('.modal-body').focus();
           }
         }, 0);
