@@ -154,36 +154,38 @@ export class LightboxDirective {
     this.filesUrlElement = document.createElement('div');
     this.filesUrlElement.setAttribute('class', 'slide');
 
-    filesUrl.forEach((fileUrl, index) => {
-      let element: HTMLElement;
-      let type: string;
+    if (filesUrl) {
+      filesUrl.forEach((fileUrl, index) => {
+        let element: HTMLElement;
+        let type: string;
 
-      if (fileUrl.indexOf('type') > -1) {
-        type = fileUrl.substr(fileUrl.indexOf('type')).split('=')[1];
-        fileUrl = fileUrl.substring(fileUrl.indexOf('&type'), -1);
-      } else {
-        const items = fileUrl.split('.');
-        type = items[items.length - 1];
-      }
+        if (fileUrl.indexOf('type') > -1) {
+          type = fileUrl.substr(fileUrl.indexOf('type')).split('=')[1];
+          fileUrl = fileUrl.substring(fileUrl.indexOf('&type'), -1);
+        } else {
+          const items = fileUrl.split('.');
+          type = items[items.length - 1];
+        }
 
-      if (this.isImage(type)) {
-        element = document.createElement('img');
-      } else if (this.isPdf(type)) {
-        element = document.createElement('embed');
-        element.setAttribute('width', '100%');
-        element.setAttribute('height', '100%');
-      }
+        if (this.isImage(type)) {
+          element = document.createElement('img');
+        } else if (this.isPdf(type)) {
+          element = document.createElement('embed');
+          element.setAttribute('width', '100%');
+          element.setAttribute('height', '100%');
+        }
 
-      element.setAttribute('class', 'slide-item');
-      element.setAttribute('src', fileUrl);
-      element.setAttribute('data-position', (index + 1).toString());
+        element.setAttribute('class', 'slide-item');
+        element.setAttribute('src', fileUrl);
+        element.setAttribute('data-position', (index + 1).toString());
 
-      if (index === 0) {
-        element.classList.add('selected');
-      }
+        if (index === 0) {
+          element.classList.add('selected');
+        }
 
-      this.filesUrlElement.appendChild(element);
-    });
+        this.filesUrlElement.appendChild(element);
+      });
+    }
   }
 
   @Input() set imageIcon(icon: string) {
