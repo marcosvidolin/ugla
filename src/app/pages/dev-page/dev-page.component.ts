@@ -1,3 +1,4 @@
+import { LightboxService } from './../../../../projects/ugla/src/lib/components/lightbox/lightbox.service';
 import { Component, OnInit } from '@angular/core';
 import { ModalService } from 'projects/ugla/src';
 
@@ -7,16 +8,34 @@ import { ModalService } from 'projects/ugla/src';
   styleUrls: ['./dev-page.component.scss']
 })
 export class DevPageComponent implements OnInit {
-  constructor(private modal: ModalService) { }
+  constructor(
+    private modal: ModalService,
+    private lightbox: LightboxService
+  ) { }
 
   hiddenContent = true;
 
   images = [
-    'https://expenses-uat.s3.sa-east-1.amazonaws.com/c0be6871-4d4b-4418-aea7-144e7ff8f2d9-202002111214006?X-Amz-Algorithm=AWS4-HMAC-SHA256&X-Amz-Date=20200211T141407Z&X-Amz-SignedHeaders=host&X-Amz-Expires=3600&X-Amz-Credential=AKIAVJ6TWLSBP5A5OQ7O%2F20200211%2Fsa-east-1%2Fs3%2Faws4_request&X-Amz-Signature=29e9d8a4cbece05367cb5991b1d0ad0e0ec5b8e612bba55a7e69debc23962e76&type=pdf',
+    'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg',
+    'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg',
+    'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg'
+  ];
+
+  images2 = [
+    'http://corrupteddevelopment.com/wp-content/uploads/2012/03/sky-blue-background.jpg',
+    'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg',
     'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg'
   ];
 
   ngOnInit() {}
+
+  openLightbox() {
+    this.lightbox.open(this.images, false, this.iconCallback, 'delete_outline');
+  }
+
+  iconCallback(position: string): void {
+    console.log('POSITION', position);
+  }
 
   openWarning() {
     this.modal.warning('Warning', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, rem.', true);

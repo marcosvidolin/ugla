@@ -1,3 +1,4 @@
+import { LightboxService } from './components/lightbox/lightbox.service';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
