@@ -1,6 +1,4 @@
-import { Injectable, HostListener } from '@angular/core';
-import { EventEmitter } from 'events';
-import { FunctionCall } from '@angular/compiler';
+import { Injectable } from '@angular/core';
 
 @Injectable({
   providedIn: 'root'
@@ -122,6 +120,7 @@ export class LightboxService {
     document.querySelectorAll('.lightbox').forEach((event) => {
       event.remove();
     });
+
 
     return false;
   }
