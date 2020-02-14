@@ -1,5 +1,8 @@
 # CHANCELOG
 
+## 1.5.0
+  - Upagrade angular version
+
 ## 1.4.0
   - Criação do Lightbox Service e Lightbox Directive
 
