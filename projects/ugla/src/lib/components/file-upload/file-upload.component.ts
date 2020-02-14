@@ -179,7 +179,9 @@ export class FileUploadComponent implements OnInit, AfterViewInit {
    */
   pondHandleProcessFile(event: any) {
     console.log('A file was processed', event);
-    this.onUploadPath.emit(this.instance.getFile().serverId);
+    if (this.instance.getFile()) {
+      this.onUploadPath.emit(this.instance.getFile().serverId);
+    }
   }
 
   /**

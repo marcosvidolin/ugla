@@ -1,0 +1,133 @@
+<section class="central">
+  <ugl-page-title [firstTitle]="'E2E'" [secondTitle]="'page test'"></ugl-page-title>
+
+  <h2 class="color-aquamarine">Buttons</h2>
+
+  <div uglGrid [grid]="true" [col]="totalColors">
+    <ugl-button *ngFor="let color of colors; index as i"
+      [id]="'btn-fill-' + index"
+      [size]="'medium'"
+      [color]="color"
+      [style]="'fill'"
+      [wave]="true"
+      [title]="'Title button'"
+      [disabled]="false"
+      [type]="'button'"
+      [tabindex]="1"
+      [floating]="false"
+      (action)="clickButton()">Fill {{ color }}</ugl-button>
+  </div>
+
+  <div uglGrid [grid]="true" [col]="totalColors">
+    <ugl-button *ngFor="let color of colors; index as i"
+      [id]="'btn-fill-' + index"
+      [size]="'medium'"
+      [color]="color"
+      [style]="'fill'"
+      [wave]="true"
+      [title]="'Title button'"
+      [disabled]="true"
+      [type]="'button'"
+      [tabindex]="1"
+      [floating]="false"
+      (action)="clickButton()">Fill {{ color }}</ugl-button>
+  </div>
+
+  <div uglGrid [grid]="true" [col]="totalColors">
+    <ugl-button *ngFor="let color of colors; index as i"
+      [id]="'btn-border-' + index"
+      [size]="'medium'"
+      [color]="color"
+      [style]="'border'"
+      [wave]="true"
+      [title]="'Title button'"
+      [disabled]="false"
+      [type]="'button'"
+      [tabindex]="1"
+      [floating]="false"
+      (action)="clickButton()">Border {{ color }}</ugl-button>
+  </div>
+
+  <div uglGrid [grid]="true" [col]="totalColors">
+    <ugl-button *ngFor="let color of colors; index as i"
+      [id]="'btn-border-' + index"
+      [size]="'medium'"
+      [color]="color"
+      [style]="'border'"
+      [wave]="true"
+      [title]="'Title button'"
+      [disabled]="true"
+      [type]="'button'"
+      [tabindex]="1"
+      [floating]="false"
+      (action)="clickButton()">Border {{ color }}</ugl-button>
+  </div>
+
+  <div uglGrid [grid]="true" [col]="totalColors">
+    <ugl-button *ngFor="let color of colors; index as i"
+      [id]="'btn-fill-' + index"
+      [size]="'medium'"
+      [color]="color"
+      [style]="'fill'"
+      [wave]="true"
+      [title]="'Title button'"
+      [disabled]="false"
+      [type]="'button'"
+      [tabindex]="1"
+      [floating]="false"
+      (action)="clickButton()"><i class="material-icons">add</i> Fill {{ color }}</ugl-button>
+  </div>
+
+  <div uglGrid [grid]="true" [col]="totalColors">
+    <ugl-button *ngFor="let color of colors; index as i"
+      [id]="'btn-fill-' + index"
+      [size]="'medium'"
+      [color]="color"
+      [style]="'fill'"
+      [wave]="true"
+      [title]="'Title button'"
+      [disabled]="true"
+      [type]="'button'"
+      [tabindex]="1"
+      [floating]="false"
+      (action)="clickButton()"><i class="material-icons">add</i> Fill {{ color }}</ugl-button>
+  </div>
+
+  <div uglGrid [grid]="true" [col]="totalColors">
+    <ugl-button *ngFor="let color of colors; index as i"
+      [id]="'btn-border-' + index"
+      [size]="'medium'"
+      [color]="color"
+      [style]="'border'"
+      [wave]="true"
+      [title]="'Title button'"
+      [disabled]="false"
+      [type]="'button'"
+      [tabindex]="1"
+      [floating]="false"
+      (action)="clickButton()"><i class="material-icons">add</i> Border {{ color }}</ugl-button>
+  </div>
+
+  <div uglGrid [grid]="true" [col]="totalColors">
+    <ugl-button *ngFor="let color of colors; index as i"
+      [id]="'btn-border-' + index"
+      [size]="'medium'"
+      [color]="color"
+      [style]="'border'"
+      [wave]="true"
+      [title]="'Title button'"
+      [disabled]="true"
+      [type]="'button'"
+      [tabindex]="1"
+      [floating]="false"
+      (action)="clickButton()"><i class="material-icons">add</i> Border {{ color }}</ugl-button>
+  </div>
+
+</section>
+
+<ugl-banner
+  [title]="'Teste de E2E com Ugla'"
+  [message]="'O objetivo desta página é servir de base para testes de componentes'"
+  [color]="'red'"
+  [open]="false"
+  colose="closeBanner()"></ugl-banner>

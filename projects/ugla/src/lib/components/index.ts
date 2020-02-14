@@ -1,3 +1,4 @@
+import { LightboxService } from './lightbox/lightbox.service';
 export { BrandComponent } from './brand/brand.component';
 export { ButtonComponent } from './button/button.component';
 export { CheckboxComponent } from './checkbox/checkbox.component';
@@ -31,3 +32,4 @@ export { BackPanelComponent } from './panels/back-panel/back-panel.component';
 export { RadioComponent } from './radio/radio.component';
 export { BannerComponent } from './banner/banner.component';
 export { QuoteComponent } from './quote/quote.component';
+export { LightboxService } from './lightbox/lightbox.service';

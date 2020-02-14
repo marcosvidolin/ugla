@@ -1,3 +1,4 @@
+import { LightboxService } from './../../../../projects/ugla/src/lib/components/lightbox/lightbox.service';
 import { Component, OnInit } from '@angular/core';
 import { ModalService, Options } from 'projects/ugla/src';
 
@@ -7,15 +8,25 @@ import { ModalService, Options } from 'projects/ugla/src';
   styleUrls: ['./dev-page.component.scss']
 })
 export class DevPageComponent implements OnInit {
-  constructor(private modal: ModalService) { }
+  constructor(
+    private modal: ModalService,
+    private lightbox: LightboxService
+  ) { }
 
   hiddenContent = true;
 
   radioItems: Options[];
 
   images = [
-    'https://blog.contabilista.com.br/uploads/editor/b826316f960aafb99d29c061e9889560.jpg',
-    'https://blog.pdvend.com.br/wp-content/uploads/2018/11/cupom-fiscal.png'
+    'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg',
+    'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg',
+    'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg'
+  ];
+
+  images2 = [
+    'http://corrupteddevelopment.com/wp-content/uploads/2012/03/sky-blue-background.jpg',
+    'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg',
+    'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg'
   ];
 
   ngOnInit() {
@@ -29,6 +40,14 @@ export class DevPageComponent implements OnInit {
 
   getItemChecked(event) {
     console.log(event);
+  }
+
+  openLightbox() {
+    this.lightbox.open(this.images, false, this.iconCallback, 'delete_outline');
+  }
+
+  iconCallback(position: string): void {
+    console.log('POSITION', position);
   }
 
   openWarning() {

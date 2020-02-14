@@ -1,5 +1,8 @@
 # CHANCELOG
 
+## 1.4.0
+  - Criação do Lightbox Service e Lightbox Directive
+
 ## 1.3.10
   - Fix on hasIcon attribute
 

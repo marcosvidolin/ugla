@@ -135,5 +135,23 @@
         }
       }
     }
+
+    &.full {
+      thead {
+        tr {
+          width: calc(100% - 1rem);
+          margin: 0;
+        }
+      }
+
+      tbody {
+        padding-left: 0;
+
+        tr {
+          width: calc(100% - .1rem);
+          margin: 0;
+        }
+      }
+    }
   }
 }

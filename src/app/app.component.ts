@@ -24,6 +24,7 @@ export class AppComponent implements OnInit {
   menu = new Menu([
     new MenuItem('Home', '/', true),
     new MenuItem('Login', '/login', true),
+    new MenuItem('E2E', '/e2e', true),
     new MenuItem('Test page', '/dev', true),
   ]);
 

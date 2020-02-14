@@ -1,73 +1,30 @@
 <section class="central">
-    <ugl-page-title [firstTitle]="'Lorem'" [secondTitle]="'ipsum dolor'"></ugl-page-title>
+  <ugl-button
+      [id]="'test'"
+      [size]="'medium'"
+      [color]="'aquamarine'"
+      [style]="'fill'"
+      [wave]="true"
+      [title]="'Title button'"
+      [disabled]="false"
+      [type]="'button'"
+      [tabindex]="1"
+      [floating]="false"
+      (action)="openLightbox()">Open Image</ugl-button>
 
-    <div uglGrid [grid]="true" [col]="4">
-        <ugl-button
-          [id]="'btn-warning'"
-          [size]="'medium'"
-          [color]="'yellow'"
-          [style]="'fill'"
-          [title]="'Warning'"
-          [type]="'button'"
-          (action)="openWarning()">Warning Button</ugl-button>
-
-        <ugl-button
-          [id]="'btn-warning'"
-          [size]="'medium'"
-          [color]="'red'"
-          [style]="'fill'"
-          [title]="'Warning'"
-          [type]="'button'"
-          (action)="openError()">Error Button</ugl-button>
-
-        <ugl-button
-          [id]="'btn-warning'"
-          [size]="'medium'"
-          [color]="'green'"
-          [style]="'fill'"
-          [title]="'Warning'"
-          [type]="'button'"
-          (action)="openSuccess()">Success Button</ugl-button>
-
-        <ugl-button
-          [id]="'btn-warning'"
-          [size]="'medium'"
-          [color]="'aquamarine'"
-          [style]="'fill'"
-          [title]="'Warning'"
-          [type]="'button'"
-          (action)="openInfo()">Info Button</ugl-button>
-
-        <ugl-button
-          [id]="'btn-warning'"
-          [size]="'medium'"
-          [color]="'gray'"
-          [style]="'fill'"
-          [title]="'Warning'"
-          [type]="'button'"
-          (action)="openTemplate()">Template Button</ugl-button>
-
-        <ugl-button
-          [id]="'btn-warning'"
-          [size]="'medium'"
-          [color]="'purple'"
-          [style]="'fill'"
-          [title]="'Warning'"
-          [type]="'button'"
-          [uglLightbox]
-          [filesUrl]="images">Lightbox</ugl-button>
-    </div>
-
-    <ugl-radio [items]="radioItems" (itemChecked)="getItemChecked($event)" [radioGroupAriaLabel]="'Select an option'"></ugl-radio>
+      <ugl-button
+      [id]="'test'"
+      [size]="'medium'"
+      [color]="'red'"
+      [style]="'fill'"
+      [wave]="true"
+      [title]="'Title button'"
+      [disabled]="false"
+      [type]="'button'"
+      [tabindex]="1"
+      [floating]="false"
+      uglLightbox
+      [filesUrl]="images2"
+      (actionIcon)="iconCallback($event)"
+      [imageIcon]="'delete_outline'">Open Image</ugl-button>
 </section>
-
-<ugl-modal
-    (cancelClick)="cancel()"
-    (confirmClick)="confirm()"
-    [cancelButtonText]="'Cancelar'"
-    [confirmButtonText]="'Confirmar'">
-
-    <div *ngIf="hiddenContent">
-      <p>This is a hidden content.</p>
-    </div>
-</ugl-modal>
