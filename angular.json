@@ -179,5 +179,8 @@
       }
     }
   },
-  "defaultProject": "ugla-workspace"
+  "defaultProject": "ugla-workspace",
+  "cli": {
+    "analytics": false
+  }
 }
