@@ -218,3 +218,18 @@
     }
   }
 }
+
+.infos {
+  display: flex;
+  height: 1rem;
+  font-size: .75rem;
+  color: color(_gray, light);
+
+  @include mobile {
+    font-size: .857rem;
+  }
+
+  &__message {
+    width: 90%;
+  }
+}

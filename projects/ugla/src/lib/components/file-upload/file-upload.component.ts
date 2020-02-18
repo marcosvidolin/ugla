@@ -108,6 +108,11 @@ export class FileUploadComponent implements OnInit, AfterViewInit {
   @Input() messages: {};
 
   /**
+   * Set message
+   */
+  @Input() infoMessage: string;
+
+  /**
    *  Emitter uploadPath function
    */
   @Output() onUploadPath = new EventEmitter<string>();
@@ -139,6 +144,8 @@ export class FileUploadComponent implements OnInit, AfterViewInit {
    * Parent element
    */
   private element: Element;
+
+  public valid = true;
 
   /**
    * Instance of file pond
@@ -223,8 +230,10 @@ export class FileUploadComponent implements OnInit, AfterViewInit {
     const fileWrapper = this.element.querySelector('.filepond--wrapper');
     if (event.error || event.status) {
       fileWrapper.classList.add('error');
+      this.valid = false;
     } else {
       fileWrapper.classList.remove('error');
+      this.valid = true;
     }
   }
 

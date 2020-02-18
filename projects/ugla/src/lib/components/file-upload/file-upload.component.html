@@ -8,4 +8,8 @@
              (onremovefile)="pondHandleRemoveFile($event)"
              (onupdatefiles)="pondHandleUpdateFiles($event)">
   </file-pond>
+  <div class="infos">
+    <span *ngIf="valid" [id]="id + 'info'" [attr.aria-details]="infoMessage" class="infos__message"
+          aria-live="polite">{{ infoMessage }}</span>
+  </div>
 </div>
