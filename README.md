@@ -1,6 +1,5 @@
 # Ugla
 
-[![Codacy Badge](https://api.codacy.com/project/badge/Grade/dab0deb9bbe1463a8c5ef52c1f55a03a)](https://www.codacy.com/app/marcosvidolin/ugla?utm_source=github.com&amp;utm_medium=referral&amp;utm_content=ciandt/ugla&amp;utm_campaign=Badge_Grade)
 [![Open issues](https://img.shields.io/github/issues-raw/ciandt/ugla.svg)](https://github.com/ciandt/ugla/issues)
 ![licence](https://img.shields.io/npm/l/ugla.svg)
 ![version](https://img.shields.io/github/package-json/v/ciandt/ugla.svg)
