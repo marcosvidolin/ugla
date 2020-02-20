@@ -24,15 +24,9 @@ jobs:
       uses: actions/setup-node@master
       with:
         node-version: 10.18.0
-
-    - name: Config npm token
     - run: printf "//`node -p \"require('url').parse('https://registry.npmjs.org').host\"`/:_authToken=${NPM_TOKEN}\nregistry=${NPM_REGISTRY_URL:-https://registry.npmjs.org}\n" >> ~/.npmrc
-
-    - name: Install and build
     - run: npm install
     - run: npm run build --project=ugla
-
-    - name: Copy sass folder and LICENSE
     - run: cp -r projects/ugla/src/sass dist/sass
     - run: cp LICENSE dist/
 
