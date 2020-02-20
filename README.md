@@ -5,7 +5,7 @@
 ![licence](https://img.shields.io/npm/l/ugla.svg)
 ![version](https://img.shields.io/github/package-json/v/ciandt/ugla.svg)
 [![angular](https://img.shields.io/github/package-json/dependency-version/ciandt/ugla/dev/@angular/cli.svg)](https://angular.io)
-![build](https://travis-ci.com/ciandt/ugla.svg?branch=master)
+![Node.js CI](https://github.com/ciandt/ugla/workflows/Node.js%20CI/badge.svg?branch=master)
 
 ## Versioning
 Given a version number MAJOR.MINOR.PATCH, increment the:
