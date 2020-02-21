@@ -227,6 +227,7 @@ export class FileUploadComponent implements OnInit, AfterViewInit {
    * @param event
    */
   handleError(event: any) {
+    this.element = document.querySelector(`#${this.id}`);
     const fileWrapper = this.element.querySelector('.filepond--wrapper');
     if (event.error || event.status) {
       fileWrapper.classList.add('error');
