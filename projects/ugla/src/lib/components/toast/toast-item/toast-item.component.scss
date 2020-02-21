@@ -4,15 +4,19 @@
 .toast__container {
   position: relative;
   width: auto;
-  border-radius: 5px 0 0 5px;
   min-width: 365px;
   margin: 0 0 16px 16px;
+  border-radius: 5px 0 0 5px;
+
+  @media print {
+    display: none;
+  }
 }
 
 .toast {
   @include cross-browser(box-shadow, 2px 2px 5px color(_others, shadow));
-  padding: 6px 24px 6px 56px;
   position: relative;
+  padding: 6px 24px 6px 56px;
   pointer-events: auto;
   border-radius: 5px 0 0 5px;
 
@@ -24,14 +28,15 @@
   }
 
   p {
-    font-size: 0.875rem;
     margin-top: 0;
     margin-bottom: 0;
+    font-size: .875rem;
   }
 }
 
 .info {
   background-color: color(_aquamarine, 'medium');
+
   h2,
   p,
   i {
@@ -41,6 +46,7 @@
 
 .error {
   background-color: color(_red, 'medium');
+
   h2,
   p,
   i {
@@ -50,6 +56,7 @@
 
 .success {
   background-color: color(_green, 'medium');
+
   h2,
   p,
   i {
@@ -59,6 +66,7 @@
 
 .warning {
   background-color: color(_yellow, 'medium');
+
   h2,
   p,
   i {

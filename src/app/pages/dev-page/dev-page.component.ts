@@ -1,3 +1,4 @@
+import { ToastService } from './../../../../projects/ugla/src/lib/components/toast/toast.service';
 import { LightboxService } from './../../../../projects/ugla/src/lib/components/lightbox/lightbox.service';
 import { Component, OnInit } from '@angular/core';
 import { ModalService } from 'projects/ugla/src';
@@ -10,7 +11,8 @@ import { ModalService } from 'projects/ugla/src';
 export class DevPageComponent implements OnInit {
   constructor(
     private modal: ModalService,
-    private lightbox: LightboxService
+    private lightbox: LightboxService,
+    private toastService: ToastService
   ) { }
 
   hiddenContent = true;
@@ -27,7 +29,9 @@ export class DevPageComponent implements OnInit {
     'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg'
   ];
 
-  ngOnInit() {}
+  ngOnInit() {
+    this.toastService.warning('Warning', 'Invalid Report Number', 0);
+  }
 
   openLightbox() {
     this.lightbox.open(this.images, false, this.iconCallback, 'delete_outline');

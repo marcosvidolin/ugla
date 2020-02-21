@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Header, People, Menu, MenuItem, Select, Options, UglaService } from 'projects/ugla/src';
+import { Header, People, Menu, MenuItem, Select, Options, UglaService, ToastService } from 'projects/ugla/src';
 import { Router, NavigationEnd } from '@angular/router';
 
 @Component({
