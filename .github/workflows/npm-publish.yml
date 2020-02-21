@@ -24,12 +24,12 @@ jobs:
       uses: actions/setup-node@master
       with:
         node-version: 10.18.0
-    - run: printf "//`node -p \"require('url').parse('https://registry.npmjs.org').host\"`/:_authToken=${NPM_TOKEN}\nregistry=${NPM_REGISTRY_URL:-https://registry.npmjs.org}\n" >> ~/.npmrc
-    - run: npm install -g @angular/cli@7.1.4
     - run: npm install
     - run: npm run build ugla
     - run: cp -r projects/ugla/src/sass dist/sass
     - run: cp LICENSE dist/
     - run: ls dist/
-    - run: cd dist
-    - run: npm publish
+
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}
