@@ -25,11 +25,11 @@ jobs:
       with:
         node-version: 10.18.0
     - run: npm install
-    - run: npm run build --project=ugla
+    - run: npm run build ugla
     - run: cp -r projects/ugla/src/sass dist/sass
     - run: cp LICENSE dist/
     - run: ls dist/
 
-    # - uses: JS-DevTools/npm-publish@v1
-    #   with:
-    #     token: ${{ secrets.NPM_TOKEN }}
+    - uses: JS-DevTools/npm-publish@v1
+      with:
+        token: ${{ secrets.NPM_TOKEN }}

@@ -25,6 +25,7 @@ export { FilterComponent } from './filter/filter.component';
 export { CardTimelineComponent } from './cards/card-timeline/card-timeline.component';
 export { SimpleTableComponent } from './tables/simple-table/simple-table.component';
 export { PaginationComponent } from './pagination/pagination.component';
+export { PaginationItemsPerPageComponent } from './pagination/pagination-items-per-page/pagination-items-per-page.component';
 export { ModalComponent } from './modal/modal.component';
 export { ModalService } from './modal/modal.service';
 export { HyperLinkComponent } from './hyper-link/hyper-link.component';
