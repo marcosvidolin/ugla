@@ -21,8 +21,8 @@
   <label [for]="'field-' + name" class="icon" *ngIf="type === 'time'"><i
     class="material-icons">query_builder</i></label>
   <div class="infos">
-    <span class="infos__message">{{ message }}</span>
-    <span class="infos__count" *ngIf="type !== 'time' && counter">{{ charCounter }}</span>
+    <span class="infos__message" [id]="name + '-infos-message'">{{ message }}</span>
+    <span class="infos__count" [id]="name + '-infos-count'" *ngIf="type !== 'time' && counter">{{ charCounter }}</span>
   </div>
 </div>
 
@@ -57,7 +57,7 @@
     placeholder=" "></textarea>
   <label [for]="name">{{ label }}</label>
   <div class="infos">
-    <span class="infos__message">{{ message }}</span>
-    <span class="infos__count">{{ charCounter }}</span>
+    <span class="infos__message" [id]="name + '-infos-message'">{{ message }}</span>
+    <span class="infos__count" [id]="name + '-infos-count'">{{ charCounter }}</span>
   </div>
 </div>
