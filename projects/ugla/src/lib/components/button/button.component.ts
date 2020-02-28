@@ -94,33 +94,17 @@ export class ButtonComponent implements OnInit, OnChanges {
    */
   @Input() floating = false;
 
+  @Input() rotated = false;
+
   /**
    * Function to action
    */
   @Output() action = new EventEmitter<any>();
 
-  @Input() set rotated(rotated: boolean) {
-    this._rotated = rotated;
-
-    if (this.rotated) {
-      this.groupClass.push('rotated');
-    } else {
-      if (this.groupClass.indexOf('rotated') > -1) {
-        this.groupClass.splice(this.groupClass.indexOf('rotated'), 1);
-      }
-    }
-  }
-
-  get rotated(): boolean {
-    return this._rotated;
-  }
-
-  _rotated = false;
-
   /**
    * @ignore
    */
-  public groupClass = [];
+  public groupClass = '';
 
   /**
    * @ignore
@@ -145,20 +129,10 @@ export class ButtonComponent implements OnInit, OnChanges {
 
     const isIcon = this.style === 'icon' ? `btn-icon btn-${this.style}-${this.color}` : `btn btn-${this.style}-${this.color}`;
 
-    this.groupClass.push(this.size);
-    this.groupClass.push(isIcon);
-
-    if (this.wave) {
-      this.groupClass.push('wave');
-    }
-
-    if (this.floating) {
-      this.groupClass.push('floating');
-    }
-
-    if (this.rotated) {
-      this.groupClass.push('rotated');
-    }
+    this.groupClass = `${this.size} ${isIcon}`;
+    this.groupClass = (this.wave) ? `${this.groupClass} wave` : this.groupClass;
+    this.groupClass = (this.floating) ? `${this.groupClass} floating` : this.groupClass;
+    this.groupClass = (this.rotated) ? `${this.groupClass} rotated` : this.groupClass;
   }
 
   clickedButton(event: any) {
@@ -171,12 +145,19 @@ export class ButtonComponent implements OnInit, OnChanges {
     if (changes[COLOR] !== undefined ) {
       this.color = changes[COLOR].currentValue;
       const isIcon = this.style === 'icon' ? `btn-icon btn-${this.style}-${this.color}` : `btn btn-${this.style}-${this.color}`;
-      this.groupClass.push(this.size);
-      this.groupClass.push(isIcon);
+      this.groupClass = `${this.size} ${isIcon}`;
+      this.groupClass = (this.wave) ? `${this.groupClass} wave` : this.groupClass;
+    }
 
-      if (this.wave) {
-        this.groupClass.push('wave');
+    if (changes.rotated !== undefined) {
+      if (changes.rotated.currentValue) {
+        this.groupClass = (changes.rotated.currentValue) ? `${this.groupClass} rotated` : this.groupClass;
+      } else {
+        console.log(this.groupClass.indexOf('rotated'));
+        if (this.groupClass.indexOf('rotated') > -1) {
+          this.groupClass = this.groupClass.substring(this.groupClass.indexOf('rotated'), 0).trim();
+        }
       }
-     }
+    }
   }
 }
