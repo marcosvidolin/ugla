@@ -153,7 +153,6 @@ export class ButtonComponent implements OnInit, OnChanges {
       if (changes.rotated.currentValue) {
         this.groupClass = (changes.rotated.currentValue) ? `${this.groupClass} rotated` : this.groupClass;
       } else {
-        console.log(this.groupClass.indexOf('rotated'));
         if (this.groupClass.indexOf('rotated') > -1) {
           this.groupClass = this.groupClass.substring(this.groupClass.indexOf('rotated'), 0).trim();
         }
