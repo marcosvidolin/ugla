@@ -3,6 +3,7 @@
   <ugl-button
     [id]="'test-icon'"
     [size]="'small'"
+    [wave]="true"
     [style]="'icon'">
     <i class="material-icons">assessment</i>
   </ugl-button>
@@ -27,8 +28,9 @@
   <ugl-button
     [id]="'test-icon'"
     [size]="'small'"
-    [rotated]="true"
-    [style]="'icon'">
+    [rotated]="rotateIcon"
+    [style]="'icon'"
+    (action)="rotateNow()">
     <i class="material-icons">delete_outline</i>
   </ugl-button>
 </ugl-toolbar>

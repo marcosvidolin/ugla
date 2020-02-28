@@ -16,6 +16,7 @@ export class DevPageComponent implements OnInit {
   ) { }
 
   hiddenContent = true;
+  rotateIcon = false;
 
   images = [
     'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg',
@@ -31,6 +32,10 @@ export class DevPageComponent implements OnInit {
 
   ngOnInit() {
     this.toastService.warning('Warning', 'Invalid Report Number', 0);
+  }
+
+  rotateNow() {
+    this.rotateIcon = !this.rotateIcon;
   }
 
   openLightbox() {
