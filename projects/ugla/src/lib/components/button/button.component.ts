@@ -99,6 +99,8 @@ export class ButtonComponent implements OnInit, OnChanges {
    */
   @Output() action = new EventEmitter<any>();
 
+  @Input() rotated = false;
+
   /**
    * @ignore
    */
@@ -130,6 +132,7 @@ export class ButtonComponent implements OnInit, OnChanges {
     this.groupClass = `${this.size} ${isIcon}`;
     this.groupClass = (this.wave) ? `${this.groupClass} wave` : this.groupClass;
     this.groupClass = (this.floating) ? `${this.groupClass} floating` : this.groupClass;
+    this.groupClass = (this.rotated) ? `${this.groupClass} rotated` : this.groupClass;
   }
 
   clickedButton(event: any) {

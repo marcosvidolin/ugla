@@ -1,14 +1,18 @@
-$animation: 0.5s;
+$animation: .5s;
 
 button,
 [type='button'],
 [type='submit'] {
   position: relative;
   display: flex;
+  background-position: center;
+  transition: background .8s;
   align-items: center;
   justify-content: center;
-  background-position: center;
-  transition: background 0.8s;
+
+  &.rotated {
+    @include cross-browser('transform', rotate(180deg));
+  }
 
   &.btn {
     position: relative;
@@ -22,11 +26,11 @@ button,
 
     i {
       position: absolute;
+      top: .5rem;
       left: 5px;
-      top: 0.5rem;
 
       @include mobile() {
-        top: 0.6rem;
+        top: .6rem;
       }
     }
 
@@ -112,19 +116,19 @@ button,
     }
 
     &-white {
-      background-color: color(_others, 'light');
-      border: 2px solid color(_others, 'dark');
       color: color(_others, 'dark');
+      border: 2px solid color(_others, 'dark');
+      background-color: color(_others, 'light');
     }
   }
 
   &.btn-icon {
+    height: 100%;
     margin-left: 10px;
-    border: 0;
     padding: 0;
+    border: 0;
     background: none;
     cursor: pointer;
-    height: 100%;
 
     @include mobile() {
       margin-left: 0;
@@ -138,9 +142,9 @@ button,
   }
 
   &[disabled] {
-    opacity: 0.5;
-    cursor: default;
     pointer-events: none;
+    cursor: default;
+    opacity: .5;
   }
 
   &.floating {
