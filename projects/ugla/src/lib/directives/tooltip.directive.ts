@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, AfterViewInit } from '@angular/core';
+import { Directive, ElementRef, Input, AfterViewInit, SimpleChanges, OnChanges } from '@angular/core';
 import Tooltip from 'tooltip.js';
 import { Options, TitleFunction } from 'tooltip.js';
 
@@ -39,7 +39,7 @@ import { Options, TitleFunction } from 'tooltip.js';
   selector: '[uglTooltip]',
   exportAs: 'uglTooltip'
 })
-export class TooltipDirective implements AfterViewInit {
+export class TooltipDirective implements AfterViewInit, OnChanges {
 
   _tooltip: any;
 
@@ -63,7 +63,7 @@ export class TooltipDirective implements AfterViewInit {
    */
   @Input('uglTooltip')
   set options(value: {} | Options) {
-    if(value) {
+    if (value) {
       this._options = Object.assign(this._options as Object, value);
     }
   }
@@ -77,7 +77,7 @@ export class TooltipDirective implements AfterViewInit {
    * Set configurations after view is initializes
    */
   ngAfterViewInit() {
-    if(this.title) {
+    if (this.title) {
       this._options.title = this.title;
     }
     this.newTooltipInstance();
@@ -88,5 +88,12 @@ export class TooltipDirective implements AfterViewInit {
    */
   private newTooltipInstance() {
     this._tooltip = new Tooltip((this.elementRef.nativeElement as HTMLElement), this._options);
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.title.currentValue) {
+      this._options.title = changes.title.currentValue;
+      this._tooltip = new Tooltip((this.elementRef.nativeElement as HTMLElement), this._options);
+    }
   }
 }

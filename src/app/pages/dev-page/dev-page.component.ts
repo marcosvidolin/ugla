@@ -19,6 +19,8 @@ export class DevPageComponent implements OnInit {
   hiddenContent = true;
   rotateIcon = false;
 
+  testTooltip = 'Inicial';
+
   images = [
     'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg',
     'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg',
@@ -45,7 +47,7 @@ export class DevPageComponent implements OnInit {
 
   testDate() {
     // console.log(this.dueDateDatePicker.picker);
-    this.dueDateDatePicker.resetField();
+    this.testTooltip = 'Segundo';
   }
 
   ngOnInit() {
