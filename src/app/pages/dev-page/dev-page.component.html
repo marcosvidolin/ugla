@@ -1,36 +1,16 @@
-<ugl-toolbar [title]="'Teste'">
-  
-  <ugl-button
-    [id]="'test-icon'"
-    [size]="'small'"
-    [wave]="true"
-    [style]="'icon'">
-    <i class="material-icons">assessment</i>
-  </ugl-button>
-  <ugl-button
-    [id]="'test-icon'"
-    [size]="'small'"
-    [style]="'icon'">
-    <i class="material-icons">alarm_add</i>
-  </ugl-button>
-  <ugl-button
-    [id]="'test-icon'"
-    [size]="'small'"
-    [style]="'icon'">
-    <i class="material-icons">accessible_forward</i>
-  </ugl-button>
-  <ugl-button
-    [id]="'test-icon'"
-    [size]="'small'"
-    [style]="'icon'">
-    <i class="material-icons">assignment_ind</i>
-  </ugl-button>
-  <ugl-button
-    [id]="'test-icon'"
-    [size]="'small'"
-    [rotated]="rotateIcon"
-    [style]="'icon'"
-    (action)="rotateNow()">
-    <i class="material-icons">delete_outline</i>
-  </ugl-button>
-</ugl-toolbar>
+<section class="central" style="margin-top: 60px;">
+  <ugl-datepicker *ngIf="datepickerOptions"
+          [label]="'Due Date'"
+          [name]="'dueDate'"
+          [options]="datepickerOptions"
+          [required]="true"
+          [message]="'Due Date must be equal or after today'"
+          [messageRequired]="'Due Date is required'"
+          [messageInvalidSelection]="'This date is invalid for selection'"
+          [language]="'en'"
+          (onSelectValue)="onChangeDueDate($event)"
+          [span]="'3'"
+          uglGrid #dueDate></ugl-datepicker>
+
+  <button (click)="testDate()">TESTE</button>
+</section>

@@ -1,6 +1,7 @@
+import { DatepickerComponent } from './../../../../projects/ugla/src/lib/components/datepicker/datepicker.component';
 import { ToastService } from './../../../../projects/ugla/src/lib/components/toast/toast.service';
 import { LightboxService } from './../../../../projects/ugla/src/lib/components/lightbox/lightbox.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalService } from 'projects/ugla/src';
 
 @Component({
@@ -29,6 +30,23 @@ export class DevPageComponent implements OnInit {
     'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg',
     'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg'
   ];
+
+  @ViewChild('dueDate') dueDateDatePicker: DatepickerComponent;
+
+  datepickerOptions: any = {
+    startDate: new Date(),
+    minDate: new Date(),
+    position: 'br'
+  };
+
+  onChangeDueDate(event) {
+    console.log(event);
+  }
+
+  testDate() {
+    // console.log(this.dueDateDatePicker.picker);
+    this.dueDateDatePicker.resetField();
+  }
 
   ngOnInit() {
     this.toastService.warning('Warning', 'Invalid Report Number', 0);

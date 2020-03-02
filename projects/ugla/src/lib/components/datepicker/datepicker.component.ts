@@ -214,7 +214,6 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
    */
   onDateChange(picker) {
     if (picker) {
-
       if (!!this.datePattern) {
         try {
           let momentDate: moment_.Moment;
@@ -261,6 +260,11 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
     }
   }
 
+  resetField() {
+    this.picker.setDate(null, false);
+    this.picker.parent.classList.add('reset');
+  }
+
   /**
    * Set initials configurations
    */
@@ -298,6 +302,8 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
   onFocusIn(instance) {
     const input: HTMLInputElement = instance.el;
     input.setAttribute('focused', 'true');
+
+    input.parentElement.classList.remove('reset');
   }
 
   /**
@@ -307,7 +313,12 @@ export class DatepickerComponent implements OnInit, AfterViewInit {
   onFocusOut(instance) {
     // Both instances will be set because they are linked by `id`.
     const input: HTMLInputElement = instance.el;
-    if (this.required && input.hasAttribute('focused')) {
+
+    if (input.parentElement.classList.value.indexOf('reset') > -1) {
+      this.invalid = false;
+      input.classList.remove('invalid');
+      this.message = this.originalMessage;
+    } else if (this.required && input.hasAttribute('focused')) {
       if (input.value.length === 0) {
         this.invalid = true;
         this.message = this.messageRequired;
