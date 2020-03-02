@@ -1,4 +1,4 @@
-import { Directive, ElementRef, Input, AfterViewInit, SimpleChanges, OnChanges } from '@angular/core';
+import { Directive, ElementRef, Input, AfterViewInit, OnChanges, SimpleChanges } from '@angular/core';
 import Tooltip from 'tooltip.js';
 import { Options, TitleFunction } from 'tooltip.js';
 
@@ -41,7 +41,7 @@ import { Options, TitleFunction } from 'tooltip.js';
 })
 export class TooltipDirective implements AfterViewInit, OnChanges {
 
-  _tooltip: any;
+  _tooltip: Tooltip;
 
   /**
    * Default tooltip options
@@ -51,7 +51,7 @@ export class TooltipDirective implements AfterViewInit, OnChanges {
     title: undefined,
     trigger: 'hover focus',
     closeOnClickOutside: true,
-  }
+  };
 
   /**
    * Set the tooltip title value
@@ -80,20 +80,22 @@ export class TooltipDirective implements AfterViewInit, OnChanges {
     if (this.title) {
       this._options.title = this.title;
     }
-    this.newTooltipInstance();
+    this._tooltip = new Tooltip((this.elementRef.nativeElement as HTMLElement), this._options);
   }
 
   /**
    * Set a new tooltip instance
    */
-  private newTooltipInstance() {
-    this._tooltip = new Tooltip((this.elementRef.nativeElement as HTMLElement), this._options);
+  private newTooltipInstance(value: string | HTMLElement | TitleFunction) {
+    if (this._tooltip) {
+      this._tooltip.updateTitleContent(value.toString());
+    }
   }
 
   ngOnChanges(changes: SimpleChanges) {
-    if (changes.title.currentValue) {
+    if (changes.title.currentValue !== changes.title.previousValue) {
       this._options.title = changes.title.currentValue;
-      this._tooltip = new Tooltip((this.elementRef.nativeElement as HTMLElement), this._options);
+      this.newTooltipInstance(this._options.title);
     }
   }
 }

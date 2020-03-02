@@ -3,6 +3,7 @@ import { ToastService } from './../../../../projects/ugla/src/lib/components/toa
 import { LightboxService } from './../../../../projects/ugla/src/lib/components/lightbox/lightbox.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { ModalService } from 'projects/ugla/src';
+import Tooltip from 'tooltip.js';
 
 @Component({
   selector: 'app-dev-page',
@@ -35,6 +36,8 @@ export class DevPageComponent implements OnInit {
 
   @ViewChild('dueDate') dueDateDatePicker: DatepickerComponent;
 
+  @ViewChild('tooltipItem') tooltipItem: any;
+
   datepickerOptions: any = {
     startDate: new Date(),
     minDate: new Date(),
@@ -51,7 +54,7 @@ export class DevPageComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.toastService.warning('Warning', 'Invalid Report Number', 0);
+
   }
 
   rotateNow() {

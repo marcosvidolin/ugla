@@ -1,5 +1,5 @@
 <section class="central" style="margin-top: 60px;">
-  <p [uglTooltip]="{placement: 'bottom'}" [uglTooltipTitle]="testTooltip">{{ testTooltip}}</p>
+  <p #tooltipItem [uglTooltip]="{placement: 'bottom'}" [uglTooltipTitle]="testTooltip">{{ testTooltip}}</p>
 
   <button (click)="testDate()">TESTE</button>
 </section>
