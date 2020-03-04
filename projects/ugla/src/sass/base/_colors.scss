@@ -46,7 +46,8 @@ $colors: (
     text-shadow: #999,
     body: #f2f0f0,
     body-alpha: rgba(242, 240, 240, .9),
-    light-alpha: rgba(255, 255, 255, 0)
+    light-alpha: rgba(255, 255, 255, 0),
+    modal-overlay: rgba(0, 0, 0, .67)
   ),
   _code: (
     background: #23241f

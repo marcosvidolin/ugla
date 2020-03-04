@@ -1,0 +1,30 @@
+<div class="modal-overlay">
+  <div class="modal" aria-labelledby="modalTitle" aria-modal="true" [attr.aria-label]="'modalTitle'">
+    <div class="header">
+      <div class="icon">
+        <i class="material-icons" aria-hidden="true">radio</i>
+      </div>
+      <h2>Título</h2>
+    </div>
+    <div class="content">
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, ut.</p>
+      <ng-content></ng-content>
+    </div>
+    <div class="footer">
+      <ugl-button
+        *ngIf="true"
+        [type]="'button'"
+        [color]="'red'"
+        [style]="'border'"
+        [title]="'Cancelar'"
+        [id]="'cancel-button'">Cancelar</ugl-button>
+      <ugl-button
+        [type]="'submit'"
+        [color]="'aquamarine'"
+        [style]="'fill'"
+        [title]="'Confirmar'"
+        [disabled]="false"
+        [id]="'submit-button'">Confirmar</ugl-button>
+    </div>
+  </div>
+</div>

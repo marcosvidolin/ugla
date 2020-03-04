@@ -1,0 +1,63 @@
+@import '../../../sass/index';
+
+.modal-overlay {
+  position: fixed;
+  display: flex;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  background-color: color(_others, 'modal-overlay');
+  z-index: settings($z-index, 'modal');
+  align-items: center;
+  justify-content: center;
+}
+
+.modal {
+  display: flex;
+  width: calc(100% - 20px);
+  min-width: 300px;
+  max-width: 480px;
+  height: auto;
+  padding: 1rem;
+  pointer-events: auto;
+  flex-direction: column;
+  border-radius: 5px;
+  background-color: color(_others, 'light');
+  @include cross-browser(box-shadow, 0 4px 8px 0 color(_others, dark-alpha));
+
+  .header {
+    padding-bottom: 1rem;
+    text-align: center;
+
+    .icon {
+      display: flex;
+      width: 64px;
+      height: 64px;
+      margin: 0 auto;
+      border-radius: 100%;
+      background: color(_gray, medium);
+      align-items: center;
+      justify-content: center;
+
+      i {
+        color: color(_others, light);
+      }
+    }
+
+    h2 {
+      font-size: 2rem;
+      font-weight: 600;
+      text-align: center;
+    }
+  }
+
+  .content {
+    padding-bottom: 1rem;
+  }
+
+  .footer {
+    display: flex;
+    justify-content: space-between;
+  }
+}

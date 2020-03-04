@@ -28,6 +28,8 @@ export { PaginationComponent } from './pagination/pagination.component';
 export { PaginationItemsPerPageComponent } from './pagination/pagination-items-per-page/pagination-items-per-page.component';
 export { ModalComponent } from './modal/modal.component';
 export { ModalService } from './modal/modal.service';
+export { Modal2Component } from './modal2/modal2.component';
+export { Modal2Service } from './modal2/modal2.service';
 export { HyperLinkComponent } from './hyper-link/hyper-link.component';
 export { BackPanelComponent } from './panels/back-panel/back-panel.component';
 export { RadioComponent } from './radio/radio.component';

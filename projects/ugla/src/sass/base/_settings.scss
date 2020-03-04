@@ -34,3 +34,12 @@ $font-weight: (
 $width: (
   'content': 1024px
 );
+
+@function settings($map, $key) {
+  @if map-has-key($map, $key) {
+    @return map-get($map, $key);
+  }
+
+  @warn 'Unknown `#{$key}` in #{$map}.';
+  @return null;
+}
