@@ -197,14 +197,16 @@ $label-animate-time: 0.2s;
 
           input {
             width: 100%;
-            border-radius: 0 0.5rem 0.5rem 0;
+            border-radius: 0 .5rem .5rem 0;
+            box-shadow: 0 0 transparent;
           }
 
           &:first-child {
             margin-right: -4px;
 
             input {
-              border-radius: 0.5rem 0 0 0.5rem;
+              border-radius: .5rem 0 0 .5rem;
+              box-shadow: 0 0 transparent;
             }
           }
         }
@@ -247,7 +249,8 @@ $label-animate-time: 0.2s;
             input {
               width: 85%;
               border: 1px solid color(_#{$theme}, medium);
-              border-radius: 0 0.5rem 0.5rem 0;
+              border-radius: 0 .5rem .5rem 0;
+              box-shadow: 0 0 transparent;
             }
           }
         }
