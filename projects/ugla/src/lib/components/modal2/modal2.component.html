@@ -1,13 +1,11 @@
 <div class="modal-overlay">
-  <div class="modal" aria-labelledby="modalTitle" aria-modal="true" [attr.aria-label]="'modalTitle'">
+  <div class="modal" [ngClass]="texts.type" aria-labelledby="modal-title" aria-modal="true" [attr.aria-label]="'modal-title'">
     <div class="header">
-      <div class="icon">
-        <i class="material-icons" aria-hidden="true">radio</i>
-      </div>
-      <h2>Título</h2>
+      <div class="icon" [innerHTML]="texts.icon"></div>
+      <h2 id="modal-title">{{ texts.title }}</h2>
     </div>
     <div class="content">
-      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, ut.</p>
+      <p [innerHTML]="texts.content"></p>
       <ng-content></ng-content>
     </div>
     <div class="footer">
@@ -17,14 +15,14 @@
         [color]="'red'"
         [style]="'border'"
         [title]="'Cancelar'"
-        [id]="'cancel-button'">Cancelar</ugl-button>
+        [id]="'cancel-button'">{{ texts.cancel }}</ugl-button>
       <ugl-button
         [type]="'submit'"
         [color]="'aquamarine'"
         [style]="'fill'"
         [title]="'Confirmar'"
         [disabled]="false"
-        [id]="'submit-button'">Confirmar</ugl-button>
+        [id]="'submit-button'">{{ texts.confirm }}</ugl-button>
     </div>
   </div>
 </div>

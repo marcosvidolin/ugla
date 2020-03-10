@@ -7,6 +7,15 @@ import { Component, OnInit } from '@angular/core';
 })
 export class Modal2Component implements OnInit {
 
+  texts = {
+    confirm: 'Confirm',
+    cancel: 'Cancel',
+    title: 'Title',
+    icon: ' <i class="material-icons" aria-hidden="true">radio</i>',
+    content: 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Molestias, ut.',
+    type: 'warning'
+  };
+
   constructor() { }
 
   ngOnInit() {

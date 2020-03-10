@@ -35,13 +35,15 @@
       width: 64px;
       height: 64px;
       margin: 0 auto;
+      font-size: 2rem;
+      color: color(_others, light);
       border-radius: 100%;
-      background: color(_gray, medium);
+      background-color: color(_gray, medium);
       align-items: center;
       justify-content: center;
 
-      i {
-        color: color(_others, light);
+      &::ng-deep i {
+        font-size: 2rem;
       }
     }
 
@@ -59,5 +61,53 @@
   .footer {
     display: flex;
     justify-content: space-between;
+  }
+
+  &.warning {
+    .header {
+      .icon {
+        background-color: color(_yellow, medium);
+      }
+
+      h2 {
+        color: color(_yellow, medium);
+      }
+    }
+  }
+
+  &.error {
+    .header {
+      .icon {
+        background-color: color(_red, medium);
+      }
+
+      h2 {
+        color: color(_red, medium);
+      }
+    }
+  }
+
+  &.info {
+    .header {
+      .icon {
+        background-color: color(_aquamarine, medium);
+      }
+
+      h2 {
+        color: color(_aquamarine, medium);
+      }
+    }
+  }
+
+  &.success {
+    .header {
+      .icon {
+        background-color: color(_green, medium);
+      }
+
+      h2 {
+        color: color(_green, medium);
+      }
+    }
   }
 }
