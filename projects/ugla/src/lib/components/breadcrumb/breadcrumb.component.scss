@@ -1,0 +1,49 @@
+@import '../../../sass/index';
+
+.breadcrumb {
+  position: fixed;
+  display: flex;
+  width: 100%;
+  padding: 8px 14px;
+  top: 0;
+  background-color: color(_others, body);
+  z-index: map-get($z-index, 'toolbar');
+  align-items: center;
+
+  @include mobile() {
+    display: none;
+  }
+
+  a {
+    display: flex;
+    font-size: 14px;
+    color: color(_aquamarine, medium);
+    text-decoration: none;
+    align-items: center;
+
+    .material-icons {
+      font-size: 18px;
+    }
+
+    &:hover {
+      font-weight: 600;
+    }
+
+    &:before {
+      @extend %material-icons;
+      content: 'keyboard_arrow_right';
+      font-size: 14px;
+      color: color(_gray, medium);
+
+    }
+
+    &:first-child {
+      display: flex;
+      align-items: center;
+
+      &:before {
+        display: none;
+      }
+    }
+  }
+}

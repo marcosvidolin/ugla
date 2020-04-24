@@ -1,6 +1,8 @@
+import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 export { AsideComponent } from './aside/aside.component';
 export { BrandComponent } from './brand/brand.component';
 export { ButtonComponent } from './button/button.component';
+export { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 export { CheckboxComponent } from './checkbox/checkbox.component';
 export { DatepickerComponent } from './datepicker/datepicker.component';
 export { FieldComponent } from './field/field.component';

@@ -24,6 +24,11 @@ export class DevPageComponent implements OnInit {
     new MenuItem('Colaboradores', '/colaboradores', true, true)
   ]);
 
+  breadcrumb = new Menu([
+    new MenuItem('Colaboradores', '/colaboradores', true, true),
+    new MenuItem('Detalhes', '/colaboradores/id', true, true),
+  ]);
+
   constructor() { }
 
   ngOnInit() {}

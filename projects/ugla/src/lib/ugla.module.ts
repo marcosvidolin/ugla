@@ -51,6 +51,7 @@ import { BannerComponent } from './components/banner/banner.component';
 import { QuoteComponent } from './components/quote/quote.component';
 import { LightboxDirective } from './directives/lightbox.directive';
 import { AsideComponent } from './components/aside/aside.component';
+import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 
 registerPlugin(FilePondPluginFileValidateType,
   FilePondPluginFileValidateSize,
@@ -105,7 +106,8 @@ registerPlugin(FilePondPluginFileValidateType,
     RadioComponent,
     BannerComponent,
     QuoteComponent,
-    AsideComponent
+    AsideComponent,
+    BreadcrumbComponent
   ],
   exports: [
     UglaComponent,
@@ -145,7 +147,8 @@ registerPlugin(FilePondPluginFileValidateType,
     RadioComponent,
     BannerComponent,
     QuoteComponent,
-    AsideComponent
+    AsideComponent,
+    BreadcrumbComponent
   ],
   providers: [UglaService]
 })

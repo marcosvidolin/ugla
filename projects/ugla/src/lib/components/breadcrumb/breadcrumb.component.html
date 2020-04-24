@@ -1,0 +1,9 @@
+<nav class="breadcrumb">
+  <a href="/dev"><span class="material-icons">dashboard</span></a>
+  <a *ngFor="let item of menu.items; let idx = index"
+        [routerLink]="item.url"
+        [routerLinkActive]="'active'"
+        [routerLinkActiveOptions]="{exact: true}"
+        class="gtm-menu-item"
+        [id]="'breadcrumb-' + idx">{{ item.description }}</a>
+</nav>

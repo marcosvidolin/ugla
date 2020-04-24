@@ -1,4 +1,4 @@
-.material-icons {
+%material-icons {
   font-family: 'Material Icons';
   font-weight: normal;
   font-style: normal;
@@ -21,6 +21,10 @@
 
   /* Support for IE. */
   font-feature-settings: 'liga';
+}
+
+.material-icons {
+  @extend %material-icons;
 }
 
 .btn {
