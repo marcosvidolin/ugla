@@ -8,6 +8,11 @@
   z-index: 2;
   align-items: center;
 
+  &.has-breadcrumb {
+    position: relative;
+    top: 0;
+  }
+
   @include mobile() {
     justify-content: space-between;
   }

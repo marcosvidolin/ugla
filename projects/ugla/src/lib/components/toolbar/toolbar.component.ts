@@ -12,17 +12,21 @@ import { UglaService } from '../../ugla.service';
   templateUrl: './toolbar.component.html',
   styleUrls: ['./toolbar.component.scss']
 })
-export class ToolbarComponent {
+export class ToolbarComponent implements OnInit {
 
   /**
    * Set title
    */
   @Input() title: string;
 
+  @Input() hasBreadcrumb = false;
+
   /**
    * Receives the theme's name
    */
   public theme: string;
+
+  public classes: string;
 
   /**
    * Receives the component's name
@@ -30,5 +34,10 @@ export class ToolbarComponent {
    */
   constructor(private ugla: UglaService) {
     this.theme = ugla.theme;
+  }
+
+  ngOnInit() {
+    this.classes = this.ugla.theme + ' ' + 
+                  (this.hasBreadcrumb ? 'has-breadcrumb' : '');
   }
 }

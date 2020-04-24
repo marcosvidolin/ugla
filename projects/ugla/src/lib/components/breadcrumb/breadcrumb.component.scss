@@ -14,6 +14,10 @@
     display: none;
   }
 
+  > div {
+    display: flex;
+  }
+
   a {
     display: flex;
     font-size: 14px;
@@ -37,7 +41,7 @@
 
     }
 
-    &:first-child {
+    &.dashboard {
       display: flex;
       align-items: center;
 
