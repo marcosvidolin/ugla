@@ -1,0 +1,20 @@
+<aside>
+  <header>
+    <img [src]="people.photo" [alt]="people.name + ' ' + altPhoto" tabindex='0'>
+    <div class="infos" tabindex='0'>
+      <span class="name">{{ people.name }}</span>
+      <span class="email">{{ people.email }}</span>
+    </div>
+  </header>
+  <nav tabindex='0'>
+    <a *ngFor="let item of menu.items; let idx = index"
+        [routerLink]="item.url"
+        [routerLinkActive]="'active'"
+        [routerLinkActiveOptions]="{exact: true}"
+        class="gtm-menu-item"
+        [id]="'aside-menu-' + idx">{{ item.description }}<span class="material-icons">{{ item.icon || iconLinks }}</span></a>
+  </nav>
+  <button (click)="logout()" tabindex='0'>
+    <span class="material-icons">{{ iconLogout }}</span> {{ textLogout }}
+  </button>
+</aside>

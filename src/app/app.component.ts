@@ -15,7 +15,7 @@ export class AppComponent implements OnInit {
       this.routeEvent(this.router);
     }
 
-  isAutenticated = false;
+  isAutenticated = true;
 
   header = new Header('Ugla', './assets/imgs/logo.png', 'home', true);
 

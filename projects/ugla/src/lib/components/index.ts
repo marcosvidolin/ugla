@@ -1,4 +1,4 @@
-import { LightboxService } from './lightbox/lightbox.service';
+export { AsideComponent } from './aside/aside.component';
 export { BrandComponent } from './brand/brand.component';
 export { ButtonComponent } from './button/button.component';
 export { CheckboxComponent } from './checkbox/checkbox.component';

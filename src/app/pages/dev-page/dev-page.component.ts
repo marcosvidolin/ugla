@@ -1,3 +1,6 @@
+import { MenuItem } from './../../../../projects/ugla/src/lib/models/menu-item';
+import { Menu } from './../../../../projects/ugla/src/lib/models/menu';
+import { People } from './../../../../projects/ugla/src/lib/models/people';
 import { DatepickerComponent } from './../../../../projects/ugla/src/lib/components/datepicker/datepicker.component';
 import { ToastService } from './../../../../projects/ugla/src/lib/components/toast/toast.service';
 import { LightboxService } from './../../../../projects/ugla/src/lib/components/lightbox/lightbox.service';
@@ -11,92 +14,17 @@ import Tooltip from 'tooltip.js';
   styleUrls: ['./dev-page.component.scss']
 })
 export class DevPageComponent implements OnInit {
-  constructor(
-    private modal: ModalService,
-    private lightbox: LightboxService,
-    private toastService: ToastService
-  ) { }
+  people = new People('Regivaldo Silva',
+                      'regivaldorfs@gmail.com',
+                      'https://lh6.googleusercontent.com/proxy/zVJCBiGDPk0lFxTm9dzhALLxH8kILxcS73wtk1D0neLJLGk1axcgEZyPvvlqXkXY3_ehxyQt5Y5Tsi3jhGjJmxkh5oLm9_GYbJO6AwHEpFDAZQQX3uN9RHYS-VOG6lwOgsN9EgkuGkhGyupSdy-jZ0f-YLcbSiX4E5qaIV4aP5weeyvnCWPJEmzj1IMh2u11310iEKHeFw');
 
-  hiddenContent = true;
-  rotateIcon = false;
+  menu = new Menu([
+    new MenuItem('Atestados', '/atestados', true, true),
+    new MenuItem('Exame Periódico', '/atestados', true, true),
+    new MenuItem('Colaboradores', '/colaboradores', true, true)
+  ]);
 
-  testTooltip = 'Inicial';
+  constructor() { }
 
-  images = [
-    'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg',
-    'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg',
-    'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg'
-  ];
-
-  images2 = [
-    'http://corrupteddevelopment.com/wp-content/uploads/2012/03/sky-blue-background.jpg',
-    'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg',
-    'https://edumoreira.com.br/wp-content/uploads/2019/08/Qual-a-diferen%C3%A7a-entre-DOC-e-TED-870x450.jpg'
-  ];
-
-  @ViewChild('dueDate') dueDateDatePicker: DatepickerComponent;
-
-  @ViewChild('tooltipItem') tooltipItem: any;
-
-  datepickerOptions: any = {
-    startDate: new Date(),
-    minDate: new Date(),
-    position: 'br'
-  };
-
-  onChangeDueDate(event) {
-    console.log(event);
-  }
-
-  testDate() {
-    // console.log(this.dueDateDatePicker.picker);
-    this.testTooltip = 'Segundo';
-  }
-
-  ngOnInit() {
-
-  }
-
-  rotateNow() {
-    this.rotateIcon = !this.rotateIcon;
-  }
-
-  openLightbox() {
-    this.lightbox.open(this.images, false, this.iconCallback, 'delete_outline');
-  }
-
-  iconCallback(position: string): void {
-    console.log('POSITION', position);
-  }
-
-  openWarning() {
-    this.modal.warning('Warning', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, rem.', true);
-  }
-
-  openError() {
-    this.modal.error('Error', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, rem.', true);
-  }
-
-  openSuccess() {
-    this.modal.success('Success', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, rem.', true);
-  }
-
-  openInfo() {
-    this.modal.info('Info', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, rem.', true);
-  }
-
-  openTemplate() {
-    this.hiddenContent = true;
-    this.modal.info('Template', 'Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, rem.', true);
-  }
-
-  cancel() {
-    this.hiddenContent = false;
-    this.modal.closeModal();
-  }
-
-  confirm() {
-    this.hiddenContent = false;
-    this.modal.closeModal();
-  }
+  ngOnInit() {}
 }
