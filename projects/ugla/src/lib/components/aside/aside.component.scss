@@ -55,11 +55,20 @@ header {
   }
 }
 
-nav {
+ul {
   position: relative;
   height: calc(100vh - 102px);
+  margin: 0;
   padding: 10px;
   overflow-y: auto;
+  list-style: none;
+
+  li {
+    > ul {
+      height: auto;
+      padding: 0;
+    }
+  }
 
   a {
     display: flex;
@@ -69,6 +78,10 @@ nav {
     color: color(_gray, dark);
     text-decoration: none;
     justify-content: space-between;
+
+    &.submenu {
+      color: color(_aquamarine, dark);
+    }
 
     @include mobile() {
       font-size: 16px;

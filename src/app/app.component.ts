@@ -66,8 +66,12 @@ export class AppComponent implements OnInit {
     this.ugla.hasToolBar();
   }
 
-  logout(status) {
-    console.log('Logout');
+  hideMenu() {
+    this.isAutenticated = false;
+  }
+
+  logout() {
+    this.isAutenticated = false;
   }
 
   selectLanguage(language) {

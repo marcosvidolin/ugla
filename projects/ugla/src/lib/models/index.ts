@@ -1,3 +1,4 @@
+export { AsideItem } from './aside-item';
 export { Auth } from './auth';
 export { Header } from './header';
 export { MenuItem } from './menu-item';

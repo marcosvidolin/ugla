@@ -5,7 +5,7 @@ import { DatepickerComponent } from './../../../../projects/ugla/src/lib/compone
 import { ToastService } from './../../../../projects/ugla/src/lib/components/toast/toast.service';
 import { LightboxService } from './../../../../projects/ugla/src/lib/components/lightbox/lightbox.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { ModalService } from 'projects/ugla/src';
+import { ModalService, AsideItem } from 'projects/ugla/src';
 import Tooltip from 'tooltip.js';
 
 @Component({
@@ -18,11 +18,18 @@ export class DevPageComponent implements OnInit {
                       'regivaldorfs@gmail.com',
                       'https://lh6.googleusercontent.com/proxy/zVJCBiGDPk0lFxTm9dzhALLxH8kILxcS73wtk1D0neLJLGk1axcgEZyPvvlqXkXY3_ehxyQt5Y5Tsi3jhGjJmxkh5oLm9_GYbJO6AwHEpFDAZQQX3uN9RHYS-VOG6lwOgsN9EgkuGkhGyupSdy-jZ0f-YLcbSiX4E5qaIV4aP5weeyvnCWPJEmzj1IMh2u11310iEKHeFw');
 
-  menu = new Menu([
-    new MenuItem('Atestados', '/atestados', true, true),
-    new MenuItem('Exame Periódico', '/atestados', true, true),
-    new MenuItem('Colaboradores', '/colaboradores', true, true)
-  ]);
+
+  menu = [
+    new AsideItem('Atestados', '/atestados'),
+    new AsideItem('Exame Periódico', null, true, true, '', [
+      new AsideItem('Teste 1', '/atestados'),
+      new AsideItem('Teste 2', '/atestados'),
+    ]),
+    new AsideItem('Colaboradores', null, true, true, '', [
+      new AsideItem('Teste 1', '/atestados'),
+      new AsideItem('Teste 2', '/atestados'),
+    ])
+  ];
 
   breadcrumb = new Menu([
     new MenuItem('Colaboradores', '/colaboradores', true, true),

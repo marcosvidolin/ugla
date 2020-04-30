@@ -6,14 +6,26 @@
       <span class="email">{{ people.email }}</span>
     </div>
   </header>
-  <nav tabindex='0'>
-    <a *ngFor="let item of menu.items; let idx = index"
-        [routerLink]="item.url"
-        [routerLinkActive]="'active'"
-        [routerLinkActiveOptions]="{exact: true}"
-        class="gtm-menu-item"
-        [id]="'aside-menu-' + idx">{{ item.description }}<span class="material-icons">{{ item.icon || iconLinks }}</span></a>
-  </nav>
+  <ul tabindex='0'>
+    <li *ngFor="let item of menu; let idx = index">
+      <a [routerLink]="item.url"
+          [routerLinkActive]="'active'"
+          [routerLinkActiveOptions]="{exact: true}"
+          class="gtm-menu-item"
+          (click)="toogleSubmenu(idx)"
+          [ngClass]="{'submenu' : item.submenu}"
+          [id]="'aside-menu-' + idx">{{ item.description }}<span class="material-icons">{{ item.icon || getIcon(idx) }}</span></a>
+      <ul *ngIf="item.submenu && item.open !== undefined && item.open">
+        <li *ngFor="let subitem of item.submenu; let jx = index">
+          <a [routerLink]="subitem.url"
+              [routerLinkActive]="'active'"
+              [routerLinkActiveOptions]="{exact: true}"
+              class="gtm-menu-subitem"
+              [id]="'aside-submenu-' + jx">{{ subitem.description }}<span class="material-icons">{{ subitem.icon || getIcon(idx, jx) }}</span></a>
+        </li>
+      </ul>
+    </li>
+  </ul>
   <button (click)="logout()" tabindex='0'>
     <span class="material-icons">{{ iconLogout }}</span> {{ textLogout }}
   </button>
