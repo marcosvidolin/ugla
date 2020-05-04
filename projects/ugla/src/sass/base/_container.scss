@@ -4,8 +4,9 @@ section {
 
   .container {
     width: 100%;
-    min-height: 100vh;
     margin: 0 auto;
+    padding-top: 1rem;
+    padding-bottom: 1rem;
   }
 
   &.has-header {
@@ -13,7 +14,6 @@ section {
 
     .container {
       min-height: calc(100vh - 60px);
-      padding: 1rem 0;
     }
   }
 
@@ -22,7 +22,6 @@ section {
 
     .container {
       min-height: calc(100vh - 100px);
-      padding: 1rem 0;
     }
   }
 
@@ -37,12 +36,11 @@ section {
       min-height: calc(100vh - 34px);
     }
   }
-}
 
-.container {
-  &.central {
+  .central {
     width: 1024px;
-    padding: 1rem;
+    padding-right: 1rem;
+    padding-left: 1rem;
     background-color: color(_others, 'light');
     box-shadow: 0 1rem 1rem color(_others, 'shadow');
   }
