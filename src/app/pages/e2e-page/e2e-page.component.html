@@ -12,12 +12,12 @@
   </div>
 </ugl-header>
 
-<article>
-  <section class="central">
+<section class="has-header">
+  <div class="container central">
     <ugl-page-title [firstTitle]="'E2E'" [secondTitle]="'page test'"></ugl-page-title>
-  
+
     <h2 class="color-aquamarine">Buttons</h2>
-  
+
     <div uglGrid [grid]="true" [col]="totalColors">
       <ugl-button *ngFor="let color of colors; index as i"
         [id]="'btn-fill-' + index"
@@ -32,7 +32,7 @@
         [floating]="false"
         (action)="clickButton()">Fill {{ color }}</ugl-button>
     </div>
-  
+
     <div uglGrid [grid]="true" [col]="totalColors">
       <ugl-button *ngFor="let color of colors; index as i"
         [id]="'btn-fill-' + index"
@@ -138,8 +138,8 @@
         (action)="clickButton()"><i class="material-icons">add</i> Border {{ color }}</ugl-button>
     </div>
   
-  </section>
-</article>
+  </div>
+</section>
 
 <ugl-banner
   [title]="'Teste de E2E com Ugla'"
