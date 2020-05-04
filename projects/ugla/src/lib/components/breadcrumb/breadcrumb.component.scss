@@ -4,7 +4,7 @@
   position: fixed;
   display: flex;
   width: 100%;
-  padding: 8px 14px;
+  padding: 8px 0;
   top: 0;
   background-color: color(_others, body);
   z-index: map-get($z-index, 'toolbar');

@@ -188,3 +188,52 @@ section {
     }
   }
 }
+
+.main-content { //futuramente trocar por section
+  //$header-height: 45px;
+  padding: 0 1rem;
+
+  .container {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0 auto;
+  }
+
+  &.has-header {
+    margin-top: 60px; //transformar em variável
+
+    .container {
+      min-height: calc(100vh - 60px);
+    }
+  }
+
+  &.has-toolbar {
+    margin-top: 100px; //transformar em variável
+
+    .container {
+      min-height: calc(100vh - 100px);
+      padding: 1rem 0;
+    }
+  }
+
+  &.has-aside {
+    margin-left: 200px;
+  }
+
+  &.has-breadcrumb {
+    margin-top: 34px; //transformar em variável
+
+    .container {
+      min-height: calc(100vh - 34px);
+    }
+  }
+}
+
+.container {
+  &.central {
+    width: 1024px;
+    padding: 1rem;
+    background-color: color(_others, 'light');
+    box-shadow: 0 1rem 1rem color(_others, 'shadow');
+  }
+}
