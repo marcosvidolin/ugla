@@ -2,11 +2,20 @@
 section {
   padding: 0 1rem;
 
+  @include mobile() {
+    padding: 0;
+  }
+
   .container {
     width: 100%;
     margin: 0 auto;
     padding-top: 1rem;
     padding-bottom: 1rem;
+
+    @include mobile() {
+      padding-right: 1rem;
+      padding-left: 1rem;
+    }
   }
 
   &.has-header {
@@ -43,5 +52,9 @@ section {
     padding-left: 1rem;
     background-color: color(_others, 'light');
     box-shadow: 0 1rem 1rem color(_others, 'shadow');
+
+    @include mobile() {
+      width: 100%;
+    }
   }
 }
