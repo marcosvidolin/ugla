@@ -1,13 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { UglaService, Menu, MenuItem, Header, People } from 'projects/ugla/src';
+import { Header, MenuItem, Menu, People, UglaService } from 'projects/ugla/src';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  selector: 'app-menu-page',
+  templateUrl: './menu-page.component.html',
+  styleUrls: ['./menu-page.component.scss']
 })
-export class HomePageComponent implements OnInit {
-
+export class MenuPageComponent implements OnInit {
   constructor(private ugla: UglaService) {}
 
   isAutenticated = true;

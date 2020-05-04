@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
-import { UglaService, Menu, MenuItem, Header, People } from 'projects/ugla/src';
+import { UglaService, Header, People, Menu, MenuItem } from 'projects/ugla/src';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  selector: 'app-menu-with-toolbar-page',
+  templateUrl: './menu-with-toolbar-page.component.html',
+  styleUrls: ['./menu-with-toolbar-page.component.scss']
 })
-export class HomePageComponent implements OnInit {
+export class MenuWithToolbarPageComponent implements OnInit {
 
   constructor(private ugla: UglaService) {}
 
@@ -29,7 +29,7 @@ export class HomePageComponent implements OnInit {
   ngOnInit() {
     this.header.people = this.people;
     this.header.menu = this.menu;
-    this.ugla.headerShadow = true;
+    this.ugla.headerShadow = false;
     this.ugla.hasToolBar();
   }
 
@@ -44,4 +44,5 @@ export class HomePageComponent implements OnInit {
   selectLanguage(language) {
     console.log(`Language selected is ${language.description} and the code is ${language.value}`);
   }
+
 }

@@ -1,28 +1,44 @@
-<section class="central padding">
-  <ugl-page-title [firstTitle]="'Ugla'" [secondTitle]="'Library'"></ugl-page-title>
-  <div uglGrid [grid]="true" [col]="2" [colSm]="1" [gap]="1">
-    <div>
-      <p class="align-justify">O projeto <strong>Ugla</strong> foi desenvolvido com o objetivo de minimizar esforços no desenvolvimento FrontEnd de sistemas, trazendo consistencia e segurança para projetos que necessitam conversar entre si ou, que sejam totalmente independentes, mantendo uma identidade única e de fácil entendimento.</p>
-      <p class="align-justify">Todos os componentes desenvolvidos possuem sua base construtiva em 3 grandes pilares:</p>
-      <h2>Acessibilidade</h2>
-      <p class="align-justify">Queremos que abranger o maior número de usuários possível, sem limitar ninguém. Por isso cada componente possuem em seu desenvolvimento a preocupação com a implementação correta da semântica e de recursos de acessibilidade.</p>
-      <h2>Consistência: </h2>
-      <p class="align-justify">O sistema precisa ser simples, objetivo e claro. Por isso usamos um padrão de ícones e formatos de texto, assim como componentes bem especificados para que não gere confusão nem desentendimento por parte do usuário. Queremos simplificar e agilizar.</p>
-      <h2>Independente:</h2>
-      <p class="align-justify">Apesar de construido como uma biblioteca <a href="https:angular.io" target="_blank">Angular</a>, procuramos usar o máximo de recursos próprios, não misturando tecnologias que não são de fato cruciais. Assim, esse é um projeto que tenta ao máximo utilizar 100% dos recursos oferecidos pelo Angular.</p>
-    </div>
-    <div>
-      <p class="align-justify">O <strong>Ugla</strong> oferece diversos componentes, diretivas e serviços para o desenvolvimento de sistemas. No menu superior criamos sessões para melhor organizar e categorizar cada elemento disponibilizado.</p>
-      <h2>Temas</h2>
-      <p class="align-justify">O <strong>Ugla</strong> trabalha com uma paleta de temas, o que premite mudar facilmente a cor base do sistema. Essa cor é definida no momento em que importa o Ugla para o seu projeto com o comando a seguir: <span class="code">UglaModule.forRoot(&#123;themeName: Themes.YELLOW&#125;)</span></p>
-      <h2>Inslando e configurando</h2>
-      <p class="align-justify">A instalação é um processo bem simples, conheça mais detalhes no <a href="https://github.com/ciandt/ugla" target="blank">Github</a> do projeto.</p>
-      <h3>Instação no package.json</h3>
-      <p><span class="code">npm i ugla</span></p>
-      <h3>Configurando</h3>
-      <p>No <span class="code">app.module.js</span> importe o u UglaModule da seguinte maneira:</p>
-      <p><span class="code">UglaModule.forRoot(&#123;themeName: Themes.YELLOW&#125;)</span></p>
-      <p>As opções de temas são: <strong>WHITE</strong>, <strong>AQUAMARINE</strong>, <strong>RED</strong>, <strong>GREEN</strong>, <strong>YELLOW</strong>, <strong>GRAY</strong> e <strong>PURPLE</strong></p>
-    </div>
+<ugl-header [header]="header" (logoutAction)="logout($event)" [logoutText]="'Logout now'" *ngIf="isAutenticated">
+  <div uglGrid [grid]="true" [col]="2">
+    <ugl-button
+      [id]="'test'"
+      [size]="'small'"
+      [color]="'white'"
+      [style]="'fill'"
+      [wave]="true"
+      [title]="'Ocultar Menu'"
+      [type]="'button'"
+      (action)="hideMenu()">Ocultar Menu</ugl-button>
   </div>
-</section>
+</ugl-header>
+
+<article>
+  <section class="central padding">
+    <ugl-page-title [firstTitle]="'Ugla'" [secondTitle]="'Library'"></ugl-page-title>
+    <div uglGrid [grid]="true" [col]="2" [colSm]="1" [gap]="1">
+      <div>
+        <p class="align-justify">O projeto <strong>Ugla</strong> foi desenvolvido com o objetivo de minimizar esforços no desenvolvimento FrontEnd de sistemas, trazendo consistencia e segurança para projetos que necessitam conversar entre si ou, que sejam totalmente independentes, mantendo uma identidade única e de fácil entendimento.</p>
+        <p class="align-justify">Todos os componentes desenvolvidos possuem sua base construtiva em 3 grandes pilares:</p>
+        <h2>Acessibilidade</h2>
+        <p class="align-justify">Queremos que abranger o maior número de usuários possível, sem limitar ninguém. Por isso cada componente possuem em seu desenvolvimento a preocupação com a implementação correta da semântica e de recursos de acessibilidade.</p>
+        <h2>Consistência: </h2>
+        <p class="align-justify">O sistema precisa ser simples, objetivo e claro. Por isso usamos um padrão de ícones e formatos de texto, assim como componentes bem especificados para que não gere confusão nem desentendimento por parte do usuário. Queremos simplificar e agilizar.</p>
+        <h2>Independente:</h2>
+        <p class="align-justify">Apesar de construido como uma biblioteca <a href="https:angular.io" target="_blank">Angular</a>, procuramos usar o máximo de recursos próprios, não misturando tecnologias que não são de fato cruciais. Assim, esse é um projeto que tenta ao máximo utilizar 100% dos recursos oferecidos pelo Angular.</p>
+      </div>
+      <div>
+        <p class="align-justify">O <strong>Ugla</strong> oferece diversos componentes, diretivas e serviços para o desenvolvimento de sistemas. No menu superior criamos sessões para melhor organizar e categorizar cada elemento disponibilizado.</p>
+        <h2>Temas</h2>
+        <p class="align-justify">O <strong>Ugla</strong> trabalha com uma paleta de temas, o que premite mudar facilmente a cor base do sistema. Essa cor é definida no momento em que importa o Ugla para o seu projeto com o comando a seguir: <span class="code">UglaModule.forRoot(&#123;themeName: Themes.YELLOW&#125;)</span></p>
+        <h2>Inslando e configurando</h2>
+        <p class="align-justify">A instalação é um processo bem simples, conheça mais detalhes no <a href="https://github.com/ciandt/ugla" target="blank">Github</a> do projeto.</p>
+        <h3>Instação no package.json</h3>
+        <p><span class="code">npm i ugla</span></p>
+        <h3>Configurando</h3>
+        <p>No <span class="code">app.module.js</span> importe o u UglaModule da seguinte maneira:</p>
+        <p><span class="code">UglaModule.forRoot(&#123;themeName: Themes.YELLOW&#125;)</span></p>
+        <p>As opções de temas são: <strong>WHITE</strong>, <strong>AQUAMARINE</strong>, <strong>RED</strong>, <strong>GREEN</strong>, <strong>YELLOW</strong>, <strong>GRAY</strong> e <strong>PURPLE</strong></p>
+      </div>
+    </div>
+  </section>
+</article>

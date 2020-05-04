@@ -10,10 +10,7 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent implements OnInit {
 
   constructor(
-    private ugla: UglaService,
-    private router: Router) {
-      this.routeEvent(this.router);
-    }
+    private ugla: UglaService) {}
 
   isAutenticated = true;
 
@@ -36,29 +33,7 @@ export class AppComponent implements OnInit {
     new Options('汉语', 'ch_st'),
     new Options('漢語', 'ch_tr')
   ]);
-
-  routeEvent(router: Router) {
-    router.events.subscribe(e => {
-      if (e instanceof NavigationEnd) {
-        this.header.menu.items.filter((item) => {
-          return item.active = false;
-        });
-
-        if (this.router.url === '/') {
-          this.header.menu.items[0].active = true;
-        } else if (this.router.url === '/login') {
-          this.header.menu.items[1].active = true;
-        } else if (this.router.url.indexOf('/components') > -1) {
-          this.header.menu.items[2].active = true;
-        } else if (this.router.url.indexOf('/directives') > -1) {
-          this.header.menu.items[3].active = true;
-        } else if (this.router.url.indexOf('/services') > -1) {
-          this.header.menu.items[4].active = true;
-        }
-      }
-    });
-  }
-
+  
   ngOnInit() {
     this.header.people = this.people;
     this.header.menu = this.menu;
