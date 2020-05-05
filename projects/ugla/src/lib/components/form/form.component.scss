@@ -48,6 +48,10 @@ form {
   &.central {
     width: 1024px;
     margin: 0 auto;
+
+    @include mobile {
+      width: 100%;
+    }
   }
 
   &.white {
