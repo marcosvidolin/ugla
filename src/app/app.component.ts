@@ -33,7 +33,7 @@ export class AppComponent implements OnInit {
     new Options('汉语', 'ch_st'),
     new Options('漢語', 'ch_tr')
   ]);
-  
+
   ngOnInit() {
     this.header.people = this.people;
     this.header.menu = this.menu;

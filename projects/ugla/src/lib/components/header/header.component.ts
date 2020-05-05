@@ -112,7 +112,6 @@ export class HeaderComponent implements OnInit {
     setTimeout(() => {
       this.headerRightHeight = this.headerRightInstance.nativeElement.offsetHeight;
     }, 0);
-    console.log(this.windowHeight);
   }
 
   /**
@@ -139,7 +138,6 @@ export class HeaderComponent implements OnInit {
 
     this.ugla.changedHeaderShadow.subscribe((hasShadow: boolean) => {
       this.setClasses(hasShadow);
-      this.changeDetector.detectChanges();
     });
   }
 
