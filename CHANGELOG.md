@@ -1,5 +1,9 @@
 # CHANCELOG
 
+## 1.5.6
+  - Create a new structure HTML from containers
+  - Fix form and table for containers
+
 ## 1.4.0
   - Criação do Lightbox Service e Lightbox Directive
 
