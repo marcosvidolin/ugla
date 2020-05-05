@@ -48,4 +48,7 @@ export class AsideWithBreadcrumbPageComponent implements OnInit {
     console.log(`Language selected is ${language.description} and the code is ${language.value}`);
   }
 
+  formAction() {
+    return false;
+  }
 }

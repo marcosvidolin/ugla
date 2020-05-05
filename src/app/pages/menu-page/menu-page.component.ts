@@ -43,4 +43,8 @@ export class MenuPageComponent implements OnInit {
   selectLanguage(language) {
     console.log(`Language selected is ${language.description} and the code is ${language.value}`);
   }
+
+  formAction() {
+    return false;
+  }
 }

@@ -1,17 +1,58 @@
 @import '../../../sass/index';
 
-form.simple {
+form {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
 
-  .content {
-    padding: 0 1rem 1rem;
-    min-height: calc(100vh - 157px);
+  @include mobile {
+    width: 100%;
+  }
 
-    @include mobile() {
-      min-height: calc(100vh - 152px);
+  .content {
+    padding: 1rem 1rem 0;
+  }
+
+  &.has-header {
+    .content {
+      min-height: calc(100vh - 157px);
+
+      @include mobile {
+        min-height: calc(100vh - 145px);
+      }
     }
+  }
+
+  &.has-toolbar {
+    .content {
+      min-height: calc(100vh - 197px);
+
+      @include mobile {
+        min-height: calc(100vh - 184px);
+      }
+    }
+  }
+
+  &.has-aside {
+    .content {
+      min-height: calc(100vh - 97px);
+    }
+  }
+
+  &.has-breadcrumb {
+    .content {
+      min-height: calc(100vh - 131px);
+    }
+  }
+
+  &.central {
+    width: 1024px;
+    margin: 0 auto;
+  }
+
+  &.white {
+    background-color: color(_others, 'light');
+    box-shadow: 0 1rem 1rem color(_others, 'shadow');
   }
 
   .footer {

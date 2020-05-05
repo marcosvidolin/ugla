@@ -1,6 +1,7 @@
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Form } from '../../enum';
 import { UglaService } from '../../ugla.service';
+import { NgClass } from '@angular/common';
 
 /**
  * Form
@@ -111,6 +112,8 @@ export class FormComponent implements OnInit {
    * Default true
    */
   @Input() hiddenButtonSubmit?: boolean;
+
+  @Input() ngClass: NgClass;
 
   /**
    * Disable submit button
