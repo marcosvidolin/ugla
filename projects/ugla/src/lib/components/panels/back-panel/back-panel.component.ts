@@ -1,5 +1,6 @@
 import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Form } from '../../../enum';
+import { NgClass } from '@angular/common';
 
 /**
  * Back panel component
@@ -29,6 +30,9 @@ export class BackPanelComponent {
    * Default: false
    */
   @Input() floatingButton = false;
+
+  
+  @Input() ngClass: NgClass;
 
   /**
    * Emit the back button click
