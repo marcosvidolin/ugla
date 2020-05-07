@@ -1,5 +1,5 @@
 <!--Stylized  -->
-<div class="select" [ngClass]="getTheme()" *ngIf="stylized" [id]="'form-select-' + select.name" [attr.aria-readonly]="readonly">
+<div class="select" [ngClass]="getTheme()" *ngIf="stylized" [id]="'form-select-' + select.name" [attr.aria-readonly]="readonly" [ngStyle]="{'width': width}">
   <input type="checkbox" [ngClass]="{'required' : this.required}" [name]="select.name" [id]="select.id" #checkbox [readOnly]="readonly">
   <label class="selected" [for]="select.id" tabindex="0" (click)="toggleCombobox($event)">{{ current.description }}</label>
   <i class="material-icons" aria-hidden="true" (click)="toggleCombobox($event)">keyboard_arrow_down</i>

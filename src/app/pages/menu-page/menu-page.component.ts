@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Header, MenuItem, Menu, People, UglaService } from 'projects/ugla/src';
+import { Header, MenuItem, Menu, People, UglaService, Select, Options } from 'projects/ugla/src';
 
 @Component({
   selector: 'app-menu-page',
@@ -23,6 +23,12 @@ export class MenuPageComponent implements OnInit {
     new MenuItem('Menu with Toolbar', '/menu-with-toolbar', true),
     new MenuItem('Aside', '/aside', true),
     new MenuItem('Aside with Breadcrumb', '/aside-with-breadcrumb', true),
+  ]);
+
+  select = new Select('Select', [
+    new Options('Select a item', '-1'),
+    new Options('Item 1', '1'),
+    new Options('Item 2', '2'),
   ]);
 
   ngOnInit() {

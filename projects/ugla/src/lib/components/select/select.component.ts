@@ -147,6 +147,8 @@ export class SelectComponent implements OnInit, OnDestroy {
    */
   @Input() readonly = false;
 
+  @Input() width: string;
+
   /**
    * Original message
    */
