@@ -1,4 +1,3 @@
-import { Menu } from './menu';
 export class AsideItem {
   public description: string;
   public url: string;

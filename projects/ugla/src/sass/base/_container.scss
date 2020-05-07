@@ -1,7 +1,5 @@
 
 section {
-  padding: 0 1rem;
-
   @include mobile() {
     padding: 0;
   }
@@ -35,6 +33,7 @@ section {
 
   &.has-header {
     margin-top: 60px; //transformar em variável
+    padding: 0 1rem;
 
     .container {
       min-height: calc(100vh - 60px);
@@ -43,6 +42,7 @@ section {
 
   &.has-toolbar {
     margin-top: 100px; //transformar em variável
+    padding: 0 1rem;
 
     .container {
       min-height: calc(100vh - 100px);
