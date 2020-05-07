@@ -11,7 +11,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class AsideComponent implements OnInit {
 
   @Input() people: People;
-  @Input() menu: Menu;
+  @Input() menu: [];
   @Input() textLogout = 'Logout';
   @Input() iconLogout = 'power_settings_new';
   @Input() iconLinks = ['keyboard_arrow_right', 'keyboard_arrow_down', 'keyboard_arrow_up'];

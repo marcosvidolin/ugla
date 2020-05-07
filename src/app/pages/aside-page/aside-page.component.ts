@@ -22,7 +22,9 @@ export class AsidePageComponent implements OnInit {
     new AsideItem('Menu', '/menu', true),
     new AsideItem('Menu with Toolbar', '/menu-with-toolbar', true),
     new AsideItem('Aside', '/aside', true),
-    new AsideItem('Aside with Breadcrumb', '/aside-with-breadcrumb', true),
+    new AsideItem('Aside with Breadcrumb', null, true, false, '', [
+      new AsideItem('Aside', '/aside', true)
+    ]),
   ];
 
   ngOnInit() {
