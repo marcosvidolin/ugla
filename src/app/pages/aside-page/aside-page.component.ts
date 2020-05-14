@@ -10,6 +10,7 @@ export class AsidePageComponent implements OnInit {
   constructor(private ugla: UglaService) {}
 
   isAutenticated = true;
+  showFloatPage = false;
 
   header = new Header('Ugla', './assets/imgs/logo.png', 'home', true);
 
@@ -49,4 +50,7 @@ export class AsidePageComponent implements OnInit {
     return false;
   }
 
+  tooglePageFloat() {
+    this.showFloatPage = !this.showFloatPage;
+  }
 }

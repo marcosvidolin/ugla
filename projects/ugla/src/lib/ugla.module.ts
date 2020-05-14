@@ -1,10 +1,10 @@
-import { LightboxService } from './components/lightbox/lightbox.service';
 import { ModuleWithProviders, NgModule, Optional, SkipSelf } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { CommonModule } from '@angular/common';
 
 import { UglaComponent } from './ugla.component';
 import { ThemeConfig, UglaService } from './ugla.service';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BrandComponent } from './components/brand/brand.component';
 import { ButtonComponent } from './components/button/button.component';
@@ -52,6 +52,7 @@ import { QuoteComponent } from './components/quote/quote.component';
 import { LightboxDirective } from './directives/lightbox.directive';
 import { AsideComponent } from './components/aside/aside.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
+import { PageFloatComponent } from './components/page-float/page-float.component';
 
 registerPlugin(FilePondPluginFileValidateType,
   FilePondPluginFileValidateSize,
@@ -67,7 +68,7 @@ registerPlugin(FilePondPluginFileValidateType,
  * Provider: Ugla Lib Service
  */
 @NgModule({
-  imports: [CommonModule, RouterModule, FilePondModule],
+  imports: [CommonModule, BrowserAnimationsModule, RouterModule, FilePondModule],
   declarations: [
     UglaComponent,
     BrandComponent,
@@ -107,7 +108,8 @@ registerPlugin(FilePondPluginFileValidateType,
     BannerComponent,
     QuoteComponent,
     AsideComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    PageFloatComponent
   ],
   exports: [
     UglaComponent,
@@ -148,7 +150,8 @@ registerPlugin(FilePondPluginFileValidateType,
     BannerComponent,
     QuoteComponent,
     AsideComponent,
-    BreadcrumbComponent
+    BreadcrumbComponent,
+    PageFloatComponent
   ],
   providers: [UglaService]
 })

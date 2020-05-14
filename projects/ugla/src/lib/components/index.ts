@@ -1,3 +1,4 @@
+import { PageFloatComponent } from './page-float/page-float.component';
 import { BreadcrumbComponent } from './breadcrumb/breadcrumb.component';
 export { AsideComponent } from './aside/aside.component';
 export { BrandComponent } from './brand/brand.component';
@@ -11,6 +12,7 @@ export { FormComponent } from './form/form.component';
 export { HeaderComponent } from './header/header.component';
 export { LoadingComponent } from './loading/loading.component';
 export { LoadingService } from './loading/loading.service';
+export { PageFloatComponent } from './page-float/page-float.component';
 export { PageTitleComponent } from './page-title/page-title.component';
 export { PeopleCardComponent } from './people-card/people-card.component';
 export { SelectComponent } from './select/select.component';
