@@ -11,6 +11,7 @@ export class AsidePageComponent implements OnInit {
 
   isAutenticated = true;
   showFloatPage = false;
+  floatPageButtonDisabled = false;
 
   header = new Header('Ugla', './assets/imgs/logo.png', 'home', true);
 
@@ -53,4 +54,9 @@ export class AsidePageComponent implements OnInit {
   tooglePageFloat() {
     this.showFloatPage = !this.showFloatPage;
   }
+
+  floatButtonToggle() {
+    this.floatPageButtonDisabled = !this.floatPageButtonDisabled;
+  }
+
 }

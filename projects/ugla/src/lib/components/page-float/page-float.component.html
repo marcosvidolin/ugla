@@ -7,8 +7,8 @@
       <ng-content></ng-content>
     </div>
     <div class="page--footer">
-      <ugl-button [color]="'red'" [style]="'border'" (click)="cancel()">Cancel</ugl-button>
-      <ugl-button [color]="color" (click)="confirm()">Confirm</ugl-button>
+      <ugl-button [color]="'red'" [style]="'border'" (click)="cancel()">{{ cancelText }}</ugl-button>
+      <ugl-button [color]="color" [disabled]="confirmDisabled" (click)="confirm()">{{ confirmText }}</ugl-button>
     </div>
   </div>
 </div>

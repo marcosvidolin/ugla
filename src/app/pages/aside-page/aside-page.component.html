@@ -8,6 +8,13 @@
   </div>
 </section>
 
-<ugl-page-float [show]="showFloatPage" [title]="'Register'" (cancelButton)="tooglePageFloat()">
-  <h1>Teste</h1>
+<ugl-page-float [show]="showFloatPage"
+                [title]="'Register'"
+                [confirmText]="'Salvar'"
+                [cancelText]="'Cancelar'"
+                [confirmDisabled]="floatPageButtonDisabled"
+                (confirmButton)="tooglePageFloat()"
+                (cancelButton)="tooglePageFloat()">
+
+  <ugl-button (action)="floatButtonToggle()">Disable</ugl-button>
 </ugl-page-float>

@@ -29,6 +29,9 @@ import { UglaService } from '../../ugla.service';
 export class PageFloatComponent implements OnInit, OnChanges {
   @Input() show: boolean;
   @Input() title: string;
+  @Input() cancelText = 'Cancel';
+  @Input() confirmText = 'Confirm';
+  @Input() confirmDisabled = false;
 
   @Output() cancelButton = new EventEmitter<boolean>();
   @Output() confirmButton = new EventEmitter<boolean>();
@@ -46,6 +49,7 @@ export class PageFloatComponent implements OnInit, OnChanges {
   ngOnChanges(changes: SimpleChanges) {
     const SHOW = 'show';
     const TITLE = 'title';
+    const CONFIRM_DISABLED = 'confirmDisabled';
 
     if (changes[SHOW] !== undefined) {
       this.show = changes.show.currentValue;
@@ -53,6 +57,10 @@ export class PageFloatComponent implements OnInit, OnChanges {
 
     if (changes[TITLE] !== undefined) {
       this.title = changes.title.currentValue;
+    }
+
+    if (changes[CONFIRM_DISABLED] !== undefined) {
+      this.confirmDisabled = changes.confirmDisabled.currentValue;
     }
   }
 
