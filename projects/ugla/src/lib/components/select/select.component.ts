@@ -1,4 +1,15 @@
-import {Component, ElementRef, EventEmitter, HostListener, Input, OnDestroy, OnInit, Output, Renderer2, ViewChild} from '@angular/core';
+import { Component,
+        ElementRef,
+        EventEmitter,
+        HostListener,
+        Input,
+        OnDestroy,
+        OnInit,
+        Output,
+        Renderer2,
+        ViewChild,
+        OnChanges,
+        SimpleChanges } from '@angular/core';
 import {Options, Select} from '../../models';
 import {UglaService} from '../../ugla.service';
 import {Form} from '../../enum';
@@ -33,7 +44,7 @@ import {Form} from '../../enum';
   templateUrl: './select.component.html',
   styleUrls: ['./select.component.scss']
 })
-export class SelectComponent implements OnInit, OnDestroy {
+export class SelectComponent implements OnInit, OnDestroy, OnChanges {
 
   /**
    * Receives theme's name
@@ -214,6 +225,14 @@ export class SelectComponent implements OnInit, OnDestroy {
     this.messageRequired = (this.messageRequired !== undefined) ? this.messageRequired : Form.REQUIRED;
     this.originalZindex = this.zindex;
     this.classes = `${this.theme} ${this.select.labelColor ? 'no-margin' : ''} ${this.readonly ? 'readonly' : ''}`;
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    const SELECT = 'select';
+
+    if (changes[SELECT]) {
+      this.select = changes.select.currentValue;
+    }
   }
 
   ngOnDestroy() {
