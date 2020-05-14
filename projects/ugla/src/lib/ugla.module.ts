@@ -4,7 +4,6 @@ import { CommonModule } from '@angular/common';
 
 import { UglaComponent } from './ugla.component';
 import { ThemeConfig, UglaService } from './ugla.service';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { BrandComponent } from './components/brand/brand.component';
 import { ButtonComponent } from './components/button/button.component';
@@ -68,7 +67,7 @@ registerPlugin(FilePondPluginFileValidateType,
  * Provider: Ugla Lib Service
  */
 @NgModule({
-  imports: [CommonModule, BrowserAnimationsModule, RouterModule, FilePondModule],
+  imports: [CommonModule, RouterModule, FilePondModule],
   declarations: [
     UglaComponent,
     BrandComponent,

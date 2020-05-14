@@ -13,6 +13,7 @@ import { MenuPageComponent } from './pages/menu-page/menu-page.component';
 import { MenuWithToolbarPageComponent } from './pages/menu-with-toolbar-page/menu-with-toolbar-page.component';
 import { AsidePageComponent } from './pages/aside-page/aside-page.component';
 import { AsideWithBreadcrumbPageComponent } from './pages/aside-with-breadcrumb-page/aside-with-breadcrumb-page.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import { AsideWithBreadcrumbPageComponent } from './pages/aside-with-breadcrumb-
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     UglaModule.forRoot({themeName: Themes.AQUAMARINE}),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
