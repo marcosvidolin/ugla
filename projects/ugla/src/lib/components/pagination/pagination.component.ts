@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, ViewChild } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, ViewChild, OnChanges, SimpleChanges } from '@angular/core';
 import { PaginationItemsPerPageComponent } from './pagination-items-per-page/pagination-items-per-page.component';
 import { Select } from '../../models';
 import { UglaService } from '../../ugla.service';
@@ -35,7 +35,7 @@ const FIRST_PAGE = 1;
   templateUrl: './pagination.component.html',
   styleUrls: ['./pagination.component.scss']
 })
-export class PaginationComponent implements OnInit {
+export class PaginationComponent implements OnInit, OnChanges {
 
   /**
    * Internal property for limit interval
@@ -82,7 +82,7 @@ export class PaginationComponent implements OnInit {
    */
   @Input() itemsPerPage: number;
 
- /**
+  /**
    * Show text before select input.
    */
   @Input() itemsPerPageBeforeText?: string;
@@ -171,6 +171,21 @@ export class PaginationComponent implements OnInit {
         this.itemsPerPageComponent.setSelected(this.itemsPerPage);
       }
     });
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.totalPages) {
+      this.totalPages = changes.totalPages.currentValue;
+    }
+    if (changes.selectedPage) {
+      this.selectedPage = changes.selectedPage.currentValue;
+    }
+    if (changes.itemsPerPage) {
+      this.itemsPerPage = changes.itemsPerPage.currentValue;
+    }
+    if (changes.itemsPerPageRange) {
+      this.itemsPerPageRange = changes.itemsPerPageRange.currentValue;
+    }
   }
 
   /**
@@ -284,7 +299,7 @@ export class PaginationComponent implements OnInit {
   /**
    * Fire page navigation.
    *
-   * @param page
+   * @param page any
    */
   fireNavigatePageEvent(page) {
     this.selectedPage = page;
