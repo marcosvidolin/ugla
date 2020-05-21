@@ -23,9 +23,15 @@ export class AsidePageComponent implements OnInit {
     new AsideItem('E2E', '/e2e', true),
     new AsideItem('Menu', '/menu', true),
     new AsideItem('Menu with Toolbar', '/menu-with-toolbar', true),
-    new AsideItem('Aside', '/aside', true),
+    new AsideItem('Aside', null, true, false, '', [
+      new AsideItem('Item 1', '/item-1', true),
+      new AsideItem('Item 2', '/item-2', true),
+      new AsideItem('Item 3', '/item-3', true),
+      new AsideItem('Item 4', '/item-4', true)
+    ]),
     new AsideItem('Aside with Breadcrumb', null, true, false, '', [
-      new AsideItem('Aside', '/aside', true)
+      new AsideItem('Aside', '/aside', true),
+      new AsideItem('Home', '/home', true),
     ]),
   ];
 

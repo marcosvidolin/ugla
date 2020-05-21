@@ -6,6 +6,7 @@ export class AsideItem {
   public hideMobile: boolean;
   public icon: string;
   public submenu: AsideItem[];
+  public open = false;
 
   /**
    * @param description - menu text

@@ -74,13 +74,14 @@ ul {
     display: flex;
     margin: 10px 0;
     font-size: 14px;
-    font-weight: 600;
+    font-weight: 400;
     color: color(_gray, dark);
     text-decoration: none;
     justify-content: space-between;
 
     &.submenu {
-      color: color(_aquamarine, dark);
+      font-weight: 600;
+      color: color(_gray, dark);
     }
 
     @include mobile() {

@@ -2,6 +2,7 @@ import { Subject } from 'rxjs';
 import { Menu } from './../../models/menu';
 import { People } from './../../models/people';
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
+import { AsideItem } from './../../models/aside-item';
 
 @Component({
   selector: 'ugl-aside',
@@ -11,7 +12,7 @@ import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 export class AsideComponent implements OnInit {
 
   @Input() people: People;
-  @Input() menu: [];
+  @Input() menu: AsideItem[];
   @Input() textLogout = 'Logout';
   @Input() iconLogout = 'power_settings_new';
   @Input() iconLinks = ['keyboard_arrow_right', 'keyboard_arrow_down', 'keyboard_arrow_up'];
@@ -22,6 +23,17 @@ export class AsideComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
+    const path = location.pathname;
+    console.log(path);
+    this.menu.forEach((item, index) => {
+      if (item.submenu) {
+        item.submenu.forEach(subitem => {
+          if (subitem.url === path) {
+            item.open = true;
+          }
+        });
+      }
+    });
   }
 
   logout() {

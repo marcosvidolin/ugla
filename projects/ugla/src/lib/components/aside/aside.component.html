@@ -9,11 +9,11 @@
   <ul tabindex='0'>
     <li *ngFor="let item of menu; let idx = index">
       <a [routerLink]="item.url"
-          [routerLinkActive]="'active'"
+          [routerLinkActive]="item.url ? 'active' : ''"
           [routerLinkActiveOptions]="{exact: true}"
           class="gtm-menu-item"
           (click)="toogleSubmenu(idx)"
-          [ngClass]="{'submenu' : item.submenu}"
+          [ngClass]="{'submenu' : item.submenu, 'active': item.open}"
           [id]="'aside-menu-' + idx">{{ item.description }}<span class="material-icons">{{ item.icon || getIcon(idx) }}</span></a>
       <ul *ngIf="item.submenu && item.open !== undefined && item.open">
         <li *ngFor="let subitem of item.submenu; let jx = index">
