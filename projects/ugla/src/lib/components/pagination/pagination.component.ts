@@ -186,6 +186,7 @@ export class PaginationComponent implements OnInit, OnChanges {
     if (changes.itemsPerPageRange) {
       this.itemsPerPageRange = changes.itemsPerPageRange.currentValue;
     }
+    this.firePageEvent();
   }
 
   /**
