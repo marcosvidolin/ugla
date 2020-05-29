@@ -11,7 +11,7 @@ install() {
 
 build() {
   node -e 'require("./version").changeConfig()';
-  ng build --project=ugla
+  ng build --project=ugla-rules
   if [[ `git status --porcelain` ]]; then
     git checkout -b trevis-version
     git add .
@@ -19,13 +19,13 @@ build() {
     git request-pull trevis-version https://github.com/ciandt/ugla master
     git push origin trevis-version:master
   fi
-  cp -r projects/ugla/src/sass dist/sass
-  cp LICENSE dist/
+  cp LICENSE dist/ugla-rules
 }
 
 publish() {
-  cd dist
-  npm publish
+  cd dist/ugla-rules
+  # npm publish
+  echo "FIM UGLA RULES";
 }
 
 config

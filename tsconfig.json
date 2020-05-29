@@ -19,8 +19,18 @@
       "dom"
     ],
     "paths": {
-      "ugla": ["dist/"],
-      "ugla/*": ["dist/*"]
+      "ugla": [
+        "dist/"
+      ],
+      "ugla/*": [
+        "dist/*"
+      ],
+      "ugla-rules": [
+        "dist/ugla-rules"
+      ],
+      "ugla-rules/*": [
+        "dist/ugla-rules/*"
+      ]
     }
   }
 }

@@ -1,3 +1,4 @@
+import { UglaRulesModule } from './../../projects/ugla-rules/src/lib/ugla-rules.module';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule, CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
@@ -31,6 +32,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     BrowserAnimationsModule,
     AppRoutingModule,
     UglaModule.forRoot({themeName: Themes.AQUAMARINE}),
+    UglaRulesModule.forRoot('EXPENSE'),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   exports: [],

@@ -1,3 +1,4 @@
+import { UglaRulesService } from './../../../../projects/ugla-rules/src/lib/ugla-rules.service';
 import { Component, OnInit } from '@angular/core';
 import { UglaService, Menu, MenuItem, Header, People } from 'projects/ugla/src';
 
@@ -8,7 +9,10 @@ import { UglaService, Menu, MenuItem, Header, People } from 'projects/ugla/src';
 })
 export class HomePageComponent implements OnInit {
 
-  constructor(private ugla: UglaService) {}
+  constructor(private ugla: UglaService,
+              private rules: UglaRulesService) {
+                rules.setFeature('INT');
+              }
 
   isAutenticated = true;
 

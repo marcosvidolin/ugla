@@ -1,3 +1,4 @@
+import { UglaRulesService } from './../../projects/ugla-rules/src/lib/ugla-rules.service';
 import { Component, OnInit } from '@angular/core';
 import { Header, People, Menu, MenuItem, Select, Options, UglaService, ToastService } from 'projects/ugla/src';
 import { Router, NavigationEnd } from '@angular/router';
@@ -10,7 +11,37 @@ import { Router, NavigationEnd } from '@angular/router';
 export class AppComponent implements OnInit {
 
   constructor(
-    private ugla: UglaService) {}
+    private ugla: UglaService,
+    private rules: UglaRulesService) {
+      rules.createRules([
+        {
+          code: 1,
+          name: 'Expense Managment',
+          acronym: 'EXPENSE',
+          features: [
+            {
+              code: 1,
+              name: 'INTEGRATIONS',
+              acronym: 'INT',
+              parent: null,
+              applicationCode: 1,
+              operations: [
+                {
+                  code: 3,
+                  name: 'EDIT',
+                  acronym: 'ED'
+                },
+                {
+                  code: 2,
+                  name: 'VIEW',
+                  acronym: 'VW'
+                }
+              ]
+            }
+          ]
+        }
+      ]);
+    }
 
   isAutenticated = true;
 
@@ -20,7 +51,7 @@ export class AppComponent implements OnInit {
 
   menu = new Menu([
     new MenuItem('Home', '/', true),
-    new MenuItem('Login', '/login', true),
+    new MenuItem('Login', '/login'),
     new MenuItem('E2E', '/e2e', true),
     new MenuItem('Test page', '/dev', true),
   ]);
