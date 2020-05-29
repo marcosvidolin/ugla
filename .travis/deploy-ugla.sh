@@ -25,8 +25,7 @@ build() {
 
 publish() {
   cd dist/ugla
-  # npm publish
-  echo "FIM UGLA";
+  npm publish
 }
 
 config
