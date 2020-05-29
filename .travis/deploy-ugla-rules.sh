@@ -24,8 +24,7 @@ build() {
 
 publish() {
   cd dist/ugla-rules
-  # npm publish
-  echo "FIM UGLA RULES";
+  npm publish
 }
 
 config
