@@ -45,7 +45,7 @@ export class UglaRulesService {
 
   /**
    * Set feature on specific object
-   * @param string acronym name
+   * @param string - Feature's acronym
    */
   setFeature(featureAcronym: string) {
     this.featureAcronym = featureAcronym;
@@ -79,6 +79,7 @@ export class UglaRulesService {
 
   /**
    * VIEW permission
+   * @param feature – Optional Feature's acronym
    * @return - Return if has a VIEW permission
    */
   view(feature?: string): boolean {
@@ -97,6 +98,7 @@ export class UglaRulesService {
 
   /**
    * EDIT permission
+   * @param feature – Optional Feature's acronym
    * @return - Return if has a EDIT permission
    */
   edit(feature?: string): boolean {
@@ -115,6 +117,7 @@ export class UglaRulesService {
 
   /**
    * CREATE permission
+   * @param feature – Optional Feature's acronym
    * @returns - Return if has a CREATE permission
    */
   create(feature?: string): boolean {
@@ -133,6 +136,7 @@ export class UglaRulesService {
 
   /**
    * DELETE permission
+   * @param feature – Optional Feature's acronym
    * @returns - Return if has a DELETE permission
    */
   delete(feature?: string): boolean {
