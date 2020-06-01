@@ -14,28 +14,36 @@ export class RulesPageComponent implements OnInit {
                 rules.setFeature('INT');
               }
 
+  hasDelete: boolean;
   isAutenticated = true;
 
   header = new Header('Ugla', './assets/imgs/logo.png', 'home', true);
 
   people = new People('Jack Connor', 'jack.connor@ugla.dev', './assets/imgs/people.png');
 
-  menu = new Menu([
-    new MenuItem('Home', '/', true),
-    new MenuItem('Login', '/login', true),
-    new MenuItem('E2E', '/e2e', true),
-    new MenuItem('Menu', '/menu', true),
-    new MenuItem('Menu with Toolbar', '/menu-with-toolbar', true),
-    new MenuItem('Aside', '/aside', true),
-    new MenuItem('Rules', '/rules', true),
-    new MenuItem('Aside with Breadcrumb', '/aside-with-breadcrumb', true),
-  ]);
+  menu: Menu;
 
   ngOnInit() {
     this.header.people = this.people;
+    this.createMenu();
     this.header.menu = this.menu;
     this.ugla.headerShadow = true;
+    this.hasDelete = this.rules.delete();
     this.ugla.hasToolBar();
+  }
+
+  createMenu() {
+    this.menu = new Menu([
+      new MenuItem('Home', '/', true),
+      new MenuItem('Login', '/login', true),
+      new MenuItem('E2E', '/e2e', true),
+      new MenuItem('Menu', '/menu', true),
+      new MenuItem('Menu with Toolbar', '/menu-with-toolbar', true),
+      new MenuItem('Aside', '/aside'),
+      new MenuItem('Edit Rules', '/rules-edit', this.rules.edit('CLI')),
+      new MenuItem('Rules', '/rules', true),
+      new MenuItem('Aside with Breadcrumb', '/aside-with-breadcrumb', true),
+    ]);
   }
 
   logout() {

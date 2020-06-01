@@ -37,6 +37,20 @@ export class AppComponent implements OnInit {
                   acronym: 'ED'
                 }
               ]
+            },
+            {
+              code: 2,
+              name: 'Client Reimbursement',
+              acronym: 'CLI',
+              parent: null,
+              applicationCode: 2,
+              operations: [
+                {
+                  code: 2,
+                  name: 'VIEW',
+                  acronym: 'VW'
+                }
+              ]
             }
           ]
         }

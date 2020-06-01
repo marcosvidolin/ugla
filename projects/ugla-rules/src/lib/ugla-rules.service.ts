@@ -62,58 +62,90 @@ export class UglaRulesService {
   }
 
   private setOperations(featureAcronym: string) {
+    this.operations = this.getOperations(featureAcronym);
+  }
+
+  private getOperations(featureAcronym: string) {
+    let operations: [];
+
     this.application.features.forEach(item => {
       if (item.acronym === featureAcronym) {
-        this.operations = item.operations;
+        operations = item.operations;
       }
     });
+
+    return operations;
   }
 
   /**
    * VIEW permission
    * @return - Return if has a VIEW permission
    */
-  view(): boolean {
-    if (!this.operations) {
+  view(feature?: string): boolean {
+    let operations = this.operations;
+
+    if (!this.operations && feature === undefined) {
       console.error('VIEW operation:', 'You need inform a FEATURE\'s acronym');
     }
 
-    return this.operations !== undefined ? this.operations.find(v => v.acronym === 'VW') !== undefined : false;
+    if (feature !== undefined) {
+      operations = this.getOperations(feature);
+    }
+
+    return operations !== undefined ? operations.find(v => v.acronym === 'VW') !== undefined : false;
   }
 
   /**
    * EDIT permission
    * @return - Return if has a EDIT permission
    */
-  edit(): boolean {
-    if (!this.operations) {
+  edit(feature?: string): boolean {
+    let operations = this.operations;
+
+    if (!this.operations && feature === undefined) {
       console.error('EDIT operation:', 'You need inform a FEATURE\'s acronym');
     }
 
-    return this.operations !== undefined ? this.operations.find(v => v.acronym === 'ED') !== undefined : false;
+    if (feature !== undefined) {
+      operations = this.getOperations(feature);
+    }
+
+    return operations !== undefined ? operations.find(v => v.acronym === 'ED') !== undefined : false;
   }
 
   /**
    * CREATE permission
    * @returns - Return if has a CREATE permission
    */
-  create() {
-    if (!this.operations) {
+  create(feature?: string): boolean {
+    let operations = this.operations;
+
+    if (!this.operations && feature === undefined) {
       console.error('CREATE operation:', 'You need inform a FEATURE\'s acronym');
     }
 
-    return this.operations !== undefined ? this.operations.find(v => v.acronym === 'CR') !== undefined : false;
+    if (feature !== undefined) {
+      operations = this.getOperations(feature);
+    }
+
+    return operations !== undefined ? operations.find(v => v.acronym === 'CR') !== undefined : false;
   }
 
   /**
    * DELETE permission
    * @returns - Return if has a DELETE permission
    */
-  delete() {
-    if (!this.operations) {
+  delete(feature?: string): boolean {
+    let operations = this.operations;
+
+    if (!this.operations && feature === undefined) {
       console.error('DELETE operation:', 'You need inform a FEATURE\'s acronym');
     }
 
-    return this.operations !== undefined ? this.operations.find(v => v.acronym === 'DE') !== undefined : false;
+    if (feature !== undefined) {
+      operations = this.getOperations(feature);
+    }
+
+    return operations !== undefined ? operations.find(v => v.acronym === 'DE') !== undefined : false;
   }
 }
