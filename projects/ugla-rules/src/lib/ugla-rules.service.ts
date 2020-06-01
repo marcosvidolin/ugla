@@ -1,6 +1,5 @@
 import { Application } from './models/application';
-import { Injectable, Optional } from '@angular/core';
-import { forEach } from '@angular/router/src/utils/collection';
+import { Optional } from '@angular/core';
 import { Feature } from './models/feature';
 
 export class UglaRulesService {
@@ -30,7 +29,7 @@ export class UglaRulesService {
           item.acronym,
           item.name
         );
-        item.features.forEach((fe) => {
+        item.features.forEach(fe => {
           const feature = new Feature(
             fe.code,
             fe.acronym,
@@ -74,7 +73,7 @@ export class UglaRulesService {
    * VIEW permission
    * @return - Return if has a VIEW permission
    */
-  vw(): boolean {
+  view(): boolean {
     return this.operations !== undefined ? this.operations.find(v => v.acronym === 'VW') !== undefined : false;
   }
 
@@ -82,7 +81,23 @@ export class UglaRulesService {
    * EDIT permission
    * @return - Return if has a EDIT permission
    */
-  ed(): boolean {
+  edit(): boolean {
     return this.operations !== undefined ? this.operations.find(v => v.acronym === 'ED') !== undefined : false;
+  }
+
+  /**
+   * CREATE permission
+   * @returns - Return if has a CREATE permission
+   */
+  create() {
+    return this.operations !== undefined ? this.operations.find(v => v.acronym === 'CR') !== undefined : false;
+  }
+
+  /**
+   * DELETE permission
+   * @returns - Return if has a DELETE permission
+   */
+  delete() {
+    return this.operations !== undefined ? this.operations.find(v => v.acronym === 'DE') !== undefined : false;
   }
 }

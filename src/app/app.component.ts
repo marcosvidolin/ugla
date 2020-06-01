@@ -27,11 +27,6 @@ export class AppComponent implements OnInit {
               applicationCode: 1,
               operations: [
                 {
-                  code: 3,
-                  name: 'EDIT',
-                  acronym: 'ED'
-                },
-                {
                   code: 2,
                   name: 'VIEW',
                   acronym: 'VW'

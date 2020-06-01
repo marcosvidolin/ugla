@@ -9,7 +9,7 @@ export class EdDirective implements OnInit {
               private element: ElementRef) {}
 
   ngOnInit() {
-    if (!this.rules.ed()) {
+    if (!this.rules.edit()) {
       this.element.nativeElement.remove();
     }
   }
