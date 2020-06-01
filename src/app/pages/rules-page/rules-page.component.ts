@@ -1,15 +1,18 @@
-import { UglaRulesService } from './../../../../projects/ugla-rules/src/lib/ugla-rules.service';
 import { Component, OnInit } from '@angular/core';
-import { UglaService, Menu, MenuItem, Header, People } from 'projects/ugla/src';
+import { UglaService, Header, People, Menu, MenuItem } from 'projects/ugla/src';
+import { UglaRulesService } from 'projects/ugla-rules/src';
 
 @Component({
-  selector: 'app-home-page',
-  templateUrl: './home-page.component.html',
-  styleUrls: ['./home-page.component.scss']
+  selector: 'app-rules-page',
+  templateUrl: './rules-page.component.html',
+  styleUrls: ['./rules-page.component.scss']
 })
-export class HomePageComponent implements OnInit {
+export class RulesPageComponent implements OnInit {
 
-  constructor(private ugla: UglaService) {}
+  constructor(private ugla: UglaService,
+              private rules: UglaRulesService) {
+                rules.setFeature('INT');
+              }
 
   isAutenticated = true;
 
@@ -35,15 +38,7 @@ export class HomePageComponent implements OnInit {
     this.ugla.hasToolBar();
   }
 
-  hideMenu() {
-    this.isAutenticated = false;
-  }
-
   logout() {
     this.isAutenticated = false;
-  }
-
-  selectLanguage(language) {
-    console.log(`Language selected is ${language.description} and the code is ${language.value}`);
   }
 }

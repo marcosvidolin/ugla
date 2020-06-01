@@ -23,6 +23,7 @@ export class AsidePageComponent implements OnInit {
     new AsideItem('E2E', '/e2e', true),
     new AsideItem('Menu', '/menu', true),
     new AsideItem('Menu with Toolbar', '/menu-with-toolbar', true),
+    new AsideItem('Rules', '/rules', true),
     new AsideItem('Aside', null, true, false, '', [
       new AsideItem('Item 1', '/item-1', true),
       new AsideItem('Item 2', '/item-2', true),

@@ -74,6 +74,10 @@ export class UglaRulesService {
    * @return - Return if has a VIEW permission
    */
   view(): boolean {
+    if (!this.operations) {
+      console.error('VIEW operation:', 'You need inform a FEATURE\'s acronym');
+    }
+
     return this.operations !== undefined ? this.operations.find(v => v.acronym === 'VW') !== undefined : false;
   }
 
@@ -82,6 +86,10 @@ export class UglaRulesService {
    * @return - Return if has a EDIT permission
    */
   edit(): boolean {
+    if (!this.operations) {
+      console.error('EDIT operation:', 'You need inform a FEATURE\'s acronym');
+    }
+
     return this.operations !== undefined ? this.operations.find(v => v.acronym === 'ED') !== undefined : false;
   }
 
@@ -90,6 +98,10 @@ export class UglaRulesService {
    * @returns - Return if has a CREATE permission
    */
   create() {
+    if (!this.operations) {
+      console.error('CREATE operation:', 'You need inform a FEATURE\'s acronym');
+    }
+
     return this.operations !== undefined ? this.operations.find(v => v.acronym === 'CR') !== undefined : false;
   }
 
@@ -98,6 +110,10 @@ export class UglaRulesService {
    * @returns - Return if has a DELETE permission
    */
   delete() {
+    if (!this.operations) {
+      console.error('DELETE operation:', 'You need inform a FEATURE\'s acronym');
+    }
+
     return this.operations !== undefined ? this.operations.find(v => v.acronym === 'DE') !== undefined : false;
   }
 }

@@ -21,6 +21,7 @@ export class AsideWithBreadcrumbPageComponent implements OnInit {
     new AsideItem('E2E', '/e2e', true),
     new AsideItem('Menu', '/menu', true),
     new AsideItem('Menu with Toolbar', '/menu-with-toolbar', true),
+    new AsideItem('Rules', '/rules', true),
     new AsideItem('Aside', '/aside', true),
     new AsideItem('Aside with Breadcrumb', '/aside-with-breadcrumb', true),
   ];

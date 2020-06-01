@@ -8,6 +8,7 @@ import { MenuPageComponent } from './pages/menu-page/menu-page.component';
 import { MenuWithToolbarPageComponent } from './pages/menu-with-toolbar-page/menu-with-toolbar-page.component';
 import { AsidePageComponent } from './pages/aside-page/aside-page.component';
 import { AsideWithBreadcrumbPageComponent } from './pages/aside-with-breadcrumb-page/aside-with-breadcrumb-page.component';
+import { RulesPageComponent } from './pages/rules-page/rules-page.component';
 
 const routes: Routes = [
   {path: '', component: HomePageComponent},
@@ -15,6 +16,7 @@ const routes: Routes = [
   {path: 'e2e', component: E2ePageComponent},
   {path: 'menu', component: MenuPageComponent},
   {path: 'menu-with-toolbar', component: MenuWithToolbarPageComponent},
+  {path: 'rules', component: RulesPageComponent},
   {path: 'aside', component: AsidePageComponent},
   {path: 'aside-with-breadcrumb', component: AsideWithBreadcrumbPageComponent}
 ];

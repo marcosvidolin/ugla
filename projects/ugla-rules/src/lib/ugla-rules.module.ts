@@ -15,7 +15,9 @@ import { DeDirective } from './directives/de.directive';
   imports: [],
   exports: [
     VwDirective,
-    EdDirective
+    EdDirective,
+    CrDirective,
+    DeDirective
   ],
   providers: [UglaRulesService]
 })

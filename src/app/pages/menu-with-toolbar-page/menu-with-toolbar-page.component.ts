@@ -22,6 +22,7 @@ export class MenuWithToolbarPageComponent implements OnInit {
     new MenuItem('E2E', '/e2e', true),
     new MenuItem('Menu', '/menu', true),
     new MenuItem('Menu with Toolbar', '/menu-with-toolbar', true),
+    new MenuItem('Rules', '/rules', true),
     new MenuItem('Aside', '/aside', true),
     new MenuItem('Aside with Breadcrumb', '/aside-with-breadcrumb', true),
   ]);

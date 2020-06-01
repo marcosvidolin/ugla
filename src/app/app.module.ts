@@ -15,6 +15,7 @@ import { MenuWithToolbarPageComponent } from './pages/menu-with-toolbar-page/men
 import { AsidePageComponent } from './pages/aside-page/aside-page.component';
 import { AsideWithBreadcrumbPageComponent } from './pages/aside-with-breadcrumb-page/aside-with-breadcrumb-page.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RulesPageComponent } from './pages/rules-page/rules-page.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
     MenuPageComponent,
     MenuWithToolbarPageComponent,
     AsidePageComponent,
-    AsideWithBreadcrumbPageComponent
+    AsideWithBreadcrumbPageComponent,
+    RulesPageComponent
   ],
   imports: [
     BrowserModule,

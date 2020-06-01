@@ -30,6 +30,11 @@ export class AppComponent implements OnInit {
                   code: 2,
                   name: 'VIEW',
                   acronym: 'VW'
+                },
+                {
+                  code: 3,
+                  name: 'EDIT',
+                  acronym: 'ED'
                 }
               ]
             }
