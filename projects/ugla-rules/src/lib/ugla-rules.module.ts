@@ -1,4 +1,3 @@
-import { UglaRulesService } from './ugla-rules.service';
 import { NgModule, Optional, SkipSelf, ModuleWithProviders } from '@angular/core';
 import { VwDirective } from './directives/vw.directive';
 import { EdDirective } from './directives/ed.directive';
@@ -18,7 +17,7 @@ import { DeDirective } from './directives/de.directive';
     CrDirective,
     DeDirective
   ],
-  providers: [UglaRulesService]
+  providers: []
 })
 export class UglaRulesModule {
   constructor(@Optional() @SkipSelf() parentModule: UglaRulesModule) {}
