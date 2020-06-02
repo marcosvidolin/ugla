@@ -12,7 +12,6 @@ import { DeDirective } from './directives/de.directive';
     CrDirective,
     DeDirective
   ],
-  imports: [],
   exports: [
     VwDirective,
     EdDirective,

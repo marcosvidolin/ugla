@@ -1,7 +1,10 @@
 import { Application } from './models/application';
-import { Optional } from '@angular/core';
+import { Optional, Injectable } from '@angular/core';
 import { Feature } from './models/feature';
 
+@Injectable({
+  providedIn: 'root'
+})
 export class UglaRulesService {
   private applicationAcronym: string;
   private featureAcronym: string;

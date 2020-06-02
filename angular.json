@@ -216,6 +216,6 @@
   },
   "defaultProject": "ugla-workspace",
   "cli": {
-    "analytics": false
+    "analytics": true
   }
 }

@@ -1,6 +1,6 @@
 {
   "name": "ugla-rules",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "repository": {
     "type": "git",
     "url": "git@github.com:ciandt/ugla.git"
@@ -12,14 +12,15 @@
     "angular",
     "typescript",
     "javascript",
+    "library",
     "rules",
     "features"
   ],
   "homepage": "https://ugla.dev",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^7.2.0",
-    "@angular/core": "^7.2.0"
+    "@angular/common": "^7.2.16",
+    "@angular/core": "^7.2.16"
   },
   "ngPackage": {
     "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
