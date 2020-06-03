@@ -9,19 +9,16 @@ import { UglaRulesService } from 'projects/ugla-rules/src';
 })
 export class RulesPageComponent implements OnInit {
 
-  constructor(private ugla: UglaService,
-              private rules: UglaRulesService) {
-                rules.setFeature('INT');
-              }
+  constructor(private ugla: UglaService, private rules: UglaRulesService) {
+    rules.setFeature('INT');
+  }
 
+  menu: Menu;
   hasDelete: boolean;
   isAutenticated = true;
 
   header = new Header('Ugla', './assets/imgs/logo.png', 'home', true);
-
   people = new People('Jack Connor', 'jack.connor@ugla.dev', './assets/imgs/people.png');
-
-  menu: Menu;
 
   ngOnInit() {
     this.header.people = this.people;

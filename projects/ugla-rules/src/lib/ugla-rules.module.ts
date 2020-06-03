@@ -1,10 +1,15 @@
+import { CommonModule } from '@angular/common';
 import { NgModule, Optional, SkipSelf, ModuleWithProviders } from '@angular/core';
 import { VwDirective } from './directives/vw.directive';
 import { EdDirective } from './directives/ed.directive';
 import { CrDirective } from './directives/cr.directive';
 import { DeDirective } from './directives/de.directive';
+import { UglaRulesService, RulesConfig } from './ugla-rules.service';
 
 @NgModule({
+  imports: [
+    CommonModule
+  ],
   declarations: [
     VwDirective,
     EdDirective,
@@ -17,16 +22,16 @@ import { DeDirective } from './directives/de.directive';
     CrDirective,
     DeDirective
   ],
-  providers: []
+  providers: [UglaRulesService]
 })
 export class UglaRulesModule {
   constructor(@Optional() @SkipSelf() parentModule: UglaRulesModule) {}
 
-  static forRoot(application: string): ModuleWithProviders {
+  static forRoot(config: RulesConfig): ModuleWithProviders {
     return {
       ngModule: UglaRulesModule,
       providers: [
-        { provide: String, useValue: application }
+        { provide: RulesConfig, useValue: config }
       ]
     };
   }

@@ -12,8 +12,6 @@ export class LightboxService {
   constructor() { }
 
   open(filesUrl: string[], closeOut: boolean = false, actionIcon?: (position: string) => void, imageIcon?: string) {
-    console.log('OPEN');
-
     const lightbox = document.createElement('div');
     lightbox.setAttribute('class', 'lightbox');
 

@@ -2,18 +2,23 @@ import { Application } from './models/application';
 import { Optional, Injectable } from '@angular/core';
 import { Feature } from './models/feature';
 
-@Injectable()
+export class RulesConfig {
+  acronym = null;
+}
+
+@Injectable({
+  providedIn: 'root'
+})
 export class UglaRulesService {
-  private applicationAcronym: string;
-  private featureAcronym: string;
+  applicationAcronym: string;
+  featureAcronym: string;
+  application: Application;
+  feature: Feature;
+  operations: any[];
 
-  private application: Application;
-  private feature: Feature;
-  private operations: any[];
-
-  constructor(@Optional() applicationAcronym: string) {
-    this.applicationAcronym = applicationAcronym;
-    if (!applicationAcronym) {
+  constructor(@Optional() config: RulesConfig) {
+    this.applicationAcronym = config.acronym;
+    if (!config.acronym) {
       console.error('Was need include an Application`s acronym!');
     }
   }
@@ -28,8 +33,10 @@ export class UglaRulesService {
         this.application = new Application(
           item.code,
           item.acronym,
-          item.name
+          item.name,
+          []
         );
+
         item.features.forEach(fe => {
           const feature = new Feature(
             fe.code,
@@ -60,6 +67,14 @@ export class UglaRulesService {
 
       this.setOperations(featureAcronym);
     }
+  }
+
+  /**
+   * Get a feature acronym
+   * @returns string - feature acrnym
+   */
+  getFeature() {
+    return this.featureAcronym;
   }
 
   private setOperations(featureAcronym: string) {

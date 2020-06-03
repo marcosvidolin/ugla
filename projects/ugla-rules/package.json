@@ -19,14 +19,14 @@
   "homepage": "https://ugla.dev",
   "license": "MIT",
   "peerDependencies": {
-    "@angular/common": "^7.2.16",
-    "@angular/core": "^7.2.16"
+    "@angular/common": "~7.2.0",
+    "@angular/core": "~7.2.0"
   },
   "ngPackage": {
     "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
     "dest": "../../dist/ugla-rules",
     "lib": {
-      "entryFile": "src/public-api.ts"
+      "entryFile": "src/public_api.ts"
     }
   }
 }

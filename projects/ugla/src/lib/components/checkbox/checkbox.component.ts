@@ -61,7 +61,6 @@ export class CheckboxComponent implements OnInit {
   constructor() { }
 
   ngOnInit() {
-    console.log('Sub Text >>', this.subText);
     this.disabled = (this.disabled === undefined) ? false : this.disabled;
   }
 
@@ -69,5 +68,4 @@ export class CheckboxComponent implements OnInit {
     this.isChecked = event.target.checked;
     this.checked.emit(event.target.checked);
   }
-
 }

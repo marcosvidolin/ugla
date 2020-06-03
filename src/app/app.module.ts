@@ -34,7 +34,7 @@ import { RulesPageComponent } from './pages/rules-page/rules-page.component';
     BrowserAnimationsModule,
     AppRoutingModule,
     UglaModule.forRoot({themeName: Themes.AQUAMARINE}),
-    UglaRulesModule.forRoot('EXPENSE'),
+    UglaRulesModule.forRoot({ acronym: 'EXPENSE'}),
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   exports: [],

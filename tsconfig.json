@@ -30,6 +30,12 @@
       ],
       "ugla-rules/*": [
         "dist/ugla-rules/*"
+      ],
+      "rules": [
+        "dist/rules"
+      ],
+      "rules/*": [
+        "dist/rules/*"
       ]
     }
   }

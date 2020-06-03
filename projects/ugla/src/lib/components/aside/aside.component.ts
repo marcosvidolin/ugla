@@ -24,7 +24,6 @@ export class AsideComponent implements OnInit {
 
   ngOnInit() {
     const path = location.pathname;
-    console.log(path);
     this.menu.forEach((item, index) => {
       if (item.submenu) {
         item.submenu.forEach(subitem => {
