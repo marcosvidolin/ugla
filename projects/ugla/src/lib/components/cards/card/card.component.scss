@@ -6,11 +6,11 @@
   border-radius: 5px;
   background-color: color(_others, light);
   cursor: pointer;
-  box-shadow: 0 4px 8px 0 color(_others, shadow);
+  box-shadow: 2px 2px 4px color(_others, shadow);
   transform: .5s all;
 
   &:hover {
-    box-shadow: 2px 4px 12px 0 color(_others, shadow);
+    box-shadow: 4px 4px 6px color(_others, shadow);
     transform: .5s all;
   }
 
