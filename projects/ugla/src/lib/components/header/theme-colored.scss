@@ -41,7 +41,7 @@ header {
 
         a {
           color: color(_others, 'light');
-          border-bottom: 2px solid color(_#{$theme}, 'medium');
+          border-bottom: 2px solid transparent;
 
           @include mobile() {
             color: color(_others, 'dark');

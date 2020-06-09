@@ -32,7 +32,7 @@ header {
 
       a {
         color: color(_others, 'dark');
-        border-bottom: 2px solid color(_others, 'light');
+        border-bottom: 2px solid transparent;
 
         @include mobile() {
           color: color(_others, 'dark');
