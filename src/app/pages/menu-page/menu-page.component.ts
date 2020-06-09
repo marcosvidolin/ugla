@@ -9,6 +9,8 @@ import { Header, MenuItem, Menu, People, UglaService, Select, Options } from 'pr
 export class MenuPageComponent implements OnInit {
   constructor(private ugla: UglaService) {}
 
+  icon = 'check_box_outline_blank';
+
   isAutenticated = true;
 
   header = new Header('Ugla', './assets/imgs/logo.png', 'home', true);
@@ -53,5 +55,13 @@ export class MenuPageComponent implements OnInit {
 
   formAction() {
     return false;
+  }
+
+  changeIcon() {
+    if (this.icon === 'check_box_outline_blank') {
+      this.icon = 'check_box';
+    } else {
+      this.icon = 'check_box_outline_blank';
+    }
   }
 }

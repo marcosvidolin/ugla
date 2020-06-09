@@ -26,6 +26,7 @@ export { LoginComponent } from './login/login.component';
 export { SwitchComponent } from './switch/switch.component';
 export { ListLinksComponent } from './list-links/list-links.component';
 export { FilterComponent } from './filter/filter.component';
+export { CardComponent } from './cards/card/card.component';
 export { CardTimelineComponent } from './cards/card-timeline/card-timeline.component';
 export { SimpleTableComponent } from './tables/simple-table/simple-table.component';
 export { PaginationComponent } from './pagination/pagination.component';

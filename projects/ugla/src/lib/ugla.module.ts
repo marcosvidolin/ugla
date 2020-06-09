@@ -52,6 +52,7 @@ import { LightboxDirective } from './directives/lightbox.directive';
 import { AsideComponent } from './components/aside/aside.component';
 import { BreadcrumbComponent } from './components/breadcrumb/breadcrumb.component';
 import { PageFloatComponent } from './components/page-float/page-float.component';
+import { CardComponent } from './components/cards/card/card.component';
 
 registerPlugin(FilePondPluginFileValidateType,
   FilePondPluginFileValidateSize,
@@ -108,7 +109,8 @@ registerPlugin(FilePondPluginFileValidateType,
     QuoteComponent,
     AsideComponent,
     BreadcrumbComponent,
-    PageFloatComponent
+    PageFloatComponent,
+    CardComponent
   ],
   exports: [
     UglaComponent,
@@ -150,7 +152,8 @@ registerPlugin(FilePondPluginFileValidateType,
     QuoteComponent,
     AsideComponent,
     BreadcrumbComponent,
-    PageFloatComponent
+    PageFloatComponent,
+    CardComponent
   ],
   providers: [UglaService]
 })
