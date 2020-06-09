@@ -32,6 +32,7 @@ export class PageFloatComponent implements OnInit, OnChanges {
   @Input() cancelText = 'Cancel';
   @Input() confirmText = 'Confirm';
   @Input() confirmDisabled = false;
+  @Input() size = '40%';
 
   @Output() cancelButton = new EventEmitter<boolean>();
   @Output() confirmButton = new EventEmitter<boolean>();

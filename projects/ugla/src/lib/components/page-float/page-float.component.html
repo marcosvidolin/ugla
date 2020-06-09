@@ -1,5 +1,5 @@
 <div class="page" *ngIf="show">
-  <div [@openClose]="show ? 'open' : 'close'" class="page--container">
+  <div [@openClose]="show ? 'open' : 'close'" class="page--container" [ngStyle]="{'width': size}">
     <div class="page--header" [ngClass]="theme">
       <h2>{{ title }}</h2>
     </div>
