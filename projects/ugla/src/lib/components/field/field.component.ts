@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Form} from '../../enum';
+import { Component, EventEmitter, Input, OnInit, Output, OnChanges, SimpleChanges } from '@angular/core';
+import { Form } from '../../enum';
 import { UglaService } from '../../ugla.service';
 
 /**
@@ -22,7 +22,7 @@ import { UglaService } from '../../ugla.service';
   templateUrl: './field.component.html',
   styleUrls: ['./field.component.scss']
 })
-export class FieldComponent implements OnInit {
+export class FieldComponent implements OnInit, OnChanges {
 
   /**
    * Types: text, number, email, search, password, tel, url, time, datetime-local, month, week, file
@@ -278,6 +278,12 @@ export class FieldComponent implements OnInit {
     this.maxLength = (this.maxLength !== undefined) ? this.maxLength : 1000;
     this.allowDecimal = (this.allowDecimal !== undefined) ? this.allowDecimal : true;
     this.classes = `${this.theme}`;
+  }
+
+  ngOnChanges(changes: SimpleChanges) {
+    if (changes.invalid) {
+      this.invalid = changes.invalid.currentValue;
+    }
   }
 
   inputValidation(event: any) {
