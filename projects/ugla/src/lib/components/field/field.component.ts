@@ -25,7 +25,7 @@ import { UglaService } from '../../ugla.service';
 export class FieldComponent implements OnInit, OnChanges {
 
   /**
-   * Types: text, number, email, search, password, tel, url, time, datetime-local, month, week, file
+   * Types: text, textarea, number, email, search, password, tel, url, time, datetime-local, month, week, file
    *
    * For type date, use another component: [DatepickerComponent](/components/DatepickerComponent.html)
    *
@@ -164,6 +164,13 @@ export class FieldComponent implements OnInit, OnChanges {
    * Default: true;
    */
   @Input() allowDecimal: boolean;
+
+  /**
+   * This property show the counter
+   *
+   * Default: false
+   */
+  @Input() rows = 5;
 
   /**
    * @ignore
